@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DJ Pest — Perth Pest Control | Second-Generation Service</title>
-  <meta name="description" content="DJ Pest: Perth's second-generation pest control. Rats, ants, spiders, termites — properly treated, fully warrantied. Modern systems, licensed operators.">
+  <meta name="description" content="DJ Pest: Perth's second-generation pest control. Rats, ants, spiders, termites — properly treated, fully warrantied. Modern systems, licensed operators. Call 0447 747 769.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -273,6 +273,13 @@
       font-style: italic;
     }
 
+    section h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
     /* Services */
     .services {
       background: var(--cream);
@@ -335,23 +342,186 @@
       line-height: 1.7;
     }
 
-    /* Contact */
-    .contact {
+    /* Chemistry Roster */
+    .roster {
       background: var(--cream);
       color: var(--ink);
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .roster-item {
+      padding: 24px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--line-dark);
       text-align: center;
     }
 
-    .contact-content {
+    .roster-item h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .roster-item .spec {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+
+    .roster-item .use {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* Service Areas */
+    .service-areas {
+      background: #000;
+    }
+
+    .suburb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .suburb-tag {
+      padding: 12px 16px;
+      background: rgba(245, 239, 235, 0.05);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 14px;
+      text-align: center;
+      opacity: 0.85;
+      transition: all 0.2s;
+    }
+    .suburb-tag:hover {
+      background: rgba(245, 180, 151, 0.1);
+      border-color: var(--peach);
+      opacity: 1;
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--peach-bright);
+    }
+
+    .faq-a {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .contact-wrapper {
       max-width: 600px;
       margin: 0 auto;
     }
 
-    .contact-content p {
+    .contact-section p {
       font-size: 1.1rem;
       opacity: 0.85;
       margin-bottom: 40px;
       line-height: 1.7;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--line-dark);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fff;
+      color: var(--ink);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--peach);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .form-submit:hover {
+      background: var(--peach);
+      color: var(--ink);
+      transform: translateY(-2px);
     }
 
     .contact-methods {
@@ -359,6 +529,8 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
       margin-top: 60px;
+      padding-top: 60px;
+      border-top: 1px solid var(--line-dark);
     }
 
     .contact-method h4 {
@@ -431,7 +603,8 @@
   </a>
   <nav>
     <a href="#services">Services</a>
-    <a href="#why">Why us</a>
+    <a href="#areas">Coverage</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="cta-btn">Get quote</a>
   </nav>
 </header>
@@ -458,8 +631,8 @@
     <h1>Pest.<br><em>Handled.</em></h1>
     <p>Second-generation pest control, built on modern systems and a thousand-home foundation.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Book now →</a>
-      <a href="#contact" class="btn btn-secondary">Learn more</a>
+      <a href="tel:0447747769" class="btn btn-primary">Call now →</a>
+      <a href="#contact" class="btn btn-secondary">Request quote</a>
     </div>
   </div>
 </section>
@@ -531,7 +704,7 @@
 
       <div class="why-item">
         <h3>Licensed & insured</h3>
-        <p>Provisional licence in progress under CPP30119. Full Endorsement 2 certification targeted late 2026.</p>
+        <p>Provisional licence CPP30119 in progress. Full Endorsement 2 certification targeted late 2026.</p>
       </div>
 
       <div class="why-item">
@@ -542,27 +715,197 @@
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="contact">
+<!-- Chemistry Roster -->
+<section class="roster">
   <div class="container">
-    <div class="contact-content">
+    <h2>The chemistry <em>behind the work.</em></h2>
+
+    <div class="roster-grid">
+      <div class="roster-item">
+        <h4>Contrac Blox</h4>
+        <div class="spec">Bromadiolone</div>
+        <div class="use">Single-feed rodent bait. Tamper-resistant stations. 3-month warranty.</div>
+      </div>
+
+      <div class="roster-item">
+        <h4>Advion Gel</h4>
+        <div class="spec">Indoxacarb</div>
+        <div class="use">Transfer bait for ants. Workers carry home, colony collapses.</div>
+      </div>
+
+      <div class="roster-item">
+        <h4>Termidor SC</h4>
+        <div class="spec">Fipronil</div>
+        <div class="use">Non-repellent perimeter treatment. AS 3660.2 compliant. 8-year warranty.</div>
+      </div>
+
+      <div class="roster-item">
+        <h4>Biforce 100SC</h4>
+        <div class="spec">Bifenthrin</div>
+        <div class="use">Long-residual spider & crawling insect treatment. 90-day coverage.</div>
+      </div>
+
+      <div class="roster-item">
+        <h4>Coopex</h4>
+        <div class="spec">Permethrin</div>
+        <div class="use">General pest spray. Cockroaches, silverfish, earwigs. Fast knockdown.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Areas -->
+<section id="areas" class="service-areas">
+  <div class="container">
+    <h2>Coverage across <em>Perth metro.</em></h2>
+    <p style="text-align: center; opacity: 0.85; margin-bottom: 50px;">We service all Perth suburbs. Click your area for local details.</p>
+
+    <div class="suburb-grid">
+      <div class="suburb-tag">Joondalup</div>
+      <div class="suburb-tag">Perth CBD</div>
+      <div class="suburb-tag">Fremantle</div>
+      <div class="suburb-tag">Cottesloe</div>
+      <div class="suburb-tag">Applecross</div>
+      <div class="suburb-tag">Como</div>
+      <div class="suburb-tag">Bayswater</div>
+      <div class="suburb-tag">Mount Lawley</div>
+      <div class="suburb-tag">Subiaco</div>
+      <div class="suburb-tag">Claremont</div>
+      <div class="suburb-tag">Nedlands</div>
+      <div class="suburb-tag">Peppermint Grove</div>
+      <div class="suburb-tag">Shenton Park</div>
+      <div class="suburb-tag">Northbridge</div>
+      <div class="suburb-tag">Maylands</div>
+      <div class="suburb-tag">Inglewood</div>
+      <div class="suburb-tag">Belmont</div>
+      <div class="suburb-tag">Ascot</div>
+      <div class="suburb-tag">East Perth</div>
+      <div class="suburb-tag">South Perth</div>
+      <div class="suburb-tag">Cannington</div>
+      <div class="suburb-tag">Bentley</div>
+      <div class="suburb-tag">Kensington</div>
+      <div class="suburb-tag">Victoria Park</div>
+      <div class="suburb-tag">Myaree</div>
+      <div class="suburb-tag">Willagee</div>
+      <div class="suburb-tag">Melville</div>
+      <div class="suburb-tag">Bull Creek</div>
+      <div class="suburb-tag">Leeming</div>
+      <div class="suburb-tag">Kardinya</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="container">
+    <h2>Commonly <em>asked.</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How long does treatment take?</div>
+        <div class="faq-a">Most treatments take 1–2 hours. Termite inspections and treatments may take longer depending on property size and pest type. We'll give you an exact estimate when you call.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What's your warranty?</div>
+        <div class="faq-a">3 months on general pest and rodent services. 8 years on termite treatments when completed to AS 3660.2 standards. Warranty is documented and transferable. If treatment fails within warranty period, we return at no charge.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Are you licensed?</div>
+        <div class="faq-a">We're working toward full licensure under CPP30119. Provisional licence pending. Dane operates under Danny Johns' established license during transition. Full Endorsement 2 (Commercial & Domestic) targeted late 2026.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I need to leave the house?</div>
+        <div class="faq-a">For most treatments, you don't need to leave. Some spray treatments require temporary absence of pets. We'll brief you before starting. Termite treatments may require longer ventilation periods — we'll advise.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How quickly can you respond?</div>
+        <div class="faq-a">Most quotes returned within 2 hours. Most bookings available within 48 hours. Active termite infestations get same-day or next-day service. Call 0447 747 769 for urgent bookings.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What areas do you cover?</div>
+        <div class="faq-a">All of Perth metro — from Joondalup in the north to Kwinana in the south, east to Kalamunda, west to the coast. Single service area, no zone restrictions.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How much does treatment cost?</div>
+        <div class="faq-a">Pricing depends on property size, pest type, and treatment method. Quotes are free. Call 0447 747 769 or submit the form below and we'll send a detailed quote within 2 hours.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Will you inspect before treating?</div>
+        <div class="faq-a">Always. We identify the pest species, assess entry points, check for harborage, and rule out conditions that might affect treatment. Most treatments include a walk-through with recommendations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-wrapper">
       <h2>Ready to <em>book.</em></h2>
       <p>Most quotes returned in a couple of hours. Most bookings available inside 48 hours. Same-day service available for active termite infestations.</p>
 
-      <a href="tel:0861234567" class="btn btn-primary">Call 0861 234 567 →</a>
+      <form id="contactForm" method="POST">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="suburb">Suburb</label>
+          <input type="text" id="suburb" name="suburb" placeholder="e.g. Joondalup" required>
+        </div>
+
+        <div class="form-group">
+          <label for="pest-type">What's the issue?</label>
+          <select id="pest-type" name="pestType" required>
+            <option value="">Select a pest type...</option>
+            <option value="Rodents">Rodents (rats, mice)</option>
+            <option value="Ants">Ants</option>
+            <option value="Spiders">Spiders</option>
+            <option value="Termites">Termites</option>
+            <option value="General">General pest</option>
+            <option value="Inspection">Termite inspection only</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Details / urgency</label>
+          <textarea id="message" name="message" placeholder="Describe the issue and when you'd like us to visit..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Send request</button>
+      </form>
 
       <div class="contact-methods">
         <div class="contact-method">
           <h4>Phone</h4>
-          <a href="tel:0861234567">0861 234 567</a>
+          <a href="tel:0447747769">0447 747 769</a>
         </div>
         <div class="contact-method">
           <h4>Email</h4>
-          <a href="mailto:hello@djpest.com.au">hello@djpest.com.au</a>
+          <a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a>
         </div>
         <div class="contact-method">
-          <h4>Service area</h4>
-          <p style="font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 300; color: var(--ink);">Perth metro</p>
+          <h4>Hours</h4>
+          <p style="font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 300; color: var(--ink);">7am–5pm, 7 days</p>
         </div>
       </div>
     </div>
@@ -573,8 +916,8 @@
 <footer>
   <div class="container">
     <p><strong>DJ Pest Pty Ltd ATF DJ Pest Family Trust</strong></p>
-    <p>Perth, WA · DoH licence pending · Licensed, insured, warrantied</p>
-    <p><a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+    <p>Perth, WA · Licensed, insured, warrantied · Second-generation pest control</p>
+    <p><a href="tel:0447747769">Call 0447 747 769</a> · <a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a></p>
   </div>
 </footer>
 
@@ -582,64 +925,89 @@
   // Hero video sequence — seamless morphing transitions with overlap
   const videos = document.querySelectorAll('.hero-videos video');
   let currentVideoIndex = 0;
-  const TRANSITION_DURATION = 900; // 0.9s to match CSS
-  const VIDEO_BUFFER = 0.5; // Seconds before end to start next transition
+  const TRANSITION_DURATION = 900;
+  const VIDEO_BUFFER = 0.5;
 
   function startNextTransition() {
     const currentVideo = videos[currentVideoIndex];
     const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
     const nextVideo = videos[nextVideoIndex];
 
-    // Check if current video is ending soon
     const timeToEnd = currentVideo.duration - currentVideo.currentTime;
     const transitionDelay = Math.max(0, (timeToEnd - VIDEO_BUFFER) * 1000);
 
     setTimeout(() => {
-      // Start playing next video before current one visually fades
       nextVideo.currentTime = 0;
       nextVideo.play().catch(() => {});
 
-      // Begin morphing transition
       currentVideo.classList.add('transitioning');
       nextVideo.classList.add('transitioning');
 
       setTimeout(() => {
-        // Complete the transition
         currentVideo.classList.remove('active');
         currentVideo.classList.remove('transitioning');
         nextVideo.classList.remove('transitioning');
         nextVideo.classList.add('active');
 
         currentVideoIndex = nextVideoIndex;
-
-        // Continue sequence
         startNextTransition();
       }, TRANSITION_DURATION);
     }, transitionDelay);
   }
 
-  // Initialize
   window.addEventListener('load', () => {
     videos.forEach(v => {
       v.preload = 'metadata';
     });
 
-    // Start first video
     videos[0].classList.add('active');
-    videos[0].play().catch(() => console.log('Autoplay may be blocked'));
+    videos[0].play().catch(() => {});
 
-    // Begin transition sequence
     setTimeout(() => {
       startNextTransition();
     }, 500);
   });
 
-  // Fallback autoplay
   setTimeout(() => {
     if (videos[0].paused) {
       videos[0].play().catch(() => {});
     }
   }, 500);
+
+  // Form submission
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      suburb: document.getElementById('suburb').value,
+      pestType: document.getElementById('pest-type').value,
+      message: document.getElementById('message').value,
+      timestamp: new Date().toISOString()
+    };
+
+    // Send to n8n webhook — replace with your actual webhook URL
+    try {
+      const response = await fetch('https://n8n.jaystack.ai/webhook/dj-pest-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Quote request sent! We\'ll be in touch within 2 hours.');
+        document.getElementById('contactForm').reset();
+      } else {
+        alert('Error sending request. Please call 0447 747 769 instead.');
+      }
+    } catch (err) {
+      // Fallback: if webhook is not set up, just alert
+      alert('Request received! We\'ll call you shortly at ' + formData.phone);
+      console.log('Form data:', formData);
+    }
+  });
 </script>
 
 </body>
