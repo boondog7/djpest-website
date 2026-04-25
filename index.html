@@ -134,13 +134,24 @@
       justify-content: center;
     }
 
+    .hero-videos {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
     .hero video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .hero video.active {
+      opacity: 1;
     }
 
     .hero::before {
@@ -420,8 +431,20 @@
 
 <!-- Hero -->
 <section class="hero">
-  <video autoplay muted loop playsinline disablepictureinpicture
-         src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
+  <div class="hero-videos">
+    <video class="active" muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
+    <video muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/930ef9b9f382ccc2b6d213a2a0555513/downloads/default.mp4"></video>
+    <video muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/50fea90f74bd80cd9b2493bb4d2b0fa3/downloads/default.mp4"></video>
+    <video muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/b2c93833f7c806ac899663161069fa04/downloads/default.mp4"></video>
+    <video muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/9055be1c695f5871c71e46b237437b6a/downloads/default.mp4"></video>
+    <video muted playsinline disablepictureinpicture
+           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/324bcf5d623798d5827df22af124e9f5/downloads/default.mp4"></video>
+  </div>
 
   <div class="hero-content">
     <div class="tag">Perth WA · Est. 2026</div>
@@ -547,6 +570,63 @@
     <p><a href="#">Facebook</a> · <a href="#">Instagram</a></p>
   </div>
 </footer>
+
+<script>
+  // Hero video sequence — play all 6 videos seamlessly with crossfade
+  const videos = document.querySelectorAll('.hero-videos video');
+  let currentVideoIndex = 0;
+
+  function playNextVideo() {
+    if (currentVideoIndex < videos.length) {
+      const currentVideo = videos[currentVideoIndex];
+      const nextVideo = videos[currentVideoIndex + 1];
+
+      // Add active class to current video
+      currentVideo.classList.add('active');
+
+      // When current video ends, transition to next
+      currentVideo.onended = () => {
+        if (nextVideo) {
+          nextVideo.classList.add('active');
+          currentVideo.classList.remove('active');
+          currentVideoIndex++;
+          nextVideo.play();
+          playNextVideo();
+        } else {
+          // Loop back to start
+          currentVideoIndex = 0;
+          currentVideo.classList.remove('active');
+          videos[0].classList.add('active');
+          videos[0].currentTime = 0;
+          videos[0].play();
+          playNextVideo();
+        }
+      };
+
+      currentVideo.play().catch(() => {
+        // If autoplay fails, try next video
+        if (nextVideo) {
+          nextVideo.play();
+        }
+      });
+    }
+  }
+
+  // Start the sequence
+  window.addEventListener('load', () => {
+    videos.forEach(v => {
+      v.preload = 'metadata';
+    });
+    playNextVideo();
+  });
+
+  // Fallback: start immediately if load event is slow
+  setTimeout(() => {
+    if (videos[0].paused) {
+      videos[0].play().catch(() => console.log('Autoplay may be blocked'));
+    }
+  }, 500);
+</script>
 
 </body>
 </html>
