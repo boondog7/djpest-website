@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Pest — Perth Pest Control | Second-Generation Service</title>
+  <meta name="description" content="DJ Pest: Perth's second-generation pest control. Rats, ants, spiders, termites — properly treated, fully warrantied. Modern systems, licensed operators.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f5efeb;
+      --cream-2: #ebe4de;
+      --peach: #f1b497;
+      --peach-bright: #e89d7d;
+      --ink: #0a0a0a;
+      --red: #cc0000;
+      --line: rgba(245, 239, 235, 0.1);
+      --line-dark: rgba(10, 10, 10, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      background: #000;
+    }
+    html::-webkit-scrollbar { width: 0; }
+
+    body {
+      background: #000;
+      color: var(--cream);
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    @media (max-width: 768px) { header { padding: 16px 20px; } }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--red);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(204, 0, 0, 0.5);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { nav { gap: 12px; } }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+    @media (max-width: 768px) { nav a:not(.cta) { display: none; } }
+
+    .cta-btn {
+      padding: 10px 20px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: var(--peach);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--peach);
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      opacity: 0.95;
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--peach);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .btn-secondary:hover {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       SECTION STYLES
+       ============================================================ */
+
+    section {
+      padding: 100px 40px;
+    }
+    @media (max-width: 768px) { section { padding: 60px 20px; } }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    section h2 em {
+      color: var(--peach);
+      font-style: italic;
+    }
+
+    /* Services */
+    .services {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .service-card {
+      padding: 40px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--line-dark);
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    /* Why Us */
+    .why-us {
+      background: #000;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 50px;
+    }
+
+    .why-item h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+      color: var(--peach);
+    }
+
+    .why-item p {
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--cream);
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .contact-method h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+
+    .contact-method a {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-method a:hover {
+      color: var(--peach-bright);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 60px 40px 30px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    footer p {
+      opacity: 0.6;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    footer a {
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    footer a:hover { opacity: 1; }
+
+    /* ============================================================
+       UTILITIES
+       ============================================================ */
+
+    .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark"></div>
+    DJ Pest
+  </a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#why">Why us</a>
+    <a href="#contact" class="cta-btn">Get quote</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <video autoplay muted loop playsinline disablepictureinpicture
+         src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
+
+  <div class="hero-content">
+    <div class="tag">Perth WA · Est. 2026</div>
+    <h1>Pest.<br><em>Handled.</em></h1>
+    <p>Second-generation pest control, built on modern systems and a thousand-home foundation.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Book now →</a>
+      <a href="#contact" class="btn btn-secondary">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="services">
+  <div class="container">
+    <h2>What we <em>treat.</em></h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Rodent Control</h3>
+        <p>Rats and mice identified by species, mapped by runway, eliminated with tamper-resistant bait stations. 3-month warranty.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Ant Elimination</h3>
+        <p>Super-colonies require slow-acting transfer baits. Workers carry product home, the entire colony collapses — not just the foragers.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Spider & Arachnids</h3>
+        <p>Long-residual surface treatment at eaves, weep holes, and entry points. 90-day coverage, 3-month warranty.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Termite Inspection</h3>
+        <p>AS 4349.3 compliant inspection. Find active colonies before damage spreads. Documentation, photos, written report.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Termite Treatment</h3>
+        <p>AS 3660.2 perimeter treatment with non-repellent chemistry. 8-year warranty, properly stamped and filed.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>General Pest</h3>
+        <p>Cockroaches, silverfish, earwigs, beetles. Integrated approach: identify entry points, eliminate food sources, treat strategically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section id="why" class="why-us">
+  <div class="container">
+    <h2>Why choose <em>DJ Pest.</em></h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Second-generation</h3>
+        <p>Built on Danny Johns' 1,000+ client foundation. Modern systems, licensed operators, proper documentation.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Fully warranted</h3>
+        <p>3-month standard, 8-year termite. Every job documented. If treatment fails, we return — no questions.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Chemistry done right</h3>
+        <p>Transfer baits for super-colonies, long-residual bifenthrin for spiders, non-repellent fipronil for termites. The right product for the job.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Fast response</h3>
+        <p>Most quotes returned in a couple of hours. Most bookings available within 48 hours. Same-day for active termites.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Licensed & insured</h3>
+        <p>Provisional licence in progress under CPP30119. Full Endorsement 2 certification targeted late 2026.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Perth metro coverage</h3>
+        <p>Service area covers all Perth suburbs. Roving technician model, direct supervision, same-day intelligence reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-content">
+      <h2>Ready to <em>book.</em></h2>
+      <p>Most quotes returned in a couple of hours. Most bookings available inside 48 hours. Same-day service available for active termite infestations.</p>
+
+      <a href="tel:0861234567" class="btn btn-primary">Call 0861 234 567 →</a>
+
+      <div class="contact-methods">
+        <div class="contact-method">
+          <h4>Phone</h4>
+          <a href="tel:0861234567">0861 234 567</a>
+        </div>
+        <div class="contact-method">
+          <h4>Email</h4>
+          <a href="mailto:hello@djpest.com.au">hello@djpest.com.au</a>
+        </div>
+        <div class="contact-method">
+          <h4>Service area</h4>
+          <p style="font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 300; color: var(--ink);">Perth metro</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p><strong>DJ Pest Pty Ltd ATF DJ Pest Family Trust</strong></p>
+    <p>Perth, WA · DoH licence pending · Licensed, insured, warrantied</p>
+    <p><a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
