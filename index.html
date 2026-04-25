@@ -147,11 +147,18 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 0.8s ease-in-out;
+      transition: opacity 1.8s cubic-bezier(0.4, 0.0, 0.2, 1), filter 1.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+      filter: blur(0px) brightness(1);
     }
 
     .hero video.active {
       opacity: 1;
+      filter: blur(0px) brightness(1);
+    }
+
+    .hero video.transitioning {
+      opacity: 0.5;
+      filter: blur(8px) brightness(0.95);
     }
 
     .hero::before {
@@ -572,58 +579,65 @@
 </footer>
 
 <script>
-  // Hero video sequence — play all 6 videos seamlessly with crossfade
+  // Hero video sequence — seamless morphing transitions with overlap
   const videos = document.querySelectorAll('.hero-videos video');
   let currentVideoIndex = 0;
+  const TRANSITION_DURATION = 1800; // 1.8s to match CSS
+  const VIDEO_BUFFER = 0.5; // Seconds before end to start next transition
 
-  function playNextVideo() {
-    if (currentVideoIndex < videos.length) {
-      const currentVideo = videos[currentVideoIndex];
-      const nextVideo = videos[currentVideoIndex + 1];
+  function startNextTransition() {
+    const currentVideo = videos[currentVideoIndex];
+    const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+    const nextVideo = videos[nextVideoIndex];
 
-      // Add active class to current video
-      currentVideo.classList.add('active');
+    // Check if current video is ending soon
+    const timeToEnd = currentVideo.duration - currentVideo.currentTime;
+    const transitionDelay = Math.max(0, (timeToEnd - VIDEO_BUFFER) * 1000);
 
-      // When current video ends, transition to next
-      currentVideo.onended = () => {
-        if (nextVideo) {
-          nextVideo.classList.add('active');
-          currentVideo.classList.remove('active');
-          currentVideoIndex++;
-          nextVideo.play();
-          playNextVideo();
-        } else {
-          // Loop back to start
-          currentVideoIndex = 0;
-          currentVideo.classList.remove('active');
-          videos[0].classList.add('active');
-          videos[0].currentTime = 0;
-          videos[0].play();
-          playNextVideo();
-        }
-      };
+    setTimeout(() => {
+      // Start playing next video before current one visually fades
+      nextVideo.currentTime = 0;
+      nextVideo.play().catch(() => {});
 
-      currentVideo.play().catch(() => {
-        // If autoplay fails, try next video
-        if (nextVideo) {
-          nextVideo.play();
-        }
-      });
-    }
+      // Begin morphing transition
+      currentVideo.classList.add('transitioning');
+      nextVideo.classList.add('transitioning');
+
+      setTimeout(() => {
+        // Complete the transition
+        currentVideo.classList.remove('active');
+        currentVideo.classList.remove('transitioning');
+        nextVideo.classList.remove('transitioning');
+        nextVideo.classList.add('active');
+
+        currentVideoIndex = nextVideoIndex;
+
+        // Continue sequence
+        startNextTransition();
+      }, TRANSITION_DURATION);
+    }, transitionDelay);
   }
 
-  // Start the sequence
+  // Initialize
   window.addEventListener('load', () => {
     videos.forEach(v => {
       v.preload = 'metadata';
     });
-    playNextVideo();
+
+    // Start first video
+    videos[0].classList.add('active');
+    videos[0].play().catch(() => console.log('Autoplay may be blocked'));
+
+    // Begin transition sequence
+    setTimeout(() => {
+      startNextTransition();
+    }, 500);
   });
 
-  // Fallback: start immediately if load event is slow
+  // Fallback autoplay
   setTimeout(() => {
     if (videos[0].paused) {
-      videos[0].play().catch(() => console.log('Autoplay may be blocked'));
+      videos[0].play().catch(() => {});
     }
   }, 500);
 </script>
