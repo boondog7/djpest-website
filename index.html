@@ -283,11 +283,14 @@
       filter: blur(0px) brightness(1);
     }
 
-    @media (max-width: 768px) {
-      .hero video {
-        object-fit: contain;
-      }
+    /* Hide native video controls on iOS */
+    .hero video::-webkit-media-controls {
+      display: none !important;
     }
+    .hero video::cue {
+      display: none !important;
+    }
+
 
     .hero video.active {
       opacity: 1;
@@ -1091,24 +1094,38 @@
     }, transitionDelay);
   }
 
+  function autoplayVideo() {
+    const video = videos[0];
+    if (video) {
+      video.muted = true;
+      video.play().catch(err => console.log('Autoplay blocked, waiting for user interaction'));
+    }
+  }
+
   window.addEventListener('load', () => {
     videos.forEach(v => {
       v.preload = 'metadata';
+      v.muted = true;
     });
 
     videos[0].classList.add('active');
-    videos[0].play().catch(() => {});
+    autoplayVideo();
 
     setTimeout(() => {
       startNextTransition();
     }, 500);
   });
 
+  // Force play on any user interaction (tap, scroll)
+  document.addEventListener('touchstart', autoplayVideo, { once: true });
+  document.addEventListener('click', autoplayVideo, { once: true });
+
+  // Retry autoplay after a delay
   setTimeout(() => {
     if (videos[0].paused) {
-      videos[0].play().catch(() => {});
+      autoplayVideo();
     }
-  }, 500);
+  }, 1000);
 
   // Form submission
   document.getElementById('contactForm').addEventListener('submit', async (e) => {
