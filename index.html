@@ -283,6 +283,13 @@
       filter: blur(0px) brightness(1);
     }
 
+    @media (max-width: 768px) {
+      .hero video {
+        object-fit: contain;
+        background: #000;
+      }
+    }
+
     /* Hide native video controls on iOS */
     .hero video::-webkit-media-controls {
       display: none !important;
@@ -1072,12 +1079,14 @@
     const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
     const nextVideo = videos[nextVideoIndex];
 
-    const timeToEnd = currentVideo.duration - currentVideo.currentTime;
+    // Fallback to fixed duration if video metadata unavailable
+    const videoDuration = currentVideo.duration || 5;
+    const timeToEnd = Math.max(0, videoDuration - (currentVideo.currentTime || 0));
     const transitionDelay = Math.max(0, (timeToEnd - VIDEO_BUFFER) * 1000);
 
     setTimeout(() => {
       nextVideo.currentTime = 0;
-      nextVideo.play().catch(() => {});
+      nextVideo.play().catch(err => console.log('Next video play failed:', err));
 
       currentVideo.classList.add('transitioning');
       nextVideo.classList.add('transitioning');
