@@ -291,7 +291,19 @@
     }
 
     /* Hide native video controls on iOS */
+    .hero video {
+      -webkit-appearance: none;
+    }
     .hero video::-webkit-media-controls {
+      display: none !important;
+    }
+    .hero video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+    .hero video::-webkit-media-controls-panel {
+      display: none !important;
+    }
+    .hero video::-webkit-media-controls-play-button {
       display: none !important;
     }
     .hero video::cue {
@@ -760,15 +772,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-videos">
-    <video class="active" autoplay muted playsinline disablepictureinpicture
+    <video class="active" autoplay muted playsinline disablepictureinpicture preload="auto"
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture preload="auto"
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/50fea90f74bd80cd9b2493bb4d2b0fa3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture preload="auto"
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/b2c93833f7c806ac899663161069fa04/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture preload="auto"
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/9055be1c695f5871c71e46b237437b6a/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture preload="auto"
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/324bcf5d623798d5827df22af124e9f5/downloads/default.mp4"></video>
   </div>
 
@@ -1104,37 +1116,54 @@
   }
 
   function autoplayVideo() {
-    const video = videos[0];
-    if (video) {
+    const video = videos[currentVideoIndex];
+    if (video && video.paused) {
       video.muted = true;
-      video.play().catch(err => console.log('Autoplay blocked, waiting for user interaction'));
+      video.removeAttribute('controls');
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => console.log('Play failed:', err.name));
+      }
     }
   }
 
-  window.addEventListener('load', () => {
-    videos.forEach(v => {
-      v.preload = 'metadata';
+  function forcePlayAllVideos() {
+    videos.forEach((v, idx) => {
       v.muted = true;
+      v.removeAttribute('controls');
+      if (v.paused && idx === currentVideoIndex) {
+        v.play().catch(() => {});
+      }
+    });
+  }
+
+  window.addEventListener('load', () => {
+    videos.forEach((v, idx) => {
+      v.preload = 'auto';
+      v.muted = true;
+      v.removeAttribute('controls');
+      v.setAttribute('data-index', idx);
     });
 
     videos[0].classList.add('active');
     autoplayVideo();
 
     setTimeout(() => {
+      forcePlayAllVideos();
       startNextTransition();
-    }, 500);
+    }, 300);
   });
 
-  // Force play on any user interaction (tap, scroll)
-  document.addEventListener('touchstart', autoplayVideo, { once: true });
-  document.addEventListener('click', autoplayVideo, { once: true });
+  // Force play on any user interaction
+  document.addEventListener('touchstart', forcePlayAllVideos, { once: true });
+  document.addEventListener('click', forcePlayAllVideos, { once: true });
 
-  // Retry autoplay after a delay
-  setTimeout(() => {
-    if (videos[0].paused) {
-      autoplayVideo();
+  // Aggressive retry for stuck videos
+  setInterval(() => {
+    if (videos[currentVideoIndex].paused) {
+      videos[currentVideoIndex].play().catch(() => {});
     }
-  }, 1000);
+  }, 2000);
 
   // Form submission
   document.getElementById('contactForm').addEventListener('submit', async (e) => {
