@@ -290,25 +290,6 @@
       }
     }
 
-    /* Hide native video controls on iOS */
-    .hero video {
-      -webkit-appearance: none;
-    }
-    .hero video::-webkit-media-controls {
-      display: none !important;
-    }
-    .hero video::-webkit-media-controls-enclosure {
-      display: none !important;
-    }
-    .hero video::-webkit-media-controls-panel {
-      display: none !important;
-    }
-    .hero video::-webkit-media-controls-play-button {
-      display: none !important;
-    }
-    .hero video::cue {
-      display: none !important;
-    }
 
 
     .hero video.active {
@@ -772,15 +753,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-videos">
-    <video class="active" autoplay muted playsinline disablepictureinpicture preload="auto"
+    <video class="active" autoplay muted playsinline
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture preload="auto"
+    <video autoplay muted playsinline
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/50fea90f74bd80cd9b2493bb4d2b0fa3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture preload="auto"
+    <video autoplay muted playsinline
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/b2c93833f7c806ac899663161069fa04/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture preload="auto"
+    <video autoplay muted playsinline
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/9055be1c695f5871c71e46b237437b6a/downloads/default.mp4"></video>
-    <video autoplay muted playsinline disablepictureinpicture preload="auto"
+    <video autoplay muted playsinline
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/324bcf5d623798d5827df22af124e9f5/downloads/default.mp4"></video>
   </div>
 
@@ -1115,55 +1096,26 @@
     }, transitionDelay);
   }
 
-  function autoplayVideo() {
-    const video = videos[currentVideoIndex];
-    if (video && video.paused) {
-      video.muted = true;
-      video.removeAttribute('controls');
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(err => console.log('Play failed:', err.name));
-      }
-    }
-  }
-
-  function forcePlayAllVideos() {
-    videos.forEach((v, idx) => {
-      v.muted = true;
-      v.removeAttribute('controls');
-      if (v.paused && idx === currentVideoIndex) {
-        v.play().catch(() => {});
-      }
-    });
-  }
-
   window.addEventListener('load', () => {
-    videos.forEach((v, idx) => {
+    videos.forEach(v => {
       v.preload = 'auto';
       v.muted = true;
-      v.removeAttribute('controls');
-      v.setAttribute('data-index', idx);
     });
 
     videos[0].classList.add('active');
-    autoplayVideo();
+    videos[0].play().catch(() => {});
 
     setTimeout(() => {
-      forcePlayAllVideos();
       startNextTransition();
-    }, 300);
+    }, 500);
   });
 
-  // Force play on any user interaction
-  document.addEventListener('touchstart', forcePlayAllVideos, { once: true });
-  document.addEventListener('click', forcePlayAllVideos, { once: true });
-
-  // Aggressive retry for stuck videos
-  setInterval(() => {
+  // Single tap-to-play for iOS
+  document.addEventListener('touchstart', () => {
     if (videos[currentVideoIndex].paused) {
       videos[currentVideoIndex].play().catch(() => {});
     }
-  }, 2000);
+  }, { once: true });
 
   // Form submission
   document.getElementById('contactForm').addEventListener('submit', async (e) => {
