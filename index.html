@@ -1067,50 +1067,46 @@
   const TRANSITION_DURATION = 900;
   const VIDEO_BUFFER = 0.5;
 
-  function startNextTransition() {
-    const currentVideo = videos[currentVideoIndex];
+  function startTransitionToNext() {
     const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
     const nextVideo = videos[nextVideoIndex];
 
-    // Fallback to fixed duration if video metadata unavailable
-    const videoDuration = currentVideo.duration || 5;
-    const timeToEnd = Math.max(0, videoDuration - (currentVideo.currentTime || 0));
-    const transitionDelay = Math.max(0, (timeToEnd - VIDEO_BUFFER) * 1000);
+    nextVideo.currentTime = 0;
+    nextVideo.play().catch(err => console.error('Play failed:', err));
+
+    videos[currentVideoIndex].classList.add('transitioning');
+    nextVideo.classList.add('transitioning');
 
     setTimeout(() => {
-      nextVideo.currentTime = 0;
-      nextVideo.play().catch(err => console.log('Next video play failed:', err));
-
-      currentVideo.classList.add('transitioning');
-      nextVideo.classList.add('transitioning');
-
-      setTimeout(() => {
-        currentVideo.classList.remove('active');
-        currentVideo.classList.remove('transitioning');
-        nextVideo.classList.remove('transitioning');
-        nextVideo.classList.add('active');
-
-        currentVideoIndex = nextVideoIndex;
-        startNextTransition();
-      }, TRANSITION_DURATION);
-    }, transitionDelay);
+      videos[currentVideoIndex].classList.remove('active', 'transitioning');
+      nextVideo.classList.remove('transitioning');
+      nextVideo.classList.add('active');
+      currentVideoIndex = nextVideoIndex;
+    }, TRANSITION_DURATION);
   }
 
   window.addEventListener('load', () => {
-    videos.forEach(v => {
+    videos.forEach((v, idx) => {
       v.preload = 'auto';
       v.muted = true;
+
+      // Transition when video ends naturally
+      v.addEventListener('ended', () => {
+        console.log(`Video ${idx} ended, starting transition`);
+        if (idx === currentVideoIndex) {
+          startTransitionToNext();
+        }
+      });
     });
 
     videos[0].classList.add('active');
-    videos[0].play().catch(() => {});
-
-    setTimeout(() => {
-      startNextTransition();
-    }, 500);
+    const playPromise = videos[0].play();
+    if (playPromise) {
+      playPromise.catch(err => console.log('Initial play blocked:', err.name));
+    }
   });
 
-  // Single tap-to-play for iOS
+  // Tap to ensure play on iOS
   document.addEventListener('touchstart', () => {
     if (videos[currentVideoIndex].paused) {
       videos[currentVideoIndex].play().catch(() => {});
