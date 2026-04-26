@@ -277,9 +277,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       opacity: 0;
       transition: opacity 0.9s cubic-bezier(0.4, 0.0, 0.2, 1), filter 0.9s cubic-bezier(0.4, 0.0, 0.2, 1);
       filter: blur(0px) brightness(1);
+    }
+
+    @media (max-width: 768px) {
+      .hero video {
+        object-fit: contain;
+      }
     }
 
     .hero video.active {
@@ -743,15 +750,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-videos">
-    <video class="active" muted playsinline disablepictureinpicture
+    <video class="active" autoplay muted playsinline disablepictureinpicture
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
-    <video muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/50fea90f74bd80cd9b2493bb4d2b0fa3/downloads/default.mp4"></video>
-    <video muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/b2c93833f7c806ac899663161069fa04/downloads/default.mp4"></video>
-    <video muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/9055be1c695f5871c71e46b237437b6a/downloads/default.mp4"></video>
-    <video muted playsinline disablepictureinpicture
+    <video autoplay muted playsinline disablepictureinpicture
            src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/324bcf5d623798d5827df22af124e9f5/downloads/default.mp4"></video>
   </div>
 
