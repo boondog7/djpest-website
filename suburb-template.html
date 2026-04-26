@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pest Control in [SUBURB] — DJ Pest Perth | Termites, Rodents, Ants</title>
+  <meta name="description" content="DJ Pest provides termite inspection, general pest control, and rodent treatment in [SUBURB], Perth. Licensed, fully warrantied. Same-day bookings available. Call 0447 747 769.">
+  <meta name="theme-color" content="#cc0000">
+  <link rel="canonical" href="https://djpest.com.au/services/[SUBURB-SLUG]/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pest Control in [SUBURB] — DJ Pest">
+  <meta property="og:description" content="Termites, ants, rodents. Licensed, warrantied pest control in [SUBURB], Perth.">
+  <meta property="og:url" content="https://djpest.com.au/services/[SUBURB-SLUG]/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- LocalBusiness + Service Schema for this suburb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://djpest.com.au#localbusiness",
+    "name": "DJ Pest",
+    "url": "https://djpest.com.au",
+    "telephone": "+61447747769",
+    "areaServed": {
+      "@type": "City",
+      "name": "[SUBURB]",
+      "containedInPlace": {"@type": "AdministrativeArea", "name": "Perth, Western Australia"}
+    }
+  }
+  </script>
+
+  <!-- Service Schema for this suburb + service combo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "[SERVICE] in [SUBURB]",
+    "description": "[SERVICE DESCRIPTION]",
+    "provider": {
+      "@type": "LocalBusiness",
+      "@id": "https://djpest.com.au#localbusiness",
+      "name": "DJ Pest",
+      "telephone": "+61447747769"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "[SUBURB]",
+      "containedInPlace": {"@type": "AdministrativeArea", "name": "Perth, Western Australia"}
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "[PRICE]",
+      "priceCurrency": "AUD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList for navigation signals -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://djpest.com.au"},
+      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://djpest.com.au/#services"},
+      {"@type": "ListItem", "position": 3, "name": "[SUBURB]", "item": "https://djpest.com.au/services/[SUBURB-SLUG]/"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #f5efeb;
+      --peach: #f1b497;
+      --ink: #0a0a0a;
+      --red: #cc0000;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      background: #000;
+    }
+
+    body {
+      background: #000;
+      color: var(--cream);
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--red);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(204, 0, 0, 0.5);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .cta-btn {
+      padding: 10px 20px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      background: var(--peach);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 100px 40px;
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 60px 20px; }
+      header { padding: 16px 20px; }
+      nav a:not(.cta) { display: none; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--peach);
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    h2 em {
+      color: var(--peach);
+      font-style: italic;
+    }
+
+    p {
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      padding: 100px 40px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(204, 0, 0, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      background: var(--red);
+      color: #fff;
+    }
+
+    .btn:hover {
+      background: var(--peach);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .content-section {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .content-section p {
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .faq-item {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--peach);
+    }
+
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 60px 40px 30px;
+      text-align: center;
+      border-top: 1px solid rgba(245, 239, 235, 0.1);
+    }
+
+    footer p {
+      opacity: 0.6;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    footer a {
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    footer a:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="https://djpest.com.au" class="logo">
+    <div class="logo-mark"></div>
+    DJ Pest
+  </a>
+  <nav>
+    <a href="https://djpest.com.au/#services">Services</a>
+    <a href="https://djpest.com.au/#contact" class="cta-btn">Book now</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">Pest Control in [SUBURB]</div>
+    <h1>Pest control <br><em>[SUBURB]</em></h1>
+    <p style="font-size: 1.1rem; opacity: 0.9; margin-top: 20px; margin-bottom: 40px;">
+      [SUBURB-SPECIFIC OPENING COPY. EXAMPLE: "Termites thrive in [SUBURB]'s tree-lined streets and sandy soil. Our AS 3660.2-compliant treatment protects your home for 8 years."]
+    </p>
+    <a href="https://djpest.com.au/#contact" class="btn">Get a quote →</a>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="content-section">
+  <div class="container">
+    <h2>Why [SUBURB] residents <em>choose DJ Pest.</em></h2>
+
+    <p>
+      [SUBURB]-specific context. Examples:
+      - "Joondalup's newer suburbs have thriving termite colonies — we've treated [X] homes in the area."
+      - "Mindarie's coastal sand creates ideal conditions for coastal brown ant super-colonies. We use slow-acting transfer baits to collapse them, not just spray."
+      - "Duncraig's mature trees harbor spiders and birds — we treat eaves and weep holes strategically to prevent entry."
+    </p>
+
+    <h2 style="margin-top: 60px;">Services in [SUBURB]</h2>
+
+    <p><strong>[SERVICE 1]</strong> — [Description]. Price from $[X]. Available same-day for urgent bookings.</p>
+    <p><strong>[SERVICE 2]</strong> — [Description]. Price from $[X].</p>
+    <p><strong>[SERVICE 3]</strong> — [Description]. Price from $[X].</p>
+
+    <h2 style="margin-top: 60px;">Testimonial from [SUBURB]</h2>
+    <p style="font-style: italic; opacity: 0.8;">
+      "[Real testimonial from a [SUBURB] client, or placeholder: 'We found termites during a pre-purchase inspection. DJ Pest came same-day, treated it properly, and we felt confident about the purchase. 5 stars.']" — [Name], [SUBURB]
+    </p>
+
+    <h2 style="margin-top: 60px;">Frequently asked in [SUBURB]</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">How common are termites in [SUBURB]?</div>
+      <p>Very common. [SUBURB]'s [characteristics] make it ideal termite habitat. We recommend annual inspections for all properties in this area.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How fast can you respond in [SUBURB]?</div>
+      <p>Same-day or next-day for most bookings. We're based in [NEARBY LOCATION], so response times to [SUBURB] are typically under 2 hours.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do you inspect pre-purchase in [SUBURB]?</div>
+      <p>Yes. AS 4349.3-compliant inspections for [SUBURB] properties. Report within 24 hours. We can fast-track if your settlement deadline is tight.</p>
+    </div>
+
+    <div style="margin-top: 60px; text-align: center;">
+      <a href="https://djpest.com.au/#contact" class="btn">Book in [SUBURB] →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p><strong>DJ Pest — Pest Control in [SUBURB], Perth</strong></p>
+    <p>Licensed, insured, fully warrantied. Termites, ants, rodents, spiders.</p>
+    <p>
+      <a href="tel:0447747769">0447 747 769</a> ·
+      <a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
