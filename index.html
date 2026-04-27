@@ -143,14 +143,15 @@
 
   <style>
     :root {
-      --cream: #f5efeb;
-      --cream-2: #ebe4de;
-      --peach: #f1b497;
-      --peach-bright: #e89d7d;
+      --white: #ffffff;
+      --off-white: #f0f0f0;
       --ink: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --steel: #2a2a2a;
       --red: #cc0000;
-      --line: rgba(245, 239, 235, 0.1);
-      --line-dark: rgba(10, 10, 10, 0.08);
+      --red-glow: rgba(204, 0, 0, 0.5);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -247,8 +248,8 @@
       display: inline-block;
     }
     .cta-btn:hover {
-      background: var(--peach);
-      color: var(--ink);
+      background: var(--red);
+      color: #fff;
       transform: translateY(-2px);
     }
 
@@ -329,7 +330,7 @@
 
     .hero-content h1 em {
       font-style: italic;
-      color: var(--peach);
+      color: var(--red);
     }
 
     .hero-content p {
@@ -368,8 +369,8 @@
       color: #fff;
     }
     .btn-primary:hover {
-      background: var(--peach);
-      color: var(--ink);
+      background: rgba(204, 0, 0, 0.8);
+      color: #fff;
       transform: translateY(-2px);
     }
 
@@ -410,7 +411,7 @@
     }
 
     section h2 em {
-      color: var(--peach);
+      color: var(--red);
       font-style: italic;
     }
 
@@ -423,26 +424,40 @@
 
     /* Services */
     .services {
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+    .services-scroll-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 40px 60px;
+      cursor: grab;
+    }
+
+    .services-scroll-wrapper::-webkit-scrollbar { display: none; }
+
+    .services-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      padding-bottom: 8px;
     }
 
     .service-card {
+      width: 320px;
+      flex-shrink: 0;
       padding: 40px;
-      background: #fff;
-      border-radius: 8px;
+      background: var(--charcoal);
+      border-radius: 4px;
       border: 1px solid var(--line-dark);
       transition: all 0.3s;
     }
     .service-card:hover {
+      border-color: var(--red);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
     .service-card h3 {
@@ -450,12 +465,12 @@
       font-size: 1.5rem;
       font-weight: 400;
       margin-bottom: 16px;
-      color: var(--ink);
+      color: var(--white);
     }
 
     .service-card p {
       font-size: 0.95rem;
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.7);
       line-height: 1.6;
     }
 
@@ -475,7 +490,7 @@
       font-size: 1.3rem;
       font-weight: 300;
       margin-bottom: 12px;
-      color: var(--peach);
+      color: var(--red);
     }
 
     .why-item p {
@@ -485,8 +500,8 @@
 
     /* Chemistry Roster */
     .roster {
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--charcoal);
+      color: var(--white);
     }
 
     .roster-grid {
@@ -555,8 +570,8 @@
 
     /* FAQ */
     .faq {
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--charcoal);
+      color: var(--white);
     }
 
     .faq-list {
@@ -578,7 +593,7 @@
       font-size: 1.2rem;
       font-weight: 400;
       margin-bottom: 12px;
-      color: var(--peach-bright);
+      color: var(--red);
     }
 
     .faq-a {
@@ -589,8 +604,8 @@
 
     /* Contact Form */
     .contact-section {
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--charcoal);
+      color: var(--white);
     }
 
     .contact-wrapper {
@@ -780,8 +795,10 @@
 <section id="services" class="services">
   <div class="container">
     <h2>What we <em>treat.</em></h2>
+  </div>
 
-    <div class="services-grid">
+  <div class="services-scroll-wrapper">
+    <div class="services-track">
       <div class="service-card">
         <h3>Rodent Control</h3>
         <p>Rats and mice identified by species, mapped by runway, eliminated with tamper-resistant bait stations. 3-month warranty.</p>
@@ -1130,6 +1147,27 @@
   }
 
   window.addEventListener('load', initVideos);
+
+  // Services horizontal scroll with drag-to-scroll
+  const slider = document.querySelector('.services-scroll-wrapper');
+  if (slider) {
+    let isDown = false, startX, scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.style.cursor = 'grabbing';
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+    slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      slider.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
 
   // Form submission
   document.getElementById('contactForm').addEventListener('submit', async (e) => {
