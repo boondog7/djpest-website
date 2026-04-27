@@ -206,14 +206,10 @@
     }
 
     .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--red);
-      display: grid;
-      place-items: center;
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
       flex-shrink: 0;
-      box-shadow: 0 0 20px rgba(204, 0, 0, 0.5);
     }
 
     nav {
@@ -288,6 +284,12 @@
       .hero video {
         object-fit: contain;
         background: #000;
+      }
+      .hero-content h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+      }
+      .hero-content p {
+        font-size: 0.95rem;
       }
     }
 
@@ -754,7 +756,7 @@
 <!-- Header -->
 <header>
   <a href="#" class="logo">
-    <div class="logo-mark"></div>
+    <img src="assets/logo-header.png" class="logo-mark" alt="DJ Pest logo" />
     DJ Pest
   </a>
   <nav>
