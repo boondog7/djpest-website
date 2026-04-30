@@ -24,19 +24,17 @@
 
 ### Option A: Git + Auto-Deploy (Recommended)
 
-1. Push to GitHub:
-   ```bash
-   git remote add origin https://github.com/danejohns/dj-pest-control.git
-   git branch -M main
-   git push -u origin main
-   ```
+Already wired up. The git remote is set to `git@github.com:boondog7/djpest-website.git` (Dane's GitHub). To push:
+```bash
+git push origin main
+```
 
-2. In Cloudflare Dashboard:
-   - Pages → Create project → Connect to Git
-   - Select repo: `dj-pest-control`
-   - Build command: *(leave blank)*
-   - Build output directory: *(leave blank)*
-   - Deploy!
+In Cloudflare Dashboard (one-time setup, only if not already connected):
+- Pages → Create project → Connect to Git
+- Select repo: `djpest-website`
+- Build command: *(leave blank)*
+- Build output directory: *(leave blank)*
+- Deploy!
 
 ### Option B: Direct Upload (Fastest)
 
@@ -49,10 +47,10 @@ wrangler pages deploy .
 
 Once deployed to Cloudflare Pages:
 
-1. Get your Pages URL (e.g., `dj-pest-control.pages.dev`)
+1. Get your Pages URL (e.g., `djpest-website.pages.dev`)
 2. Point DNS record to Cloudflare:
    - `djpest.com.au` A record → `192.0.2.1` (Cloudflare IP, they'll provide)
-   - Or CNAME → `dj-pest-control.pages.dev`
+   - Or CNAME → `djpest-website.pages.dev`
 
 ## Next Steps
 
@@ -68,7 +66,7 @@ Once deployed to Cloudflare Pages:
 ## Files in Repo
 
 ```
-dj-pest-control/
+djpest/
 ├── index.html          # Single-page site
 ├── .gitignore
 └── DEPLOY.md           # This file
