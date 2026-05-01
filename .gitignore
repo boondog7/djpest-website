@@ -6,3 +6,8 @@ node_modules/
 dist/
 build/
 .wrangler/
+
+# SEMrush raw responses — recreatable from API, don't bloat repo
+seo/semrush/raw/
+seo/semrush/all_responses.json
+seo/semrush/harvest.log

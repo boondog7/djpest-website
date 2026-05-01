@@ -1,0 +1,487 @@
+keyword,volume,keyword_difficulty,cpc_aud,competition,intent_code,funnel_stage,is_geo,priority_score,rank_target
+pest control,18100,59,3.81,0.71,0,MOFU,no,1261.8,no
+pest control near me,12100,44,4.32,0.72,"1,3",MOFU,no,1192.1,no
+pest control and,6600,27,3.81,0.71,"1,0",MOFU,no,858.0,yes
+termites,14800,55,2.11,0.08,1,TOFU,no,708.1,no
+termite inspection,3600,23,5.37,0.28,1,MOFU,no,694.9,yes
+exterminators close to me,6600,44,4.32,0.72,0,MOFU,no,650.2,no
+termite treatment,5400,40,3.83,1.0,0,MOFU,no,521.6,no
+pest control pest,6600,54,3.81,0.71,1,MOFU,no,496.0,no
+ant from ants,6600,29,0.7,0.04,1,TOFU,no,287.7,yes
+how to get rid of cockroaches,2900,12,1.15,1.0,1,TOFU,no,283.4,yes
+insect control perth,2900,39,3.6,0.81,0,BOFU,yes,272.2,no
+how to get rid of ants,4400,18,0.61,0.71,1,TOFU,no,253.0,yes
+pest fumigation perth,2900,46,3.6,0.81,0,TOFU,yes,238.2,no
+ant killer,2900,19,1.29,1.0,"1,0",TOFU,no,229.0,yes
+white tail spider bite,8100,27,0.03,0.01,1,TOFU,no,225.5,yes
+pest control perth,2900,50,3.6,0.81,0,BOFU,yes,222.3,no
+rodent control,1900,31,3.72,0.89,1,MOFU,no,218.7,yes
+flick it over,1300,23,4.36,0.04,2,TOFU,no,211.2,yes
+exterminators pest control services,2400,47,4.0,0.12,0,MOFU,no,210.5,no
+pest exterminator perth,2900,54,3.6,0.81,0,BOFU,yes,208.4,no
+pest control bayswater,480,7,6.1,0.68,1,MOFU,no,200.5,yes
+ant pest control,1600,26,3.49,0.88,"1,0",MOFU,no,199.6,yes
+pest control exterminators near me,2400,56,4.32,0.72,3,MOFU,no,193.5,no
+termite control,2400,53,4.07,0.25,1,MOFU,no,193.1,no
+cockroach control,1600,25,2.92,0.4,1,MOFU,no,179.2,yes
+how much does pest control cost,1300,8,1.48,0.59,1,MOFU,no,179.1,yes
+spider control,1300,20,2.9,0.57,0,MOFU,no,169.0,yes
+rodent control perth,1300,26,3.6,0.81,0,BOFU,yes,166.1,yes
+ant kills ant,2400,24,1.29,1.0,1,TOFU,no,161.6,yes
+spider pest control,1300,24,3.04,0.73,1,MOFU,no,154.5,yes
+pest exterminator cost,1000,9,1.77,0.68,1,MOFU,no,145.8,yes
+pest control and termite control,1000,32,5.03,0.77,0,MOFU,no,143.6,yes
+rodent pest control,1300,33,3.72,0.89,1,MOFU,no,142.7,yes
+termite pest control,1300,45,5.03,0.77,0,MOFU,no,142.5,no
+pest spray perth,1900,52,3.6,0.81,0,TOFU,yes,141.0,no
+pest control services,1900,58,4.0,0.12,1,MOFU,no,139.7,no
+termite treatment perth,1000,40,5.92,0.9,0,BOFU,yes,138.4,no
+ant control,1300,28,2.93,0.5,1,MOFU,no,134.4,yes
+household ways to get rid of ants,2900,25,0.61,0.71,1,TOFU,no,133.4,yes
+rodent exterminator,590,11,3.72,0.89,0,MOFU,no,132.6,yes
+exterminator cost,1000,11,1.76,0.7,1,MOFU,no,131.4,yes
+pest control services near me,720,21,4.61,0.34,3,MOFU,no,130.3,yes
+how do we get rid of ants,2900,26,0.61,0.71,1,TOFU,no,129.7,yes
+termite treatment cost,720,8,2.24,0.5,"1,0",MOFU,no,129.6,yes
+pest,1900,50,3.0,0.21,1,TOFU,no,126.7,no
+pest control prices,720,6,1.77,0.68,2,MOFU,no,124.7,yes
+how can i get rid of cockroaches,1300,13,1.15,1.0,1,TOFU,no,121.5,yes
+wasp removal near me,480,12,4.54,0.89,3,MOFU,no,120.9,yes
+termico,880,22,3.33,0.21,"2,0",TOFU,no,119.1,yes
+pest control armadale,390,6,3.84,0.8,0,MOFU,no,118.0,yes
+ant spray,1000,10,1.32,1.0,"1,0",TOFU,no,116.0,yes
+how much does an exterminator charge,720,6,1.48,0.59,1,MOFU,no,111.6,yes
+termite cost to treat,720,11,2.24,0.5,1,TOFU,no,111.1,yes
+rat exterminator,720,23,3.89,0.8,0,MOFU,no,106.7,yes
+exterminators for pests,1300,49,3.81,0.71,0,MOFU,no,106.0,no
+ant control perth,480,14,4.23,0.57,1,BOFU,yes,104.6,yes
+perth rodent control,590,16,3.6,0.81,0,BOFU,yes,104.4,yes
+bee removal,590,14,3.23,0.73,0,MOFU,no,104.0,yes
+rat pest control,880,27,3.32,0.78,0,MOFU,no,102.7,yes
+perth pest control,1000,43,4.37,0.77,0,BOFU,yes,101.3,no
+how much does a pest exterminator cost,720,8,1.48,0.59,1,MOFU,no,99.2,yes
+wasp removal,590,22,4.16,0.89,1,MOFU,no,95.1,yes
+flea treatment,1600,31,1.41,1.0,"1,0",MOFU,no,94.0,yes
+termite inspection cost,480,8,2.46,0.36,"1,0",MOFU,no,92.3,yes
+rat control,1000,36,3.12,0.91,1,MOFU,no,89.6,no
+spider exterminator,720,24,3.2,0.68,0,MOFU,no,88.9,yes
+what do white ants look like,1000,6,0.41,0.03,1,TOFU,no,88.1,yes
+rat pest removal,720,26,3.32,0.78,0,MOFU,no,86.4,yes
+termite inspection near me,390,19,5.42,0.62,3,MOFU,no,86.3,yes
+spider control perth,320,13,5.1,0.58,0,BOFU,yes,84.9,yes
+cockroach control perth,390,12,3.78,0.22,1,BOFU,yes,84.7,yes
+local pest control,590,34,5.24,0.78,1,MOFU,no,83.7,yes
+termite inspection perth,480,32,6.2,0.72,0,BOFU,yes,82.3,yes
+pest control joondalup,390,15,4.17,0.72,0,BOFU,yes,80.7,yes
+exterminator service near me,720,39,4.44,0.34,3,MOFU,no,79.9,no
+pest control cost,720,15,1.77,0.68,1,MOFU,no,79.8,yes
+bed bug treatment,1600,43,1.57,1.0,"1,0",MOFU,no,77.6,no
+how to rid of cockroaches,720,10,1.15,1.0,1,TOFU,no,77.4,yes
+bee removal near me,390,10,2.93,0.72,3,MOFU,no,76.6,yes
+termite treatment near me,320,17,5.46,0.61,3,MOFU,no,76.6,yes
+how can we get rid of ants,1300,18,0.61,0.71,1,TOFU,no,74.8,yes
+how much does it cost for pest control,480,6,1.48,0.59,1,MOFU,no,74.4,yes
+what do termites look like,1900,26,0.41,0.03,1,TOFU,no,74.4,yes
+how to get rid of german cockroaches,590,8,1.27,1.0,1,TOFU,no,74.4,yes
+how to get rid of cockroaches at home,1000,11,0.55,1.0,1,TOFU,no,73.8,yes
+residential pest control,880,45,3.54,0.61,0,MOFU,no,72.6,no
+rat and rodent control,590,24,3.12,0.91,0,MOFU,no,71.5,yes
+rat catcher,590,22,2.88,0.87,"1,3",TOFU,no,71.5,yes
+pest control sorrento,260,8,3.88,0.95,0,BOFU,yes,70.5,yes
+pest control service,1000,61,4.0,0.12,0,MOFU,no,70.4,no
+how can i kill cockroaches,880,17,1.07,0.86,1,TOFU,no,67.5,yes
+how to rid of german cockroaches,720,11,0.95,0.97,1,TOFU,no,66.9,yes
+rat control near me,390,22,4.47,0.99,"1,3",MOFU,no,66.7,yes
+are huntsman spiders venomous,1900,20,0.05,0.01,"1,0",TOFU,no,66.5,yes
+tom's pest control,1000,62,3.76,0.55,0,MOFU,no,66.1,no
+mice exterminator near me,480,29,4.36,0.96,3,MOFU,no,66.0,yes
+pest control rockingham,390,16,3.36,0.92,0,MOFU,no,65.4,yes
+building and pest inspection near me,590,48,5.37,0.5,3,MOFU,no,64.8,no
+ant exterminators,390,16,3.31,0.87,0,MOFU,no,64.7,yes
+building inspection perth,480,50,6.82,0.74,0,BOFU,yes,62.6,no
+pest services perth,720,46,3.6,0.81,0,TOFU,yes,59.1,no
+rat removal,590,30,2.99,0.65,1,MOFU,no,58.9,yes
+termites in home,720,24,1.76,0.11,"1,3",TOFU,no,58.4,yes
+pre-construction termite barrier,90,1,6.03,0.86,1,TOFU,no,57.5,yes
+exterminator perth,720,58,4.37,0.77,0,BOFU,yes,56.9,no
+spider treatment,390,21,3.44,0.98,1,MOFU,no,55.9,yes
+pest control for rats,480,28,3.32,0.78,0,MOFU,no,54.6,yes
+how to get rid or rats,1000,20,0.6,1.0,1,TOFU,no,53.3,yes
+how much is pest control,390,8,1.44,0.65,1,MOFU,no,52.9,yes
+mouse control,390,21,3.18,0.86,0,MOFU,no,52.6,yes
+pest control in perth,720,55,3.6,0.81,0,BOFU,yes,51.0,no
+will cockroaches bite,1600,22,0.02,0.0,1,TOFU,no,51.0,yes
+natural bug spray for ants,1000,15,0.26,0.33,1,TOFU,no,50.4,yes
+exterminator rat,590,41,3.32,0.78,0,MOFU,no,50.0,no
+how much pest control cost,320,6,1.44,0.65,1,MOFU,no,48.8,yes
+can cockroaches fly,1300,17,0.0,0.0,"1,0",TOFU,no,48.1,yes
+are long legged spiders poisonous,1600,24,0.02,0.02,1,TOFU,no,48.0,yes
+spider and pest control,320,17,3.04,0.73,0,MOFU,no,47.9,yes
+can huntsman spiders bite,880,9,0.03,0.03,1,TOFU,no,47.7,yes
+pest control termites near me,320,39,6.06,0.86,3,MOFU,no,46.1,no
+how get rid rats,1000,25,0.6,1.0,1,TOFU,no,45.7,yes
+how can you get rid of rats,880,21,0.6,1.0,1,TOFU,no,45.4,yes
+mouse control near me,210,14,4.11,0.89,3,MOFU,no,44.7,yes
+commercial pest control perth,390,30,3.56,0.35,1,BOFU,yes,44.5,yes
+get rid of ants,880,24,0.72,1.0,1,TOFU,no,44.5,yes
+w.ant,1600,26,0.0,0.0,1,TOFU,no,44.4,yes
+termites in house,720,35,1.76,0.11,1,TOFU,no,44.2,yes
+how much does termite treatment cost,260,4,1.36,0.46,1,MOFU,no,43.8,yes
+how to get rid of the cockroaches,590,19,1.15,1.0,1,TOFU,no,43.7,yes
+spider removal,320,20,3.07,0.91,1,MOFU,no,43.4,yes
+how many eyes do spiders have,1900,34,0.0,0.0,1,TOFU,no,43.2,yes
+are huntsman spiders dangerous,1300,21,0.03,0.01,1,TOFU,no,43.2,yes
+do huntsman spiders bite,1300,21,0.02,0.01,1,TOFU,no,42.8,yes
+how can i get rid of a rat,1000,28,0.6,1.0,1,TOFU,no,42.1,yes
+how many eyes a spider has,1600,28,0.0,0.0,1,TOFU,no,42.1,yes
+how many eyes does the spider have,1600,28,0.0,0.0,1,TOFU,no,42.1,yes
+pest control perth wa,480,43,3.6,0.81,0,BOFU,yes,41.7,no
+how to hold a cockroach,590,20,1.12,0.33,"1,3",TOFU,no,41.7,yes
+how to get rid of ants in house,720,18,0.61,0.99,1,TOFU,no,41.4,yes
+how much should pest control cost,260,6,1.51,0.59,1,MOFU,no,40.8,yes
+bee removal perth,480,27,2.11,0.74,0,BOFU,yes,40.3,yes
+how to get rid of ants permanently,720,19,0.62,1.0,1,TOFU,no,40.2,yes
+millipede control,140,6,3.57,0.52,1,MOFU,no,40.0,yes
+wasp removal perth,170,8,3.24,0.96,1,BOFU,yes,40.0,yes
+mosquito control,590,29,1.64,0.98,0,MOFU,no,39.9,yes
+how can i get rid of ants in the house,720,16,0.44,0.98,1,TOFU,no,39.9,yes
+do cockroaches bite,1600,31,0.02,0.0,1,TOFU,no,39.8,yes
+termite control near me,320,39,5.06,0.72,"1,3",MOFU,no,39.6,no
+how many eyes of a spider,1600,31,0.0,0.0,1,TOFU,no,39.0,yes
+rodent control near me,480,49,3.75,0.9,3,MOFU,no,38.6,no
+how get rid ants,720,20,0.61,0.71,1,TOFU,no,38.6,yes
+what to rat,1000,39,0.87,0.04,1,TOFU,no,38.2,no
+how many eyes are on a spider,1600,32,0.0,0.0,1,TOFU,no,38.1,yes
+how many eyeballs do spiders have,1600,33,0.0,0.0,1,TOFU,no,37.2,yes
+pest exterminator,480,54,3.95,0.73,0,MOFU,no,37.1,no
+how to rid of rats,720,20,0.54,1.0,1,TOFU,no,37.0,yes
+pest removal perth,480,51,3.6,0.81,0,BOFU,yes,36.2,no
+coastal brown ant,390,13,1.12,0.01,"1,3",TOFU,no,35.9,yes
+how to get rid of rats,1000,33,0.54,1.0,1,TOFU,no,35.8,yes
+how get rid of rats,880,28,0.54,1.0,1,TOFU,no,35.7,yes
+how do i permanently get rid of ants,590,17,0.62,1.0,1,TOFU,no,35.4,yes
+how many legs have spider,1600,36,0.0,0.0,1,TOFU,no,34.8,no
+affordable pest control,390,29,2.47,0.53,0,MOFU,no,34.7,yes
+how to get rid from cockroaches,590,17,0.55,1.0,1,TOFU,no,33.9,yes
+bed bug treatment near me,260,35,4.8,0.24,"1,3",MOFU,no,33.5,yes
+mosquito control perth,260,11,1.7,0.93,1,BOFU,yes,33.4,yes
+can cockroaches live in your penises,880,17,0.0,0.0,1,TOFU,no,32.6,yes
+safe pest control,720,65,2.38,0.69,2,MOFU,no,32.4,no
+how to get rid from rats,1000,41,0.6,1.0,1,TOFU,no,31.4,no
+pest control wanneroo,110,6,3.48,0.99,0,BOFU,yes,30.8,yes
+how to repel ants in the kitchen,720,20,0.28,0.68,1,TOFU,no,30.7,yes
+natural ant repellent,1000,25,0.06,0.26,1,TOFU,no,30.3,yes
+what does a spider bite look like,1600,44,0.02,0.01,1,TOFU,no,30.2,no
+pest control fremantle,140,6,2.43,0.51,1,BOFU,yes,30.0,yes
+rat control perth,260,25,3.01,0.93,0,BOFU,yes,29.8,yes
+flea treatment perth,140,11,3.46,0.74,0,BOFU,yes,29.7,yes
+pest control balcatta,110,6,3.31,0.5,0,BOFU,yes,29.6,yes
+do ants sleep,1000,24,0.0,0.0,1,TOFU,no,29.4,yes
+how long does pest control last,320,1,0.0,0.02,1,MOFU,no,29.1,yes
+can cockroaches bite,1000,25,0.02,0.0,1,TOFU,no,29.1,yes
+how do you kill ants,590,23,0.61,0.42,1,TOFU,no,28.8,yes
+what does rat excrement look like,720,15,0.0,0.0,1,TOFU,no,28.8,yes
+do cockroaches fly,1000,25,0.0,0.0,1,TOFU,no,28.6,yes
+can cockroaches live in your peni,880,21,0.0,0.0,1,TOFU,no,28.4,yes
+how often do you need pest control,590,11,0.0,0.01,1,MOFU,no,28.1,yes
+how many legs does a spider have,1600,47,0.0,0.0,1,TOFU,no,28.1,no
+pest control warwick,110,4,2.55,0.62,"1,0",BOFU,yes,27.9,yes
+how to remove cockroaches,720,30,0.55,1.0,1,TOFU,no,27.9,yes
+how to make fermented spider eye,1000,26,0.0,0.0,1,TOFU,no,27.8,yes
+termite control perth,260,41,4.39,0.55,0,BOFU,yes,27.5,no
+pest controllers,390,59,3.81,0.71,0,MOFU,no,27.2,no
+how to get rid of termites,590,30,0.83,0.76,1,TOFU,no,27.0,yes
+what is pest control,170,8,1.83,0.1,1,MOFU,no,26.7,yes
+how to kill cockroaches,720,17,0.0,0.0,1,TOFU,no,26.7,yes
+what does rat poop look like,720,17,0.0,0.0,1,TOFU,no,26.7,yes
+are wolf spiders toxic,1300,41,0.02,0.01,1,TOFU,no,26.0,no
+can cockroaches live in yourpenis,880,24,0.0,0.0,1,TOFU,no,25.9,yes
+what do fire ants look like,880,28,0.12,0.05,1,TOFU,no,25.9,yes
+ant prevention natural,1000,39,0.26,0.33,1,TOFU,no,25.7,no
+can cockroaches live in your penis,720,18,0.0,0.0,1,TOFU,no,25.7,yes
+are wolf spiders dangerous,1000,30,0.0,0.0,1,TOFU,no,25.0,yes
+what does rat feces look like,720,19,0.0,0.0,1,TOFU,no,24.8,yes
+what do cockroaches eat,720,22,0.09,0.01,1,TOFU,no,24.5,yes
+how can you kill ants,590,29,0.61,0.42,1,TOFU,no,24.4,yes
+how can i get rid of ants in the kitchen,720,28,0.28,0.68,1,TOFU,no,24.3,yes
+how do u get rid of ants in the kitchen,720,28,0.28,0.68,1,TOFU,no,24.3,yes
+what do termite look like,480,18,0.41,0.03,1,TOFU,no,24.2,yes
+how to rid termites,390,19,0.8,0.77,1,TOFU,no,24.2,yes
+does an ant sleep,720,20,0.0,0.0,1,TOFU,no,24.0,yes
+how long do ants live,720,20,0.0,0.0,1,TOFU,no,24.0,yes
+how can i kill ants,590,21,0.25,0.3,1,TOFU,no,23.8,yes
+how many legs do spiders have,1000,33,0.0,0.0,1,TOFU,no,23.3,yes
+how to get fermented spider eye,1000,33,0.0,0.0,1,TOFU,no,23.3,yes
+how often should pest control be done,170,10,1.72,0.09,1,MOFU,no,23.1,yes
+how to remove termites,590,37,0.83,0.76,1,TOFU,no,23.0,no
+what does a termite look like,480,17,0.28,0.02,1,TOFU,no,22.8,yes
+why pest control is important,590,16,0.0,0.17,1,MOFU,no,22.7,yes
+cockroach control near me,210,44,4.79,0.92,3,MOFU,no,22.5,no
+are cockroaches clean,1000,35,0.0,0.0,1,TOFU,no,22.2,yes
+pest control hillarys,90,7,3.11,0.98,0,BOFU,yes,21.8,yes
+how many legs are on a spider,1300,50,0.0,0.0,1,TOFU,no,21.7,no
+pest control alkimos,70,5,3.6,0.92,0,BOFU,yes,21.5,yes
+what do ants eat,880,31,0.0,0.0,1,TOFU,no,21.5,yes
+are wolf spiders poisonous,1000,37,0.0,0.0,1,TOFU,no,21.3,no
+how to get rid of ants in kitchen,590,30,0.43,0.9,1,TOFU,no,21.1,yes
+silverfish treatment,260,23,1.67,0.96,1,MOFU,no,21.0,yes
+rentokil perth,390,43,1.83,0.5,2,TOFU,yes,20.8,no
+what does cockroach feces look like,720,25,0.0,0.0,1,TOFU,no,20.6,yes
+diy termite treatment,170,3,0.57,1.0,1,MOFU,no,20.5,yes
+how to choose the best pest control company,390,9,0.0,0.0,1,MOFU,no,20.5,yes
+how to kill ants,880,33,0.0,0.0,1,TOFU,no,20.5,yes
+how many eyes does a spider have,880,33,0.0,0.0,1,TOFU,no,20.5,yes
+how long do ants survive,590,19,0.0,0.0,1,TOFU,no,20.3,yes
+how do i get rid of rats,480,28,0.6,1.0,1,TOFU,no,20.2,yes
+bed bug treatment perth,110,17,3.93,0.93,0,BOFU,yes,20.1,yes
+how can i get rid of termites,480,33,0.8,0.77,1,TOFU,no,20.1,yes
+spiders in perth wa,320,11,0.31,0.01,1,TOFU,yes,20.0,yes
+how can you kill termites,210,7,0.6,0.79,1,TOFU,no,19.8,yes
+who played in spider man,1300,56,0.0,0.0,1,TOFU,no,19.7,no
+what do rats eat,590,21,0.0,0.01,1,TOFU,no,19.0,yes
+how to exterminate rats,590,40,0.6,1.0,"1,0",TOFU,no,18.9,no
+pest control scarborough,140,18,2.7,0.52,2,BOFU,yes,18.5,yes
+how to exterminate termites,390,28,0.8,0.77,1,TOFU,no,18.5,yes
+does ants sleep,590,22,0.0,0.0,1,TOFU,no,18.4,yes
+how many legs does spider,880,39,0.0,0.0,1,TOFU,no,18.0,no
+how do you kill termites,210,9,0.6,0.79,1,TOFU,no,17.7,yes
+spiders in perth,320,14,0.31,0.01,1,TOFU,yes,17.5,yes
+how long does pest control take,90,3,1.43,0.06,1,MOFU,no,16.8,yes
+how to get rid of a rats,480,36,0.6,1.0,1,TOFU,no,16.7,no
+what do cockroaches need to survive,590,29,0.09,0.01,1,TOFU,no,16.5,yes
+how long do rats live,720,34,0.0,0.0,1,TOFU,no,16.4,yes
+pest control clarkson,50,6,4.18,0.67,0,BOFU,yes,16.2,yes
+how can i kill termites,210,11,0.6,0.79,1,TOFU,no,16.0,yes
+can termites fly,390,17,0.1,0.03,1,TOFU,no,15.9,yes
+signs of termites in house,320,25,0.72,0.12,1,TOFU,no,15.7,yes
+is pest control safe,90,17,3.69,0.08,1,MOFU,no,15.6,yes
+what do termites look like in australia,320,19,0.41,0.03,1,TOFU,no,15.6,yes
+what's more dangerous redback or black widow,390,15,0.0,0.0,1,TOFU,no,15.6,yes
+how to get rid of redback spiders,110,6,1.25,0.28,1,TOFU,no,15.5,yes
+what do rat droppings look like,390,16,0.0,0.0,1,TOFU,no,15.0,yes
+are white tail spiders dangerous,480,23,0.02,0.01,1,TOFU,no,14.8,yes
+are tranchulas spiders poisonous,880,50,0.0,0.0,1,TOFU,no,14.7,no
+what does termite damage look like,210,12,0.53,0.05,1,TOFU,no,14.6,yes
+do termites fly,390,21,0.15,0.02,1,TOFU,no,14.5,yes
+how do you get rid of termites,320,30,0.8,0.77,1,TOFU,no,14.4,yes
+mouse control perth,90,16,3.09,0.26,0,BOFU,yes,14.2,yes
+pest control yanchep,50,4,2.92,0.94,0,BOFU,yes,14.0,yes
+how much does a pest control cost,90,6,1.48,0.59,1,MOFU,no,13.9,yes
+what does a white tail spider bite look like,320,14,0.0,0.0,1,TOFU,no,13.3,yes
+what do rats need to survive,480,27,0.0,0.01,1,TOFU,no,13.0,yes
+can redback spiders kill you,480,27,0.0,0.0,1,TOFU,no,13.0,yes
+what does a white tail spider look like,210,17,0.59,0.01,1,TOFU,no,12.4,yes
+can a redback kill you,480,30,0.0,0.0,1,TOFU,no,12.0,yes
+can a white tail spider kill you,320,17,0.0,0.0,1,TOFU,no,11.9,yes
+how long do redback spider bite symptoms last,260,13,0.04,0.02,1,TOFU,no,11.8,yes
+can white tail spiders kill you,320,18,0.0,0.0,1,TOFU,no,11.4,yes
+what is the brown redback,320,19,0.0,0.0,1,TOFU,no,11.0,yes
+termite vs ant,210,17,0.37,0.03,"1,0",TOFU,no,10.7,yes
+do yourself pest control,210,16,0.32,1.0,1,MOFU,no,10.7,yes
+what will rats eat,480,35,0.0,0.01,1,TOFU,no,10.7,yes
+what do termites look like australia,260,21,0.26,0.04,1,TOFU,no,10.6,yes
+can a redback spider kill you,390,28,0.0,0.0,1,TOFU,no,10.3,yes
+how long do a rat live,390,29,0.0,0.0,1,TOFU,no,10.0,yes
+are rats nocturnal,260,16,0.0,0.0,1,TOFU,no,10.0,yes
+how to know if you have termites,260,29,0.47,0.21,1,TOFU,no,9.8,yes
+spider control near me,50,16,4.05,0.85,3,MOFU,no,9.7,yes
+can a white-tail spider kill you,260,17,0.0,0.0,1,TOFU,no,9.6,yes
+how to get rid of white tail spiders,90,6,0.68,0.5,1,TOFU,no,9.5,yes
+what does termites look like,260,24,0.23,0.03,1,TOFU,no,9.4,yes
+how long does a rat lives,390,32,0.0,0.0,1,TOFU,no,9.3,yes
+how do i kill rats,260,39,0.76,0.99,1,TOFU,no,9.3,no
+is pest control the landlords responsibility qld,110,2,0.0,0.02,1,MOFU,no,9.2,yes
+does ultrasonic pest control work,170,20,0.61,0.25,1,MOFU,no,9.1,yes
+what to feed redback,260,19,0.0,0.0,1,TOFU,no,9.0,yes
+pest control wa,110,42,3.23,0.48,0,BOFU,yes,8.9,no
+how big are termites,210,23,0.4,0.03,1,TOFU,no,8.9,yes
+how many ants are in the world,590,58,0.0,0.0,1,TOFU,no,8.7,no
+where can i buy redback boots,90,8,0.73,0.97,3,TOFU,no,8.6,yes
+how do i know if i have termites,210,29,0.56,0.25,1,TOFU,no,8.4,yes
+are white tailed spiders dangerous,210,18,0.12,0.02,1,TOFU,no,8.4,yes
+what does a redback spider bite look like,210,17,0.07,0.01,1,TOFU,no,8.3,yes
+how can you tell if you have termites,210,28,0.47,0.21,1,TOFU,no,8.1,yes
+where to buy redback boots,110,12,0.6,1.0,3,TOFU,no,8.0,yes
+how do you know if you have termites,210,29,0.47,0.21,1,TOFU,no,7.9,yes
+how to choose a pest control company,140,8,0.0,0.0,1,MOFU,no,7.8,yes
+do it yourself pest control,90,11,0.82,0.99,1,MOFU,no,7.8,yes
+why is pest control important,170,12,0.0,0.0,1,MOFU,no,7.7,yes
+how old do rats live,320,32,0.0,0.0,1,TOFU,no,7.6,yes
+flea treatment near me,50,23,3.96,0.98,3,MOFU,no,7.5,yes
+how to kill termites,260,25,0.0,0.0,1,TOFU,no,7.4,yes
+ant control near me,50,24,3.73,0.66,3,MOFU,no,7.0,yes
+how do you tell if you have termites,210,34,0.47,0.21,1,TOFU,no,7.0,yes
+what does a white tailed spider look like,110,15,0.59,0.01,1,TOFU,no,7.0,yes
+are redback spiders deadly,260,29,0.04,0.02,1,TOFU,no,6.9,yes
+how quickly can a redback spider kill you,260,28,0.0,0.0,1,TOFU,no,6.8,yes
+what does a white tailed spider bite look like,170,18,0.0,0.0,1,TOFU,no,6.1,yes
+are white tailed spiders poisonous,140,17,0.14,0.01,1,TOFU,no,5.9,yes
+do landlords pay for pest control,90,6,0.0,0.02,1,MOFU,no,5.6,yes
+how to do your own pest control,110,11,0.0,0.4,1,MOFU,no,5.2,yes
+can redbacks kill you,210,33,0.0,0.0,1,TOFU,no,4.9,yes
+are white tail spiders deadly,140,25,0.14,0.01,1,TOFU,no,4.6,yes
+as 3660.2,90,10,0.0,0.06,1,TOFU,no,4.5,yes
+do white tail spiders travel in pairs,70,6,0.0,0.01,1,TOFU,no,4.4,yes
+are white tail spiders poisonous,110,17,0.0,0.01,1,TOFU,no,4.1,yes
+what happens if you get bitten by a redback spider,170,34,0.02,0.05,1,TOFU,no,3.9,yes
+how to treat a white tail spider bite,90,17,0.16,0.04,1,TOFU,no,3.9,yes
+is pest control responsibility of landlord,90,18,0.07,0.05,1,MOFU,no,3.4,yes
+are redbacks deadly,140,31,0.0,0.0,1,TOFU,no,3.4,yes
+what is integrated pest control,110,23,0.0,0.0,1,MOFU,no,3.3,yes
+are black widows and redbacks the same,90,21,0.0,0.0,1,TOFU,no,2.9,yes
+can you die from a redback spider bite,110,30,0.0,0.01,1,TOFU,no,2.8,yes
+where do redback spiders live,90,24,0.0,0.0,1,TOFU,no,2.6,yes
+are redback spiders poisonous,90,32,0.09,0.02,1,TOFU,no,2.3,yes
+how dangerous are redback spiders,110,41,0.03,0.05,1,TOFU,no,2.2,no
+what to do if bitten by redback,90,34,0.04,0.11,1,TOFU,no,2.1,yes
+where do white tail spiders live,50,14,0.0,0.01,1,TOFU,no,2.1,yes
+where do white tailed spiders live,50,14,0.0,0.33,1,TOFU,no,2.1,yes
+do redback spiders kill you,70,29,0.0,0.01,1,TOFU,no,1.8,yes
+how deadly are redback spiders,70,31,0.0,0.02,1,TOFU,no,1.7,yes
+ant control carine,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control fremantle,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control greenwood,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control heathridge,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control kinross,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control scarborough,10,0,0.0,0.0,,BOFU,yes,0,no
+ant control stirling,0,0,0.0,0.0,,BOFU,yes,0,no
+ant control wa,10,0,0.0,0.0,,BOFU,yes,0,no
+ant control warwick,10,0,0.0,0.0,,BOFU,yes,0,no
+ant control westminster,0,0,0.0,0.0,,BOFU,yes,0,no
+are redbacks dangerous,50,0,0.0,0.33,,TOFU,no,0,yes
+are termites dangerous,30,0,0.49,0.33,,TOFU,no,0,no
+as 4349.3,30,0,0.0,0.33,,TOFU,no,0,no
+bed bug treatment wa,10,0,0.0,0.0,,BOFU,yes,0,no
+bee removal wa,0,0,0.0,0.0,,BOFU,yes,0,no
+best termite treatment australia,20,0,2.28,0.99,,MOFU,no,0,no
+cockroach control beldon,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control duncraig,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control fremantle,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control marmion,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control north fremantle,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control padbury,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control scarborough,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control sorrento,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control stirling,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control trigg,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control wa,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control watermans bay,0,0,0.0,0.0,,BOFU,yes,0,no
+cockroach control yanchep,0,0,0.0,0.0,,BOFU,yes,0,no
+flea treatment wa,10,0,0.0,0.0,,BOFU,yes,0,no
+how often should you spray for pests,0,0,0.0,0.0,,TOFU,no,0,no
+millipede control near me,0,0,0.0,0.0,,MOFU,no,0,no
+millipede control perth,10,0,0.0,0.71,,BOFU,yes,0,no
+mosquito control near me,30,0,0.0,0.33,,MOFU,no,0,no
+pest control beldon,10,0,7.45,1.0,,BOFU,yes,0,no
+pest control burns beach,10,0,0.0,0.93,,BOFU,yes,0,no
+pest control butler,50,0,2.48,0.99,,BOFU,yes,0,yes
+pest control carine,20,0,0.0,1.0,,BOFU,yes,0,no
+pest control connolly,0,0,4.87,0.57,,BOFU,yes,0,no
+pest control craigie,20,0,0.0,0.0,,BOFU,yes,0,no
+pest control currambine,20,0,0.0,0.93,,BOFU,yes,0,no
+pest control doubleview,20,0,3.3,1.0,,BOFU,yes,0,no
+pest control duncraig,20,0,2.88,0.99,,BOFU,yes,0,no
+pest control edgewater,20,0,0.0,0.66,,BOFU,yes,0,no
+pest control girrawheen,20,0,0.0,0.64,,BOFU,yes,0,no
+pest control greenwood,70,0,4.76,0.8,0,BOFU,yes,0,yes
+pest control hamersley,10,0,0.0,0.95,,BOFU,yes,0,no
+pest control heathridge,20,0,0.0,1.0,,BOFU,yes,0,no
+pest control iluka,20,0,2.61,0.38,,BOFU,yes,0,no
+pest control innaloo,20,0,4.29,1.0,,BOFU,yes,0,no
+pest control joondalup perth,0,0,0.0,0.0,,BOFU,yes,0,no
+pest control kallaroo,20,0,0.0,0.0,,BOFU,yes,0,no
+pest control karrinyup,20,0,3.66,0.99,,BOFU,yes,0,no
+pest control kingsley,20,0,4.62,0.32,,BOFU,yes,0,no
+pest control kinross,20,0,7.55,0.99,,BOFU,yes,0,no
+pest control marangaroo,90,0,5.2,0.95,0,BOFU,yes,0,yes
+pest control marmion,0,0,0.0,0.0,,BOFU,yes,0,no
+pest control mindarie,40,0,2.54,0.99,,BOFU,yes,0,no
+pest control mirrabooka,20,0,0.0,0.71,,BOFU,yes,0,no
+pest control mullaloo,20,0,0.0,1.0,,BOFU,yes,0,no
+pest control north beach,0,0,6.89,0.81,,BOFU,yes,0,no
+pest control north fremantle,10,0,0.0,0.71,,BOFU,yes,0,no
+pest control ocean reef,20,0,2.72,0.45,,BOFU,yes,0,no
+pest control padbury,20,0,3.15,1.0,,BOFU,yes,0,no
+pest control quinns rocks,20,0,4.43,0.86,,BOFU,yes,0,no
+pest control scarborough perth,0,0,0.0,0.0,,BOFU,yes,0,no
+pest control stirling,70,0,3.33,0.57,1,BOFU,yes,0,yes
+pest control trigg,0,0,4.87,0.57,,BOFU,yes,0,no
+pest control tuart hill,20,0,0.0,0.38,,BOFU,yes,0,no
+pest control watermans bay,0,0,0.0,0.0,,BOFU,yes,0,no
+pest control westminster,20,0,4.93,0.99,,BOFU,yes,0,no
+pest control woodvale,30,0,2.49,0.99,,BOFU,yes,0,no
+pest management technician licence wa,20,0,0.0,0.33,,TOFU,yes,0,no
+rat control joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+rat control kinross,0,0,0.0,0.0,,BOFU,yes,0,no
+rat control scarborough,0,0,0.0,0.0,,BOFU,yes,0,no
+rat control stirling,0,0,0.0,0.0,,BOFU,yes,0,no
+rat control warwick,0,0,0.0,0.71,,BOFU,yes,0,no
+rat control westminster,0,0,0.0,0.0,,BOFU,yes,0,no
+redback spider control,40,0,2.43,0.33,,MOFU,no,0,no
+rodent control wa,20,0,0.0,0.0,,BOFU,yes,0,no
+silverfish treatment perth,50,0,0.0,0.0,,BOFU,yes,0,yes
+spider control duncraig,0,0,0.0,0.0,,BOFU,yes,0,no
+spider control joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+spider control marangaroo,0,0,0.0,0.0,,BOFU,yes,0,no
+spider control north beach,0,0,0.0,0.0,,BOFU,yes,0,no
+spider control wa,10,0,0.0,0.0,,BOFU,yes,0,no
+spider control westminster,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control butler,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control edgewater,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control fremantle,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control greenwood,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control scarborough,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control sorrento,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control wanneroo,0,0,0.0,0.0,,BOFU,yes,0,no
+termite control warwick,0,0,3.05,0.46,,BOFU,yes,0,no
+termite control westminster,0,0,0.0,0.33,,BOFU,yes,0,no
+termite inspection balcatta,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection carine,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection duncraig,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection edgewater,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection fremantle,20,0,0.0,1.0,,BOFU,yes,0,no
+termite inspection girrawheen,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection joondalup,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection karrinyup,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection sorrento,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection wa,20,0,0.0,0.04,,BOFU,yes,0,no
+termite inspection warwick,30,0,0.0,0.33,,BOFU,yes,0,no
+termite inspection watermans bay,0,0,0.0,0.0,,BOFU,yes,0,no
+termite inspection westminster,0,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment butler,0,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment fremantle,30,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment girrawheen,0,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment joondalup,10,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment scarborough,0,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment wa,10,0,0.0,0.0,,BOFU,yes,0,no
+termite treatment warwick,0,0,0.0,0.29,,BOFU,yes,0,no
+termite treatment westminster,0,0,0.0,0.0,,BOFU,yes,0,no
+white-tail spider treatment,50,0,1.28,0.33,,MOFU,no,0,yes
+how often is pest control needed,140,0,0.0,0.17,1,MOFU,no,0,yes
+how many ants on the earth,880,0,0.0,0.33,,TOFU,no,0,yes
+are redback spiders dangerous,90,0,0.0,0.02,1,TOFU,no,0,yes
+what do white tail spiders look like,50,0,0.0,0.01,,TOFU,no,0,yes
+how big are white tail spiders,40,0,0.0,0.33,,TOFU,no,0,no
+how to treat white tail spider bite,40,0,0.22,0.12,,TOFU,no,0,no
+what does white tail spider bite look like,40,0,0.0,0.33,,TOFU,no,0,no
+are white tail spiders aggressive,30,0,0.0,0.33,,TOFU,no,0,no
+are white tail spiders venomous,30,0,0.0,0.33,,TOFU,no,0,no
+do white tail spiders make webs,30,0,0.0,0.33,,TOFU,no,0,no
+how big do white tail spiders get,30,0,0.0,0.33,,TOFU,no,0,no
+how to get rid of coastal brown ants,20,0,0.46,0.66,,TOFU,no,0,no
+do coastal brown ants eat termites,0,0,0.0,0.0,,TOFU,no,0,no
+do coastal brown ants have any odour when crushed,0,0,0.0,0.0,,TOFU,no,0,no
+does borax kill coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+does fipronil kill coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+does fiproonil kill coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+how do coastal brown ants survive heavy rain,0,0,0.0,0.0,,TOFU,no,0,no
+how to get rid of brown coastal ants,0,0,0.0,0.0,,TOFU,no,0,no
+how to get rid of coastal brown ants inside building,0,0,0.0,0.0,,TOFU,no,0,no
+how to get rid of coastal brown ants queensland,0,0,0.0,0.0,,TOFU,no,0,no
+how to kill coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+how to treat coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+what are coastal brown ants,0,0,0.0,0.0,,TOFU,no,0,no
+what do coastal brown ants eat,0,0,0.0,0.0,,TOFU,no,0,no

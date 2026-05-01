@@ -1,0 +1,31 @@
+keyword,volume,keyword_difficulty,cpc_aud,competition,intent_code,funnel_stage,is_geo,priority_score,rank_target
+rodent control perth,1300,26,3.6,0.81,0,BOFU,yes,166.1,yes
+ant control perth,480,14,4.23,0.57,1,BOFU,yes,104.6,yes
+perth rodent control,590,16,3.6,0.81,0,BOFU,yes,104.4,yes
+spider control perth,320,13,5.1,0.58,0,BOFU,yes,84.9,yes
+cockroach control perth,390,12,3.78,0.22,1,BOFU,yes,84.7,yes
+termite inspection perth,480,32,6.2,0.72,0,BOFU,yes,82.3,yes
+pest control joondalup,390,15,4.17,0.72,0,BOFU,yes,80.7,yes
+pest control sorrento,260,8,3.88,0.95,0,BOFU,yes,70.5,yes
+commercial pest control perth,390,30,3.56,0.35,1,BOFU,yes,44.5,yes
+bee removal perth,480,27,2.11,0.74,0,BOFU,yes,40.3,yes
+wasp removal perth,170,8,3.24,0.96,1,BOFU,yes,40.0,yes
+mosquito control perth,260,11,1.7,0.93,1,BOFU,yes,33.4,yes
+pest control wanneroo,110,6,3.48,0.99,0,BOFU,yes,30.8,yes
+pest control fremantle,140,6,2.43,0.51,1,BOFU,yes,30.0,yes
+rat control perth,260,25,3.01,0.93,0,BOFU,yes,29.8,yes
+flea treatment perth,140,11,3.46,0.74,0,BOFU,yes,29.7,yes
+pest control balcatta,110,6,3.31,0.5,0,BOFU,yes,29.6,yes
+pest control warwick,110,4,2.55,0.62,"1,0",BOFU,yes,27.9,yes
+pest control hillarys,90,7,3.11,0.98,0,BOFU,yes,21.8,yes
+pest control alkimos,70,5,3.6,0.92,0,BOFU,yes,21.5,yes
+bed bug treatment perth,110,17,3.93,0.93,0,BOFU,yes,20.1,yes
+pest control scarborough,140,18,2.7,0.52,2,BOFU,yes,18.5,yes
+pest control clarkson,50,6,4.18,0.67,0,BOFU,yes,16.2,yes
+mouse control perth,90,16,3.09,0.26,0,BOFU,yes,14.2,yes
+pest control yanchep,50,4,2.92,0.94,0,BOFU,yes,14.0,yes
+pest control butler,50,0,2.48,0.99,,BOFU,yes,0,yes
+pest control greenwood,70,0,4.76,0.8,0,BOFU,yes,0,yes
+pest control marangaroo,90,0,5.2,0.95,0,BOFU,yes,0,yes
+pest control stirling,70,0,3.33,0.57,1,BOFU,yes,0,yes
+silverfish treatment perth,50,0,0.0,0.0,,BOFU,yes,0,yes
