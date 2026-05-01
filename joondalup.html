@@ -20,10 +20,10 @@
   <meta name="twitter:title" content="Pest Control Joondalup — DJ Pest">
   <meta name="twitter:description" content="Joondalup pest control. Termites, ants, rodents. 25+ years across Perth's Northern Suburbs.">
   <meta name="twitter:image" content="https://djpest.com.au/assets/img/joondalup-suburban-home.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (no render-blocking CDN) -->
+  <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
   <script type="application/ld+json">
   {
@@ -175,6 +175,26 @@
     .nearby-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin: 24px 0 40px; }
     .nearby-grid a { display: block; padding: 14px 16px; background: rgba(10,10,10,0.04); border: 1px solid var(--line-dark); border-radius: 4px; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; color: var(--ink); }
     .nearby-grid a:hover, .nearby-grid a:focus { border-color: var(--red); color: var(--red); }
+
+    /* Trust ribbon (under hero) */
+    .trust-ribbon { background: var(--ink); color: #fff; padding: 50px 40px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    @media (max-width: 768px) { .trust-ribbon { padding: 36px 20px; } }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; } }
+    .trust-item { text-align: center; }
+    .trust-num { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1; color: var(--red); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .trust-num span { font-size: 0.55em; opacity: 0.75; margin-left: 2px; letter-spacing: 0; }
+    .trust-label { font-size: 0.78rem; letter-spacing: 0.02em; line-height: 1.45; opacity: 0.8; }
+
+    /* Hero dual CTA */
+    .hero-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+    .btn-ghost:hover, .btn-ghost:focus { background: #fff; color: var(--ink); border-color: #fff; }
+
+    /* Guarantee strip */
+    .guarantee-strip { background: var(--red); color: #fff; padding: 24px 28px; border-radius: 8px; margin: 32px 0; text-align: center; font-size: 1.05rem; line-height: 1.55; }
+    .guarantee-strip strong { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: 1.2rem; }
+
     footer { background: var(--ink); color: var(--cream); padding: 60px 40px 30px; text-align: center; border-top: 1px solid rgba(245, 239, 235, 0.1); }
     footer p { opacity: 0.6; font-size: 13px; margin-bottom: 14px; }
     footer a { color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
@@ -202,10 +222,37 @@
   <div class="hero-content">
     <div class="tag">Pest Control · Joondalup, WA 6027</div>
     <h1>Pest control <em>Joondalup</em></h1>
-    <p style="font-size: 1.15rem; opacity: 0.92; margin-top: 20px; margin-bottom: 36px;">
-      Joondalup's tree-lined streets and sandy soil are gorgeous — and termites think so too. We've been treating the Northern Suburbs since the original Survivor was on TV. Same-day bookings, AS 3660.2 termite barriers, 7-year warranty.
+    <p style="font-size: 1.15rem; opacity: 0.92; margin-top: 20px; margin-bottom: 28px;">
+      Joondalup's tree-lined streets and sandy soil are gorgeous — and termites think so too. We've been treating the Northern Suburbs since the original Survivor was on TV. From the top of Joondalup Drive down to Edgewater Park, around the Lakeside shops, behind ECU and the Joondalup Health Campus — same suburb, same techs, same week. AS 3660.2 termite barriers, 7-year warranty, no franchise mark-up.
     </p>
-    <a href="https://djpest.com.au/#contact" class="btn">Book a Joondalup quote →</a>
+    <div class="hero-cta-row">
+      <a href="tel:0447747769" class="btn">Call 0447 747 769</a>
+      <a href="https://djpest.com.au/#contact" class="btn btn-ghost">Get a Joondalup quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust ribbon -->
+<section class="trust-ribbon" aria-label="Why Joondalup trusts DJ Pest">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-num">25+ <span>yrs</span></div>
+        <div class="trust-label">In the Northern Suburbs<br>(WDJ Pest Control, est. 1998)</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">15&nbsp;min</div>
+        <div class="trust-label">Drive from our base in Warwick<br>to any Joondalup street</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">8 <span>yr</span></div>
+        <div class="trust-label">Termite warranty<br>(AS&nbsp;3660.2 stamped &amp; filed)</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">Same day</div>
+        <div class="trust-label">Active termites or rodent<br>emergencies — fast-tracked</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -283,6 +330,11 @@
     <p>
       Final price on any job is fixed before we start — no per-spray creep, no "extra zone" surcharges. If we quote $1,800 for a perimeter, that's what you pay even if it takes us an extra hour.
     </p>
+
+    <div class="guarantee-strip">
+      <strong>The DJ Pest Joondalup guarantee:</strong><br>
+      If pests come back inside the warranty period, we come back. No re-call fee, no debate, no excuses. The job's done when it's done.
+    </div>
 
     <h2>Suburbs we cover <em>around Joondalup.</em></h2>
 

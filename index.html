@@ -18,10 +18,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DJ Pest — Perth Pest Control">
   <meta name="twitter:description" content="Termites, ants, rodents, spiders. Licensed, fully warrantied. Perth metro coverage.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (no render-blocking CDN) -->
+  <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
   <!-- Schema Markup for LocalBusiness, Service, and FAQPage -->
   <script type="application/ld+json">
@@ -503,6 +503,48 @@
       line-height: 1.7;
     }
 
+    /* Trust ribbon (under hero) */
+    .trust-ribbon {
+      background: var(--ink);
+      color: var(--white);
+      padding: 50px 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 768px) { .trust-ribbon { padding: 36px 20px; } }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+    }
+    .trust-item { text-align: center; }
+    .trust-num {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1;
+      color: var(--red);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .trust-num span {
+      font-size: 0.55em;
+      opacity: 0.75;
+      margin-left: 2px;
+      letter-spacing: 0;
+    }
+    .trust-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      line-height: 1.45;
+      opacity: 0.8;
+    }
+
     /* Chemistry Roster */
     .roster {
       background: var(--charcoal);
@@ -786,12 +828,36 @@
   </div>
 
   <div class="hero-content">
-    <div class="tag">Perth WA · Est. 2026</div>
+    <div class="tag">Perth WA · Second-generation since 1998</div>
     <h1>Pest.<br><em>Handled.</em></h1>
-    <p>Second-generation pest control, built on modern systems and a thousand-home foundation.</p>
+    <p>Termites in the wall. Rats in the roof. Redbacks in the shed. Pick your poison — actually, let us pick the right one. Diagnosed properly, treated with the right chemistry, warranted in writing.</p>
     <div class="hero-cta">
-      <a href="tel:0447747769" class="btn btn-primary">Call now →</a>
-      <a href="#contact" class="btn btn-secondary">Request quote</a>
+      <a href="tel:0447747769" class="btn btn-primary">Call 0447 747 769</a>
+      <a href="#contact" class="btn btn-secondary">Get a quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust ribbon -->
+<section class="trust-ribbon" aria-label="Why Perth trusts DJ Pest">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-num">25+ <span>yrs</span></div>
+        <div class="trust-label">Family-trade legacy<br>(WDJ Pest Control, est. 1998)</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">1,000+</div>
+        <div class="trust-label">Perth homes treated<br>across the Northern Suburbs</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">8 <span>yr</span></div>
+        <div class="trust-label">Termite warranty<br>(AS&nbsp;3660.2 compliant)</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">Same day</div>
+        <div class="trust-label">Response for active<br>termites or rodent emergencies</div>
+      </div>
     </div>
   </div>
 </section>
@@ -864,13 +930,13 @@
       </div>
 
       <div class="why-item">
-        <h3>Licensed & insured</h3>
-        <p>Provisional licence CPP30119 in progress. Full Endorsement 2 certification targeted late 2026.</p>
+        <h3>Licensed &amp; supervised</h3>
+        <p>Working under direct supervision of WDJ Pest Control's 25-year licensed operator (Danny Johns). Independent provisional licence Q3 2026, Full Endorsement 2 late 2026. Public liability insured.</p>
       </div>
 
       <div class="why-item">
         <h3>Perth metro coverage</h3>
-        <p>Service area covers all Perth suburbs. Roving technician model, direct supervision, same-day intelligence reporting.</p>
+        <p>From Mindarie down to South Perth. Live photo updates from every job — you see exactly what we found and what we did, not just an invoice in the letterbox a week later.</p>
       </div>
     </div>
   </div>
