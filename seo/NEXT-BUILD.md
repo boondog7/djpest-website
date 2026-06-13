@@ -1,8 +1,8 @@
-# NEXT BUILD — 2026-06-12
+# NEXT BUILD — 2026-06-13
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 11 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 12 DAYS RUNNING.**
 
 wanneroo (1443w) and duncraig (1507w) have not moved since 2026-06-01.
 
@@ -12,7 +12,7 @@ wanneroo (1443w) and duncraig (1507w) have not moved since 2026-06-01.
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 11TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 12TH CARRY-OVER
 
 **Micro-entry (20 min — just the schema):**
 Open `joondalup.html`. Find the `<script type="application/ld+json">` block that contains `"@type": "FAQPage"`. Copy the whole block. Paste it into `wanneroo.html` just before `</body>`. Change the three questions to Wanneroo-specific ones (e.g. "Do you service Wanneroo Town Centre?", "What pests come in from the Lake Joondalup bushland?", "How quickly can you get to Wanneroo from Warwick?"). Save and push. 20 minutes, real SEO value.
