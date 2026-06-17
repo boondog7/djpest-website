@@ -1,16 +1,16 @@
-# NEXT BUILD — 2026-06-16
+# NEXT BUILD — 2026-06-17
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 15 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 16 DAYS RUNNING.**
 
-`wanneroo.html` (1443w / 12 @type) and `duncraig.html` (1507w / 12 @type) are both sitting at v1 — thin schema, below word-count target. The 14-day plan ran out a day ago. These two upgrades are the only gate to the next cluster.
+`wanneroo.html` (1443w / 12 @type) and `duncraig.html` (1507w / 12 @type) are both still at v1 — thin schema, below word-count target. Every day these sit at v1 delays the rest of the suburb cluster (sorrento, hillarys, balcatta, etc.) which all depend on this standard being set. These two pages are the gate.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 15TH CARRY-OVER — START HERE
+### 1. ⬆️ Upgrade `wanneroo.html` ← 16TH CARRY-OVER — START HERE
 
 **Keyword:** `pest control wanneroo` — low KD, high local intent
 
