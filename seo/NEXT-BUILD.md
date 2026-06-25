@@ -1,16 +1,16 @@
-# NEXT BUILD — 2026-06-24
+# NEXT BUILD — 2026-06-25
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 23 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 24 DAYS RUNNING.**
 
-`wanneroo.html` and `duncraig.html` are still at v1. Every day they stay there, sorrento (260/mo), balcatta (110/mo), hillarys (90/mo) stay locked behind them. The plan is clear; the only missing ingredient is 2–3 hours of keyboard time.
+Every day `wanneroo.html` and `duncraig.html` stay at v1, Sorrento (260/mo) stays unbuilt. That's the highest-volume unbuilt suburb in the entire plan, sitting one slot behind two pages that need ~2 hours of work between them.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 23RD CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 24TH CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
