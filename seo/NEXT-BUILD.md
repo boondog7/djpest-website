@@ -1,24 +1,24 @@
-# NEXT BUILD — 2026-06-26
+# NEXT BUILD — 2026-06-27
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 25 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 26 DAYS RUNNING.**
 
-Every day `wanneroo.html` and `duncraig.html` stay at v1, Sorrento (260/mo) stays unbuilt. That's the highest-volume unbuilt suburb in the entire plan, sitting one slot behind two pages that need ~2 hours of work between them.
+`wanneroo.html` and `duncraig.html` are still at v1. `sorrento.html` (260 searches/mo) still doesn't exist. These same three tasks have sat at the top of the list for nearly a month. Pick one today and push it — even the 20-minute schema patch on `wanneroo.html` is a real win.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 25TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 26TH CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
 **Current state:** 1443w · 3 JSON-LD blocks · missing FAQPage, GeoCoordinates, OpeningHoursSpecification  
 **Target:** ~3000w · 4 JSON-LD blocks · 31 @type (joondalup v2 standard)
 
-**If you only have 20 minutes — do this minimum:**  
-Copy the `FAQPage` `<script type="application/ld+json">` block from `joondalup.html`, paste it into `wanneroo.html` before `</body>`, rewrite the three Q&As to be Wanneroo-specific. Add `GeoCoordinates` + `OpeningHoursSpecification` inside the LocalBusiness block. Push. Schema gap closed in one commit.
+**If you only have 20 minutes — minimum viable patch:**
+Copy the `FAQPage` `<script type="application/ld+json">` block from `joondalup.html`, paste it into `wanneroo.html` before `</body>`, rewrite the three Q&As to be Wanneroo-specific. Add `GeoCoordinates` + `OpeningHoursSpecification` inside the LocalBusiness block. Push. Schema gap closed.
 
 **Full 2–3 hr upgrade:**
 - Local signals: Wanneroo Town Centre, Lake Joondalup green corridor (rodent + spider pressure), Wanneroo Raceway surrounds, urban-fringe bushland
