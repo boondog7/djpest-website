@@ -1,29 +1,33 @@
-# NEXT BUILD — 2026-06-27
+# NEXT BUILD — 2026-06-28
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 26 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 27 DAYS RUNNING.**
 
-`wanneroo.html` and `duncraig.html` are still at v1. `sorrento.html` (260 searches/mo) still doesn't exist. These same three tasks have sat at the top of the list for nearly a month. Pick one today and push it — even the 20-minute schema patch on `wanneroo.html` is a real win.
+The tasks below are identical to yesterday and every day back to 2 June. One of them takes 20 minutes. Pick it today.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 26TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 27TH CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
-**Current state:** 1443w · 3 JSON-LD blocks · missing FAQPage, GeoCoordinates, OpeningHoursSpecification  
-**Target:** ~3000w · 4 JSON-LD blocks · 31 @type (joondalup v2 standard)
+**Current state:** 1443w · v1 schema · missing FAQPage, GeoCoordinates, OpeningHoursSpecification  
+**Target:** ~3000w · joondalup v2 standard (full @type set incl. FAQPage + GeoCoords)
 
-**If you only have 20 minutes — minimum viable patch:**
-Copy the `FAQPage` `<script type="application/ld+json">` block from `joondalup.html`, paste it into `wanneroo.html` before `</body>`, rewrite the three Q&As to be Wanneroo-specific. Add `GeoCoordinates` + `OpeningHoursSpecification` inside the LocalBusiness block. Push. Schema gap closed.
+**20-minute minimum patch (do this NOW if time is short):**
+1. Copy the `<script type="application/ld+json">` FAQPage block from `joondalup.html`
+2. Paste before `</body>` in `wanneroo.html`
+3. Rewrite the 3 Q&As to be Wanneroo-specific (rodents along Quinns Rocks Rd corridor, cockroaches at Wanneroo Town Centre, spiders from Lake Joondalup green belt)
+4. Add `GeoCoordinates` + `OpeningHoursSpecification` inside the existing LocalBusiness block
+5. `git add wanneroo.html && git commit -m "feat: upgrade wanneroo schema to v2" && git push`
 
 **Full 2–3 hr upgrade:**
 - Local signals: Wanneroo Town Centre, Lake Joondalup green corridor (rodent + spider pressure), Wanneroo Raceway surrounds, urban-fringe bushland
 - Drive time: ~12 min from Warwick
-- Mini case study: e.g. roof rats along Quinns Rocks Rd corridor
+- Mini case study: roof rats along Quinns Rocks Rd corridor
 - Every paragraph genuinely Wanneroo — not a template swap
 
 ---
@@ -32,7 +36,7 @@ Copy the `FAQPage` `<script type="application/ld+json">` block from `joondalup.h
 
 **Keyword:** `pest control duncraig` — strong residential intent, low KD
 
-**Current state:** 1507w · 3 JSON-LD blocks · same v1 schema gap  
+**Current state:** 1507w · v1 schema · same gaps as wanneroo  
 **Target:** ~3000w · 31 @type
 
 - Local signals: Hepburn Heights bushland reserve (ant + spider pressure), Duncraig Leisure Centre, leafy suburb roof-cavity rats, Carine Glades proximity
