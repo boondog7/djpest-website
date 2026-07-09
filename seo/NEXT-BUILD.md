@@ -1,16 +1,16 @@
-# NEXT BUILD — 2026-07-08
+# NEXT BUILD — 2026-07-09
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 37 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 38 DAYS RUNNING.**
 
-The tasks below have been identical since 1 June. Task 1 alone takes ~20 minutes. Pick it today — 37 days is a long time to leave a 20-minute win on the table.
+The tasks below have been identical since 1 June. Task 1 alone takes ~20 minutes. Pick it today — 38 days is a long time to leave a 20-minute win on the table.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 37TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 38TH CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
