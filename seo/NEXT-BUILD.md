@@ -1,16 +1,16 @@
-# NEXT BUILD — 2026-07-11
+# NEXT BUILD — 2026-07-12
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 40 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 41 DAYS RUNNING.**
 
-Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. 40 days is a long time to leave it undone.
+Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. Every day this sits undone is a day Google isn't indexing a better page.
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 40TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 41ST CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
