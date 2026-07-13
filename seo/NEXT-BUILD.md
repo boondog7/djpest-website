@@ -1,8 +1,8 @@
-# NEXT BUILD — 2026-07-12
+# NEXT BUILD — 2026-07-13
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 41 DAYS RUNNING.**
+**~30% of 14-day plan. NO CHANGE FOR 42 DAYS RUNNING.**
 
 Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. Every day this sits undone is a day Google isn't indexing a better page.
 
@@ -10,12 +10,12 @@ Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. Every day this sits 
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 41ST CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← 42ND CARRY-OVER
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
 **Current state:** 1443w · v1 schema · missing FAQPage, GeoCoordinates, OpeningHoursSpecification
-**Target:** ~3000w · joondalup v2 standard (13 @types incl. FAQPage + GeoCoords)
+**Target:** ~3000w · joondalup v2 standard (31 @types incl. FAQPage + GeoCoords)
 
 **20-minute minimum patch (do this NOW if time is short):**
 1. Copy the `<script type="application/ld+json">` FAQPage block from `joondalup.html`
@@ -37,7 +37,7 @@ Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. Every day this sits 
 **Keyword:** `pest control duncraig` — strong residential intent, low KD
 
 **Current state:** 1507w · v1 schema · same gaps as wanneroo
-**Target:** ~3000w · 13 @types
+**Target:** ~3000w · 31 @types
 
 - Local signals: Hepburn Heights bushland reserve (ant + spider pressure), Duncraig Leisure Centre, leafy suburb roof-cavity rats, Carine Glades proximity
 - Drive time: ~10 min from Warwick
@@ -49,7 +49,7 @@ Same 3 tasks as yesterday. Task 1 alone is a 20-minute win. Every day this sits 
 
 **Keyword:** `pest control sorrento` — **260 searches/mo, KD8** — highest-volume unbuilt Tier-1 suburb
 
-- Build to joondalup v2 standard from day one: ~3000w · 13 @types
+- Build to joondalup v2 standard from day one: ~3000w · 31 @types
 - Local signals: Sorrento Quay, Marmion Marine Park, sandy-soil ant colonies, coastal cockroach + silverfish pressure, ~10 min from Warwick
 
 ---
