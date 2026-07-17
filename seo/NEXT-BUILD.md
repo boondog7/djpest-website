@@ -1,26 +1,24 @@
-# NEXT BUILD — 2026-07-16
+# NEXT BUILD — 2026-07-17
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO CHANGE FOR 45 DAYS RUNNING.**
-
-Same 3 tasks. Task 1 is a 20-minute win and has been for 45 mornings. Every day Google is indexing the weaker page.
+**~30% of 14-day plan. NO CHANGE FOR 46 DAYS RUNNING.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← 45TH CARRY-OVER
+### 1. ⬆️ Upgrade `wanneroo.html` ← **46TH CARRY-OVER**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
 **Current state:** 1443w · v1 schema · missing FAQPage, GeoCoordinates, OpeningHoursSpecification
 **Target:** ~3000w · joondalup v2 standard (31 @types incl. FAQPage + GeoCoords)
 
-**20-minute minimum patch (do this NOW if time is short):**
+**20-minute minimum patch — do this NOW:**
 1. Copy the `<script type="application/ld+json">` FAQPage block from `joondalup.html`
 2. Paste before `</body>` in `wanneroo.html`
-3. Rewrite the 3 Q&As to be Wanneroo-specific (rodents along Quinns Rocks Rd corridor, cockroaches at Wanneroo Town Centre, spiders from Lake Joondalup green belt)
+3. Rewrite the 3 Q&As Wanneroo-specific (rodents along Quinns Rocks Rd corridor, cockroaches at Wanneroo Town Centre, spiders from Lake Joondalup green belt)
 4. Add `GeoCoordinates` (-31.7527, 115.8062) + `OpeningHoursSpecification` inside the existing LocalBusiness block
 5. `git add wanneroo.html && git commit -m "feat: upgrade wanneroo schema to v2" && git push`
 
@@ -56,8 +54,8 @@ Same 3 tasks. Task 1 is a 20-minute win and has been for 45 mornings. Every day 
 
 ## BLOCKERS / FLAGS
 
-- **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. The single most valuable page the licence unlocks — worth staging now so it's ready to flip live the day paperwork clears.
-- **GBP is still the #1 unblocked lever.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today. Map 3-pack is where phone calls come from.
+- **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. Worth staging now so it's ready to flip live the day paperwork clears.
+- **GBP is the #1 unblocked lever right now.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today. The map 3-pack is where phone calls come from.
 - **Tier-1 queue after wanneroo + duncraig:** Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
 - **Service gaps queued:** bee-removal (480/mo, KD27), wasp-removal (170/mo, KD8), mosquito-control (260/mo, KD11), bed-bug-treatment (110/mo, KD17), flea-treatment (140/mo, KD11), commercial-pest-control (390/mo, KD30)
 - **MOFU cost pages:** `pest-control-cost-perth` (1300/mo, KD8) + `pest-control-prices` (720/mo, KD6) — transparent-pricing moat, no competitor has built this
