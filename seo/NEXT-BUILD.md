@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-07-21
+# NEXT BUILD — 2026-07-22
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO NEW PAGES BUILT IN 50 DAYS.**
+**~30% of 14-day plan. NO NEW PAGES BUILT IN 51 DAYS.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **50TH CARRY-OVER — MINIMUM 20-MINUTE FIX**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **51ST CARRY-OVER — MINIMUM 20-MINUTE FIX**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
@@ -20,7 +20,7 @@
 2. Paste before `</body>` in `wanneroo.html`
 3. Rewrite the 3 Q&As Wanneroo-specific (rodents along Quinns Rocks Rd corridor, cockroaches at Wanneroo Town Centre, spiders from Lake Joondalup green belt)
 4. Add `"geo": {"@type": "GeoCoordinates", "latitude": "-31.7527", "longitude": "115.8062"}` inside the LocalBusiness block
-5. Add `openingHoursSpecification` array (copy from joondalup.html lines 54–55)
+5. Add `openingHoursSpecification` array (copy from joondalup.html)
 6. `git add wanneroo.html && git commit -m "feat: upgrade wanneroo schema to v2" && git push`
 
 **Full upgrade (2–3 hrs) adds:**
@@ -54,7 +54,7 @@
 
 ## BLOCKERS / FLAGS
 
-- **50 days on the same carry-over.** The schema patch on wanneroo.html is genuinely 20 minutes. Do the minimum viable fix first, full rewrite later.
+- **51 days on the same carry-over.** The schema patch on wanneroo.html is genuinely 20 minutes. Do the minimum viable fix first, full rewrite later.
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed.
 - **GBP is still the #1 unblocked lever.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today.
 - **Tier-1 queue after wanneroo + duncraig:** Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
