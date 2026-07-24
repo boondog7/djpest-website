@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-07-23
+# NEXT BUILD — 2026-07-24
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. NO NEW PAGES BUILT IN 52 DAYS.**
+**~30% of 14-day plan. NO NEW PAGES BUILT IN 53 DAYS.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **52ND CARRY-OVER — MINIMUM 20-MINUTE FIX**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **53RD CARRY-OVER — MINIMUM 20-MINUTE FIX**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, easy win
 
@@ -54,9 +54,9 @@
 
 ## BLOCKERS / FLAGS
 
-- **52 days on the same carry-over.** The schema patch on wanneroo.html is genuinely 20 minutes. Do the minimum viable fix first, full rewrite later.
+- **53 days on the same carry-over.** The schema patch on wanneroo.html is genuinely 20 minutes. Do the minimum viable fix first, full rewrite later.
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed.
 - **GBP is still the #1 unblocked lever.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today.
-- **Tier-1 queue after wanneroo + duncraig:** Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
+- **Tier-1 queue after wanneroo + duncraig:** Sorrento (260/mo, KD8), Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
 - **Service gaps queued:** bee-removal (480/mo, KD27), wasp-removal (170/mo, KD8), mosquito-control (260/mo, KD11), bed-bug-treatment (110/mo, KD17), flea-treatment (140/mo, KD11), commercial-pest-control (390/mo, KD30)
 - **MOFU cost pages:** `pest-control-cost-perth` (1300/mo, KD8) + `pest-control-prices` (720/mo, KD6) — transparent-pricing moat, no competitor has built this
