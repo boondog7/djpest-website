@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-03
+# NEXT BUILD — 2026-08-04
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage + 2 blog posts published + 24 blog drafts sitting idle.
-**~30% of 14-day plan. NO NEW PAGES BUILT IN 63 DAYS.**
+**~30% of 14-day plan. DAY 64 — SAME CARRY-OVER AS YESTERDAY.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 63. THE SCHEMA PATCH IS 20 MINUTES.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 64. THE SCHEMA PATCH IS 20 MINUTES.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -54,13 +54,13 @@
 
 ## BONUS: 24 blog drafts are sitting in `blog/_drafts/` unpublished
 
-Notable draft: `01_how-much-does-pest-control-cost.md` — this is the **MOFU pricing moat** the plan rates as the single highest-leverage move (`how much does pest control cost` = 1300/mo, KD8; `pest control prices` = 720/mo, KD6). No competitor has published real Perth $ tables. If wanneroo/duncraig feel heavy, polish and publish this draft as a quick parallel win.
+Notable draft: `01_how-much-does-pest-control-cost.md` — the **MOFU pricing moat** the plan rates as the single highest-leverage move (`how much does pest control cost` = 1300/mo, KD8; `pest control prices` = 720/mo, KD6). No competitor has published real Perth $ tables. If wanneroo/duncraig feel heavy, publish this draft as a quick parallel win instead.
 
 ---
 
 ## BLOCKERS / FLAGS
 
-- **63 days on the same carry-over.** The schema patch on `wanneroo.html` is 20 minutes. The drafts exist. The only missing ingredient is 20 minutes of keyboard time.
+- **64 days on the same carry-over.** The schema patch on `wanneroo.html` is 20 minutes. It has not moved in 64 days. Pick up your phone, open a voice memo, dictate three Wanneroo-specific pest FAQs, paste them in. Done.
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed.
 - **GBP is still the #1 unblocked lever.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today.
 - **Tier-1 suburb queue after wanneroo + duncraig:** Sorrento (260/mo, KD8), Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
