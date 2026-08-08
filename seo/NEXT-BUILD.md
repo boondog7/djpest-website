@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-07
+# NEXT BUILD — 2026-08-08
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage.
-**~30% of 14-day plan. DAY 67 — NO CHANGE FROM YESTERDAY.**
+**~30% of 14-day plan. DAY 68 — NO CHANGE FROM YESTERDAY.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 67. STILL 20 MINUTES.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 68. STILL 20 MINUTES.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -54,7 +54,7 @@
 
 ## EASIER WIN IF THE ABOVE FEELS HEAVY
 
-**Publish `pest-control-cost-perth.html` from the blog draft** — converts the `how-much-does-pest-control-cost` draft to a live HTML page.
+**Publish `pest-control-cost-perth.html` from the blog draft** — converts `blog/_drafts/01_how-much-does-pest-control-cost.md` to a live HTML page.
 - `how much does pest control cost` = 1300/mo, KD8
 - `pest control prices` = 720/mo, KD6
 - No competitor has published real Perth $ tables. Draft already written.
@@ -66,7 +66,7 @@ This is the **MOFU pricing moat** the plan rates as the single highest-leverage 
 
 ## BLOCKERS / FLAGS
 
-- **67 days on the same carry-over.** The schema patch on `wanneroo.html` is 20 minutes. If you have 20 minutes today, open `joondalup.html`, copy the FAQPage block, paste into `wanneroo.html`, tweak 3 questions to be Wanneroo-specific, push. Done.
+- **68 days on the same carry-over.** The schema patch on `wanneroo.html` is 20 minutes. If you have 20 minutes today, open `joondalup.html`, copy the FAQPage block, paste into `wanneroo.html`, tweak 3 questions to be Wanneroo-specific, push. Done.
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC — highest CPC on the board) stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed.
 - **GBP is still the #1 unblocked lever.** If the Google Business Profile isn't verified with a review-generation engine running, an hour there outperforms any page built today.
 - **Tier-1 suburb queue after wanneroo + duncraig:** Sorrento (260/mo, KD8), Balcatta (110/mo, KD6), Hillarys (90/mo, KD7), Marangaroo (90/mo, KD0), Greenwood (70/mo, KD0), Stirling (70/mo, KD0), Warwick home-base (KD0)
