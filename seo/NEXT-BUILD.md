@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-11
+# NEXT BUILD — 2026-08-12
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage + 2 blog pages.
-**~30% of 14-day plan. DAY 71 — SAME CARRY-OVER AS YESTERDAY (and the day before).**
+**~30% of 14-day plan. DAY 72 — SAME CARRY-OVER AS YESTERDAY (and the 71 days before).**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **THIS IS STILL HERE. 20 MINUTES. DO IT NOW.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 72. STILL 20 MINUTES. DO IT NOW.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -64,4 +64,4 @@
 
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC) — highest-value gap in the plan — stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. Do not publish any termite expertise claims or licence number until held.
 - **GBP is still the #1 unblocked lever.** Google Business Profile + review-generation engine > any page built today. If it isn't verified and running, start there.
-- **71 days on the same carry-over.** Task 1 (wanneroo schema upgrade) is one copy-paste and 3 sentence rewrites. It is genuinely 20 minutes. Pick it up.
+- **72 days on the same carry-over.** Task 1 (wanneroo schema upgrade) is one copy-paste and 3 sentence rewrites. It is genuinely 20 minutes. Pick it up.
