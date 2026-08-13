@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-12
+# NEXT BUILD — 2026-08-13
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage + 2 blog pages.
-**~30% of 14-day plan. DAY 72 — SAME CARRY-OVER AS YESTERDAY (and the 71 days before).**
+**~30% of 14-day plan. DAY 73 — SAME CARRY-OVER AS YESTERDAY (and the 72 days before).**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 72. STILL 20 MINUTES. DO IT NOW.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **DAY 73. STILL 20 MINUTES. DO IT NOW.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -38,16 +38,16 @@
 
 ---
 
-### 3. 💰 Convert `pest-control-cost-perth.html` ← easiest win, draft already written
+### 3. 💰 Build `pest-control-cost-perth.html` ← drafts already written, zero prep needed
 
 **Keywords:** `how much does pest control cost` — 1300/mo, KD8 · `pest control prices` — 720/mo, KD6
 
-**Draft is sitting here ready to go:**
+**Drafts sitting ready:**
 - `blog/_drafts/01_how-much-does-pest-control-cost.md` (main)
 - `blog/_drafts/12_how-much-does-it-cost-for-pest-control.md` (merge source)
 - `blog/_drafts/23_how-much-is-pest-control.md` (merge source)
 
-**Why now:** Three drafts on the same topic = merge them into one authoritative Perth pricing page with real $ tables. No competitor does this. ~45 min: combine content → add HowTo + FAQPage schema → link from homepage + all 4 service pages → push. This is the MOFU moat the battle plan calls the highest-leverage move.
+**Why now:** Three drafts on the same topic = merge into one authoritative Perth pricing page with real $ tables. No competitor does this. Dane's CA background = the "transparent, no-hidden-fees" E-E-A-T angle every AI flagged. ~45 min: combine drafts → add HowTo + FAQPage schema → link from homepage + all 4 service pages → push. This is the MOFU moat the battle plan calls the highest-leverage move.
 
 ---
 
@@ -63,5 +63,5 @@
 ## BLOCKERS / FLAGS
 
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC) — highest-value gap in the plan — stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. Do not publish any termite expertise claims or licence number until held.
-- **GBP is still the #1 unblocked lever.** Google Business Profile + review-generation engine > any page built today. If it isn't verified and running, start there.
-- **72 days on the same carry-over.** Task 1 (wanneroo schema upgrade) is one copy-paste and 3 sentence rewrites. It is genuinely 20 minutes. Pick it up.
+- **GBP is still the #1 unblocked lever.** Google Business Profile + review-generation engine > any page built today. If it isn't verified and running, that is still the first phone call to make.
+- **73 days on the same carry-over.** Task 1 (wanneroo schema upgrade) is one copy-paste and 3 sentence rewrites. The drafts for Task 3 are already written. There is nothing to prepare. The only move left is to open the file and do it.
