@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-23
+# NEXT BUILD — 2026-08-24
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage + 2 blog pages.
-**~30% of 14-day plan. DAY 83 — NO HTML CHANGE SINCE 8 AUG (15 days idle). Same 3 tasks for the 15th morning in a row.**
+**~30% of 14-day plan. DAY 84 — NO HTML CHANGE SINCE 8 AUG (16 days idle). Same 3 tasks for the 16th morning in a row.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **15 DAYS UNCHANGED. THIS IS A 20-MINUTE JOB.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **16 DAYS UNCHANGED. THIS IS A 20-MINUTE JOB.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -42,7 +42,7 @@
 
 **Keywords:** `how much does pest control cost` — 1300/mo, KD8 · `pest control prices` — 720/mo, KD6
 
-**Drafts to merge (already exist in `blog/_drafts/`):**
+**Drafts to merge (already exist in `blog/`):**
 - `01_how-much-does-pest-control-cost.md` — main article
 - `12_how-much-does-it-cost-for-pest-control.md` — merge source
 - `23_how-much-is-pest-control.md` — merge source
@@ -64,4 +64,4 @@
 
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC) — highest-value gap in the plan — stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. Do not publish termite expertise claims or a licence number until held.
 - **GBP is still the #1 unblocked lever.** Google Business Profile + review-generation engine > any page built today. If not verified and running, that is the first call to make.
-- **15 days idle on 20-minute tasks.** Wanneroo is one copy-paste and 3 sentence rewrites. Duncraig is the same. The cost-page drafts are already written. Open the file.
+- **16 days idle on 20-minute tasks.** The steps above are copy-paste + 3 sentence rewrites. The cost-page drafts are already written and sitting in `blog/`. Open the file.
