@@ -1,14 +1,14 @@
-# NEXT BUILD — 2026-08-24
+# NEXT BUILD — 2026-08-25
 
 ## Progress snapshot
 **Done:** 4 service pages (ant ✅, cockroach ✅, rodent ✅, spider ✅) + 3 suburb pages (joondalup v2 ✅, wanneroo ⚠️ v1, duncraig ⚠️ v1) + homepage + 2 blog pages.
-**~30% of 14-day plan. DAY 84 — NO HTML CHANGE SINCE 8 AUG (16 days idle). Same 3 tasks for the 16th morning in a row.**
+**~30% of 14-day plan. DAY 85 — NO HTML CHANGE SINCE 8 AUG (17 days idle). Same 3 tasks for the 17th morning in a row.**
 
 ---
 
 ## TODAY'S TASKS (priority order)
 
-### 1. ⬆️ Upgrade `wanneroo.html` ← **16 DAYS UNCHANGED. THIS IS A 20-MINUTE JOB.**
+### 1. ⬆️ Upgrade `wanneroo.html` ← **17 DAYS UNCHANGED. THIS IS A 20-MINUTE JOB.**
 
 **Keyword:** `pest control wanneroo` — local intent, low KD, directional traffic
 
@@ -64,4 +64,4 @@
 
 - **Termite: HOLD.** `/termite-inspection-perth` (480/mo, KD32, $6.20 CPC) — highest-value gap in the plan — stays staged/unpublished until WA DoH pest licence + termite endorsement are confirmed. Do not publish termite expertise claims or a licence number until held.
 - **GBP is still the #1 unblocked lever.** Google Business Profile + review-generation engine > any page built today. If not verified and running, that is the first call to make.
-- **16 days idle on 20-minute tasks.** The steps above are copy-paste + 3 sentence rewrites. The cost-page drafts are already written and sitting in `blog/`. Open the file.
+- **17 days idle on 20-minute tasks.** The steps above are copy-paste + 3 sentence rewrites. The cost-page drafts are already written and sitting in `blog/`. Open the file.
