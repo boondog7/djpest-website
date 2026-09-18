@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
     jobs.push(env.LEADS.put(key, JSON.stringify(lead)).catch((e) => console.error('kv', e)));
   }
   jobs.push(fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json', Origin: 'https://djpest.com.au', Referer: 'https://djpest.com.au/' },
     body: JSON.stringify({
       _subject: `New website lead: ${lead.name} (${lead.suburb}) — ${lead.pest || 'pest not specified'}`,
       _template: 'table', _captcha: 'false',
