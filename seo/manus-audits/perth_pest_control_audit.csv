@@ -1,0 +1,11 @@
+URL,Word Count,Schema,GBP Link,Lighthouse Score
+https://www.allpest.com.au,877,"WebPage, ImageObject, CreativeWork",No,34.0
+https://www.rentokil.com/au/about/local-branches/pest-control-perth,2739,None,No,37.0
+https://www.termicopestmanagement.com.au,567,None,No,46.0
+https://www.budgetpest.com.au,1015,None,No,23.0
+https://www.flick.com.au/perth-pest-control/,9,None,No,26.0
+https://www.xterminate.com.au,Error,Error,"HTTPSConnectionPool(host='www.xterminate.com.au', port=443): Read timed out. (read timeout=20)",50.0
+https://www.championpest.com.au,4,None,No,70.0
+https://adaptivepest.com.au,1434,None,No,39.0
+https://alluneedpestcontrol.com.au/,726,"Review, LocalBusiness, Rating",No,22.0
+https://pestsoutwa.com.au/,2869,WebPage,https://www.google.com/maps/contrib/110391674158538520547/reviews,31.0

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DJ Pest — Second-Generation Perth Pest Control · Since 1998</title>
+<meta name="description" content="DJ Pest is second-generation pest management for Perth's northern suburbs. Twenty-five years of family trade, 1,000+ homes treated, documented and transferable warranties. Termites, timber-pest inspections, rodents, ants, spiders and general pest.">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:title" content="DJ Pest — Second-Generation Perth Pest Control">
+<meta property="og:description" content="Twenty-five years of family trade. 1,000+ Perth homes treated. Documented, transferable warranties.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+:root{
+  --ink:#0b0a09;
+  --ink-2:#100e0d;
+  --ink-3:#171413;
+  --ink-4:#1f1b19;
+  --paper:#f3ece4;
+  --paper-dim:#c8c0b6;
+  --paper-mute:#8b8278;
+  --line:rgba(243,236,228,.14);
+  --line-2:rgba(243,236,228,.07);
+  --red:#c8252a;
+  --red-bright:#e8474c;
+  --maxw:1280px;
+  --measure:680px;
+  --gut:clamp(20px,5vw,72px);
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;--s8:128px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Inter Tight',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.62;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+::selection{background:var(--red);color:var(--paper)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--red-bright);outline-offset:3px;border-radius:1px}
+
+/* ---------- typographic primitives ---------- */
+.serif{font-family:'Fraunces',Georgia,serif}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.skip{
+  position:absolute;left:-999px;top:0;z-index:300;
+  background:var(--paper);color:var(--ink);padding:12px 18px;
+  font-weight:500;border-radius:0 0 3px 0;
+}
+.skip:focus{left:0}
+
+/* the editorial kicker — index number + hairline + label */
+.kicker{display:flex;align-items:center;gap:16px;margin-bottom:var(--s4)}
+.kicker .idx{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;color:var(--red-bright)}
+.kicker .rule{height:1px;flex:1;max-width:64px;background:linear-gradient(90deg,var(--red),transparent)}
+.kicker .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-mute)}
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky;top:0;z-index:100;
+  background:rgba(11,10,9,.66);
+  backdrop-filter:saturate(140%) blur(16px);
+  -webkit-backdrop-filter:saturate(140%) blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s;
+}
+.hdr.scrolled{background:rgba(11,10,9,.93);border-bottom-color:var(--line)}
+.hdr-in{display:flex;align-items:center;gap:var(--s4);height:74px}
+.brand{display:flex;align-items:center;gap:13px;flex:0 0 auto}
+.brand img{height:32px;width:auto}
+.brand .wm{
+  font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:.005em;
+  line-height:1;padding-left:13px;border-left:1px solid var(--line);
+}
+.brand .wm em{font-style:normal;font-family:'JetBrains Mono',monospace;color:var(--paper-mute);font-size:.52em;font-weight:400;display:block;letter-spacing:.22em;margin-top:5px;text-transform:uppercase}
+nav.main{display:none;margin-left:auto;gap:var(--s4);align-items:center}
+nav.main a{
+  font-size:13px;color:var(--paper-dim);letter-spacing:.01em;
+  position:relative;padding-block:6px;transition:color .2s;
+}
+nav.main a:hover{color:var(--paper)}
+nav.main a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--red);transition:width .25s}
+nav.main a:hover::after{width:100%}
+.call-btn{
+  margin-left:auto;display:inline-flex;align-items:center;gap:9px;
+  background:var(--red);color:var(--paper);
+  font-size:13px;font-weight:500;letter-spacing:.02em;
+  padding:11px 17px;border-radius:2px;border:1px solid var(--red);
+  transition:background .2s,transform .2s;white-space:nowrap;
+}
+.call-btn:hover{background:var(--red-bright);transform:translateY(-1px)}
+.call-btn svg{width:14px;height:14px;flex:0 0 auto}
+@media(min-width:1000px){nav.main{display:flex}.call-btn{margin-left:0}}
+
+/* ---------- shared section frame ---------- */
+section{position:relative}
+.sec-pad{padding-block:clamp(72px,11vw,136px)}
+.sechead{max-width:var(--measure)}
+.sechead h2{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(2.1rem,5.6vw,3.7rem);line-height:1.03;letter-spacing:-.018em;
+}
+.sechead h2 em{font-style:italic;color:var(--paper-dim)}
+.sechead p{color:var(--paper-dim);font-size:clamp(1.02rem,1.4vw,1.18rem);max-width:58ch;margin-top:var(--s3);line-height:1.6}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line-2)}
+.hero-canvas{position:absolute;inset:0;z-index:0}
+.hero-grad{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 82% 0%, rgba(200,37,42,.18), transparent 52%),
+    radial-gradient(90% 70% at 5% 100%, rgba(200,37,42,.06), transparent 60%),
+    linear-gradient(180deg, rgba(11,10,9,.15) 0%, rgba(11,10,9,.5) 65%, var(--ink) 100%);
+}
+.hero-in{position:relative;z-index:2;padding-block:clamp(64px,12vw,128px);display:grid;grid-template-columns:1fr;gap:clamp(48px,6vw,80px);align-items:end}
+@media(min-width:980px){.hero-in{grid-template-columns:minmax(0,1fr) auto}}
+.hero-kick{display:flex;align-items:center;gap:18px;margin-bottom:var(--s5)}
+.hero-kick .rule{height:1px;width:42px;background:var(--red)}
+.hero-kick .lab{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--paper-mute)}
+.hero-kick .lab b{color:var(--red-bright);font-weight:500}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(2.9rem,8.8vw,6.6rem);
+  line-height:.97;letter-spacing:-.025em;
+  max-width:14ch;
+}
+.hero h1 em{font-style:italic;color:var(--paper-dim)}
+.hero h1 .drop{
+  font-style:italic;color:var(--red);
+  font-size:1.18em;line-height:0;
+  padding-right:.02em;
+}
+.hero-lead{
+  margin-top:var(--s5);max-width:48ch;
+  font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--paper-dim);line-height:1.6;
+}
+.hero-lead b{color:var(--paper);font-weight:400}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:var(--s6)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14.5px;font-weight:500;letter-spacing:.01em;
+  padding:14px 24px;border-radius:2px;transition:transform .22s,background .22s,border-color .22s,color .22s;
+}
+.btn-pri{background:var(--paper);color:var(--ink);border:1px solid var(--paper)}
+.btn-pri:hover{background:transparent;color:var(--paper);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper);background:rgba(243,236,228,.04)}
+.btn svg{width:15px;height:15px}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:var(--s6);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--paper-mute);text-transform:uppercase;
+}
+.hero-meta span{display:inline-flex;align-items:center;gap:9px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--red);flex:0 0 auto}
+
+/* hero signature: the "since 1998" hairline masthead-timeline */
+.hero-mast{
+  display:none;
+  position:relative;
+  padding-left:30px;
+  min-width:236px;
+}
+@media(min-width:980px){.hero-mast{display:block}}
+.hero-mast::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:linear-gradient(180deg,var(--red) 0%,var(--line) 22%,var(--line) 78%,transparent 100%)}
+.hm-cap{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--paper-mute);margin-bottom:26px;display:block}
+.hm-row{position:relative;padding-bottom:24px}
+.hm-row:last-child{padding-bottom:0}
+.hm-row::before{content:"";position:absolute;left:-29.5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink);border:1px solid var(--red)}
+.hm-row.now::before{background:var(--red);box-shadow:0 0 0 4px rgba(200,37,42,.14)}
+.hm-yr{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.6rem;line-height:1;letter-spacing:-.01em}
+.hm-yr.now{color:var(--red-bright)}
+.hm-txt{font-size:12px;color:var(--paper-mute);margin-top:6px;letter-spacing:.01em;line-height:1.4;max-width:20ch}
+
+/* ---------- TRUST STRIP ---------- */
+.trust{border-bottom:1px solid var(--line-2);background:var(--ink-2)}
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-2)}
+@media(min-width:780px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--ink-2);padding:clamp(30px,4vw,52px) var(--gut)}
+.stat .n{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1;letter-spacing:-.02em}
+.stat .n em{font-style:italic;color:var(--red-bright);font-size:.56em;letter-spacing:0}
+.stat .l{margin-top:14px;font-size:12.5px;color:var(--paper-mute);letter-spacing:.03em;line-height:1.5}
+
+/* ---------- SERVICES ---------- */
+.svc-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-2);margin-top:clamp(44px,6vw,72px);border:1px solid var(--line-2)}
+@media(min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc{
+  background:var(--ink);padding:clamp(30px,3vw,42px);position:relative;
+  display:flex;flex-direction:column;gap:var(--s3);min-height:282px;
+  transition:background .35s;
+}
+.svc::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--red);transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.svc:hover{background:var(--ink-3)}
+.svc:hover::after,.svc:focus-within::after{width:100%}
+.svc .top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.svc .ico{width:40px;height:40px;flex:0 0 auto}
+.svc .no{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--paper-mute);letter-spacing:.18em;padding-top:5px}
+.svc h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.52rem;line-height:1.1;letter-spacing:-.01em}
+.svc p{color:var(--paper-dim);font-size:14.5px;line-height:1.58;flex:1}
+.svc .war{
+  display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--paper-mute);border-top:1px solid var(--line-2);padding-top:18px;width:100%;
+}
+.svc .war b{color:var(--red-bright);font-weight:500}
+.svc .ico [stroke]{stroke:var(--red);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke}
+.svc .ico [data-fill]{fill:var(--red);stroke:none}
+
+/* ---------- RISK CHECK ---------- */
+.risk{background:var(--ink-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.risk-shell{display:grid;grid-template-columns:1fr;gap:clamp(40px,5vw,72px);margin-top:clamp(40px,5vw,64px);align-items:start}
+@media(min-width:920px){.risk-shell{grid-template-columns:1fr 1.08fr}}
+.risk-controls{display:flex;flex-direction:column;gap:var(--s5)}
+.field-group .flab{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-mute);margin-bottom:16px}
+.field-group .flab b{color:var(--red-bright);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{
+  background:transparent;border:1px solid var(--line);color:var(--paper-dim);
+  padding:10px 16px;border-radius:2px;font-size:13.5px;letter-spacing:.01em;
+  transition:border-color .18s,color .18s,background .18s;
+}
+.chip:hover{border-color:var(--paper-dim);color:var(--paper)}
+.chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--paper)}
+select.suburb{
+  width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);
+  padding:15px 16px;border-radius:2px;font-family:inherit;font-size:15px;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%238b8278' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;
+}
+.risk-readout{
+  background:var(--ink);border:1px solid var(--line);border-radius:3px;
+  padding:clamp(28px,3.5vw,42px);position:relative;overflow:hidden;min-height:360px;
+  display:flex;flex-direction:column;
+}
+.risk-readout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red)}
+.ro-empty{color:var(--paper-mute);font-style:italic;font-family:'Fraunces',serif;font-weight:300;font-size:1.2rem;margin:auto 0;max-width:32ch;line-height:1.5}
+.ro-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ro-head h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.06;letter-spacing:-.015em}
+.ro-head h3 em{font-style:italic;color:var(--paper-dim)}
+.ro-band{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border:1px solid var(--line);border-radius:2px;color:var(--paper);white-space:nowrap}
+.ro-band[data-band="elevated"]{border-color:var(--red);color:var(--red-bright)}
+.ro-band[data-band="seasonal"]{border-color:var(--paper-dim);color:var(--paper-dim)}
+.ro-band[data-band="steady"]{border-color:var(--line);color:var(--paper-mute)}
+.ro-meter{height:4px;background:var(--ink-3);border-radius:99px;overflow:hidden;margin:26px 0 28px}
+.ro-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--red-bright));transition:width .8s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){.ro-meter i{transition:none}}
+.ro-body{color:var(--paper-dim);font-size:15px;line-height:1.62;flex:1}
+.ro-body strong{color:var(--paper);font-weight:400}
+.ro-note{margin-top:20px;font-size:12px;color:var(--paper-mute);font-style:italic;line-height:1.5}
+.ro-cta{margin-top:26px}
+.ro-cta .btn-pri{width:100%;justify-content:center}
+
+/* ---------- METHOD (4 steps) ---------- */
+.steps{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-2);margin-top:clamp(44px,6vw,72px);border-block:1px solid var(--line-2)}
+@media(min-width:780px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:var(--ink);padding:clamp(30px,3vw,42px) clamp(24px,2.6vw,34px);display:flex;flex-direction:column;gap:20px;position:relative}
+.step .sn{font-family:'Fraunces',serif;font-weight:300;font-size:2.8rem;line-height:1;color:var(--paper-mute);letter-spacing:-.03em}
+.step .sn em{font-style:italic;color:var(--red);font-size:.46em;vertical-align:super;margin-left:3px}
+.step h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.34rem}
+.step p{color:var(--paper-dim);font-size:14px;line-height:1.56}
+
+/* ---------- LEGACY / EDITORIAL STORY ---------- */
+.legacy{background:var(--ink-2);border-block:1px solid var(--line-2);position:relative}
+.legacy-grid{display:grid;grid-template-columns:1fr;gap:clamp(44px,5vw,84px);align-items:start;margin-top:clamp(40px,5vw,56px)}
+@media(min-width:940px){.legacy-grid{grid-template-columns:1.05fr .95fr}}
+.dropcap{font-family:'Fraunces',serif;font-weight:300;color:var(--paper-dim);font-size:16px;line-height:1.78}
+.dropcap p{margin-bottom:1.15em}
+.dropcap p:first-of-type::first-letter{
+  font-family:'Fraunces',serif;float:left;font-size:4.6rem;line-height:.74;
+  padding:8px 16px 0 0;color:var(--red);font-weight:400;font-style:italic;
+}
+.dropcap b{color:var(--paper);font-weight:400}
+.pullquote{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+  font-size:clamp(1.55rem,2.8vw,2.15rem);line-height:1.26;color:var(--paper);
+  border-left:2px solid var(--red);padding:8px 0 8px 28px;margin:var(--s6) 0 0;
+}
+.pullquote cite{display:block;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-mute);margin-top:20px}
+
+/* vertical timeline — the signature device, repeated in the story */
+.timeline{position:relative;padding-left:36px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--red) 0%,var(--line) 14%,var(--line) 86%,transparent 100%)}
+.tl-item{position:relative;padding-bottom:var(--s6)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-33.5px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--ink-2);border:1px solid var(--red)}
+.tl-item.live::before{background:var(--red);box-shadow:0 0 0 4px rgba(200,37,42,.14)}
+.tl-yr{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;color:var(--red-bright);margin-bottom:9px}
+.tl-h{font-family:'Fraunces',serif;font-weight:400;font-size:1.24rem;margin-bottom:9px;line-height:1.18}
+.tl-p{color:var(--paper-dim);font-size:14px;line-height:1.56;max-width:42ch}
+
+/* ---------- WARRANTY RISK REVERSAL ---------- */
+.reverse{position:relative;overflow:hidden;border-block:1px solid var(--line-2)}
+.reverse-grad{position:absolute;inset:0;z-index:0;background:radial-gradient(80% 130% at 88% 0%,rgba(200,37,42,.15),transparent 58%);pointer-events:none}
+.reverse .wrap{position:relative;z-index:1}
+.reverse-in{display:grid;grid-template-columns:1fr;gap:clamp(40px,5vw,72px);align-items:center}
+@media(min-width:880px){.reverse-in{grid-template-columns:1.2fr .9fr}}
+.reverse h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.2rem,5.6vw,3.9rem);line-height:1.02;letter-spacing:-.02em}
+.reverse h2 em{font-style:italic;color:var(--red-bright)}
+.reverse p{color:var(--paper-dim);font-size:clamp(1rem,1.4vw,1.2rem);margin-top:var(--s4);max-width:52ch;line-height:1.6}
+.reverse p b{color:var(--paper);font-weight:400}
+.shield-card{border:1px solid var(--line);border-radius:3px;padding:clamp(28px,3.4vw,42px);background:rgba(11,10,9,.45)}
+.shield-card svg{width:44px;height:44px;margin-bottom:24px}
+.shield-card svg [stroke]{stroke:var(--red);stroke-width:1.3;fill:none}
+.warlist{list-style:none;display:flex;flex-direction:column;gap:0}
+.warlist li{display:flex;gap:16px;font-size:14.5px;color:var(--paper-dim);line-height:1.4;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line-2)}
+.warlist li:last-child{border-bottom:0;padding-bottom:0}
+.warlist li:first-child{padding-top:0}
+.warlist li b{color:var(--paper);font-weight:400}
+.warlist .tk{color:var(--red-bright);font-family:'JetBrains Mono',monospace;font-size:11.5px;flex:0 0 46px;letter-spacing:.04em}
+
+/* ---------- FAQ ---------- */
+.faq-grid{margin-top:clamp(44px,6vw,64px);border-top:1px solid var(--line-2)}
+.faq-item{border-bottom:1px solid var(--line-2)}
+.faq-q{
+  width:100%;background:none;border:0;color:var(--paper);text-align:left;
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  padding:28px 0;font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(1.14rem,2vw,1.46rem);line-height:1.26;
+}
+.faq-q .qn{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--red-bright);flex:0 0 auto;letter-spacing:.08em;align-self:flex-start;padding-top:7px}
+.faq-q .qt{flex:1}
+.faq-ico{flex:0 0 auto;width:18px;height:18px;position:relative;align-self:center}
+.faq-ico::before,.faq-ico::after{content:"";position:absolute;background:var(--red);transition:transform .3s}
+.faq-ico::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%)}
+.faq-ico::after{top:0;left:50%;height:100%;width:1.5px;transform:translateX(-50%)}
+.faq-item[open] .faq-ico::after{transform:translateX(-50%) scaleY(0)}
+.faq-a-in{padding:0 0 30px;max-width:64ch;color:var(--paper-dim);font-size:15.5px;line-height:1.66}
+.faq-a-in b{color:var(--paper);font-weight:400}
+details.faq-item summary{list-style:none;cursor:pointer}
+details.faq-item summary::-webkit-details-marker{display:none}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--ink-2);border-top:1px solid var(--line-2)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:clamp(44px,5vw,72px);margin-top:clamp(40px,5vw,56px);align-items:start}
+@media(min-width:920px){.contact-grid{grid-template-columns:.85fr 1.15fr}}
+.contact-aside .lead{color:var(--paper-dim);font-size:16px;line-height:1.62;margin-bottom:var(--s6);max-width:42ch}
+.detail{display:flex;flex-direction:column;gap:var(--s4)}
+.detail a,.detail div{display:flex;align-items:flex-start;gap:16px;color:var(--paper)}
+.detail .dico{width:20px;height:20px;flex:0 0 auto;margin-top:3px}
+.detail .dico [stroke]{stroke:var(--red);stroke-width:1.4;fill:none}
+.detail .dk{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-mute);display:block;margin-bottom:4px}
+.detail .dv{font-size:16px;color:var(--paper)}
+.detail a:hover .dv{color:var(--red-bright)}
+
+form.quote{background:var(--ink);border:1px solid var(--line);border-radius:3px;padding:clamp(28px,3.4vw,42px)}
+.qrow{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+@media(min-width:560px){.qrow.two{grid-template-columns:1fr 1fr}}
+.qfield{display:flex;flex-direction:column;gap:9px;margin-bottom:var(--s4)}
+.qfield label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-mute)}
+.qfield label .req{color:var(--red-bright)}
+.qfield input,.qfield select,.qfield textarea{
+  background:var(--ink-2);border:1px solid var(--line);color:var(--paper);
+  padding:14px 15px;border-radius:2px;font-family:inherit;font-size:15px;width:100%;
+  transition:border-color .2s;
+}
+.qfield input::placeholder,.qfield textarea::placeholder{color:var(--paper-mute)}
+.qfield input:focus,.qfield select:focus,.qfield textarea:focus{border-color:var(--red);outline:none}
+.qfield textarea{resize:vertical;min-height:110px}
+.qfield select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%238b8278' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:6px 0 var(--s4);font-size:12.5px;color:var(--paper-mute);line-height:1.5}
+.consent input{margin-top:3px;flex:0 0 auto;accent-color:var(--red);width:16px;height:16px}
+.consent a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:2px}
+.qsubmit{width:100%;justify-content:center;font-size:15px;padding:16px}
+.qsubmit:disabled{opacity:.6;cursor:wait}
+.formmsg{margin-top:20px;font-size:14px;padding:15px 16px;border-radius:2px;display:none;line-height:1.5}
+.formmsg.ok{display:block;border:1px solid var(--red);background:rgba(200,37,42,.08);color:var(--paper)}
+.formmsg.err{display:block;border:1px solid var(--paper-mute);background:rgba(243,236,228,.04);color:var(--paper)}
+.formmsg a{color:var(--paper);text-decoration:underline}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);border-top:1px solid var(--line);padding-block:clamp(52px,6vw,84px) var(--s6)}
+.foot-top{display:grid;grid-template-columns:1fr;gap:var(--s6);padding-bottom:var(--s6);border-bottom:1px solid var(--line-2)}
+@media(min-width:760px){.foot-top{grid-template-columns:1.4fr 1fr 1fr}}
+.foot-brand img{height:34px;margin-bottom:22px}
+.foot-brand p{color:var(--paper-mute);font-size:14px;line-height:1.6;max-width:38ch}
+.foot-col h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-mute);margin-bottom:20px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col a{color:var(--paper-dim);font-size:14px;transition:color .2s}
+.foot-col a:hover{color:var(--red-bright)}
+.compliance{padding-top:var(--s6);display:flex;flex-direction:column;gap:18px}
+.compliance .lic{color:var(--paper-mute);font-size:12.5px;line-height:1.64;max-width:94ch}
+.compliance .lic b{color:var(--paper-dim);font-weight:400}
+.foot-legal{display:flex;flex-wrap:wrap;gap:9px 22px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--paper-mute);margin-top:var(--s2)}
+.foot-legal .sep{width:4px;height:4px;border-radius:50%;background:var(--red);opacity:.7;flex:0 0 auto}
+
+/* sticky mobile call bar */
+.mobile-call{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  display:flex;background:var(--red);
+  transform:translateY(100%);transition:transform .3s;
+}
+.mobile-call.show{transform:translateY(0)}
+.mobile-call a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:15px;color:var(--paper);font-size:15px;font-weight:500;letter-spacing:.01em}
+.mobile-call a+a{border-left:1px solid rgba(255,255,255,.22)}
+.mobile-call svg{width:16px;height:16px}
+@media(min-width:1000px){.mobile-call{display:none}}
+@media(max-width:999px){body.has-bar{padding-bottom:54px}}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="DJ Pest — home">
+      <img src="/assets/logo-header.png" alt="DJ Pest — redback spider mark, white spider with red marking" width="113" height="32">
+      <span class="wm">DJ&nbsp;Pest<em>Est. 1998</em></span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#risk">Risk Check</a>
+      <a href="#method">Method</a>
+      <a href="#legacy">Our Story</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="call-btn" href="tel:0447747769" aria-label="Call DJ Pest on 0447 747 769">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+      0447 747 769
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-h">
+    <canvas class="hero-canvas" id="web" aria-hidden="true"></canvas>
+    <div class="hero-grad" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <div class="hero-kick reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <span class="lab">Perth · Western&nbsp;Australia · <b>Est.&nbsp;1998</b></span>
+        </div>
+        <h1 id="hero-h" class="reveal"><span class="drop" aria-hidden="true">T</span><span aria-hidden="true">he</span><span class="sr-only">The</span> family name<br>that <em>guards</em> the home.</h1>
+        <p class="hero-lead reveal">Second-generation pest management for Perth's northern suburbs. The redback on our door isn't the threat — <b>it's the one keeping watch.</b> Twenty-five years of family trade, now carried forward with documented warranties and a Chartered Accountant's rigour.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-pri" href="#contact">Request a quote
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#risk">Check your suburb's risk</a>
+        </div>
+        <div class="hero-meta reveal">
+          <span><i class="dot" aria-hidden="true"></i>Same-day for active termites</span>
+          <span><i class="dot" aria-hidden="true"></i>Quotes typically within 2 hours</span>
+          <span><i class="dot" aria-hidden="true"></i>$20M public liability</span>
+        </div>
+      </div>
+
+      <aside class="hero-mast reveal" aria-label="The DJ Pest lineage">
+        <span class="hm-cap">The lineage</span>
+        <div class="hm-row">
+          <div class="hm-yr">1998</div>
+          <div class="hm-txt">The trade begins, Perth's north</div>
+        </div>
+        <div class="hm-row">
+          <div class="hm-yr">2018</div>
+          <div class="hm-txt">A thousand homes on record</div>
+        </div>
+        <div class="hm-row now">
+          <div class="hm-yr now">2026</div>
+          <div class="hm-txt">The second generation, DJ&nbsp;Pest</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust" aria-label="At a glance">
+    <div class="trust-grid">
+      <div class="stat"><div class="n">25<em>+</em></div><div class="l">Years of family trade across Perth</div></div>
+      <div class="stat"><div class="n">1,000<em>+</em></div><div class="l">Perth homes treated and on record</div></div>
+      <div class="stat"><div class="n">8<em>yr</em></div><div class="l">Termite warranty to&nbsp;AS&nbsp;3660.2</div></div>
+      <div class="stat"><div class="n">~2<em>hr</em></div><div class="l">Typical turnaround on a written quote</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec-pad" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">01</span><span class="rule" aria-hidden="true"></span><span class="lab">What we do</span></div>
+        <h2 id="svc-h">Six services, one&nbsp;<em>standard.</em></h2>
+        <p>Every job is inspected, identified, treated to its Australian Standard, and closed with a warranty you can hold in your hand and pass to the next owner.</p>
+      </div>
+      <div class="svc-grid reveal">
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path stroke="" d="M8 40V20l16-12 16 12v20"/><path stroke="" d="M8 40h32"/><path data-fill="" d="M22 40v-8h4v8z"/><path stroke="" d="M16 26h6M26 26h6"/></svg></span>
+            <span class="no">/ 01</span>
+          </div>
+          <h3>Termite Treatment</h3>
+          <p>Non-repellent perimeter systems installed to AS&nbsp;3660.2 — engineered to protect the structure, not just the swarm you can see.</p>
+          <span class="war">Documented warranty&nbsp;·&nbsp;<b>8 years</b></span>
+        </article>
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><circle stroke="" cx="20" cy="20" r="11"/><path stroke="" d="M28 28l12 12"/><path stroke="" d="M16 20h8M20 16v8"/></svg></span>
+            <span class="no">/ 02</span>
+          </div>
+          <h3>Timber-Pest Inspection</h3>
+          <p>A full AS&nbsp;4349.3 inspection with a written report and photographs — the document buyers, sellers and banks actually want to read.</p>
+          <span class="war">Written report&nbsp;·&nbsp;<b>with photos</b></span>
+        </article>
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><rect stroke="" x="8" y="22" width="32" height="18" rx="2"/><path stroke="" d="M14 22V16a6 6 0 0 1 12 0v6"/><circle data-fill="" cx="30" cy="31" r="3"/></svg></span>
+            <span class="no">/ 03</span>
+          </div>
+          <h3>Rodent Control</h3>
+          <p>Tamper-resistant stations placed to a plan, mapped and monitored — discreet around children, pets and pantries alike.</p>
+          <span class="war">Documented warranty&nbsp;·&nbsp;<b>3 months</b></span>
+        </article>
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><circle data-fill="" cx="24" cy="24" r="4"/><path stroke="" d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6"/></svg></span>
+            <span class="no">/ 04</span>
+          </div>
+          <h3>Ant Elimination</h3>
+          <p>Slow-transfer baiting matched to Perth's coastal brown-ant super-colonies — the patient method that reaches the nest, not just the trail.</p>
+          <span class="war">Documented warranty&nbsp;·&nbsp;<b>3 months</b></span>
+        </article>
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><circle stroke="" cx="24" cy="24" r="6"/><path stroke="" d="M24 4v6M24 38v6M4 24h6M38 24h6M9 9l5 5M34 34l5 5M39 9l-5 5M14 34l-5 5"/></svg></span>
+            <span class="no">/ 05</span>
+          </div>
+          <h3>Spider &amp; Arachnid</h3>
+          <p>Long-residual perimeter treatment carried right up to the eaves and weep holes — the corners webs are actually built in.</p>
+          <span class="war">Coverage&nbsp;·&nbsp;<b>90 days</b></span>
+        </article>
+
+        <article class="svc">
+          <div class="top">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path stroke="" d="M24 6c8 0 14 6 14 16 0 12-8 20-14 20S10 34 10 22C10 12 16 6 24 6z"/><path stroke="" d="M18 20h12M16 27h16"/></svg></span>
+            <span class="no">/ 06</span>
+          </div>
+          <h3>General Pest</h3>
+          <p>Cockroaches, silverfish and earwigs handled in one coordinated treatment — the household nuisances, dealt with properly.</p>
+          <span class="war">Documented warranty&nbsp;·&nbsp;<b>3 months</b></span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK CHECK -->
+  <section class="risk sec-pad" id="risk" aria-labelledby="risk-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">02</span><span class="rule" aria-hidden="true"></span><span class="lab">Interactive</span></div>
+        <h2 id="risk-h">A reading on&nbsp;<em>your</em> patch.</h2>
+        <p>Choose a pest and a northern-suburbs locale for a quick, general seasonal note. It's guidance to start a conversation — never a diagnosis. When you're ready, we'll pre-fill your quote.</p>
+      </div>
+
+      <div class="risk-shell">
+        <div class="risk-controls reveal">
+          <div class="field-group">
+            <span class="flab" id="pestlab">Step one&nbsp;·&nbsp;<b>choose a pest</b></span>
+            <div class="chips" role="group" aria-labelledby="pestlab" id="pestChips">
+              <button type="button" class="chip" data-pest="termite" aria-pressed="false">Termites</button>
+              <button type="button" class="chip" data-pest="spider" aria-pressed="false">Spiders</button>
+              <button type="button" class="chip" data-pest="ant" aria-pressed="false">Ants</button>
+              <button type="button" class="chip" data-pest="rodent" aria-pressed="false">Rodents</button>
+              <button type="button" class="chip" data-pest="general" aria-pressed="false">Cockroaches</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="flab" for="suburbSel">Step two&nbsp;·&nbsp;<b>choose a suburb</b></label>
+            <select class="suburb" id="suburbSel">
+              <option value="">Select a Perth suburb…</option>
+              <option>Joondalup</option><option>Hillarys</option><option>Duncraig</option>
+              <option>Kingsley</option><option>Warwick</option><option>Wanneroo</option>
+              <option>Currambine</option><option>Mindarie</option><option>Sorrento</option>
+              <option>Greenwood</option><option>Padbury</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="risk-readout reveal" id="readout" aria-live="polite">
+          <p class="ro-empty" id="roEmpty">Pick a pest and a suburb, and a short seasonal note will appear here — written for your part of Perth.</p>
+          <div id="roFull" hidden>
+            <div class="ro-head">
+              <h3 id="roTitle"></h3>
+              <span class="ro-band" id="roBand" data-band="steady"></span>
+            </div>
+            <div class="ro-meter" aria-hidden="true"><i id="roBar"></i></div>
+            <p class="ro-body" id="roBody"></p>
+            <p class="ro-note" id="riskNote">General seasonal guidance only. Pressure varies house to house — a site inspection is the only way to know what's actually present.</p>
+            <div class="ro-cta">
+              <button type="button" class="btn btn-pri" id="roQuote">Pre-fill my quote
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="sec-pad" id="method" aria-labelledby="method-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">03</span><span class="rule" aria-hidden="true"></span><span class="lab">How it works</span></div>
+        <h2 id="method-h">Four steps, every&nbsp;<em>single</em> time.</h2>
+        <p>The same disciplined sequence whether it's a single nest or a whole-of-home termite barrier. Nothing skipped, nothing assumed.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><div class="sn">01<em>·</em></div><h3>Inspect</h3><p>We walk the site to the relevant Australian Standard, reading the building and its conditions before anything is treated.</p></div>
+        <div class="step"><div class="sn">02<em>·</em></div><h3>Identify</h3><p>The species and the pressure are confirmed — because the coastal brown ant and the termite ask for very different answers.</p></div>
+        <div class="step"><div class="sn">03<em>·</em></div><h3>Treat</h3><p>APVMA-registered products applied to label, with the method chosen to suit the pest, the structure and the household.</p></div>
+        <div class="step"><div class="sn">04<em>·</em></div><h3>Warrant</h3><p>You receive a documented, transferable warranty and a clear record of exactly what was done and where.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGACY / STORY -->
+  <section class="legacy sec-pad" id="legacy" aria-labelledby="legacy-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">04</span><span class="rule" aria-hidden="true"></span><span class="lab">Our story</span></div>
+        <h2 id="legacy-h">A trade&nbsp;<em>handed</em> down.</h2>
+      </div>
+      <div class="legacy-grid">
+        <div class="legacy-col reveal">
+          <div class="dropcap">
+            <p>In 1998, Danny Johns began treating homes across Perth's northern suburbs under the WDJ Pest Control name. Twenty-five years on, the ladder still goes up the same way, the inspection still starts in the same corners, and more than a thousand families know the van when it pulls into the drive.</p>
+            <p>DJ Pest is the next chapter — the same trade, the same standards, now run by his son <b>Dane Johns</b>: a Chartered Accountant who chose the family craft and trained for it formally under CPP30119. The result is a business that treats your home like a tradesman and keeps its records like an accountant.</p>
+            <p>Through the provisional licence period, Dane works <b>under WDJ Pest Control's licensed pest-management supervisor</b> — the standard supervised pathway in Western Australia — carrying $20M in public liability cover. The hands are second-generation. The paperwork has never been tighter.</p>
+          </div>
+          <blockquote class="pullquote">
+            “The redback on our door was never meant to frighten you. It's there to do one job — keep watch over the house.”
+            <cite>Dane Johns · Founder</cite>
+          </blockquote>
+        </div>
+
+        <div class="legacy-col reveal">
+          <div class="timeline" aria-label="DJ Pest timeline since 1998">
+            <div class="tl-item">
+              <div class="tl-yr">1998</div>
+              <div class="tl-h">The first van</div>
+              <p class="tl-p">Danny Johns founds WDJ Pest Control and begins servicing homes through Joondalup, Duncraig and the surrounding coast.</p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-yr">2018</div>
+              <div class="tl-h">Everything on record</div>
+              <p class="tl-p">Client histories move onto a single system — the start of treating documentation as part of the service, not an afterthought.</p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-yr">2024</div>
+              <div class="tl-h">The next generation trains</div>
+              <p class="tl-p">Dane Johns — Chartered Accountant — enrols in CPP30119 Urban Pest Management to carry the trade forward properly.</p>
+            </div>
+            <div class="tl-item live">
+              <div class="tl-yr">2026 · Now</div>
+              <div class="tl-h">DJ Pest opens its doors</div>
+              <p class="tl-p">Operating under supervised provisional licence with $20M public liability cover, full endorsement targeted for late 2026.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY RISK REVERSAL -->
+  <section class="reverse sec-pad" aria-labelledby="rev-h">
+    <div class="reverse-grad" aria-hidden="true"></div>
+    <div class="wrap reverse-in">
+      <div class="reverse-copy reveal">
+        <div class="kicker"><span class="idx">05</span><span class="rule" aria-hidden="true"></span><span class="lab">The promise</span></div>
+        <h2 id="rev-h">If the covered pests come back, <em>so do we.</em></h2>
+        <p>Every treatment closes with a documented warranty — written down, dated, and transferable to the next owner. Within its covered period, if the listed pests return, we return to re-treat. <b>No theatre, no fine-print gymnastics — just the record and the callback.</b></p>
+      </div>
+      <div class="shield-card reveal">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path stroke="" d="M24 4l16 6v12c0 11-7 18-16 22-9-4-16-11-16-22V10z"/><path stroke="" d="M17 24l5 5 9-10"/></svg>
+        <ul class="warlist">
+          <li><span class="tk">8&nbsp;yr</span><span><b>Termite treatment</b> to AS&nbsp;3660.2</span></li>
+          <li><span class="tk">90&nbsp;d</span><span><b>Spider &amp; arachnid</b> perimeter coverage</span></li>
+          <li><span class="tk">3&nbsp;mo</span><span><b>General, ant &amp; rodent</b> documented warranty</span></li>
+          <li><span class="tk">↪</span><span><b>Transferable</b> to the next owner on sale</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec-pad" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">06</span><span class="rule" aria-hidden="true"></span><span class="lab">Good questions</span></div>
+        <h2 id="faq-h">The honest&nbsp;<em>answers.</em></h2>
+        <p>The things people ask before they book — including the licensing and warranty questions we think you should ask.</p>
+      </div>
+      <div class="faq-grid reveal">
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q1</span><span class="qt">Is DJ Pest fully licensed?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">Dane Johns is currently working on a <b>provisional licence under WDJ Pest Control's licensed pest-management supervisor</b> — the standard supervised pathway for new technicians in Western Australia. Every job carries $20M public liability cover, and full endorsement is targeted for late 2026. We'd rather state this plainly than overclaim.</div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q2</span><span class="qt">How do the warranties actually work?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">Each treatment is closed with a written, dated warranty: <b>8 years on termite work to AS&nbsp;3660.2</b>, 90 days on spider perimeter treatments, and 3 months on general, ant and rodent work. If the covered pests return within that period, we come back to re-treat. The warranty is documented and transferable to the next owner, and it operates <b>alongside your rights under the Australian Consumer Law</b> — never instead of them.</div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q3</span><span class="qt">How quickly can you get to me?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">For <b>active termites we aim for a same-day response</b> — that's the one you don't sit on. Written quotes are typically turned around within about two hours, and bookings usually land within 48 hours. We're contactable 7am–5pm, seven days.</div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q4</span><span class="qt">Which suburbs do you cover?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">Our roots are in Perth's northern suburbs — <b>Joondalup, Hillarys, Duncraig, Kingsley, Warwick, Wanneroo, Currambine, Mindarie, Sorrento, Greenwood and Padbury</b> — and the surrounding coast. If you're nearby and not sure, call and ask.</div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q5</span><span class="qt">What products do you use around children and pets?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">We use <b>APVMA-registered products applied strictly to label</b>, and we choose the method to suit the household — for example tamper-resistant stations for rodents and targeted baiting for ants. We'll always walk you through what's being applied and any label directions to follow before we begin.</div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qn">Q6</span><span class="qt">Why a redback spider as the brand?</span><span class="faq-ico" aria-hidden="true"></span></summary>
+          <div class="faq-a"><div class="faq-a-in">Because the redback knows every corner, weep hole and eave of a Perth home better than anyone. We took that as our <b>guardian</b> — the one keeping watch over the house, not the one you're afraid of. It's a quietly Australian way of saying we're paying attention to the places pests actually hide.</div></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact sec-pad" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <div class="kicker"><span class="idx">07</span><span class="rule" aria-hidden="true"></span><span class="lab">Get in touch</span></div>
+        <h2 id="contact-h">Tell us what you're&nbsp;<em>seeing.</em></h2>
+        <p>A few details is all it takes. We'll come back — typically within a couple of hours — with a written quote and a time.</p>
+      </div>
+
+      <div class="contact-grid">
+        <aside class="contact-aside reveal">
+          <p class="lead">Prefer to talk it through? Call straight away — especially if you think termites are active. We're on the line seven days.</p>
+          <div class="detail">
+            <a href="tel:0447747769">
+              <span class="dico" aria-hidden="true"><svg viewBox="0 0 24 24"><path stroke="" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg></span>
+              <span><span class="dk">Phone</span><span class="dv">0447 747 769</span></span>
+            </a>
+            <a href="mailto:ops@djpest.com.au">
+              <span class="dico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect stroke="" x="3" y="5" width="18" height="14" rx="2"/><path stroke="" d="M3 7l9 6 9-6"/></svg></span>
+              <span><span class="dk">Email</span><span class="dv">ops@djpest.com.au</span></span>
+            </a>
+            <div>
+              <span class="dico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle stroke="" cx="12" cy="12" r="9"/><path stroke="" d="M12 7v5l3 2"/></svg></span>
+              <span><span class="dk">Hours</span><span class="dv">7am – 5pm · 7 days</span></span>
+            </div>
+            <div>
+              <span class="dico" aria-hidden="true"><svg viewBox="0 0 24 24"><path stroke="" d="M12 21c5-5 8-8.5 8-12a8 8 0 0 0-16 0c0 3.5 3 7 8 12z"/><circle stroke="" cx="12" cy="9" r="2.5"/></svg></span>
+              <span><span class="dk">Service area</span><span class="dv">Perth northern suburbs, WA</span></span>
+            </div>
+          </div>
+        </aside>
+
+        <form class="quote reveal" id="quoteForm" action="/api/contact" method="POST" novalidate>
+          <div class="qrow two">
+            <div class="qfield">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="qfield">
+              <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="qrow two">
+            <div class="qfield">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="qfield">
+              <label for="f-suburb">Suburb <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-suburb" name="suburb" type="text" autocomplete="address-level2" required>
+            </div>
+          </div>
+          <div class="qfield">
+            <label for="f-pest">Pest type <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-pest" name="pestType" required>
+              <option value="">Select a service…</option>
+              <option value="Termite Treatment">Termite Treatment</option>
+              <option value="Timber-Pest Inspection">Timber-Pest Inspection</option>
+              <option value="Rodent Control">Rodent Control</option>
+              <option value="Ant Elimination">Ant Elimination</option>
+              <option value="Spider & Arachnid">Spider &amp; Arachnid</option>
+              <option value="General Pest">General Pest</option>
+              <option value="Not sure yet">Not sure — need advice</option>
+            </select>
+          </div>
+          <div class="qfield">
+            <label for="f-message">What are you seeing?</label>
+            <textarea id="f-message" name="message" placeholder="Where, how many, how long — anything that helps us prepare."></textarea>
+          </div>
+
+          <!-- honeypot -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Leave this field empty</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="consent" for="f-consent">
+            <input id="f-consent" type="checkbox" required>
+            <span>I consent to DJ Pest contacting me about this enquiry. My details are used only to respond to it.</span>
+          </label>
+
+          <button class="btn btn-pri qsubmit" type="submit" id="submitBtn">
+            Send my enquiry
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+          </button>
+          <p class="formmsg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="/assets/logo-header.png" alt="DJ Pest — redback spider mark" width="113" height="34">
+        <p>Second-generation pest management for Perth's northern suburbs. The guardian on your door since the trade began in 1998.</p>
+      </div>
+      <nav class="foot-col" aria-label="Services">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Termite Treatment</a></li>
+          <li><a href="#services">Timber-Pest Inspection</a></li>
+          <li><a href="#services">Rodent Control</a></li>
+          <li><a href="#services">Ant Elimination</a></li>
+          <li><a href="#services">Spider &amp; Arachnid</a></li>
+          <li><a href="#services">General Pest</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="Company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#legacy">Our Story</a></li>
+          <li><a href="#method">Our Method</a></li>
+          <li><a href="#risk">Risk Check</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="tel:0447747769">0447 747 769</a></li>
+          <li><a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="compliance">
+      <p class="lic"><b>Licensing &amp; insurance.</b> DJ Pest operates during a provisional licence period, with pest-management work carried out under the supervision of WDJ Pest Control's licensed pest-management supervisor — the standard supervised pathway in Western Australia. Full endorsement is targeted for late 2026. $20M public liability insurance held. APVMA-registered products are applied strictly to label.</p>
+      <p class="lic"><b>Warranties.</b> All warranties are documented, dated and transferable, and operate <b>alongside — not instead of — your rights under the Australian Consumer Law</b>. Seasonal risk guidance shown on this site is general information only and is not a site-specific assessment.</p>
+      <div class="foot-legal">
+        <span>DJ Pest Pty Ltd ATF Johns Family Trust</span><span class="sep" aria-hidden="true"></span>
+        <span>ABN 86 797 740 716</span><span class="sep" aria-hidden="true"></span>
+        <span>Perth, Western Australia</span><span class="sep" aria-hidden="true"></span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile call/quote bar -->
+<div class="mobile-call" id="mobileBar">
+  <a href="tel:0447747769" aria-label="Call 0447 747 769"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>Call</a>
+  <a href="#contact">Get a quote</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- header state + mobile bar ---- */
+  var hdr = document.querySelector('.hdr');
+  var bar = document.getElementById('mobileBar');
+  document.body.classList.add('has-bar');
+  function onScroll(){
+    var y = window.scrollY || 0;
+    hdr.classList.toggle('scrolled', y > 12);
+    if (bar) bar.classList.toggle('show', y > 540);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- reveal on scroll ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){el.classList.add('in');});
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.12});
+    reveals.forEach(function(el){io.observe(el);});
+  }
+
+  /* ---- hero signature: a slow, sparse "web filament" field (no imagery) ---- */
+  var cv = document.getElementById('web');
+  if (cv){
+    var ctx = cv.getContext('2d'), W=0, H=0, dpr=1, nodes=[], raf=null;
+    function build(){
+      nodes = [];
+      var count = W < 680 ? 22 : 40;
+      for (var i=0;i<count;i++){
+        nodes.push({
+          x: Math.random()*W, y: Math.random()*H,
+          vx:(Math.random()-.5)*0.09, vy:(Math.random()-.5)*0.09,
+          r: Math.random()*1.1+0.5
+        });
+      }
+    }
+    function size(){
+      dpr = Math.min(window.devicePixelRatio||1, 2);
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = Math.max(1,W*dpr); cv.height = Math.max(1,H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      build();
+    }
+    function draw(animate){
+      ctx.clearRect(0,0,W,H);
+      var i,a,b;
+      if (animate){
+        for (i=0;i<nodes.length;i++){
+          var n=nodes[i];
+          n.x+=n.vx; n.y+=n.vy;
+          if(n.x<0||n.x>W) n.vx*=-1;
+          if(n.y<0||n.y>H) n.vy*=-1;
+        }
+      }
+      for (a=0;a<nodes.length;a++){
+        for (b=a+1;b<nodes.length;b++){
+          var dx=nodes[a].x-nodes[b].x, dy=nodes[a].y-nodes[b].y;
+          var d=Math.sqrt(dx*dx+dy*dy);
+          if(d<150){
+            var al=(1-d/150)*0.13;
+            ctx.strokeStyle='rgba(200,37,42,'+al+')';
+            ctx.lineWidth=0.55;
+            ctx.beginPath();
+            ctx.moveTo(nodes[a].x,nodes[a].y);
+            ctx.lineTo(nodes[b].x,nodes[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (i=0;i<nodes.length;i++){
+        ctx.fillStyle='rgba(200,37,42,0.42)';
+        ctx.beginPath();
+        ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r,0,Math.PI*2);
+        ctx.fill();
+      }
+      if (animate){ raf = requestAnimationFrame(function(){draw(true);}); }
+    }
+    function start(){
+      if (raf) cancelAnimationFrame(raf);
+      size();
+      if (reduce){ draw(false); } else { draw(true); }
+    }
+    var rt;
+    window.addEventListener('resize', function(){
+      clearTimeout(rt); rt = setTimeout(start, 150);
+    });
+    start();
+  }
+
+  /* ---- Risk Check ---- */
+  var pest=null, suburb='';
+  var chips = document.querySelectorAll('#pestChips .chip');
+  var sel = document.getElementById('suburbSel');
+  var roEmpty=document.getElementById('roEmpty');
+  var roFull=document.getElementById('roFull');
+  var roTitle=document.getElementById('roTitle');
+  var roBand=document.getElementById('roBand');
+  var roBar=document.getElementById('roBar');
+  var roBody=document.getElementById('roBody');
+
+  var PESTS = {
+    termite: { label:'Termites', svc:'Termite Treatment', band:'elevated', score:88,
+      body:'Subterranean termites are Perth’s most costly timber pest and tend to be most active through the warmer months. Around <strong>__SUB__</strong>, older fence lines, garden beds against the slab and stored timber are the usual first points of contact. A current AS 3660.2 barrier and a regular inspection are the real protections — this is the one not to wait on.' },
+    spider: { label:'Spiders', svc:'Spider & Arachnid', band:'seasonal', score:62,
+      body:'Webbing activity around eaves, weep holes and external corners generally lifts heading into the warmer months. In coastal pockets like <strong>__SUB__</strong>, sheltered brickwork and patio corners are where you’ll notice them first. A long-residual perimeter treatment focuses on exactly those edges.' },
+    ant: { label:'Ants', svc:'Ant Elimination', band:'seasonal', score:66,
+      body:'Perth’s coastal brown ant forms large super-colonies that push indoors looking for moisture and food, especially in the warmer, drier stretches. Around <strong>__SUB__</strong>, trails along paving joints and kitchen edges are typical. Slow-transfer baiting is the patient method that reaches the nest rather than just the trail.' },
+    rodent: { label:'Rodents', svc:'Rodent Control', band:'seasonal', score:58,
+      body:'Rodent pressure across Perth tends to climb as it cools and they seek warmth indoors — roof voids, subfloors and garages first. Near <strong>__SUB__</strong>, established gardens and nearby reserves can keep numbers up year-round. Mapped, tamper-resistant stations let us monitor as well as control.' },
+    general: { label:'Cockroaches', svc:'General Pest', band:'seasonal', score:60,
+      body:'Cockroaches, silverfish and earwigs are warm-weather opportunists drawn to moisture — kitchens, laundries and subfloors. In homes around <strong>__SUB__</strong>, plumbing voids and roof cavities are the common harbourage. A coordinated general treatment handles the lot in one visit.' }
+  };
+  var BANDLABEL = { elevated:'Elevated', seasonal:'Seasonal', steady:'Steady' };
+
+  function render(){
+    if(!pest || !suburb){ return; }
+    var p = PESTS[pest];
+    roEmpty.hidden = true;
+    roFull.hidden = false;
+    roTitle.innerHTML = p.label + ' <em>in</em> ' + suburb;
+    roBand.textContent = BANDLABEL[p.band];
+    roBand.setAttribute('data-band', p.band);
+    roBody.innerHTML = p.body.replace('__SUB__', suburb);
+    roBar.style.width = '0%';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ roBar.style.width = p.score + '%'; });
+    });
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+      pest = c.getAttribute('data-pest');
+      render();
+    });
+  });
+  sel.addEventListener('change', function(){ suburb = sel.value; render(); });
+
+  document.getElementById('roQuote').addEventListener('click', function(){
+    if(pest){
+      var p = PESTS[pest];
+      var ps = document.getElementById('f-pest');
+      for (var i=0;i<ps.options.length;i++){
+        if (ps.options[i].value === p.svc) { ps.selectedIndex = i; break; }
+      }
+    }
+    if(suburb){ document.getElementById('f-suburb').value = suburb; }
+    var msg = document.getElementById('f-message');
+    if(pest && !msg.value){
+      msg.value = 'Enquiring about ' + PESTS[pest].label.toLowerCase() + (suburb ? ' in ' + suburb : '') + ' after using the Risk Check.';
+    }
+    var target = document.getElementById('contact');
+    target.scrollIntoView({behavior: reduce ? 'auto':'smooth', block:'start'});
+    setTimeout(function(){ document.getElementById('f-name').focus({preventScroll:true}); }, reduce?0:650);
+  });
+
+  /* ---- quote form submit ---- */
+  var form = document.getElementById('quoteForm');
+  var fmsg = document.getElementById('formMsg');
+  var btn = document.getElementById('submitBtn');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    fmsg.className = 'formmsg';
+
+    /* honeypot — silently accept and stop */
+    if (form.website.value){
+      fmsg.className = 'formmsg ok';
+      fmsg.textContent = 'Thank you — your enquiry is in.';
+      form.reset();
+      return;
+    }
+
+    if (!form.checkValidity()){
+      fmsg.className = 'formmsg err';
+      fmsg.textContent = 'Please add your name, phone, suburb, a service and tick the consent box so we can get back to you.';
+      var firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    var payload = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      suburb: form.suburb.value.trim(),
+      pestType: form.pestType.value,
+      message: form.message.value.trim()
+    };
+
+    btn.disabled = true;
+    var orig = btn.innerHTML;
+    btn.textContent = 'Sending…';
+
+    fetch('/api/contact', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad');
+      form.reset();
+      fmsg.className = 'formmsg ok';
+      fmsg.textContent = 'Thank you — your enquiry is in. We’ll be in touch shortly, typically within a couple of hours during our 7am–5pm hours.';
+      btn.innerHTML = orig; btn.disabled = false;
+    }).catch(function(){
+      fmsg.className = 'formmsg err';
+      fmsg.innerHTML = 'Something went wrong sending that. Please call us on <a href="tel:0447747769">0447 747 769</a> and we’ll sort it straight away.';
+      btn.innerHTML = orig; btn.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

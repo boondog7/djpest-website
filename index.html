@@ -1,1280 +1,148 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DJ Pest — Perth Pest Control | Second-Generation Service</title>
-  <meta name="description" content="DJ Pest: Perth's second-generation pest control. Rats, ants, spiders, termites — properly treated, fully warrantied. Modern systems, licensed operators. Call 0447 747 769.">
-  <meta name="theme-color" content="#cc0000">
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="canonical" href="https://djpest.com.au">
-
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="DJ Pest — Perth Pest Control">
-  <meta property="og:description" content="Second-generation pest control. Termites, ants, rodents, spiders. Licensed, warrantied, Perth metro.">
-  <meta property="og:url" content="https://djpest.com.au">
-  <meta property="og:site_name" content="DJ Pest">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DJ Pest — Perth Pest Control">
-  <meta name="twitter:description" content="Termites, ants, rodents, spiders. Licensed, fully warrantied. Perth metro coverage.">
-  <!-- Self-hosted fonts (no render-blocking CDN) -->
-  <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/fonts/fonts.css">
-
-  <!-- Schema Markup for LocalBusiness, Service, and FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://djpest.com.au#localbusiness",
-    "name": "DJ Pest",
-    "legalName": "DJ Pest Pty Ltd ATF Johns Family Trust",
-    "description": "Second-generation Perth pest control. Termites, ants, rodents, spiders. Licensed, insured, fully warrantied.",
-    "url": "https://djpest.com.au",
-    "telephone": "+61447747769",
-    "email": "ops@djpest.com.au",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Warwick",
-      "addressLocality": "Warwick",
-      "addressRegion": "WA",
-      "postalCode": "6024",
-      "addressCountry": "AU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "-31.8377",
-      "longitude": "115.8082"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "17:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "14:00"
-      }
-    ],
-    "sameAs": [
-      "https://facebook.com/djpestperth",
-      "https://instagram.com/djpestperth"
-    ],
-    "areaServed": [
-      {"@type": "City", "name": "Joondalup"},
-      {"@type": "City", "name": "Wanneroo"},
-      {"@type": "City", "name": "Currambine"},
-      {"@type": "City", "name": "Mindarie"},
-      {"@type": "City", "name": "Hillarys"},
-      {"@type": "City", "name": "Sorrento"},
-      {"@type": "City", "name": "Duncraig"},
-      {"@type": "City", "name": "Greenwood"},
-      {"@type": "City", "name": "Kingsley"},
-      {"@type": "City", "name": "Warwick"},
-      {"@type": "City", "name": "Padbury"},
-      {"@type": "City", "name": "Beldon"}
-    ],
-    "priceRange": "$$"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does treatment take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most treatments take 1–2 hours. Termite inspections and treatments may take longer depending on property size and pest type. We'll give you an exact estimate when you call."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's your warranty?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "3 months on general pest and rodent services. 8 years on termite treatments when completed to AS 3660.2 standards. Warranty is documented and transferable. If treatment fails within warranty period, we return at no charge."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are you licensed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We're working toward full licensure under CPP30119. Provisional licence pending. Dane operates under Danny Johns' established license during transition. Full Endorsement 2 (Commercial & Domestic) targeted late 2026."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need to leave the house?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For most treatments, you don't need to leave. Some spray treatments require temporary absence of pets. We'll brief you before starting. Termite treatments may require longer ventilation periods — we'll advise."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly can you respond?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most quotes returned within 2 hours. Most bookings available within 48 hours. Active termite infestations get same-day or next-day service. Call 0447 747 769 for urgent bookings."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What areas do you cover?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "All of Perth metro — from Joondalup in the north to Kwinana in the south, east to Kalamunda, west to the coast. Single service area, no zone restrictions."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root {
-      --white: #ffffff;
-      --off-white: #f0f0f0;
-      --ink: #0a0a0a;
-      --charcoal: #1a1a1a;
-      --steel: #2a2a2a;
-      --red: #cc0000;
-      --red-glow: rgba(204, 0, 0, 0.5);
-      --line: rgba(255, 255, 255, 0.08);
-      --line-dark: rgba(255, 255, 255, 0.12);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      background: #000;
-    }
-    html::-webkit-scrollbar { width: 0; }
-
-    body {
-      background: #000;
-      color: var(--cream);
-      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    /* ============================================================
-       HEADER
-       ============================================================ */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-    }
-    @media (max-width: 768px) { header { padding: 16px 20px; } }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    @media (max-width: 768px) { nav { gap: 12px; } }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 13px;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    nav a:hover { opacity: 1; }
-    @media (max-width: 768px) { nav a:not(.cta) { display: none; } }
-
-    .cta-btn {
-      padding: 10px 20px;
-      background: var(--red);
-      color: #fff;
-      border-radius: 100px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .cta-btn:hover {
-      background: var(--red);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* ============================================================
-       HERO
-       ============================================================ */
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-videos {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    .hero video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      transition: opacity 0.9s cubic-bezier(0.4, 0.0, 0.2, 1), filter 0.9s cubic-bezier(0.4, 0.0, 0.2, 1);
-      filter: blur(0px) brightness(1);
-    }
-
-    @media (max-width: 768px) {
-      .hero video {
-        object-fit: contain;
-        background: #000;
-      }
-      .hero-content h1 {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-      }
-      .hero-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-
-
-    .hero video.active {
-      opacity: 1;
-      filter: blur(0px) brightness(1);
-    }
-
-    .hero video.transitioning {
-      opacity: 0.5;
-      filter: blur(3px) brightness(0.97);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      max-width: 800px;
-      padding: 40px;
-    }
-
-    .hero-content h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-
-    .hero-content h1 em {
-      font-style: italic;
-      color: var(--red);
-    }
-
-    .hero-content p {
-      font-size: clamp(1rem, 1.5vw, 1.25rem);
-      opacity: 0.95;
-      margin-bottom: 40px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 16px 32px;
-      border-radius: 100px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background: rgba(204, 0, 0, 0.8);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-    .btn-secondary:hover {
-      background: #fff;
-      color: var(--ink);
-      border-color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* ============================================================
-       SECTION STYLES
-       ============================================================ */
-
-    section {
-      padding: 100px 40px;
-    }
-    @media (max-width: 768px) { section { padding: 60px 20px; } }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-
-    section h2 em {
-      color: var(--red);
-      font-style: italic;
-    }
-
-    section h3 {
-      font-family: 'Fraunces', serif;
-      font-weight: 400;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-
-    /* Services */
-    .services {
-      background: var(--ink);
-      color: var(--white);
-      padding-left: 0;
-      padding-right: 0;
-      overflow: hidden;
-    }
-
-    .services-scroll-wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      padding: 0 40px 60px;
-      cursor: grab;
-    }
-
-    .services-scroll-wrapper::-webkit-scrollbar { display: none; }
-
-    .services-track {
-      display: flex;
-      gap: 24px;
-      width: max-content;
-      padding-bottom: 8px;
-    }
-
-    .service-card {
-      width: 320px;
-      flex-shrink: 0;
-      padding: 40px;
-      background: var(--charcoal);
-      border-radius: 4px;
-      border: 1px solid var(--line-dark);
-      transition: all 0.3s;
-    }
-    .service-card:hover {
-      border-color: var(--red);
-      transform: translateY(-4px);
-    }
-
-    .service-card h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 16px;
-      color: var(--white);
-    }
-
-    .service-card p {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.6;
-    }
-
-    /* Why Us */
-    .why-us {
-      background: #000;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 50px;
-    }
-
-    .why-item h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-bottom: 12px;
-      color: var(--red);
-    }
-
-    .why-item p {
-      opacity: 0.85;
-      line-height: 1.7;
-    }
-
-    /* Trust ribbon (under hero) */
-    .trust-ribbon {
-      background: var(--ink);
-      color: var(--white);
-      padding: 50px 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    @media (max-width: 768px) { .trust-ribbon { padding: 36px 20px; } }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) {
-      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
-    }
-    .trust-item { text-align: center; }
-    .trust-num {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1;
-      color: var(--red);
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-    }
-    .trust-num span {
-      font-size: 0.55em;
-      opacity: 0.75;
-      margin-left: 2px;
-      letter-spacing: 0;
-    }
-    .trust-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.02em;
-      line-height: 1.45;
-      opacity: 0.8;
-    }
-
-    /* Chemistry Roster */
-    .roster {
-      background: var(--charcoal);
-      color: var(--white);
-    }
-
-    .roster-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .roster-item {
-      padding: 24px;
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid var(--line-dark);
-      text-align: center;
-    }
-
-    .roster-item h4 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-bottom: 8px;
-      font-style: italic;
-    }
-
-    .roster-item .spec {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 12px;
-    }
-
-    .roster-item .use {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      line-height: 1.5;
-    }
-
-    /* Service Areas */
-    .service-areas {
-      background: #000;
-    }
-
-    .suburb-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
-    .suburb-tag {
-      padding: 12px 16px;
-      background: rgba(245, 239, 235, 0.05);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      font-size: 14px;
-      text-align: center;
-      opacity: 0.85;
-      transition: all 0.2s;
-    }
-    .suburb-tag:hover {
-      background: rgba(245, 180, 151, 0.1);
-      border-color: var(--peach);
-      opacity: 1;
-    }
-
-    /* FAQ */
-    .faq {
-      background: var(--charcoal);
-      color: var(--white);
-    }
-
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      margin-bottom: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid var(--line-dark);
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-q {
-      font-family: 'Fraunces', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-      color: var(--red);
-    }
-
-    .faq-a {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      line-height: 1.7;
-    }
-
-    /* Contact Form */
-    .contact-section {
-      background: var(--charcoal);
-      color: var(--white);
-    }
-
-    .contact-wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-section p {
-      font-size: 1.1rem;
-      opacity: 0.85;
-      margin-bottom: 40px;
-      line-height: 1.7;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid var(--line-dark);
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-      background: #fff;
-      color: var(--ink);
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--peach);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 16px;
-      background: var(--red);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .form-submit:hover {
-      background: var(--peach);
-      color: var(--ink);
-      transform: translateY(-2px);
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 60px;
-      padding-top: 60px;
-      border-top: 1px solid var(--line-dark);
-    }
-
-    .contact-method h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 12px;
-    }
-
-    .contact-method a {
-      font-family: 'Fraunces', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .contact-method a:hover {
-      color: var(--peach-bright);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 60px 40px 30px;
-      text-align: center;
-      border-top: 1px solid var(--line);
-    }
-
-    footer p {
-      opacity: 0.6;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    footer a {
-      color: var(--cream);
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    footer a:hover { opacity: 1; }
-
-    /* ============================================================
-       UTILITIES
-       ============================================================ */
-
-    .tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--peach);
-      margin-bottom: 16px;
-    }
-
-  </style>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants</title>
+<meta name="description" content="Licensed, second-generation pest control for Perth&#x27;s northern suburbs. Itemised prices in writing, a treatment report after every job, and a re-treatment promise. Call 0447 747 769.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="canonical" href="https://djpest.com.au">
+
+<meta property="og:type" content="website"><meta property="og:site_name" content="DJ Pest"><meta property="og:title" content="DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants"><meta property="og:description" content="Licensed, second-generation pest control for Perth&#x27;s northern suburbs. Itemised prices in writing, a treatment report after every job, and a re-treatment promise. Call 0447 747 769."><meta property="og:url" content="https://djpest.com.au"><meta property="og:image" content="https://djpest.com.au/assets/img/og-default.jpg"><meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["LocalBusiness","PestControl"],"@id":"https://djpest.com.au/#business","name":"DJ Pest","legalName":"DJ Pest Pty Ltd ATF Johns Family Trust","url":"https://djpest.com.au","telephone":"+61447747769","email":"ops@djpest.com.au","image":"https://djpest.com.au/assets/img/og-default.jpg","logo":"https://djpest.com.au/assets/img/logo-black.png","address":{"@type":"PostalAddress","addressLocality":"Warwick","addressRegion":"WA","postalCode":"6024","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-31.8404,"longitude":115.808},"areaServed":[{"@type":"City","name":"Warwick"},{"@type":"City","name":"Greenwood"},{"@type":"City","name":"Duncraig"},{"@type":"City","name":"Sorrento"},{"@type":"City","name":"Hillarys"},{"@type":"City","name":"Kingsley"},{"@type":"City","name":"Woodvale"},{"@type":"City","name":"Joondalup"},{"@type":"City","name":"Padbury"},{"@type":"City","name":"Craigie"},{"@type":"City","name":"Kallaroo"},{"@type":"City","name":"Mullaloo"},{"@type":"City","name":"Ocean Reef"},{"@type":"City","name":"Currambine"},{"@type":"City","name":"Kinross"},{"@type":"City","name":"Wanneroo"},{"@type":"City","name":"Marangaroo"},{"@type":"City","name":"Girrawheen"},{"@type":"City","name":"Balcatta"},{"@type":"City","name":"Stirling"},{"@type":"City","name":"Carine"},{"@type":"City","name":"Karrinyup"},{"@type":"City","name":"Hamersley"},{"@type":"City","name":"Balga"},{"@type":"City","name":"Alkimos"},{"@type":"City","name":"Clarkson"},{"@type":"City","name":"Butler"},{"@type":"City","name":"Mindarie"},{"@type":"City","name":"Quinns Rocks"},{"@type":"City","name":"Yanchep"}],"openingHours":"Mo-Sa 07:00-18:00","priceRange":"$$","founder":{"@type":"Person","@id":"https://djpest.com.au/#dane"},"identifier":[{"@type":"PropertyValue","propertyID":"ABN","value":"86797740716"},{"@type":"PropertyValue","propertyID":"WA Pest Management Business Registration","value":"PMB 3000"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"WA Pest Management Technician Licence 13914","recognizedBy":{"@type":"GovernmentOrganization","name":"WA Department of Health"}}},{"@type":"Person","@id":"https://djpest.com.au/#dane","name":"Dane Johns","jobTitle":"Director and Licensed Pest Management Technician","worksFor":{"@id":"https://djpest.com.au/#business"},"url":"https://djpest.com.au/about"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to leave the house during treatment?","acceptedAnswer":{"@type":"Answer","text":"For a standard general pest treatment, no. You and pets stay out of treated areas until surfaces are dry, usually two hours. We tell you the re-entry period for the specific product before we start."}},{"@type":"Question","name":"What about kids and pets during treatment?","acceptedAnswer":{"@type":"Answer","text":"Every product we use is registered by the APVMA and applied at the label rate. We use non-staining, low-odour formulations indoors and keep people and pets out until the re-entry period has passed. If anyone in the home is pregnant, asthmatic or chemically sensitive, tell us and we adjust the plan."}},{"@type":"Question","name":"What if the pests come back?","acceptedAnswer":{"@type":"Answer","text":"If the pest on your invoice is still active inside the treated area within the re-treatment period, we come back and re-treat at no charge. Periods are six months for general pest, three months for ants and rodents, 30 days for fleas and wasps. Full terms here."}},{"@type":"Question","name":"How much does pest control cost in Perth?","acceptedAnswer":{"@type":"Answer","text":"It depends on the pest, the size of the property and how established the problem is. We publish a transparent pricing guide so you know the range before you call, and every quote is itemised."}},{"@type":"Question","name":"Are you licensed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Dane holds WA Pest Management Technician Licence 13914 and DJ Pest is a registered pest management business (PMB 3000) with the WA Department of Health."}}]}]}</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="i-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></g>
+<g id="i-message"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></g>
+<g id="i-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g>
+<g id="i-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g>
+<g id="i-check"><path d="M20 6 9 17l-5-5"/></g>
+<g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></g>
+<g id="i-doc"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></g>
+<g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<g id="i-mail"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></g>
+<g id="i-menu"><path d="M4 7h16M4 12h16M4 17h16"/></g>
+<g id="i-target"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="2"/></g>
+</defs></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/" aria-label="DJ Pest home"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  <nav class="nav" id="nav"><a href="/services">Services</a><a href="/termite-inspection-perth">Termites</a><a href="/pest-control-prices-perth">Pricing</a><a href="/service-areas">Areas</a><a href="/about">About</a><a href="/blog">Blog</a><a class="btn btn-primary" href="tel:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 0447 747 769</a></nav>
+</div></header>
 
-<!-- Header -->
-<header>
-  <a href="#" class="logo">
-    <img src="assets/logo-header.png" class="logo-mark" alt="DJ Pest logo" />
-    DJ Pest
-  </a>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#areas">Coverage</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact" class="cta-btn">Get quote</a>
-  </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-videos">
-    <video class="active" autoplay muted playsinline
-           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/c881126506c22b338101b9ca6db297d3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline
-           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/50fea90f74bd80cd9b2493bb4d2b0fa3/downloads/default.mp4"></video>
-    <video autoplay muted playsinline
-           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/b2c93833f7c806ac899663161069fa04/downloads/default.mp4"></video>
-    <video autoplay muted playsinline
-           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/9055be1c695f5871c71e46b237437b6a/downloads/default.mp4"></video>
-    <video autoplay muted playsinline
-           src="https://customer-vse5dkzg7f3e81ww.cloudflarestream.com/324bcf5d623798d5827df22af124e9f5/downloads/default.mp4"></video>
+<main id="main">
+<section class="hero"><div class="wrap">
+<div>
+  <div class="eyebrow mono">Perth&#x27;s northern suburbs · Warwick-based · Licensed</div>
+  <h1>Rats in the roof tonight?<br>We fix it <em class="red">properly</em>, and put it in writing.</h1>
+  <p class="lead">Second-generation Perth pest controller, run by a Chartered Accountant who hates hidden fees more than termites. Every job gets an itemised price before we start and a written treatment record after.</p>
+  <div class="actions"><a class="btn btn-primary" href="tel:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 0447 747 769</a><a class="btn btn-ghost" href="#quote">Get a fair price<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  <ul class="trust"><li>WA licence 13914</li><li>Registered business PMB 3000</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
+</div>
+<div class="hero-art" aria-hidden="true">
+<svg class="crosshair" viewBox="0 0 400 400">
+  <circle class="ring" cx="200" cy="200" r="150"/>
+  <line class="tick" x1="200" y1="20" x2="200" y2="66"/><line class="tick" x1="200" y1="334" x2="200" y2="380"/>
+  <line class="tick" x1="20" y1="200" x2="66" y2="200"/><line class="tick" x1="334" y1="200" x2="380" y2="200"/>
+  <image class="rat" href="/assets/img/rat-crosshair-white.png" x="70" y="72" width="260" height="256"/>
+</svg></div>
+</div></section><section class="ledger"><div class="wrap"><div class="eyebrow mono">What we treat</div><div class="section-head"><h2>Seven jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div><div class="grid grid-3"><a class="card" href="/termite-inspection-perth"><div class="num">01 / Termites</div><h3>Termite inspection</h3><p>A full AS 4349.3 timber pest inspection with photos, moisture readings and a written report you can act on.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/termite-treatment-perth"><div class="num">02 / Termites</div><h3>Termite treatment</h3><p>Non-repellent chemical management systems installed to AS 3660.2, or baiting where that suits the site better.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/general-pest-control-perth"><div class="num">03 / General</div><h3>General pest treatment</h3><p>Cockroaches, spiders, silverfish and ants in one internal and external treatment. Six-month re-treatment promise.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/ant-control-perth"><div class="num">04 / Ants</div><h3>Ant control</h3><p>Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a quick spray. We treat the colony.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/cockroach-control-perth"><div class="num">05 / Cockroaches</div><h3>Cockroach control</h3><p>German cockroaches in the kitchen or Australian cockroaches from the garden. Gel baits, IGRs and non-staining products indoors.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/rodent-control-perth"><div class="num">06 / Rodents</div><h3>Rodent control</h3><p>Species identified, entry points found, tamper-resistant stations placed and a sealing plan so they don't come back.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="card" href="/spider-control-perth"><div class="num">07 / Spiders</div><h3>Spider control</h3><p>Redbacks, white-tails and huntsmen. External web-and-harbourage treatment with the internal spray only where it's needed.</p><span class="more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div></div></section><section class=""><div class="wrap"><div class="grid grid-2" style="align-items:center;gap:3rem"><div><div class="eyebrow mono">Why an accountant runs this</div><h2>Most pest companies are run by exterminators. This one is run by someone who audits things for a living.</h2><p class="lead">Dane Johns grew up in his father's Perth pest control business and qualified as a Chartered Accountant before coming back to the trade. That shapes how DJ Pest works: itemised quotes, a chemical application ledger for every job, and a re-treatment promise you can read in full before you book.</p><p><a class="btn btn-ghost" href="/about">Meet Dane <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div><div class="grid" style="gap:.8rem"><div class="card"><h3>Priced in writing before we start</h3><p>No call-out fee, no deposit, no surprises on the invoice. Seven-day terms.</p></div><div class="card"><h3>A record of every treatment</h3><p>Product, active constituent, rate, areas treated and re-entry period, kept for three years as WA law requires and given to you.</p></div><div class="card"><h3>A promise, not a slogan</h3><p>If the pest we treated comes back inside the period on your invoice, we come back at no charge. <a href="/warranty">Read the terms</a>.</p></div></div></div></div></section><section class="ledger"><div class="wrap"><div class="eyebrow mono">The DJ Pest treatment report</div><div class="report"><div><h2>You get the paperwork nobody else gives you.</h2><p class="lead">After every job you receive a report with three parts: where the pests were getting in, exactly what was applied and where, and what to fix so they stay out. It doubles as the treatment record WA regulations require us to keep.</p><div class="report-tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="entry">1. Entry audit</button><button role="tab" aria-selected="false" data-tab="ledger">2. Application ledger</button><button role="tab" aria-selected="false" data-tab="plan">3. Prevention plan</button></div><p class="notice">Sample only. Details vary by job.</p></div><div class="report-doc" aria-live="polite"><div class="doc-head"><img src="/assets/img/logo-black.png" alt="DJ Pest"><span>Treatment report · sample</span></div><div data-pane="entry"><h4>Point-of-entry audit</h4><table><tr><th>Location</th><th>Finding</th><th>Photo</th></tr><tr><td>Roof void, NE corner</td><td>Rat droppings, gnawed sarking, gap at eave</td><td>#04</td></tr><tr><td>Meter box</td><td>Conduit entry unsealed (20 mm)</td><td>#07</td></tr><tr><td>Rear patio</td><td>Coastal brown ant trail to kitchen kickboard</td><td>#11</td></tr></table></div><div data-pane="ledger" hidden><h4>Chemical application ledger</h4><table><tr><th>Product</th><th>Active</th><th>Rate</th><th>Where</th></tr><tr><td>Non-repellent liquid (APVMA-registered)</td><td>Fipronil</td><td>Per label</td><td>External perimeter, ant trails</td></tr><tr><td>Rodenticide block in tamper-resistant station</td><td>Per label</td><td>2 stations</td><td>Roof void, side path</td></tr><tr><td>Non-staining dust</td><td>Per label</td><td>Light</td><td>Wall voids, kickboards</td></tr></table><p style="font-size:.75rem;color:#555;margin:.6rem 0 0">Re-entry: 2 hours after surfaces dry. Technician: D. Johns, Lic. 13914.</p></div><div data-pane="plan" hidden><h4>Prevention plan</h4><table><tr><th>Action</th><th>Who</th><th>By</th></tr><tr><td>Seal eave gap with mesh</td><td>DJ Pest (included)</td><td>Done</td></tr><tr><td>Fit escutcheon to meter-box conduit</td><td>Owner</td><td>2 weeks</td></tr><tr><td>Cut back climber from roofline</td><td>Owner</td><td>Before winter</td></tr><tr><td>Station check</td><td>DJ Pest</td><td>4 weeks</td></tr></table></div><div class="stamp">Itemised · Documented</div></div></div></div></section><section class=""><div class="wrap"><div class="eyebrow mono">What happens on the first visit</div><div class="section-head"><h2>Three steps. No sales pitch.</h2></div><div class="steps"><div class="step"><h3>We look before we spray</h3><p>A walk-through of the house, roof void or sub-floor where it's safe, and the yard. Photos of what we find, and a straight answer about whether you need treatment at all.</p></div><div class="step"><h3>You get an itemised price</h3><p>Written on the spot or sent within the hour. What's being treated, with what, and the re-treatment period that applies. If you'd rather think about it, that's fine.</p></div><div class="step"><h3>Treatment, then the report</h3><p>Products applied to label with re-entry times explained. Your treatment report follows by email, and a reminder before your next inspection is due.</p></div></div></div></section><section class=""><div class="wrap"><div class="eyebrow mono">Perth pest calendar</div><div class="section-head"><h2>What's active right now in the northern suburbs.</h2><p class="lead">Sandy coastal soils, warm summers and mild winters give Perth a predictable pest rhythm. Knowing it means treating at the right time, not after the damage.</p></div><div class="season">
+<div><span class="m">Sep – Nov</span><strong>Spring: ants and spiders wake up</strong><p>Warmer soil brings coastal brown ants and redbacks out. Good time for a perimeter treatment before summer.</p></div>
+<div><span class="m">Nov – Apr</span><strong>Summer: termite swarm season</strong><p>Subterranean termites swarm on warm, humid evenings. Sandy northern-suburb soils and garden timber raise the risk.</p></div>
+<div><span class="m">Mar – May</span><strong>Autumn: cockroaches move indoors</strong><p>German and Australian cockroaches follow warmth and food into kitchens as nights cool.</p></div>
+<div><span class="m">May – Aug</span><strong>Winter: rodents in the roof</strong><p>Rats and mice look for warm voids. Sealing entry points now beats baiting later.</p></div>
+</div></div></section><section class=""><div class="wrap"><div class="eyebrow mono">Where we work</div><div class="grid grid-2" style="align-items:center;gap:3rem"><div><h2>Based in Warwick. Fast across the northern corridor.</h2><p class="lead">We deliberately keep the service area tight so response times stay short and we know the suburbs, soils and pests personally. Greenwood, Duncraig, Sorrento, Hillarys, Joondalup, Wanneroo and everything between.</p><p><a class="btn btn-ghost" href="/service-areas">All service areas <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div><div class="card"><div class="num">Suburb pages</div><ul style="columns:2;list-style:none;padding:0;margin:0;font-size:.95rem;line-height:2"><li><a href="/warwick" style="text-decoration:none;color:var(--ink-2)">Warwick</a></li><li><a href="/greenwood" style="text-decoration:none;color:var(--ink-2)">Greenwood</a></li><li><a href="/duncraig" style="text-decoration:none;color:var(--ink-2)">Duncraig</a></li><li><a href="/sorrento" style="text-decoration:none;color:var(--ink-2)">Sorrento</a></li><li><a href="/hillarys" style="text-decoration:none;color:var(--ink-2)">Hillarys</a></li><li><a href="/joondalup" style="text-decoration:none;color:var(--ink-2)">Joondalup</a></li><li><a href="/wanneroo" style="text-decoration:none;color:var(--ink-2)">Wanneroo</a></li><li><a href="/balcatta" style="text-decoration:none;color:var(--ink-2)">Balcatta</a></li></ul></div></div></div></section><section class="ledger"><div class="wrap"><div class="eyebrow mono">Questions</div><div class="section-head"><h2>Straight answers.</h2></div><div class="faq"><details><summary>Do I need to leave the house during treatment?</summary><p>For a standard general pest treatment, no. You and pets stay out of treated areas until surfaces are dry, usually two hours. We tell you the re-entry period for the specific product before we start.</p></details><details><summary>What about kids and pets during treatment?</summary><p>Every product we use is registered by the APVMA and applied at the label rate. We use non-staining, low-odour formulations indoors and keep people and pets out until the re-entry period has passed. If anyone in the home is pregnant, asthmatic or chemically sensitive, tell us and we adjust the plan.</p></details><details><summary>What if the pests come back?</summary><p>If the pest on your invoice is still active inside the treated area within the re-treatment period, we come back and re-treat at no charge. Periods are six months for general pest, three months for ants and rodents, 30 days for fleas and wasps. <a href="/warranty">Full terms here</a>.</p></details><details><summary>How much does pest control cost in Perth?</summary><p>It depends on the pest, the size of the property and how established the problem is. We publish a <a href="/pest-control-prices-perth">transparent pricing guide</a> so you know the range before you call, and every quote is itemised.</p></details><details><summary>Are you licensed?</summary><p>Yes. Dane holds WA Pest Management Technician Licence 13914 and DJ Pest is a registered pest management business (PMB 3000) with the WA Department of Health.</p></details></div></div></section><section class="quote" id="quote"><div class="wrap">
+  <div>
+    <div class="eyebrow mono">Quote request</div>
+    <h2>Get a fair, itemised price.</h2>
+    <p class="lead">Tell us what you're seeing and where. We'll call you back with a written, itemised price before anything is booked. No obligation, no pressure.</p>
+    <p>Prefer to talk? <a class="btn btn-light" href="tel:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 0447 747 769</a></p>
+    <p class="notice">Or text photos of the pest or droppings to <a href="sms:+61447747769">0447 747 769</a> and we'll identify it.</p>
   </div>
-
-  <div class="hero-content">
-    <div class="tag">Perth WA · Second-generation since 1998</div>
-    <h1>Pest.<br><em>Handled.</em></h1>
-    <p>Termites in the wall. Rats in the roof. Redbacks in the shed. Pick your poison — actually, let us pick the right one. Diagnosed properly, treated with the right chemistry, warranted in writing.</p>
-    <div class="hero-cta">
-      <a href="tel:0447747769" class="btn btn-primary">Call 0447 747 769</a>
-      <a href="#contact" class="btn btn-secondary">Get a quote</a>
+  <form class="lead-form" id="leadForm" method="POST" action="/api/contact" novalidate>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+    <div class="row">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
     </div>
-  </div>
-</section>
-
-<!-- Trust ribbon -->
-<section class="trust-ribbon" aria-label="Why Perth trusts DJ Pest">
-  <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <div class="trust-num">25+ <span>yrs</span></div>
-        <div class="trust-label">Family-trade legacy<br>(WDJ Pest Control, est. 1998)</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">1,000+</div>
-        <div class="trust-label">Perth homes treated<br>across the Northern Suburbs</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">8 <span>yr</span></div>
-        <div class="trust-label">Termite warranty<br>(AS&nbsp;3660.2 compliant)</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">Same day</div>
-        <div class="trust-label">Response for active<br>termites or rodent emergencies</div>
-      </div>
+    <div class="row">
+      <label>Email (optional)<input name="email" type="email" autocomplete="email"></label>
+      <label>Suburb<select name="suburb" required><option value="">Select…</option><option>Warwick</option><option>Greenwood</option><option>Duncraig</option><option>Sorrento</option><option>Hillarys</option><option>Kingsley</option><option>Woodvale</option><option>Joondalup</option><option>Padbury</option><option>Craigie</option><option>Kallaroo</option><option>Mullaloo</option><option>Ocean Reef</option><option>Currambine</option><option>Kinross</option><option>Wanneroo</option><option>Marangaroo</option><option>Girrawheen</option><option>Balcatta</option><option>Stirling</option><option>Carine</option><option>Karrinyup</option><option>Hamersley</option><option>Balga</option><option>Alkimos</option><option>Clarkson</option><option>Butler</option><option>Mindarie</option><option>Quinns Rocks</option><option>Yanchep</option><option>Other</option></select></label>
     </div>
-  </div>
-</section>
-
-<!-- Services -->
-<section id="services" class="services">
-  <div class="container">
-    <h2>What we <em>treat.</em></h2>
-  </div>
-
-  <div class="services-scroll-wrapper">
-    <div class="services-track">
-      <div class="service-card">
-        <h3>Rodent Control</h3>
-        <p>Rats and mice identified by species, mapped by runway, eliminated with tamper-resistant bait stations. 3-month warranty.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Ant Elimination</h3>
-        <p>Super-colonies require slow-acting transfer baits. Workers carry product home, the entire colony collapses — not just the foragers.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Spider & Arachnids</h3>
-        <p>Long-residual surface treatment at eaves, weep holes, and entry points. 90-day coverage, 3-month warranty.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Termite Inspection</h3>
-        <p>AS 4349.3 compliant inspection. Find active colonies before damage spreads. Documentation, photos, written report.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Termite Treatment</h3>
-        <p>AS 3660.2 perimeter treatment with non-repellent chemistry. 8-year warranty, properly stamped and filed.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>General Pest</h3>
-        <p>Cockroaches, silverfish, earwigs, beetles. Integrated approach: identify entry points, eliminate food sources, treat strategically.</p>
-      </div>
+    <label>What's the problem?<select name="pest"><option>Not sure — please identify</option><option>Termites / timber pest</option><option>General pest (cockroaches, spiders, silverfish)</option><option>Ants</option><option>Rodents</option><option>Wasps or bees</option><option>Fleas or bed bugs</option><option>Pre-purchase inspection</option><option>Commercial / strata</option></select></label>
+    <label>Anything else we should know?<textarea name="message" rows="3"></textarea></label>
+    <label class="consent"><input type="checkbox" name="marketing" value="yes"> Send me seasonal pest reminders (a few emails a year, unsubscribe any time).</label>
+    <button class="btn btn-primary" type="submit">Request my price <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <div class="form-msg" role="status" aria-live="polite"></div>
+    <p class="notice">By sending this form you agree to our <a href="/privacy">privacy policy</a>. We only use your details to respond to this enquiry.</p>
+  </form>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
+      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for Perth's northern suburbs. Licensed, documented, priced in writing before we start.</p>
+      <p><a href="tel:+61447747769">0447 747 769</a><br><a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a><br>Mon–Sat 7:00am–6:00pm</p>
     </div>
+    <div><h4>Services</h4><ul>
+      <li><a href="/termite-inspection-perth">Termite inspections</a></li>
+      <li><a href="/termite-treatment-perth">Termite treatment</a></li>
+      <li><a href="/general-pest-control-perth">General pest treatment</a></li>
+      <li><a href="/ant-control-perth">Ant control</a></li>
+      <li><a href="/cockroach-control-perth">Cockroach control</a></li>
+      <li><a href="/spider-control-perth">Spider control</a></li>
+      <li><a href="/rodent-control-perth">Rodent control</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="/about">About Dane</a></li>
+      <li><a href="/pest-control-prices-perth">Pricing guide</a></li>
+      <li><a href="/whats-my-pest">What's my pest?</a></li>
+      <li><a href="/service-areas">Service areas</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="/terms">Terms &amp; conditions</a></li>
+      <li><a href="/warranty">Re-treatment promise</a></li>
+      <li><a href="/privacy">Privacy policy</a></li>
+    </ul></div>
   </div>
-</section>
-
-<!-- Why Us -->
-<section id="why" class="why-us">
-  <div class="container">
-    <h2>Why choose <em>DJ Pest.</em></h2>
-
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>Second-generation</h3>
-        <p>Built on Danny Johns' 1,000+ client foundation. Modern systems, licensed operators, proper documentation.</p>
-      </div>
-
-      <div class="why-item">
-        <h3>Fully warranted</h3>
-        <p>3-month standard, 8-year termite. Every job documented. If treatment fails, we return — no questions.</p>
-      </div>
-
-      <div class="why-item">
-        <h3>Chemistry done right</h3>
-        <p>Transfer baits for super-colonies, long-residual bifenthrin for spiders, non-repellent fipronil for termites. The right product for the job.</p>
-      </div>
-
-      <div class="why-item">
-        <h3>Fast response</h3>
-        <p>Most quotes returned in a couple of hours. Most bookings available within 48 hours. Same-day for active termites.</p>
-      </div>
-
-      <div class="why-item">
-        <h3>Licensed &amp; insured</h3>
-        <p>Operating under WDJ Pest Control's 25-year licensed PMT supervisor (Danny Johns) — the way every pest tech in WA starts. $20M public liability insurance. CPP30119 Cert III enrolment complete.</p>
-      </div>
-
-      <div class="why-item">
-        <h3>Perth metro coverage</h3>
-        <p>From Mindarie down to South Perth. Live photo updates from every job — you see exactly what we found and what we did, not just an invoice in the letterbox a week later.</p>
-      </div>
-    </div>
+  <div class="legal">
+    DJ Pest Pty Ltd ATF Johns Family Trust · ABN 86 797 740 716 · ACN 697 588 579<br>
+    Registered Pest Management Business PMB 3000 (WA Department of Health) · WA Pest Management Technician Licence 13914<br>
+    Based in Warwick WA 6024. Servicing Warwick, Greenwood, Duncraig, Sorrento, Hillarys, Kingsley, Woodvale, Joondalup, Padbury, Craigie, Kallaroo, Mullaloo, Ocean Reef, Currambine, Kinross, Wanneroo and surrounding suburbs.<br>
+    All pesticides are APVMA-registered and applied to label. Re-entry periods are advised before every treatment. © 2026 DJ Pest.
   </div>
-</section>
-
-<!-- Chemistry Roster -->
-<section class="roster">
-  <div class="container">
-    <h2>The chemistry <em>behind the work.</em></h2>
-
-    <div class="roster-grid">
-      <div class="roster-item">
-        <h4>Contrac Blox</h4>
-        <div class="spec">Bromadiolone</div>
-        <div class="use">Single-feed rodent bait. Tamper-resistant stations. 3-month warranty.</div>
-      </div>
-
-      <div class="roster-item">
-        <h4>Advion Gel</h4>
-        <div class="spec">Indoxacarb</div>
-        <div class="use">Transfer bait for ants. Workers carry home, colony collapses.</div>
-      </div>
-
-      <div class="roster-item">
-        <h4>Termidor SC</h4>
-        <div class="spec">Fipronil</div>
-        <div class="use">Non-repellent perimeter treatment. AS 3660.2 compliant. 8-year warranty.</div>
-      </div>
-
-      <div class="roster-item">
-        <h4>Biforce 100SC</h4>
-        <div class="spec">Bifenthrin</div>
-        <div class="use">Long-residual spider & crawling insect treatment. 90-day coverage.</div>
-      </div>
-
-      <div class="roster-item">
-        <h4>Coopex</h4>
-        <div class="spec">Permethrin</div>
-        <div class="use">General pest spray. Cockroaches, silverfish, earwigs. Fast knockdown.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Service Areas -->
-<section id="areas" class="service-areas">
-  <div class="container">
-    <h2>Coverage across <em>Perth metro.</em></h2>
-    <p style="text-align: center; opacity: 0.85; margin-bottom: 50px;">We service all Perth suburbs. Click your area for local details.</p>
-
-    <div class="suburb-grid">
-      <div class="suburb-tag">Joondalup</div>
-      <div class="suburb-tag">Perth CBD</div>
-      <div class="suburb-tag">Fremantle</div>
-      <div class="suburb-tag">Cottesloe</div>
-      <div class="suburb-tag">Applecross</div>
-      <div class="suburb-tag">Como</div>
-      <div class="suburb-tag">Bayswater</div>
-      <div class="suburb-tag">Mount Lawley</div>
-      <div class="suburb-tag">Subiaco</div>
-      <div class="suburb-tag">Claremont</div>
-      <div class="suburb-tag">Nedlands</div>
-      <div class="suburb-tag">Peppermint Grove</div>
-      <div class="suburb-tag">Shenton Park</div>
-      <div class="suburb-tag">Northbridge</div>
-      <div class="suburb-tag">Maylands</div>
-      <div class="suburb-tag">Inglewood</div>
-      <div class="suburb-tag">Belmont</div>
-      <div class="suburb-tag">Ascot</div>
-      <div class="suburb-tag">East Perth</div>
-      <div class="suburb-tag">South Perth</div>
-      <div class="suburb-tag">Cannington</div>
-      <div class="suburb-tag">Bentley</div>
-      <div class="suburb-tag">Kensington</div>
-      <div class="suburb-tag">Victoria Park</div>
-      <div class="suburb-tag">Myaree</div>
-      <div class="suburb-tag">Willagee</div>
-      <div class="suburb-tag">Melville</div>
-      <div class="suburb-tag">Bull Creek</div>
-      <div class="suburb-tag">Leeming</div>
-      <div class="suburb-tag">Kardinya</div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="faq">
-  <div class="container">
-    <h2>Commonly <em>asked.</em></h2>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">How long does treatment take?</div>
-        <div class="faq-a">Most treatments take 1–2 hours. Termite inspections and treatments may take longer depending on property size and pest type. We'll give you an exact estimate when you call.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What's your warranty?</div>
-        <div class="faq-a">3 months on general pest and rodent services. 8 years on termite treatments when completed to AS 3660.2 standards. Warranty is documented and transferable. If treatment fails within warranty period, we return at no charge.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Are you licensed?</div>
-        <div class="faq-a">We're working toward full licensure under CPP30119. Provisional licence pending. Dane operates under Danny Johns' established license during transition. Full Endorsement 2 (Commercial & Domestic) targeted late 2026.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Do I need to leave the house?</div>
-        <div class="faq-a">For most treatments, you don't need to leave. Some spray treatments require temporary absence of pets. We'll brief you before starting. Termite treatments may require longer ventilation periods — we'll advise.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How quickly can you respond?</div>
-        <div class="faq-a">Most quotes returned within 2 hours. Most bookings available within 48 hours. Active termite infestations get same-day or next-day service. Call 0447 747 769 for urgent bookings.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What areas do you cover?</div>
-        <div class="faq-a">All of Perth metro — from Joondalup in the north to Kwinana in the south, east to Kalamunda, west to the coast. Single service area, no zone restrictions.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How much does treatment cost?</div>
-        <div class="faq-a">Pricing depends on property size, pest type, and treatment method. Quotes are free. Call 0447 747 769 or submit the form below and we'll send a detailed quote within 2 hours.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Will you inspect before treating?</div>
-        <div class="faq-a">Always. We identify the pest species, assess entry points, check for harborage, and rule out conditions that might affect treatment. Most treatments include a walk-through with recommendations.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Form -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-wrapper">
-      <h2>Ready to <em>book.</em></h2>
-      <p>Most quotes returned in a couple of hours. Most bookings available inside 48 hours. Same-day service available for active termite infestations.</p>
-
-      <form id="contactForm" method="POST">
-        <div class="form-group">
-          <label for="name">Your name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="suburb">Suburb</label>
-          <input type="text" id="suburb" name="suburb" placeholder="e.g. Joondalup" required>
-        </div>
-
-        <div class="form-group">
-          <label for="pest-type">What's the issue?</label>
-          <select id="pest-type" name="pestType" required>
-            <option value="">Select a pest type...</option>
-            <option value="Rodents">Rodents (rats, mice)</option>
-            <option value="Ants">Ants</option>
-            <option value="Spiders">Spiders</option>
-            <option value="Termites">Termites</option>
-            <option value="General">General pest</option>
-            <option value="Inspection">Termite inspection only</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Details / urgency</label>
-          <textarea id="message" name="message" placeholder="Describe the issue and when you'd like us to visit..."></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Send request</button>
-      </form>
-
-      <div class="contact-methods">
-        <div class="contact-method">
-          <h4>Phone</h4>
-          <a href="tel:0447747769">0447 747 769</a>
-        </div>
-        <div class="contact-method">
-          <h4>Email</h4>
-          <a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a>
-        </div>
-        <div class="contact-method">
-          <h4>Hours</h4>
-          <p style="font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 300; color: var(--ink);">7am–5pm, 7 days</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p><strong>DJ Pest Pty Ltd ATF Johns Family Trust</strong></p>
-    <p>Perth, WA · Licensed, insured, warrantied · Second-generation pest control</p>
-    <p><a href="tel:0447747769">Call 0447 747 769</a> · <a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a></p>
-  </div>
-</footer>
-
+</div></footer>
+<div class="callbar"><a class="btn btn-primary" href="tel:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call now</a><a class="btn btn-ghost" href="sms:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>Text us</a></div>
 <script>
-  // Hero video sequence — seamless morphing transitions with overlap
-  const videos = document.querySelectorAll('.hero-videos video');
-  let currentVideoIndex = 0;
-  const TRANSITION_DURATION = 900;
-  const VIDEO_BUFFER = 0.5;
-
-  function startTransitionToNext() {
-    const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
-    const nextVideo = videos[nextVideoIndex];
-
-    nextVideo.currentTime = 0;
-
-    const playPromise = nextVideo.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(err => console.error('Play failed:', err));
-    }
-
-    videos[currentVideoIndex].classList.add('transitioning');
-    nextVideo.classList.add('transitioning');
-
-    setTimeout(() => {
-      videos[currentVideoIndex].classList.remove('active', 'transitioning');
-      nextVideo.classList.remove('transitioning');
-      nextVideo.classList.add('active');
-      currentVideoIndex = nextVideoIndex;
-    }, TRANSITION_DURATION);
-  }
-
-  function initVideos() {
-    videos.forEach((v, idx) => {
-      v.preload = 'auto';
-      v.muted = true;
-
-      // Transition when video ends naturally
-      v.addEventListener('ended', () => {
-        if (idx === currentVideoIndex) {
-          startTransitionToNext();
-        }
-      });
-    });
-
-    videos[0].classList.add('active');
-
-    // Aggressive autoplay on load
-    const firstVideo = videos[0];
-    firstVideo.muted = true;
-
-    // Try to play immediately
-    const playPromise = firstVideo.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => console.log('Autoplay successful'))
-        .catch(err => {
-          console.log('Autoplay blocked:', err.name);
-          // Fallback: play on first user interaction
-          document.addEventListener('click', () => firstVideo.play(), { once: true });
-          document.addEventListener('touchstart', () => firstVideo.play(), { once: true });
-        });
-    }
-  }
-
-  // Start when DOM is ready, not just window load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initVideos);
-  } else {
-    initVideos();
-  }
-
-  window.addEventListener('load', initVideos);
-
-  // Services horizontal scroll with drag-to-scroll
-  const slider = document.querySelector('.services-scroll-wrapper');
-  if (slider) {
-    let isDown = false, startX, scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.style.cursor = 'grabbing';
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
-    slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      slider.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
-  }
-
-  // Form submission
-  document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = {
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      suburb: document.getElementById('suburb').value,
-      pestType: document.getElementById('pest-type').value,
-      message: document.getElementById('message').value,
-      timestamp: new Date().toISOString()
-    };
-
-    // Send to n8n webhook — replace with your actual webhook URL
-    try {
-      const response = await fetch('https://n8n.jaystack.ai/webhook/dj-pest-quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        alert('Quote request sent! We\'ll be in touch within 2 hours.');
-        document.getElementById('contactForm').reset();
-      } else {
-        alert('Error sending request. Please call 0447 747 769 instead.');
-      }
-    } catch (err) {
-      // Fallback: if webhook is not set up, just alert
-      alert('Request received! We\'ll call you shortly at ' + formData.phone);
-      console.log('Form data:', formData);
-    }
-  });
+(function(){
+  var t=document.querySelector('.nav-toggle'),n=document.getElementById('nav');
+  if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o)});}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});}
+  var f=document.getElementById('leadForm');
+  if(f){f.addEventListener('submit',async function(ev){ev.preventDefault();var m=f.querySelector('.form-msg'),b=f.querySelector('button[type=submit]');
+    var d={};new FormData(f).forEach(function(v,k){d[k]=v});
+    if(!d.name||!d.phone||!d.suburb){m.textContent='Please add your name, mobile and suburb.';return;}
+    b.disabled=true;m.textContent='Sending…';
+    try{var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});var j=await r.json();
+      if(j.ok){m.textContent='Thanks '+d.name.split(' ')[0]+' — we\'ll call you back shortly.';f.reset();}else{m.textContent='Something went wrong. Please call 0447 747 769.';}
+    }catch(e){m.textContent='Could not send. Please call 0447 747 769.';}
+    b.disabled=false;});}
+  document.querySelectorAll('.report-tabs button').forEach(function(bt){bt.addEventListener('click',function(){
+    var p=bt.closest('.report');p.querySelectorAll('.report-tabs button').forEach(function(x){x.setAttribute('aria-selected','false')});bt.setAttribute('aria-selected','true');
+    p.querySelectorAll('.report-doc [data-pane]').forEach(function(x){x.hidden=x.dataset.pane!==bt.dataset.tab});});});
+})();
 </script>
-
 </body>
 </html>

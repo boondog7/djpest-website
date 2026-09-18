@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DJ Pest — Diagnostic Report (Sample)</title>
+<style>
+  :root{
+    --ink:#111;--muted:#5b5b5b;--line:#e3e3e3;--red:#d1001f;--black:#0a0a0a;
+    --paper:#fff;--wash:#faf9f8;--ok:#1a7f37;--warn:#b25e00;--risk:#c01225;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:#2b2b2b;color:var(--ink);
+    font-family:"Helvetica Neue",Arial,system-ui,sans-serif;line-height:1.5;
+    padding:28px 14px;}
+  .sheet{max-width:820px;margin:0 auto;background:var(--paper);
+    box-shadow:0 18px 60px rgba(0,0,0,.45);border-radius:4px;overflow:hidden}
+  /* ---------- header band ---------- */
+  .band{background:var(--black);color:#fff;padding:26px 34px 22px;position:relative}
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--red)}
+  .brandrow{display:flex;align-items:center;gap:16px}
+  .mark{width:54px;height:54px;flex:0 0 54px}
+  .brandtext{display:flex;flex-direction:column;line-height:1.1}
+  .brandtext b{font-size:25px;letter-spacing:.06em;font-weight:800}
+  .brandtext span{font-size:10.5px;letter-spacing:.34em;color:#bdbdbd;text-transform:uppercase;margin-top:3px}
+  .doctitle{margin-top:20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+  .doctitle h1{margin:0;font-size:20px;font-weight:300;letter-spacing:.02em}
+  .doctitle h1 b{font-weight:700}
+  .ref{font-size:11px;color:#cfcfcf;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .ref b{color:#fff}
+  /* ---------- meta grid ---------- */
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+  .meta div{padding:13px 16px;border-right:1px solid var(--line)}
+  .meta div:last-child{border-right:0}
+  .meta .k{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .meta .v{font-size:13px;margin-top:3px;font-weight:600}
+  /* ---------- body ---------- */
+  .body{padding:8px 34px 30px}
+  section{padding:24px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:0}
+  .sh{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .num{width:26px;height:26px;flex:0 0 26px;background:var(--black);color:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .sh h2{margin:0;font-size:15.5px;letter-spacing:.02em;font-weight:700;text-transform:uppercase}
+  .sh .tag{margin-left:auto;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .lead{font-size:13px;color:var(--muted);margin:2px 0 16px 38px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{text-align:left;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:7px 10px;white-space:nowrap}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:nth-child(even){background:var(--wash)}
+  .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;font-size:11.5px}
+  .pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:20px;text-transform:uppercase}
+  .p-ok{background:#e7f5ec;color:var(--ok)}
+  .p-warn{background:#fbeede;color:var(--warn)}
+  .p-risk{background:#fbe3e6;color:var(--risk)}
+  .ledger-foot td{border-bottom:0;border-top:2px solid var(--ink);font-weight:700;background:#fff}
+  .note{font-size:10.5px;color:var(--muted);margin-top:9px}
+  /* prevention */
+  .plan{list-style:none;margin:6px 0 0 38px;padding:0}
+  .plan li{position:relative;padding:9px 0 9px 26px;border-bottom:1px solid var(--line);font-size:13px}
+  .plan li:last-child{border-bottom:0}
+  .plan li::before{content:"";position:absolute;left:0;top:14px;width:9px;height:9px;background:var(--red);
+    transform:rotate(45deg)}
+  .next{display:flex;gap:14px;margin:18px 0 0 38px;flex-wrap:wrap}
+  .next .box{flex:1;min-width:180px;border:1px solid var(--line);border-left:4px solid var(--red);padding:12px 16px;background:var(--wash)}
+  .next .k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .next .v{font-size:15px;font-weight:700;margin-top:3px}
+  /* guarantee + sign */
+  .guarantee{background:var(--black);color:#fff;margin:0 -34px -30px;padding:26px 34px;position:relative}
+  .guarantee::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+  .gtop{display:flex;align-items:center;gap:14px}
+  .gtop svg{width:34px;height:34px;flex:0 0 34px}
+  .gtop h3{margin:0;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+  .gtext{font-size:12.5px;color:#d9d9d9;margin:10px 0 0;max-width:62ch}
+  .signrow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px;gap:16px;flex-wrap:wrap}
+  .sig b{font-family:"Snell Roundhand","Apple Chancery",cursive;font-size:30px;font-weight:400;color:#fff;display:block;line-height:1}
+  .sig span{font-size:10.5px;letter-spacing:.06em;color:#bdbdbd;display:block;margin-top:8px}
+  .fineprint{font-size:10px;color:#9a9a9a;letter-spacing:.02em;text-align:right;line-height:1.7}
+  /* sample ribbon */
+  .ribbon{position:fixed;top:20px;right:-46px;background:var(--red);color:#fff;font-size:11px;
+    letter-spacing:.22em;font-weight:700;padding:6px 56px;transform:rotate(45deg);
+    box-shadow:0 4px 14px rgba(0,0,0,.4);text-transform:uppercase;z-index:9}
+  @media (max-width:560px){
+    .meta{grid-template-columns:repeat(2,1fr)}
+    .meta div:nth-child(2){border-right:0}
+    .body,.band{padding-left:18px;padding-right:18px}
+    .guarantee{margin-left:-18px;margin-right:-18px;padding-left:18px;padding-right:18px}
+    .lead,.plan,.next{margin-left:0}
+    th,td{padding-left:7px;padding-right:7px}
+  }
+  @media print{body{background:#fff;padding:0}.sheet{box-shadow:none}.ribbon{display:none}}
+</style>
+</head>
+<body>
+<div class="ribbon">Sample</div>
+<div class="sheet">
+
+  <!-- ============ HEADER ============ -->
+  <div class="band">
+    <div class="brandrow">
+      <!-- redback mark: white spider, red hourglass -->
+      <svg class="mark" viewBox="0 0 100 100" aria-label="DJ Pest redback">
+        <g fill="#fff">
+          <ellipse cx="50" cy="58" rx="15" ry="20"/>
+          <circle cx="50" cy="36" r="9"/>
+          <g stroke="#fff" stroke-width="3.4" stroke-linecap="round">
+            <path d="M40 46 L18 34 M40 52 L14 50 M40 60 L16 66 M41 67 L22 82"/>
+            <path d="M60 46 L82 34 M60 52 L86 50 M60 60 L84 66 M59 67 L78 82"/>
+          </g>
+        </g>
+        <path d="M50 49 L44 60 L50 66 L56 60 Z M50 66 L44 76 L56 76 Z" fill="#d1001f"/>
+      </svg>
+      <div class="brandtext">
+        <b>DJ&nbsp;PEST</b>
+        <span>The Accountant's Pest Control</span>
+      </div>
+    </div>
+
+    <div class="doctitle">
+      <h1>Property <b>Diagnostic Report</b></h1>
+      <div class="ref">
+        REPORT&nbsp;<b>#DJP-2026-0418</b><br>
+        Issued&nbsp;<b>18&nbsp;Apr&nbsp;2026</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ META ============ -->
+  <div class="meta">
+    <div><div class="k">Client</div><div class="v">M. &amp; S. Henderson</div></div>
+    <div><div class="k">Property</div><div class="v">14 Marri Way, Duncraig WA 6023</div></div>
+    <div><div class="k">Service</div><div class="v">General Pest + Rodent + Timber Inspection</div></div>
+    <div><div class="k">Technician</div><div class="v">Dane Johns, CA</div></div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 1. POINT-OF-ENTRY AUDIT ===== -->
+    <section>
+      <div class="sh">
+        <span class="num">1</span><h2>Point-of-Entry Audit</h2>
+        <span class="tag">Inspection &amp; conducive conditions</span>
+      </div>
+      <p class="lead">Full internal &amp; external inspection. Findings recorded by location, with the conducive
+        conditions allowing entry and a risk rating for each.</p>
+      <table>
+        <thead><tr>
+          <th>Location</th><th>Finding</th><th>Conducive condition</th><th>Risk</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Roof void (NE corner)</td><td>Active roof rat runway + droppings</td><td>Untrimmed Marri branch contacting eaves</td><td><span class="pill p-risk">High</span></td></tr>
+          <tr><td>Subfloor — bathroom</td><td>Moisture &amp; mud tubing (inactive)</td><td>Leaking shower waste; poor ventilation</td><td><span class="pill p-warn">Monitor</span></td></tr>
+          <tr><td>Garage perimeter</td><td>Black house ant trailing</td><td>Mulch bed against weep holes</td><td><span class="pill p-warn">Monitor</span></td></tr>
+          <tr><td>External eaves</td><td>Redback webbing, 3 voids</td><td>Sheltered, undisturbed cavities</td><td><span class="pill p-warn">Monitor</span></td></tr>
+          <tr><td>Living &amp; wet areas</td><td>No cockroach activity detected</td><td>—</td><td><span class="pill p-ok">Clear</span></td></tr>
+          <tr><td>Timber framing (accessible)</td><td>No live termite activity found</td><td>See subfloor moisture above</td><td><span class="pill p-ok">Clear</span></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Inspection limited to accessible areas per AS 4349.3 (timber pest). A full timber pest
+        report is issued separately where a transaction or warranty requires it.</p>
+    </section>
+
+    <!-- ===== 2. CHEMICAL APPLICATION LEDGER ===== -->
+    <section>
+      <div class="sh">
+        <span class="num">2</span><h2>Chemical Application Ledger</h2>
+        <span class="tag">Exactly what was used, where &amp; why</span>
+      </div>
+      <p class="lead">Every product applied at your property — active constituent, APVMA registration, target,
+        location, label rate and batch. Nothing applied that isn't listed here.</p>
+      <table>
+        <thead><tr>
+          <th>Product</th><th>Active</th><th class="mono">APVMA*</th><th>Target</th><th>Location</th><th class="mono">Rate</th><th class="mono">Qty</th><th class="mono">Batch</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Termidor SC</td><td>Fipronil 100 g/L</td><td class="mono">66477</td>
+            <td>Black house ant</td><td>External perimeter, garage</td>
+            <td class="mono">6 mL/L</td><td class="mono">5 L</td><td class="mono">T26-118</td>
+          </tr>
+          <tr>
+            <td>PCO Bifenthrin 100SC</td><td>Bifenthrin 100 g/L</td><td class="mono">61253</td>
+            <td>Spiders (redback)</td><td>Eaves, external voids</td>
+            <td class="mono">5 mL/L</td><td class="mono">4 L</td><td class="mono">B26-204</td>
+          </tr>
+          <tr>
+            <td>Contrac Blox</td><td>Bromadiolone 0.05 g/kg</td><td class="mono">51372</td>
+            <td>Roof rat</td><td>2× locked stations, roof void</td>
+            <td class="mono">2 blocks/stn</td><td class="mono">4 blk</td><td class="mono">C26-077</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="ledger-foot">
+            <td colspan="5">Tamper-resistant stations installed &amp; logged</td>
+            <td class="mono">—</td><td class="mono">2</td><td class="mono">—</td>
+          </tr>
+        </tfoot>
+      </table>
+      <p class="note">*APVMA registration numbers are illustrative in this sample and are recorded from the
+        current product label at time of service. SDS for every product supplied on request. Applied strictly
+        to label by a licensed WA pest management technician. No off-label use.</p>
+    </section>
+
+    <!-- ===== 3. PREVENTION PLAN ===== -->
+    <section>
+      <div class="sh">
+        <span class="num">3</span><h2>Future Prevention Plan</h2>
+        <span class="tag">Keep the problem gone</span>
+      </div>
+      <p class="lead">Treatment removes today's activity. These steps remove the <em>reasons</em> pests came —
+        so you're not paying us again for the same issue.</p>
+      <ul class="plan">
+        <li><b>Trim the Marri branch</b> clear of the eaves (the roof-rat highway). Single biggest fix.</li>
+        <li><b>Repair the shower waste leak</b> &amp; add subfloor vents — removes the moisture that draws termites.</li>
+        <li><b>Pull mulch back 100&nbsp;mm</b> from weep holes around the garage to break the ant trail.</li>
+        <li><b>Leave the bait stations in place</b> — we re-check them at the next visit; do not move or open.</li>
+      </ul>
+      <div class="next">
+        <div class="box"><div class="k">Recommended next service</div><div class="v">Oct 2026 — Spring</div></div>
+        <div class="box"><div class="k">Warranty active until</div><div class="v">18 Apr 2027</div></div>
+        <div class="box"><div class="k">Investment (inc. GST)</div><div class="v">$385.00 — as quoted</div></div>
+      </div>
+    </section>
+
+    <!-- ===== GUARANTEE / SIGN-OFF ===== -->
+    <div class="guarantee">
+      <div class="gtop">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="#fff"><ellipse cx="50" cy="58" rx="13" ry="17"/><circle cx="50" cy="38" r="8"/>
+          <g stroke="#fff" stroke-width="3" stroke-linecap="round">
+          <path d="M41 47 L22 37 M41 53 L18 51 M41 60 L20 66 M42 66 L26 79"/>
+          <path d="M59 47 L78 37 M59 53 L82 51 M59 60 L80 66 M58 66 L74 79"/></g></g>
+          <path d="M50 50 L45 59 L50 64 L55 59 Z M50 64 L45 73 L55 73 Z" fill="#d1001f"/>
+        </svg>
+        <h3>The Redback Guarantee</h3>
+      </div>
+      <p class="gtext">The price was fixed before we started — what you were quoted is what you paid, itemised
+        above with nothing hidden. If a treated pest returns inside the warranty period, we come back and
+        re-treat it free. That's the deal.</p>
+      <div class="signrow">
+        <div class="sig">
+          <b>Dane Johns</b>
+          <span>Dane Johns&nbsp;CA — Owner &amp; Licensed Technician</span>
+        </div>
+        <div class="fineprint">
+          DJ Pest Pty Ltd ATF Johns Family Trust&nbsp;·&nbsp;ABN 86 797 740 716<br>
+          WA Pest Management Licence&nbsp;#PMT-XXXXX (sample)<br>
+          Warwick WA&nbsp;·&nbsp;0447 747 769&nbsp;·&nbsp;djpest.com.au
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

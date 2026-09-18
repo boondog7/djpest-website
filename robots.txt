@@ -1,15 +1,5 @@
-# DJ Pest robots.txt
-# Allow all crawlers
-
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /private
-Disallow: /*.pdf$
-Disallow: /temp/
-
-# Sitemap
+Disallow: /samples/
+Disallow: /api/
 Sitemap: https://djpest.com.au/sitemap.xml
-
-# Crawl delay (optional, gives server breathing room)
-Crawl-delay: 1
