@@ -1,19 +1,43 @@
-# NEXT BUILD — updated 2026-09-18 (site rebuilt, read this before doing anything)
+# NEXT BUILD — 2026-09-18
 
-## What changed on 18 Sep 2026
-The site was rebuilt from scratch on the rat-in-crosshair brand and is LIVE at https://djpest.com.au (Cloudflare Pages project `djpest`).
-**All HTML in the repo root is now GENERATED. Do not hand-edit any .html file.** Edits go in `build/pages/*.py`; run `python3 build/build.py`; it refuses to build if the compliance scanner finds forbidden claims (see `build/build.py` FORBIDDEN and the brief in git history). Deploy with `./deploy.sh` (preview) or `./deploy.sh --prod`.
+## Progress summary
+**Done: 9 service pages + 2 termite + 8 suburb pages + pricing hub + service-areas; ~75% of plan.**
+Huge session today — full site rebuild on the new generator, all core suburb cluster built, termite pages LIVE (licence 13914 confirmed in schema ✅), mosquito + flea + property-managers added.
 
-Pages that exist (29): home, /services + 7 service pages, /service-areas + 8 suburbs (warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta), /pest-control-prices-perth, /whats-my-pest, /about, /contact, /terms, /warranty, /privacy, /blog + 2 posts, /404.
+### Pages built so far
+**Service (9):** ant, cockroach, flea, general, mosquito, rodent, spider, termite-inspection, termite-treatment
+**Suburb (8):** warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta
+**Support:** service-areas, pest-control-prices-perth, whats-my-pest, blog + 2 posts, about, contact, property-managers
 
-## Facts policy (hard)
-Only facts in `build/site.json` and the T&Cs. No founding year, no "25 years", no "1,000+ homes", no insurance dollar figures, no reviews or ratings until real ones exist, never name the father's business. Prices are indicative ranges labelled as such.
+---
 
-## Next tasks (priority order)
-1. **Tier-1 suburb pages not yet built** (add to `build/pages/20_suburbs.py`, same structure as existing entries, 700–1,000 unique words each): Marangaroo, Stirling, Kingsley, Woodvale, Padbury, Carine, Karrinyup, Hamersley.
-2. **BOFU service gaps** (add to `build/pages/10_services.py`): /wasp-removal-perth, /bee-removal-perth (relocation, licensed beekeeper referral), /flea-treatment-perth, /bed-bug-treatment-perth, /commercial-pest-control-perth (strata, food businesses, property managers).
-3. **MOFU cost articles** as blog posts in `build/pages/30_company.py` (BlogPosting schema): "termite treatment cost perth", "exterminator cost", "how much does a termite inspection cost".
-4. **Blog backlog**: convert one bundle per day from `blog/_drafts/` via the content-pipeline skill into a generator page (never publish more than one per day).
-5. Add each new page to the footer/nav only if it is a top-level service.
+## Today's tasks (priority order)
 
-Always: build clean, screenshot at 1280 and 390 with Playwright, commit, push, `./deploy.sh --prod`.
+### 1. `/bee-removal-perth.html` — 480 searches/mo, KD27
+**Why now:** Highest-volume missing service page. Battle plan calls it "fragmented field, easy" (Day 5–10 BOFU). No competitor owns this with a quality page.
+**Target keyword:** `bee removal perth` (480/mo, KD27, CPC est. ~$4)
+**How:** Add to `build/pages/10_services.py` → `python3 build/build.py` → `./deploy.sh --prod`
+**Angle:** Cover live bee removal + relocating to local beekeeper (responsible framing). 900–1200 words, PestControl schema + FAQPage. Mention seasonal spring swarms (Perth Aug–Nov peak).
+
+### 2. `/wasp-removal-perth.html` — 170 searches/mo, KD8
+**Why now:** Lowest KD of all remaining service pages (KD8 = almost zero competition). Quick win, pairs naturally with bee page. Build both in same session.
+**Target keyword:** `wasp removal perth` (170/mo, KD8)
+**How:** Add alongside bee entry in `build/pages/10_services.py`
+**Angle:** European wasp vs paper wasp (Perth has both), nest removal safety, why DIY spraying is risky. 700–900 words.
+
+### 3. `/commercial-pest-control-perth.html` — 390 searches/mo, KD30
+**Why now:** `/property-managers.html` exists but targets property managers specifically, NOT the broader `commercial pest control perth` search term. Recurring-revenue clients (restaurants, strata, warehouses). Dane-the-CA angle = transparent contracts, no hidden fees. Battle plan BOFU Day 5–10.
+**Target keyword:** `commercial pest control perth` (390/mo, KD30)
+**How:** Add to `build/pages/10_services.py` as a separate page from property-managers
+**Angle:** Food-safe methods (HACCP awareness), strata body corporates, ILM programs, monthly service contracts. 900–1100 words.
+
+---
+
+## Up next after these three
+- `/bed-bug-treatment-perth` (110/mo, KD17) — completes BOFU service gaps
+- Suburb pages: Marangaroo (90/KD0), Stirling (70/KD0), Kingsley, Hamersley, Carine, Karrinyup, Woodvale, Padbury — 8 more in schema areaServed but no dedicated pages
+- MOFU blog posts: "termite treatment cost perth" (720/mo, KD8), "exterminator cost perth" (1000/mo, KD11)
+
+## Blockers
+None. Termite licence confirmed (PMB 3000 + Licence 13914 in schema). Build pipeline working.
+`build/` is gitignored — rebuild locally with `python3 build/build.py` then commit generated HTML + `./deploy.sh --prod`.
