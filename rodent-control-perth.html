@@ -124,8 +124,11 @@
     var d={};new FormData(f).forEach(function(v,k){d[k]=v});
     if(!d.name||!d.phone||!d.suburb){m.textContent='Please add your name, mobile and suburb.';return;}
     b.disabled=true;m.textContent='Sending…';
-    try{var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});var j=await r.json();
-      if(j.ok){m.textContent='Thanks '+d.name.split(' ')[0]+' — we\'ll call you back shortly.';f.reset();}else{m.textContent='Something went wrong. Please call 0447 747 769.';}
+    try{
+      var fs=fetch('https://formsubmit.co/ajax/d50bd5ca094e7fb250eb75f3921a0b42',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New website lead: '+d.name+' ('+d.suburb+') — '+(d.pest||'pest not specified'),_template:'table',_captcha:'false',Name:d.name,Mobile:d.phone,Email:d.email||'',Suburb:d.suburb,Pest:d.pest||'',Message:d.message||'','Marketing consent':d.marketing||'no',Page:location.href})}).then(function(r){return r.ok}).catch(function(){return false});
+      var api=fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){return !!j.ok}).catch(function(){return false});
+      var ok=await Promise.all([fs,api]);
+      if(ok[0]||ok[1]){m.textContent='Thanks '+d.name.split(' ')[0]+' — we\'ll call you back shortly.';f.reset();}else{m.textContent='Something went wrong. Please call 0447 747 769.';}
     }catch(e){m.textContent='Could not send. Please call 0447 747 769.';}
     b.disabled=false;});}
   document.querySelectorAll('.report-tabs button').forEach(function(bt){bt.addEventListener('click',function(){
