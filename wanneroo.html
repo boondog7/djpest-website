@@ -34,7 +34,7 @@
 </defs></svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="/" aria-label="DJ Pest home"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
+  <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
   <nav class="nav" id="nav"><a href="/services">Services</a><a href="/termite-inspection-perth">Termites</a><a href="/pest-control-prices-perth">Pricing</a><a href="/service-areas">Areas</a><a href="/about">About</a><a href="/blog">Blog</a><a class="btn btn-primary" href="tel:+61447747769"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 0447 747 769</a></nav>
 </div></header>
@@ -60,7 +60,7 @@
     <p class="notice">Or text photos of the pest or droppings to <a href="sms:+61447747769">0447 747 769</a> and we'll identify it.</p>
   </div>
   <form class="lead-form" id="leadForm" method="POST" action="/api/contact" novalidate>
-    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field empty">
     <div class="row">
       <label>Name<input name="name" required autocomplete="name"></label>
       <label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
@@ -85,7 +85,7 @@
       <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for Perth's northern suburbs. Licensed, documented, priced in writing before we start.</p>
       <p><a href="tel:+61447747769">0447 747 769</a><br><a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a><br>Mon–Sat 7:00am–6:00pm</p>
     </div>
-    <div><h4>Services</h4><ul>
+    <div><div class="fh">Services</div><ul>
       <li><a href="/termite-inspection-perth">Termite inspections</a></li>
       <li><a href="/termite-treatment-perth">Termite treatment</a></li>
       <li><a href="/general-pest-control-perth">General pest treatment</a></li>
@@ -94,7 +94,7 @@
       <li><a href="/spider-control-perth">Spider control</a></li>
       <li><a href="/rodent-control-perth">Rodent control</a></li>
     </ul></div>
-    <div><h4>Company</h4><ul>
+    <div><div class="fh">Company</div><ul>
       <li><a href="/about">About Dane</a></li>
       <li><a href="/pest-control-prices-perth">Pricing guide</a></li>
       <li><a href="/whats-my-pest">What's my pest?</a></li>
@@ -102,7 +102,7 @@
       <li><a href="/blog">Blog</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul></div>
-    <div><h4>Legal</h4><ul>
+    <div><div class="fh">Legal</div><ul>
       <li><a href="/terms">Terms &amp; conditions</a></li>
       <li><a href="/warranty">Re-treatment promise</a></li>
       <li><a href="/privacy">Privacy policy</a></li>
