@@ -2,7 +2,8 @@
 // Lead capture with three layers so a lead is never lost:
 //   1. Durable copy in KV (binding LEADS) keyed by timestamp.
 //   2. Email to ops@djpest.com.au via FormSubmit (no account; first send needs a one-time activation click).
-//   3. Optional forward to n8n when env N8N_WEBHOOK_URL is set (ServiceM8 job creation, Telegram, etc).
+//   3. Telegram push to Dane when env TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID are set.
+//   4. Optional forward to n8n when env N8N_WEBHOOK_URL is set (ServiceM8 job creation, etc).
 
 const ALLOWED_ORIGINS = ['https://djpest.com.au', 'https://www.djpest.com.au', 'https://djpest.pages.dev'];
 const LEAD_EMAIL = 'd50bd5ca094e7fb250eb75f3921a0b42'; // FormSubmit hashed alias for ops@djpest.com.au (keeps the address out of the bundle)
@@ -52,6 +53,22 @@ export async function onRequestPost({ request, env }) {
       'Marketing consent': lead.marketing_consent, Page: lead.page, Received: lead.received_at,
     }),
   }).then((r) => { if (!r.ok) console.error('formsubmit', r.status); }).catch((e) => console.error('formsubmit', e)));
+  if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+    const esc = (t) => String(t || '').replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]));
+    const text = [
+      `<b>New website lead</b>`,
+      `<b>${esc(lead.name)}</b> · ${esc(lead.suburb)}`,
+      `📞 <a href="tel:${esc(lead.phone)}">${esc(lead.phone)}</a>`,
+      lead.email ? `✉️ ${esc(lead.email)}` : null,
+      `🐜 ${esc(lead.pest || 'pest not specified')}`,
+      lead.message ? `💬 ${esc(lead.message)}` : null,
+      lead.marketing_consent === 'yes' ? 'Opted in to seasonal reminders' : null,
+    ].filter(Boolean).join('\n');
+    jobs.push(fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true }),
+    }).then((r) => { if (!r.ok) console.error('telegram', r.status); }).catch((e) => console.error('telegram', e)));
+  }
   if (env.N8N_WEBHOOK_URL) {
     jobs.push(fetch(env.N8N_WEBHOOK_URL, {
       method: 'POST', headers: { 'Content-Type': 'application/json', ...(env.N8N_WEBHOOK_SECRET ? { 'X-Webhook-Secret': env.N8N_WEBHOOK_SECRET } : {}) },
