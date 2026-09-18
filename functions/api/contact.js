@@ -5,7 +5,7 @@
 //   3. Optional forward to n8n when env N8N_WEBHOOK_URL is set (ServiceM8 job creation, Telegram, etc).
 
 const ALLOWED_ORIGINS = ['https://djpest.com.au', 'https://www.djpest.com.au', 'https://djpest.pages.dev'];
-const LEAD_EMAIL = 'ops@djpest.com.au';
+const LEAD_EMAIL = 'd50bd5ca094e7fb250eb75f3921a0b42'; // FormSubmit hashed alias for ops@djpest.com.au (keeps the address out of the bundle)
 
 const cors = (origin) => ({
   'Access-Control-Allow-Origin': ALLOWED_ORIGINS.includes(origin) || /\.djpest\.pages\.dev$/.test(origin) ? origin : ALLOWED_ORIGINS[0],
