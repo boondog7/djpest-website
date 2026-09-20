@@ -121,7 +121,7 @@ def pricing(c):
 def whats_my_pest(c):
     S = c["SITE"]
     cards = [
-        ("/rodent-control-perth", "Droppings in the roof or pantry", "Dark, spindle-shaped pellets, scratching at night, gnawed packets.", "Rats or mice. Rat droppings are 12–18 mm, mouse droppings 3–6 mm. We identify the species, find the entry and place tamper-resistant stations."),
+        ("/rodent-control-perth", "Droppings in the roof or pantry", "Dark, spindle-shaped pellets, scratching at night, gnawed packets.", "Rats or mice. Rat droppings are roughly 10–20 mm depending on species, mouse droppings 3–6 mm. We identify the species, find the entry and place tamper-resistant stations."),
         ("/ant-control-perth", "Trail of small brown ants", "A steady line along skirting, paving edges or into the pantry.", "Most likely coastal brown ants, a super-colony species. Sprays split the colony; we use slow-acting non-repellents and baits that reach the queens."),
         ("/cockroach-control-perth", "Cockroach in the kitchen at night", "Small, tan, two dark stripes, near the fridge or dishwasher.", "German cockroaches breed in warm appliance voids. Gel bait plus an insect growth regulator, not aerosol, is the treatment that holds."),
         ("/termite-inspection-perth", "Mud tubes on brick or piers", "Pencil-width earthen tunnels running up a wall, pier or slab edge.", "Subterranean termites. Do not break the tubes open. Book an AS 4349.3 inspection; we map the activity before recommending a system."),
