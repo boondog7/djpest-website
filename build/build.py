@@ -281,6 +281,8 @@ def _strip_gated(html_text):
         html_text = re.sub(r'<li><a href="%s">[^<]*</a></li>\s*' % re.escape(g), '', html_text)
         html_text = re.sub(r'<tr>(?:(?!</tr>).)*href="%s"(?:(?!</tr>).)*</tr>' % re.escape(g), '', html_text, flags=re.S)
         html_text = re.sub(r'<a href="%s"><strong>.*?</a>' % re.escape(g), '', html_text, flags=re.S)
+        html_text = re.sub(r' · <a href="%s">[^<]*</a>' % re.escape(g), '', html_text)   # 'Related:' separators
+        html_text = re.sub(r'<a href="%s">([^<]*)</a>' % re.escape(g), r'\1', html_text)  # inline prose links -> plain text
     return html_text
 
 def render(page):
