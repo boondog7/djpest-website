@@ -4,7 +4,7 @@ DOMAIN = "https://djpest.com.au"
 
 PRICES = {
     "general": (250, 350), "ant": (250, 400), "cockroach": (250, 450), "rodent": (220, 380), "rodent_follow": (90, 140),
-    "spider": (220, 300), "inspection": (250, 350), "prepurchase": (300, 400), "chem": (2500, 5500), "bait": (1500, 3000), "wasp": (180, 280), "mosquito": (220, 320),
+    "spider": (220, 300), "inspection": (250, 350), "prepurchase": (300, 400), "chem": (2500, 5500), "bait": (1500, 3000), "wasp": (180, 280), "mosquito": (220, 320), "bee": (250, 400), "comm_visit": (140, 380), "comm_cleanout": (350, 650),
 }
 
 def money(lo, hi): return f"${lo:,}–${hi:,}"
@@ -72,6 +72,9 @@ def pages(c):
         card("Spider control", "Redbacks, white-tails and black house spiders. Web removal, retic-box check and a residual treatment of eaves, weep holes and fence lines.", "/spider-control-perth", "07 / Spiders"),
         card("Mosquito control", "Breeding-site audit of the yard, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes"),
         card("Vacate flea treatment", "End-of-lease flea treatment quoted from the address within the hour, same-week slot, certificate to you and the agent within the hour of treatment.", "/flea-treatment-perth", "09 / Fleas"),
+        card("Wasp removal", "Paper wasp nests under eaves, pergolas and in hedges: found, treated, removed and the site treated so the next queen moves on. Suspected European wasps are reported to DPIRD, not treated.", "/wasp-removal-perth", "10 / Wasps"),
+        card("Bee removal", "Swarm on a branch? A beekeeper collects it alive and we give you the number. Hive in a wall or roof void? Evening treatment, entry sealed, comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees"),
+        card("Commercial pest control", "Cafes, strata, childcare, aged care, warehouses and offices. Numbered stations on a site map, same-day service reports and a site folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial"),
     ]) + "</div>"
 
     pricing = sec(eb("How we price") + head("One method for every job.",
@@ -98,7 +101,7 @@ def pages(c):
     ]
 
     hub_body = hero("Services · Perth's northern suburbs",
-                    "Seven pest problems.<br>One <em class=\"red\">documented</em> way of fixing them.",
+                    "Twelve pest problems.<br>One <em class=\"red\">documented</em> way of fixing them.",
                     "Diagnosed first, treated with the right chemistry for the pest and the site, then written up. Every product is APVMA-registered and applied to its label, and every job carries a re-treatment period you can read before you book.",
                     ["Licensed technicians", f"In Perth pest control since {S['family_since']}", "Itemised quotes", "Treatment report after every job"],
                     art_card("Every job includes", ["Inspection before any product is opened", "Written, itemised price. No call-out fee, no deposit", "Re-entry period explained before treatment", "Treatment report and prevention plan by email", "Re-treatment promise on the invoice"])) + \
@@ -578,5 +581,200 @@ def pages(c):
                 "desc": f"Mosquito control for Perth's northern suburbs. Breeding-site audit, residual treatment of the shaded harbourages where adults rest, timed for the warm season. Typical {money(*PRICES['mosquito'])}.",
                 "body": mo_body, "crumbs": crumbs("Mosquito control"),
                 "schema": [service_schema("Mosquito control", *PRICES['mosquito'], "Residential mosquito control: breeding-site audit and residual harbourage treatment."), faq_schema(mo_faqs)]})
+
+    
+
+    # ================================================================ /wasp-removal-perth
+    wa_faqs = [
+        ("Can I remove a wasp nest myself?", "A brand-new paper wasp nest in early spring, the size of a golf ball with one or two wasps on it, can be knocked down at dusk with a long-handled broom and stepped on, if nobody in the house is allergic and you can retreat indoors quickly. Anything larger, anything above head height, anything in a wall vent or retic box, or anything where you cannot see the whole nest, is a job for someone with the gear. Multiple stings from a defended nest are a genuine medical risk, not an inconvenience."),
+        ("Why do wasps keep building in the same spot?", "Paper wasps choose sheltered, warm, dry overhangs with a clear flight path, and your eaves offer the same thing every year. Mated queens also overwinter in roof voids and wall cavities nearby, and they start next season's nests within metres of where they were raised. Removing the comb and treating the surface with a residual product breaks that cycle for the season; screening the vent or gap they used breaks it for good."),
+        ("Do wasps die off in winter?", "The colony does. Workers and the old queen die as the weather cools, and the nest is abandoned. The mated new queens do not; they tuck into a roof void, a wall cavity, a wood pile or under bark and start again in spring. An empty nest in June is not a problem, but a house with a lot of old nests under the eaves is a house that will have a lot of new ones in October."),
+        ("Is it a wasp or a bee?", "Paper wasps are slim, with a narrow waist, long legs that dangle in flight and smooth, mostly hairless bodies in orange-brown or yellow and black. They build open grey combs where you can see the cells. Honey bees are stockier, hairy, golden brown, fly with their legs tucked, and nest inside cavities where you see traffic but no comb. If it is bees, see our <a href=\"/bee-removal-perth\">bee removal</a> page: the approach is different and a beekeeper may be the right call."),
+        ("Are there European wasps in Perth?", "Not as an established population. European wasps are a declared pest in Western Australia and the Department of Primary Industries and Regional Development runs a surveillance and eradication program to keep it that way. They are stocky, bright yellow and black with black antennae, nest in the ground, compost or wall cavities, and a mature nest holds thousands of wasps. If we suspect one on a job we photograph it and report it to DPIRD, and they investigate and destroy confirmed nests. We do not treat suspected European wasp nests ourselves, and we do not charge you for the report."),
+        ("What if I have been stung several times?", "For most people, stings from paper wasps cause local pain and swelling that settles in a day or two. Multiple stings, a sting inside the mouth or throat, or any swelling of the face, difficulty breathing or dizziness is an emergency: call 000. Anyone with a known wasp or bee venom allergy should stay well away from the nest and let someone else deal with it."),
+        ("How quickly can you get to a wasp nest?", "Usually the same day or the next for a nest near a door, a path, a play area or a business entrance, because it is a safety issue rather than a nuisance. We are based in Warwick, so most of the northern corridor from Balcatta to Joondalup is under twenty minutes away."),
+        ("Does a general pest treatment cover wasps?", "No. A general pest treatment covers cockroaches, spiders, silverfish and nuisance ants; wasps are a separate, nest-by-nest treatment with its own 30-day re-treatment period. If you book both on the same visit the wasp work is itemised on the same quote at a reduced rate."),
+        ("What does wasp nest removal cost?", f"Treatment and removal of an accessible paper wasp nest typically runs {money(*PRICES['wasp'])}, including the walk of the roofline for others, the residual treatment of the site and the record. Additional nests found on the same visit are itemised at a reduced rate. Nests high on two-storey eaves or needing access equipment are quoted."),
+    ]
+    wa_body = hero("Wasp removal · eaves, pergolas, hedges and vents",
+                   "Wasp removal Perth.<br>Nest treated and <em class=\"red\">gone</em>, usually same day.",
+                   "Paper wasps build the grey, open-celled combs under your eaves and pergola beams, in the hedge and behind the shutters, and they defend them. We treat the nest, remove it, treat the surface so the next queen moves on, and walk the rest of the house for the ones you have not found yet.",
+                   ["Licensed technicians", f"Typical {money(*PRICES['wasp'])}", "Same-day where possible", "30-day re-treatment promise"],
+                   art_card("Where we find them", ["Under eaves, gutters and fascia returns", "Pergola, patio and carport beams", "Retic boxes, meter boxes and letterboxes", "Hedges, dense shrubs and citrus", "Behind shutters, roller-door housings and play equipment"])) + \
+        sec(eb("Which wasp?") + head("Three wasps, three different answers.") + '<div class="prose">'
+            "<p>Almost every wasp call in Perth's northern suburbs is a paper wasp. Two species share the eaves: the native common paper wasp and the introduced Asian paper wasp, which has been established in Perth for decades. Both are slim, orange-brown or yellow and black, with long legs that dangle in flight, and both build the familiar grey comb with open cells, anywhere from a fifty-cent piece to a dinner plate in size. A nest holds a few dozen to a couple of hundred wasps. They are not aggressive away from the nest, but they will sting repeatedly to defend it, and a nest over a door, a path or a swing set gets defended a lot.</p>"
+            "<p>Mud daubers are the other regular. They are solitary, build mud tubes or blobs on walls and under eaves, and almost never sting. Their nests can be scraped off with a paint scraper when the wasp is out. If you send us a photo of a mud dauber we will tell you that, and not charge you.</p>"
+            "<p>European wasps are the one to take seriously, because they are not meant to be here. They are a declared pest in Western Australia, not established in the state, and DPIRD runs an active surveillance and eradication program with public trapping each summer. They are stockier than paper wasps, bright yellow and black with black antennae, fly with their legs tucked up, and nest in the ground, in compost or inside wall cavities in colonies of thousands. If we see one we photograph it and report it to DPIRD's Pest and Disease Information Service, and they handle the nest. So can anyone: the MyPestGuide Reporter app takes photos straight to DPIRD.</p>"
+            "<ul><li>Repeated wasp traffic to one point under the roofline, in a vent or a retic box.</li>"
+            "<li>A grey comb with visible cells and wasps sitting on it, usually facing down.</li>"
+            "<li>Wasps hunting caterpillars over the lawn and veggie patch: that is what paper wasps eat, and a nest nearby is likely.</li>"
+            "<li>Stocky yellow-and-black wasps around meat, pet food or soft drink in numbers: photograph and report, do not disturb.</li></ul></div>", "ledger") + \
+        sec(eb("How we treat it") + head("Find them all, treat, remove, make it unattractive.") + steps([
+            ("Find every nest", "The nest you called about usually has relatives. We walk the whole roofline, pergola, fence line, hedge and outbuildings and count them before we start, because a treated nest by the front door does nothing about the three under the back eaves."),
+            ("Treat the nest", "An APVMA-registered insecticide labelled for wasps, dust or spray depending on the position, applied directly to the comb, ideally early or late in the day when the colony is on the nest. We wear the gear so you do not have to. Activity stops within minutes to an hour."),
+            ("Remove and treat the site", "Once the nest is quiet the comb comes off and goes with us. The surface is treated with a residual product so returning foragers and next season's queens are discouraged from rebuilding on the same beam. Vents and gaps that were being used are flagged for screening."),
+            ("Record and promise", "Product, rate, every nest position and the re-entry period go on your treatment record. Treated nests carry a 30-day re-treatment promise: if a treated nest is active again inside that period, we come back at no charge."),
+        ])) + \
+        sec(eb("What it costs") + head("Typical ranges.") +
+            ledger(["Service", "Typical range", "Includes"], [
+                ["Paper wasp nest, accessible, treatment and removal", money(*PRICES['wasp']), "Roofline check for other nests, direct treatment, comb removal, residual treatment of the site, record and 30-day re-treatment promise"],
+                ["Additional nests on the same visit", "Itemised", "Each extra nest at a reduced rate on the same quote"],
+                ["High nest: two-storey eaves, tall trees, access equipment", "Quoted", "Ladder or platform work and time itemised after we have seen it"],
+                ["Mud dauber nest", "Advice only", "Identification from your photo and how to remove it yourself"],
+                ["Suspected European wasp", "No charge", "Photographed and reported to DPIRD, who investigate and destroy confirmed nests"],
+                ["Add to a general pest treatment", "Itemised", "Done on the same visit at a reduced rate"],
+            ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
+        sec(eb("What you get") + head("What you get.") + included([
+            ("Nest count and map", "Every nest we found, where it was and what we did with it, with photos. Most houses have more than the one you saw."),
+            ("Treatment record", "Product, active constituent, rate, positions treated and re-entry period, kept three years under the Health (Pesticides) Regulations 2011 and emailed to you."),
+            ("30-day re-treatment promise", "If a treated nest is active again inside 30 days we return at no charge. It is written into our terms, not a slogan."),
+        ])) + \
+        sec(eb("Wasp calendar") + head("The paper wasp year in the northern suburbs.") + steps([
+            ("Sep – Oct · Spring: queens start small nests", "Overwintered queens begin golf-ball-sized combs under eaves. The easiest and lowest-cost time to deal with them, and the time nobody notices."),
+            ("Nov – Jan · Early summer: colonies grow", "Workers emerge, nests reach palm size, traffic becomes obvious. Most first calls come now, often after someone is stung near a door or the pool."),
+            ("Feb – Apr · Late summer and autumn: peak defence", "Nests at full size with the most wasps and the most to defend. New queens and males are reared. The busiest wasp months, and the ones with the most multiple-sting incidents."),
+            ("May – Aug · Winter: colonies die, queens hide", "Workers die off and nests are abandoned. Mated queens shelter in roof voids and wall cavities nearby. Old nests can be scraped off; screen the vents they used before spring."),
+        ]), "ledger") + \
+        sec(eb("Prepare for the visit") + head("Before we arrive.") + prep([
+            "Keep everyone, including pets, away from the nest and its flight path, and close windows and doors near it.",
+            "Do not knock the nest down, hose it or hit it with a broom. A disturbed colony defends itself, and it will still be there tomorrow.",
+            "Do not spray it at night by torchlight. Paper wasps fly to light, and the light is in your hand.",
+            "Tell us about anyone in the household with a wasp or bee sting allergy.",
+            "If you can do it safely from a distance, text a photo of the nest and note any other spots you have seen traffic.",
+            "Unlock side gates and clear the path along the walls so we can walk the full roofline.",
+        ]) + related([("Bee removal", "/bee-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth")])) + \
+        sec(eb("Questions") + head("Wasp removal FAQ.") + faq(wa_faqs), "ledger") + \
+        quote("A nest by the door gets fast-tracked.", "Text a photo of the nest and your suburb. We will tell you what it is, send an itemised price and, for a nest over a door or a path, usually get there the same day.")
+    out.append({"path": "/wasp-removal-perth", "title": "Wasp Removal Perth | Paper Wasp Nest Treatment, Same Day | DJ Pest",
+                "desc": f"Wasp nest removal across Perth's northern suburbs. Paper wasp nests found, treated and removed, site treated, 30-day re-treatment promise. Suspected European wasps reported to DPIRD. Typical {money(*PRICES['wasp'])}.",
+                "body": wa_body, "crumbs": crumbs("Wasp removal"),
+                "schema": [service_schema("Wasp nest removal", *PRICES['wasp'], "Paper wasp nest treatment and removal with residual site treatment and 30-day re-treatment promise."), faq_schema(wa_faqs)]})
+
+    # ================================================================ /bee-removal-perth
+    be_faqs = [
+        ("Do you kill bees?", "Not when there is a reasonable alternative. A swarm hanging on a branch, a fence or a letterbox can usually be collected alive by a beekeeper, and that is what we recommend first. An established hive that has been building comb inside a double-brick wall or a roof void for months is a different problem: it cannot be coaxed out, a cut-out is a building job, and if nobody can reach the comb the only responsible option is a treatment done properly, with the entry sealed and the comb removed afterwards."),
+        ("Why can't the bees in my wall just be removed alive?", "Because the colony is not the bees you see at the vent. It is the comb, the brood and the honey behind the bricks. Removing it alive means opening the wall, cutting out every piece of comb and boxing the queen, which is beekeeper and builder work, not pest control. Where the cavity can be opened and a beekeeper is willing, we will put you in touch and step back. Where it cannot, we treat."),
+        ("Can I just leave the hive in the wall?", "You can, but the problems compound. The colony grows through spring and summer, throws off new swarms, and becomes more defensive as the honey stores build. Honey and wax stored inside a wall soften in Perth summer heat and can stain plaster, attract ants, cockroaches and wax moth, and draw robbing bees from other hives. Anyone in the household with a sting allergy is living next to an ongoing risk. Most people who wait end up calling in autumn with a bigger, angrier colony."),
+        ("What actually happens on a bee treatment?", "We come in the evening when the foragers are home so the whole colony is inside. An APVMA-registered insecticide whose label covers bees is applied directly into the entry and the cavity, then the entry is sealed straight away so bees from other hives cannot rob the treated honey and carry it back to their own colony. We come back to confirm the traffic has stopped, and we give you a written plan for getting the comb out and proofing the weep holes."),
+        ("Do I have to remove the comb afterwards?", "We strongly advise it, and we say so on the treatment record. Dead bees, brood and honey left inside a wall break down, smell, and pull in secondary pests. Unattended comb also smells like home to next spring's swarms, which is the most common reason people get bees in the same wall two years running. Comb removal is usually a handyman or builder opening a small section of plaster or a few bricks; we can recommend people who do it and tell them exactly where the comb is."),
+        ("Are the bees in Perth dangerous?", "The bees that swarm and nest in Perth homes are European honey bees. A single sting is painful and, for most people, nothing more. For the small number of people with a bee venom allergy a sting can cause anaphylaxis, which is a 000 call. Swarms in transit are usually placid because they have no home to defend; a hive with stores is not. Keep children, pets and mowers away from the flight line and call before you poke anything."),
+        ("What about native bees?", "Perth's native bees, including blue-banded bees, resin bees and leafcutter bees, are mostly solitary, nest in small burrows or borer holes, and rarely sting. They do not form the large colonies that cause problems in walls, and we do not treat them. If you send us a photo and it is a native bee, we will tell you so and suggest you enjoy it."),
+        ("When is bee swarm season in Perth?", "Spring. Colonies that have built up over winter split as the weather warms and the flowering starts, so most swarm calls come between September and December, with October and November the peak. A swarm that lands in your garden will usually move on within a day or two once the scouts find a cavity, which is exactly when it becomes someone's wall problem. Late summer and autumn calls are usually established hives that were swarms in spring."),
+        ("What does bee removal cost?", f"A swarm referral costs nothing: we identify it from your photo and give you the beekeeper's number. A treatment of an established hive with an accessible entry typically runs {money(*PRICES['bee'])}, including the evening visit, sealing the entry and the follow-up check. Hives high on a two-storey wall, in a roof void or behind cladding are quoted after we have seen them. Comb removal is a building task and is itemised or referred separately."),
+    ]
+    be_body = hero("Bee removal · swarms, wall cavities and roof voids",
+                   "Bee removal Perth.<br>Relocate the <em class=\"red\">swarm</em>, resolve the hive.",
+                   "A ball of bees hanging off a branch is a swarm looking for a home, and a beekeeper can often collect it alive. Bees that have been coming and going from a weep hole or the roofline for weeks are a hive with comb and honey behind your bricks, and that is a different job. We tell you which one you have before anything is booked.",
+                   ["Licensed technicians", "Beekeeper referral first", f"Typical {money(*PRICES['bee'])} for a hive", "Comb removal and proofing plan"],
+                   art_card("First we work out", ["Swarm in transit or an established hive", "How long the traffic has been going to that spot", "Whether the comb can be reached and cut out alive", "Who in the house has a sting allergy", "Whether a neighbour keeps hives nearby"])) + \
+        sec(eb("Swarm or hive?") + head("Two situations, two answers.") + '<div class="prose">'
+            "<p>Every spring, honey bee colonies across Perth's northern suburbs split. Half the bees leave with the old queen, settle in a tight cluster on a branch, a fence post, a letterbox or the side of a car, and send out scouts to find a cavity. That cluster is a swarm. It has no comb, no honey and nothing to defend, which is why swarms are usually placid, and why a beekeeper can shake it into a box and take it away. Most swarms move on within a day or two whether anyone helps them or not.</p>"
+            "<p>The trouble starts where the scouts send them. Double-brick homes with open weep holes, roof voids with a lifted tile, meter and retic boxes, compost bins, wheelie bins, possum boxes and the hollow limbs of old tuarts and marris all make good cavities. Once the swarm moves in and starts drawing comb, it is an established hive. Within weeks there is brood, within a couple of months there can be several kilograms of honey inside your wall, and the colony now has something worth defending.</p>"
+            "<ul><li><strong>Swarm:</strong> a dense cluster the size of a football, appeared in the last day or so, hanging in the open. Bees mostly still.</li>"
+            "<li><strong>Hive:</strong> steady traffic in and out of one point, a hum in the wall, dark stains or a warm patch on plaster, bees appearing inside near windows, going on for weeks or months.</li>"
+            "<li><strong>Neither:</strong> a few bees working the flowers or drinking from the pool are foragers from a hive somewhere else. Nothing to treat.</li></ul>"
+            "<p>Text us a photo and tell us how long it has been going on. We will tell you which you have, and if it is a swarm we will give you a beekeeper's number rather than a quote.</p></div>", "ledger") + \
+        sec(eb("How we handle it") + head("Identify, relocate where we can, treat where we must.") + steps([
+            ("Identify and advise", "From your photo and a few questions we work out swarm or hive, how long it has been established and where the comb probably is. If it is a swarm that a beekeeper can reach, we give you the number of a registered WA beekeeper who collects swarms and we do not charge for the call. The WA Apiarists' Society also keeps a swarm collector list."),
+            ("Relocate where the comb can be reached", "Where an established hive is somewhere a beekeeper can open, a compost bin, a possum box, a meter box, a wall a builder is willing to open, a live cut-out is the better outcome for you and the bees. We coordinate it and step back. It is beekeeper and builder work, and we say so rather than sell you a treatment."),
+            ("Treat where it cannot", "Where the hive is deep in a double-brick cavity or a roof void and nobody can reach the comb, we treat. An APVMA-registered insecticide whose label covers bees is applied into the entry in the evening when the foragers are home. The entry is sealed immediately so bees from other colonies cannot rob the treated honey. A follow-up visit confirms the traffic has stopped."),
+            ("Remove the comb, proof the wall", "The treatment record tells you exactly where the comb is and why it should come out: honey softens in summer heat, stains plaster, feeds ants and cockroaches, and draws next spring's swarms to the same wall. We recommend people who can open and close the wall, and we fit or specify weep-hole guards and vent screens that keep the ventilation and keep the bees out."),
+        ])) + \
+        sec(eb("What it costs") + head("Typical ranges.") +
+            ledger(["Service", "Typical range", "Includes"], [
+                ["Swarm on a branch, fence or post", "No charge", "Identification from your photo and a referral to a registered beekeeper who collects swarms"],
+                ["Established hive, accessible entry", money(*PRICES['bee']), "Evening treatment with an APVMA-registered product, entry sealed, follow-up check, treatment record and comb-removal plan"],
+                ["Hive in a roof void, two-storey wall or behind cladding", "Quoted", "Access equipment and additional time itemised after inspection"],
+                ["Comb removal and making good", "Referred or itemised", "Opening the cavity, removing comb and honey, closing the wall; a building task we coordinate"],
+                ["Weep-hole guards and vent screens", "Itemised", "Proofing the entry points so the next swarm's scouts move on"],
+            ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
+        sec(eb("What you get") + head("What you get.") + included([
+            ("A straight answer first", "Swarm, hive or foragers, and whether it needs us, a beekeeper or nobody. Plenty of bee calls end with advice and no invoice."),
+            ("Treatment record", "Product, active constituent, rate, where it went and the re-entry period, kept three years under the Health (Pesticides) Regulations 2011 and emailed to you."),
+            ("Proofing and comb plan", "Where the comb sits, who can remove it, and the weep-hole and vent proofing that stops the same wall being colonised next spring. Treated nests carry our 30-day re-treatment promise."),
+        ])) + \
+        sec(eb("Bee calendar") + head("When bees turn up in the northern suburbs.") + steps([
+            ("Sep – Dec · Spring: swarm season", "Colonies split as flowering starts. Clusters on branches and fences, scouts checking weep holes and roof tiles. October and November are the peak."),
+            ("Dec – Feb · Summer: hives build stores", "Swarms that moved into walls in spring are now drawing comb and storing honey. Traffic at the entry gets heavier and the colony more defensive."),
+            ("Mar – May · Autumn: the wall calls", "Honey stores peak and warm walls start to stain. Most established-hive treatments happen now, and comb removal before winter avoids a slow leak."),
+            ("Jun – Aug · Winter: quiet, not gone", "Colonies cluster and traffic drops, so people assume the bees have left. They have not. Proof the weep holes now, before spring's scouts arrive."),
+        ]), "ledger") + \
+        sec(eb("Prepare for the visit") + head("Before we arrive.") + prep([
+            "Keep children, pets and the mower away from the flight line. Bees defend the approach to the entry, not the garden in general.",
+            "Do not block the entrance. Bees shut out of their entry look for another way, and that is usually into the house through a downlight or a vent.",
+            "Do not spray the entry with a hardware-store aerosol. It rarely reaches the comb, it agitates the colony, and it pushes bees indoors.",
+            "Tell us about anyone in the household with a bee-sting allergy, and where the EpiPen is kept.",
+            "Text a photo of the cluster or the entry point and tell us how long the traffic has been going on.",
+            "Let us know if a neighbour keeps hives. Sealing the treated entry promptly matters more when there are managed colonies nearby.",
+        ]) + related([("Wasp removal", "/wasp-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth")])) + \
+        sec(eb("Questions") + head("Bee removal FAQ.") + faq(be_faqs), "ledger") + \
+        quote("Swarm or hive, start with a photo.", "Text a photo and how long it has been going on. If it is a swarm you get a beekeeper's number; if it is a hive you get an itemised price and an evening slot.")
+    out.append({"path": "/bee-removal-perth", "title": "Bee Removal Perth | Swarm Relocation and Hive Treatment | DJ Pest",
+                "desc": f"Bee removal across Perth's northern suburbs. Swarms referred to a beekeeper for live collection at no charge; established hives in walls and roof voids treated in the evening, entry sealed, comb-removal plan. Typical {money(*PRICES['bee'])} for a hive.",
+                "body": be_body, "crumbs": crumbs("Bee removal"),
+                "schema": [service_schema("Bee removal", *PRICES['bee'], "Swarm identification and beekeeper referral; established hive treatment with entry sealing and comb-removal plan."), faq_schema(be_faqs)]})
+
+    # ================================================================ /commercial-pest-control-perth
+    co_faqs = [
+        ("How often does a cafe or restaurant need pest control?", "Monthly is the norm for a working commercial kitchen, and it is what environmental health officers and HACCP auditors expect to see in the folder. The frequency is driven by food, warmth and water being present every day, and by German cockroaches breeding in six weeks. Small, dry, low-risk premises such as an office kitchenette can sit on quarterly. We recommend a frequency after the site survey and put the reasoning in writing."),
+        ("Do you provide the reports an EHO or HACCP auditor wants?", "Yes, and that is most of the point. Your site folder holds the site map with numbered stations, the station register, a service report for every visit showing activity per station and actions taken, the pesticide ledger with product, active, rate and location, the safety data sheets, our licence and registration details and our insurance certificate. Auditors ask for exactly those documents, in roughly that order."),
+        ("Can you service outside trading hours?", "Yes. Kitchens are treated before open or after close so nothing is applied around food preparation, and re-entry periods are met before staff return. Childcare and aged care sites are serviced when the rooms are empty. Early-morning and evening slots are part of the price for food premises, not an extra."),
+        ("What does the Food Standards Code actually require?", "Standard 3.2.2 of the Australia New Zealand Food Standards Code, which applies in WA through the Food Act 2008, requires a food business to take all practicable measures to prevent pests entering the premises and to eradicate and prevent the harbourage of pests on the premises and in vehicles. The local government's environmental health officers inspect against that, and evidence of pests or no documented control is one of the fastest ways to a poor inspection result."),
+        ("Do you do strata common property?", "Yes. Bin rooms, basements, car parks, plant rooms, lift wells, gardens and common walkways, on a quarterly or monthly cycle depending on the building. Cockroaches and rodents move between lots through service ducts and bin chutes, so a program that treats only the lot that complained does not work; we report to the strata manager or council of owners with what we found where, and quote individual lots separately when residents ask."),
+        ("Is there a lock-in contract?", "There is a written agreement so the price, the frequency and what is included are not in dispute, and it is written in plain English. We do not rely on long lock-ins to keep clients; we rely on the folder being in order when the inspector walks in."),
+        ("How is commercial work priced?", "Per site, after a walk-through, as a fixed price per visit, invoiced monthly on seven-day terms with a proper tax invoice. The indicative ranges on this page cover most northern-suburbs premises. What moves the price is floor area, the number of rodent stations and insect monitors the site needs, whether kitchens need a cockroach clean-out before the routine program can start, and access outside hours."),
+        ("Which areas do you cover for commercial work?", "The northern corridor from Balcatta and Stirling up through Warwick, Greenwood, Duncraig, Hillarys, Joondalup and Wanneroo to Clarkson and Alkimos. Keeping the run tight is how we hold monthly prices down and turn up on time."),
+    ]
+    co_body = hero("Commercial pest control · food, strata, care, warehouse, office",
+                   "Commercial pest control Perth.<br>A program your <em class=\"red\">auditor</em> can read.",
+                   "Cafes and restaurants, strata common property, childcare and aged care, medical suites, warehouses and offices across the northern corridor. A documented program: numbered stations on a site map, a service report after every visit and a pesticide ledger in your site folder, so the environmental health officer or HACCP auditor finds what they need on the first look.",
+                   ["Licensed technicians", "Site folder and same-day service reports", "Fixed per-visit price in writing", "Food Standards Code 3.2.2 aware"],
+                   art_card("Built for", ["Food premises under Food Standards Code 3.2.2", "Strata common property, bin rooms and basements", "Childcare, aged care, medical and dental", "Offices, retail and showrooms", "Warehouses, workshops and depots"])) + \
+        sec(eb("What the rules ask of you") + head("Documented, or it did not happen.") + '<div class="prose">'
+            "<p><strong>Food businesses.</strong> Standard 3.2.2 of the Food Standards Code, applied in WA through the Food Act 2008, requires you to take all practicable measures to prevent pests entering and to eradicate and prevent their harbourage. Your local government's environmental health officers inspect against it. Droppings behind the fryer, a German cockroach in the coffee machine or no evidence of a program are the fastest routes to a poor result, a follow-up inspection and, in the worst case, a public notice. HACCP-based food safety programs and third-party audits go further: they want to see the station map, the service history, safety data sheets and licences in a folder, and a trend they can read.</p>"
+            "<p><strong>Strata.</strong> The council of owners is responsible for common property. Cockroaches travel between lots through service risers and bin chutes, rodents run the basement and the bin room, and a program that only treats the lot that complained is a program that keeps complaining. Strata managers need a report they can table.</p>"
+            "<p><strong>Childcare, aged care and health.</strong> Sensitive people, strict re-entry periods, product choices that suit the site and servicing when rooms are empty. Regulators and parents both ask what was used and when; the record answers.</p>"
+            "<p><strong>Warehouses and workshops.</strong> Rodents are the usual issue: pallets, cardboard, roller doors that do not seal and food in the lunchroom. Numbered external and internal bait stations, proofing that actually gets done, and stock protected.</p>"
+            "<p><strong>Offices and retail.</strong> Lower risk, quarterly is usually enough, but the kitchenette and the loading dock still need looking at, and a tenant's lease often requires a program in place.</p></div>", "ledger") + \
+        sec(eb("How a program runs") + head("Survey, install, service, report.") + steps([
+            ("Site survey and risk map", "A walk-through with whoever runs the site: kitchens, stores, bin areas, plant rooms, roof void and perimeter. We mark harbourages, entry points and conducive conditions, list the proofing that needs doing and by whom, recommend a frequency, and price it per visit in writing. If the site needs a cockroach clean-out or a rodent knock-down before a routine program makes sense, that is quoted separately and first."),
+            ("Install and baseline", "Numbered, tamper-resistant rodent stations inside and out, insect monitors in kitchens and stores, gel and insect growth regulator in food areas, drain treatment where the species calls for it. The site folder is set up: site map, station register, safety data sheets, our licence and registration details and insurance certificate."),
+            ("Scheduled service", "Each visit checks every station and monitor, records activity, re-baits or replaces, treats as needed and notes proofing items still outstanding on your side. Food premises are serviced outside food preparation, with re-entry met before staff return. Out-of-cycle callouts for a sighting are part of the agreement."),
+            ("Report and trend", "A service report is emailed the same day: activity by station, product ledger, actions, photos, and what we need from you. Quarterly you get a trend summary you can hand to an auditor or table at a strata meeting. Records are kept three years under the Health (Pesticides) Regulations 2011."),
+        ])) + \
+        sec(eb("What it costs") + head("Indicative per-visit pricing.", "Every site is priced after the survey, as a fixed price per visit. These are the ranges most northern-suburbs premises land in.") +
+            ledger(["Site type", "Typical range per visit", "Usual frequency and scope"], [
+                ["Cafe, takeaway or small restaurant kitchen", "$140–$220", "Monthly. Cockroach gel and IGR, insect monitors, rodent stations, drain treatment, service report"],
+                ["Larger restaurant, pub or commercial kitchen", "$220–$380", "Monthly. As above across multiple prep areas, cool rooms, stores and bin area"],
+                ["Strata common property", "$180–$350", "Quarterly or monthly. Bin rooms, basement, car park, plant rooms, walkways; report to the strata manager"],
+                ["Childcare, aged care, medical or dental", "$160–$300", "Monthly or bi-monthly. Serviced when rooms are empty, product and timing chosen for the site"],
+                ["Office, retail or showroom", "$150–$260", "Quarterly. Kitchenette, stores, loading dock, perimeter stations"],
+                ["Warehouse or workshop rodent program", "$180–$320", "Monthly. Numbered internal and external stations, proofing list, stock protection"],
+                ["One-off kitchen clean-out before a program starts", money(*PRICES['comm_cleanout']), "German cockroach gel and IGR program with follow-up visit, or initial rodent knock-down"],
+            ], amount_cols=(1,)) + '<p class="notice">Indicative ranges, GST inclusive, invoiced monthly on seven-day terms. Every program is quoted itemised in writing after the site survey; the invoice matches the quote. No call-out fee for the survey. See the <a href="/pest-control-prices-perth">residential pricing guide</a> for one-off treatments.</p>', "ledger") + \
+        sec(eb("What you get") + head("What you get.") + included([
+            ("The site folder", "Site map with numbered stations, station register, safety data sheets, our licence and registration details and insurance certificate. Everything an inspector or auditor asks for, in one place, kept current."),
+            ("Same-day service reports", "Activity by station, what was applied where, photos, actions and the proofing we need from you, emailed the day of the visit. Quarterly trend summaries for audits and strata meetings."),
+            ("Clean paperwork", "DJ Pest is run by a Chartered Accountant. One agreement in plain English, a fixed price per visit, one tax invoice a month with your purchase order on it, and a supplier who understands what your bookkeeper needs."),
+        ])) + \
+        sec(eb("Why this suits a business") + head("Run by a Chartered Accountant.") + '<div class="prose">'
+            "<p>Most commercial pest programs fail on paperwork, not chemistry: the station map is out of date, two service reports are missing, the SDS folder has the wrong products in it, and the auditor is standing in the kitchen. DJ Pest is run by a Chartered Accountant, in a family that has been in Perth pest control since 2011. The technical work is done to label and to the Australian standards that apply; the record-keeping is done the way an auditor would do it. That is the whole pitch.</p>"
+            "<ul><li>The same technician on your site each visit, who knows where the problems were last time.</li>"
+            "<li>Proofing recommendations in writing, with who is responsible, so the same finding is not on every report.</li>"
+            "<li>Out-of-cycle callouts for a sighting are part of the program, not a surprise invoice.</li>"
+            "<li>Property managers with residential portfolios: see the <a href=\"/property-managers\">property managers</a> page for vacate flea treatments and lease-start programs.</li></ul></div>"
+            + related([("Cockroach control", "/cockroach-control-perth"), ("Rodent control", "/rodent-control-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Service areas", "/service-areas")])) + \
+        sec(eb("Commercial pest calendar") + head("What turns up at work, and when.") + steps([
+            ("Sep – Nov · Spring: ants and paper wasps", "Ant trails across loading docks and outdoor dining, wasp nests over entrances and in bin enclosures. Perimeter work and nest checks on the spring visits."),
+            ("Dec – Feb · Summer: flies, cockroaches and drains", "German cockroaches at peak breeding in warm kitchens, drain flies and mosquitoes around bin rooms and grease traps. Gel, IGR and drain treatment carry the load."),
+            ("Mar – May · Autumn: cockroaches move in", "Australian and American cockroaches follow warmth indoors from gardens, drains and mulch. Harbourage treatment of the perimeter and stores."),
+            ("Jun – Aug · Winter: rodents", "Rats and mice into warehouses, roof voids, bin rooms and ceiling spaces above kitchens. Station activity peaks; proofing roller doors and pipe penetrations is the fix that lasts."),
+        ]), "ledger") + \
+        sec(eb("Questions") + head("Commercial pest control FAQ.") + faq(co_faqs)) + \
+        quote("Book a site survey.", "Tell us the premises type, the suburb and what you have seen. We walk the site, recommend a frequency and send a fixed per-visit price in writing. No call-out fee for the survey.")
+    out.append({"path": "/commercial-pest-control-perth", "title": "Commercial Pest Control Perth | Cafes, Strata, Childcare, Warehouses | DJ Pest",
+                "desc": "Commercial pest control for Perth's northern suburbs: documented programs for cafes and restaurants, strata, childcare, aged care, offices and warehouses. Numbered stations, same-day service reports, a site folder your EHO or HACCP auditor can read.",
+                "body": co_body, "crumbs": crumbs("Commercial pest control"),
+                "schema": [service_schema("Commercial pest control", PRICES['comm_visit'][0], PRICES['comm_cleanout'][1], "Documented commercial pest management programs: site survey, numbered stations, scheduled service, same-day reports."), faq_schema(co_faqs)]})
 
     return out

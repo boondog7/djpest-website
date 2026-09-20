@@ -23,7 +23,7 @@ def pages(c):
 
     services = c["section"](
         c["eyebrow"]("What we treat") +
-        '<div class="section-head"><h2>Nine jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div>' +
+        '<div class="section-head"><h2>Twelve jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div>' +
         '<div class="grid grid-3">' +
         c["card"]("Termite inspection", "A full AS 4349.3 timber pest inspection with photos, moisture readings and a written report you can act on.", "/termite-inspection-perth", "01 / Termites") +
         c["card"]("Termite treatment", "Non-repellent chemical management systems installed to AS 3660.2, or baiting where that suits the site better.", "/termite-treatment-perth", "02 / Termites") +
@@ -34,6 +34,9 @@ def pages(c):
         c["card"]("Spider control", "Redbacks, white-tails and huntsmen. External web-and-harbourage treatment with the internal spray only where it's needed.", "/spider-control-perth", "07 / Spiders") +
         c["card"]("Mosquito control", "Breeding-site audit first, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes") +
         c["card"]("Vacate flea treatment", "Moving out with a pet? Quoted from the address within the hour, certificate to you and your agent within the hour of treatment.", "/flea-treatment-perth", "09 / Fleas") +
+        c["card"]("Wasp removal", "Paper wasp nests under eaves and pergolas found, treated and removed, usually same day. Suspected European wasps are reported to DPIRD.", "/wasp-removal-perth", "10 / Wasps") +
+        c["card"]("Bee removal", "Swarms go to a beekeeper alive. Hives in walls and roof voids are treated in the evening, sealed, and you get a comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees") +
+        c["card"]("Commercial pest control", "Cafes, strata, childcare and warehouses on a documented program: numbered stations, same-day reports, a folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
         '</div>', "ledger")
 
     ca = c["section"](
