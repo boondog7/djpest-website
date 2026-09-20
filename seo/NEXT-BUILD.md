@@ -1,60 +1,61 @@
-# NEXT BUILD — 2026-09-19
+# NEXT BUILD — 2026-09-20
 
 ## Progress summary
-**Done: 12 service pages (incl. 2 termite) + 8 suburb pages + pricing hub + service-areas; ~85% of plan.**
-Built today (Claude, this session): `/wasp-removal-perth`, `/bee-removal-perth`, `/commercial-pest-control-perth` — each ~2,200–2,400 words, full @graph schema (LocalBusiness → Service/Offer → FAQPage → BreadcrumbList), season module, pricing table, 8–9 FAQs. Wired into footer nav (all 35 pages), services hub, homepage grid, pricing guide, What's-my-pest, sitemap. Zero broken links. Rendered clean at 390px and 1280px.
+**Done: 10 service pages published + 2 gated (price check needed) + 8 suburb pages + pricing hub + service-areas hub + 2 blog posts; ~88% of plan.**
 
-### Pages built so far
-**Service (12):** ant, cockroach, flea, general, mosquito, rodent, spider, termite-inspection, termite-treatment, **wasp, bee, commercial**  
-**Suburb (8):** warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta  
+Big news today: PMB 3000 registration issued 20/9/2026. Site copy updated to "registered". Country-heritage voice applied sitewide. The website is now your most credible asset — the remaining gaps are small.
+
+### Pages live right now
+**Service (10 published):** ant, cockroach, flea, general, mosquito, rodent, spider, termite-inspection, termite-treatment, wasp
+**Service (2 gated — prices unconfirmed):** bee-removal-perth, commercial-pest-control-perth
+**Suburb (8/10 Tier-1):** warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta
 **Support:** service-areas, pest-control-prices-perth, whats-my-pest, blog + 2 posts, about, contact, property-managers
-
----
-
-## ⚠️ Dane — three things before you deploy today's pages
-
-### 1. Confirm the prices I set (I had no data for these — they are my estimates)
-- **Bee hive treatment: $250–$400** (on bee page, pricing guide row, Service schema)
-- **Commercial per-visit ranges: $140–$380**, one-off kitchen clean-out **$350–$650** (commercial page table + schema)
-- Wasp $180–$280 was already in your pricing guide — unchanged.
-Change the numbers in the HTML if wrong; they appear in the table, the FAQ answer and the JSON-LD `priceSpecification` on each page.
-
-### 2. Port the three pages into the generator or they will be orphaned
-`build/` is gitignored, so the three pages were hand-built to match the generator's output byte-for-byte. Your next `python3 build/build.py` will regenerate `services.html`, `index.html`, footers and `sitemap.xml` **without** the new links unless the pages exist in `build/pages/10_services.py`. The page HTML files themselves will survive.
-
-**Strongly recommended:** remove `build/` from `.gitignore` and commit the generator. Right now the source of truth for a 35-page site lives only on your laptop, and the daily build coach can't use it.
-
-### 3. Beekeeper referral contact
-The bee page says we refer swarms to a registered WA beekeeper and mentions the WA Apiarists' Society swarm list. Have a name/number ready before the first call.
-
----
-
-## Facts I built in — worth a 2-minute check
-- **European wasps are not established in WA**; DPIRD runs surveillance/eradication and destroys confirmed nests. Report via MyPestGuide Reporter or PaDIS. The wasp page and pricing guide now say we *report* rather than treat suspected European wasps. (The old pricing-guide row said "European or paper wasp" — corrected.)
-- Commercial page cites **Food Act 2008 (WA)** and **Food Standards Code 3.2.2** (pest clause). Re-entry, HACCP folder, strata council-of-owners responsibility. Nothing about licence status beyond what is already in the footer.
 
 ---
 
 ## Next tasks (priority order)
 
-### 1. `/bed-bug-treatment-perth.html` — 110 searches/mo, KD17
-Last BOFU service gap. Warranty page already lists "Bed bugs: 30 days, two-visit plan" — page must match. Angle: heat + residual, two visits, mattress-edge ID, no "one spray fixes it" claims. Add to `build/pages/10_services.py`.
+### 1. Confirm bee and commercial prices — then ungate in 5 minutes
 
-### 2. Suburb pages: `/marangaroo` (90/mo, KD0) and `/stirling` (70/mo, KD0)
-Last two Tier-1 suburbs with no page. Both already in schema `areaServed` and the form dropdown. Marangaroo: Marangaroo Golf Course/Lake Goollelal fringe → mosquitoes, ants. Stirling: Lake Gwelup/Stirling Civic Gardens, older 60s–70s brick → termites, rodents.
+Two fully-built pages are sitting gated in `build/site.json → "unpublished"`. They just need your price sign-off:
 
-### 3. MOFU cost posts (the moat)
-- "termite treatment cost perth" (720/mo, KD8) — pull ranges from `/termite-treatment-perth` table
-- "exterminator cost perth" (1000/mo, KD11) — pull from `/pest-control-prices-perth`
-Drafts in `blog/_drafts/` for 01/12/23 (cost) can be merged.
+- **Bee hive treatment: $250–$400** — is this right?
+- **Commercial per-visit: $140–$380; one-off kitchen clean-out: $350–$650** — is this right?
+
+If yes: remove both slugs from `build/site.json → unpublished`, run `python3 build/build.py` and push. Two pages live in under 10 minutes. No writing required.
+
+If the numbers are wrong: edit `build/pages/10_services.py` line 7 (the `PRICES` dict: `"bee": (250, 400)`, `"comm_visit": (140, 380)`, `"comm_cleanout": (350, 650)`), then ungate + build + push.
 
 ---
 
+### 2. `/bed-bug-treatment-perth.html` — 110 searches/mo, KD17, CPC ~$4
+
+**Last missing BOFU service page.** Every other service is covered; bed bugs are a growing Perth problem and the warranty page already promises "Bed bugs: 30-day, two-visit plan" — without a page to land on, that promise floats.
+
+**Target keyword:** `bed bug treatment perth` (110/mo, KD17)
+**Why next:** closes the last service gap; ties into existing warranty + pricing pages.
+**How to build:** add a new function in `build/pages/10_services.py` following the same pattern as flea/mosquito. Heat + residual two-visit angle. Flag mattress-edge ID, no "one spray fixes it" claim. Add to `SITE.nav_services` and the sitemap. Run `python3 build/build.py` then push.
+
+---
+
+### 3. `/marangaroo.html` and `/stirling.html` — last two Tier-1 corridor suburbs
+
+**Marangaroo:** 90/mo, KD0 — zero competition, Dane already drives here.
+- Local signals: Marangaroo Golf Course boundary, Lake Goollelal fringe → mosquitoes and ants from golf-course irrigation runoff; older brick-veneer housing stock (60s–70s) → rodent harbourage.
+
+**Stirling:** 70/mo, KD0 — zero competition.
+- Local signals: Lake Gwelup reserve, Stirling Civic Gardens, mix of older 60s–70s brick + newer infill → both termites (timber framing, garden beds against brick) and rodents. Council stormwater drains as rodent runs.
+
+**How to build:** add both to `build/pages/20_suburbs.py` following the balcatta/greenwood pattern. Each needs a suburb-specific intro paragraph, one local landmark reference, the pest-pressure angle, and a mini case-study sentence. Run generator + push.
+
+---
+
+## Ungate bee/commercial first — it's a 10-minute win
+
+The two gated pages are complete. The only blocker is a price number. Do that before spending 2 hours on bed bugs or suburbs — it's the highest ROI action in the list.
+
 ## The bit no page can fix
-Battle plan consensus: the website is already ahead of every competitor. **Google Business Profile at Warwick 6024 + a review-ask after every job + NAP citations (TrueLocal, Yellow Pages, Hipages, Oneflare, Yelp AU, StartLocal)** is what puts you in the map pack and gets the phone ringing. If GBP isn't verified and live yet, that beats building page 13.
+GBP at Warwick 6024 + a review-ask after every job still beats all of the above. If GBP isn't verified and live yet, prioritise that today. PMB 3000 now gives you the "registered business" trust signal for citations too — add it to TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal (consistent: DJ Pest Pty Ltd, Warwick WA 6024, PMB 3000).
 
 ## Blockers
-None. Termite licence confirmed (PMB 3000 + Licence 13914 in schema). Deploy: `./deploy.sh --prod` (after porting pages into the generator, see above).
-
-## 2026-09-20 note (Claude Code, local)
-The three pages are now generator entries in build/pages/10_services.py and build/ is tracked in git. Future coach runs: edit build/pages/*.py, run python3 build/build.py, never hand-edit root HTML. Prices for bee/commercial await Dane's confirmation before prod.
+None for bed bugs or suburbs. Bee/commercial are self-blocked on price confirmation (30 seconds of your time). Termite licence (endorsement) remains separate from PMB 3000 — termite pages are already live, so no change needed there.
