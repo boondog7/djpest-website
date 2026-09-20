@@ -233,7 +233,7 @@ def pages(c):
   {c['eyebrow'](f"Pest control · {name} WA {d['postcode']} · {d["drive_short"] + (" from our Warwick base" if name != "Warwick" else "")}")}
   <h1>{esc(d['h1'])}</h1>
   <p class="lead">{esc(d['lead'])}</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
+  {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
   <ul class="trust"><li>Licensed technicians</li><li>In Perth pest control since {S['family_since']}</li><li>Itemised price in writing</li><li>Same-day for active pests</li></ul>
 </div></div></section>"""
 
@@ -284,7 +284,7 @@ def pages(c):
   {c['eyebrow']("Service areas · Based in Warwick WA 6024")}
   <h1>We keep the service area tight <em class="red">on purpose</em>.</h1>
   <p class="lead">DJ Pest works Perth's northern suburbs from a base in Warwick, and we do not stretch beyond them. That keeps response times short, means we know each suburb's soil, housing and pest pressure first-hand, and keeps travel out of your quote.</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
+  {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
 </div></div></section>"""
 
     why = c["section"](

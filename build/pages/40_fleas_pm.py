@@ -14,7 +14,7 @@ def pages(c):
 
     def hero(eyebrow, h1, lead, trust, art):
         return f"""<section class="hero"><div class="wrap"><div>{eb(eyebrow)}<h1>{h1}</h1><p class="lead">{lead}</p>
-<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}<ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul></div>{art}</div></section>"""
+{c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div><ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul></div>{art}</div></section>"""
 
     def art_card(title, items):
         lis = "".join(f'<li style="display:flex;gap:.6rem;align-items:flex-start;margin:.5rem 0">{icon("check")}<span>{i}</span></li>' for i in items)

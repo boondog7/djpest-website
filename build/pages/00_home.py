@@ -15,7 +15,7 @@ def pages(c):
   {c['eyebrow']("Perth's northern suburbs · Warwick-based · Family-run since 2011")}
   <h1>Rats in the roof tonight?<br>We fix it <em class="red">properly</em>, and put it in writing.</h1>
   <p class="lead">Local pest control for Perth's northern suburbs, based in Warwick. Same-day for active rats, mice, ants and spiders where the run allows, with the price in writing before we start and a treatment record after.</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
+  {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
   <ul class="trust"><li>Licensed technicians</li><li>In Perth pest control since {S['family_since']}</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
 </div>
 {hero_art}

@@ -31,7 +31,7 @@ def pages(c):
   {eb(eyebrow)}
   <h1>{h1}</h1>
   <p class="lead">{lead}</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
+  {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
   <ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul>
 </div>
 {art_html}
