@@ -1,4 +1,4 @@
-"""Company pages: pricing guide, pest identifier, about, contact, terms, warranty, privacy, blog index + posts."""
+"""Company pages: investment guide, pest identifier, about, contact, terms, warranty, privacy, blog index + posts."""
 
 DOMAIN = "https://djpest.com.au"
 
@@ -12,8 +12,8 @@ def _prose(c, inner, cls="ledger"):
     return c["section"](f'<div class="prose">{inner}</div>', cls)
 
 
-# ------------------------------------------------------------------ pricing
-def pricing(c):
+# ------------------------------------------------------------------ investment
+def investment(c):
     S = c["SITE"]; T = c["ledger_table"]
     note = '<p class="notice">Typical range, GST inclusive. Every job is quoted itemised in writing before it is booked.</p>'
 
@@ -21,7 +21,7 @@ def pricing(c):
         ["General pest treatment (3-bedroom home)", "Internal and external treatment for cockroaches, spiders, silverfish and internal ants. Non-staining products indoors with an insect growth regulator where it helps. Six-month re-treatment period.", "$250 – $350"],
         ["Spider treatment (stand-alone)", "External web-and-harbourage treatment for redbacks, white-tails and huntsmen, with the internal spray only where it is needed. Included in a general pest treatment.", "$220 – $300"],
         ["External ant treatment", "Colony-level treatment for coastal brown and other super-colony ants using slow-acting non-repellents and baits, not a quick knockdown spray. Three-month re-treatment period.", "$250 – $400"],
-        ["German cockroach kitchen program", "Gel bait plus insect growth regulator through the kitchen, appliances and voids, with a follow-up visit built into the price. Six-month re-treatment period.", "$250 – $450"],
+        ["German cockroach kitchen program", "Gel bait plus insect growth regulator through the kitchen, appliances and voids, with a follow-up visit built into the investment. Six-month re-treatment period.", "$250 – $450"],
     ], amount_cols=(2,))
 
     rodents = T(["Service", "What it covers", "Typical range"], [
@@ -29,18 +29,18 @@ def pricing(c):
         ["Rodent follow-up check", "Station check and re-bait, activity review, proofing progress.", "$90 – $140"],
         ["Wasp nest removal", "Treatment and removal of an accessible paper wasp nest, with a roofline check for others. 30-day re-treatment period. Suspected European wasps are reported to DPIRD at no charge, not treated.", "$180 – $280"],
         ["Bee hive treatment (accessible entry)", "Evening treatment of an established hive in a wall or roof void, entry sealed, follow-up check and a comb-removal plan. Swarms are referred to a beekeeper for live collection at no charge.", "$250 – $400"],
-        ["Commercial program (per visit)", "Cafes, strata, childcare, aged care, offices and warehouses, priced per visit after a site survey. See the commercial page for indicative ranges by site type.", "$140 – $380"],
+        ["Commercial program (per visit)", "Cafes, strata, childcare, aged care, offices and warehouses, quoted per visit after a site survey. See the commercial page for indicative ranges by site type.", "$140 – $380"],
         ["Mosquito yard treatment", "Breeding-site audit plus residual treatment of shaded harbourages. Recommended 4–6 week interval in peak season.", "$220 – $320"],
     ], amount_cols=(2,))
 
     termites = T(["Service", "What it covers", "Typical range"], [
         ["Timber pest / termite inspection", "Visual inspection to AS 4349.3:2010 of the interior, roof void and sub-floor where accessible, exterior and grounds, with moisture readings, photos and a written report.", "$250 – $350"],
         ["Pre-purchase timber pest inspection", "Same inspection scope, with a full AS 4349.3 report formatted for a property purchase and available to your settlement agent.", "$300 – $400"],
-        ["Termite chemical management system", "Non-repellent treated zone installed to AS 3660.2:2017 around the perimeter, by trenching in garden beds and drilling and injecting through paving and concrete. Certificate issued. Price depends on perimeter length and construction.", "$2,500 – $5,500"],
-        ["Termite baiting system install", "In-ground monitoring and baiting stations placed around the building to AS 3660.2, with a monitoring program priced separately.", "$1,500 – $3,000 plus monitoring"],
+        ["Termite chemical management system", "Non-repellent treated zone installed to AS 3660.2:2017 around the perimeter, by trenching in garden beds and drilling and injecting through paving and concrete. Certificate issued. Investment depends on perimeter length and construction.", "$2,500 – $5,500"],
+        ["Termite baiting system install", "In-ground monitoring and baiting stations placed around the building to AS 3660.2, with a monitoring program quoted separately.", "$1,500 – $3,000 plus monitoring"],
     ], amount_cols=(2,))
 
-    movers = T(["Factor", "Moves the price down", "Moves the price up"], [
+    movers = T(["Factor", "Moves the investment down", "Moves the investment up"], [
         ["Property size", "Unit, villa or standard 3-bedroom home on a small block", "Large two-storey home, multiple outbuildings, long fence lines"],
         ["Construction", "Slab-on-ground with open garden beds around the perimeter", "Paving or concrete against every wall (drilling and injecting), suspended timber floors, limestone footings, extensions with hidden joins"],
         ["Infestation stage", "Early: a few sightings, one trail, one entry point", "Established: breeding population in voids, multiple nests, structural timber already damaged"],
@@ -48,13 +48,13 @@ def pricing(c):
         ["Preparation done", "Kitchen cleared, pet bowls up, lawn mowed before we arrive", "We do the preparation on the day (time is billed honestly, but it is still time)"],
     ])
 
-    included = c["card"]("An itemised written quote", "Every line is priced separately, so you can see what the treatment is, what the report is and what the follow-up is. Accept all of it or part of it.") + \
+    included = c["card"]("An itemised written quote", "Every line is quoted separately, so you can see what the treatment is, what the report is and what the follow-up is. Accept all of it or part of it.") + \
         c["card"]("A treatment record", "Product, active constituent, rate, areas treated and re-entry period. We keep it three years as the Health (Pesticides) Regulations 2011 require, and you get a copy.") + \
         c["card"]("A re-treatment period", "Printed on your invoice. If the pest we treated is still active inside the treated area within that period, we come back at no charge. <a href=\"/warranty\">Read the promise</a>.")
 
-    never = c["card"]("No call-out fee", "Coming to look costs nothing. If we find you do not need treatment, we tell you and leave.") + \
+    never = c["card"]("No call-out fee", "Coming to look is free. If we find you do not need treatment, we tell you and leave.") + \
         c["card"]("No deposit", "You pay after the work, on seven-day terms. Bank transfer, PayTo or card, no surcharge.") + \
-        c["card"]("No surprise variations", "If we find something concealed on the day, we stop, explain it and price it before continuing. Never on the invoice.")
+        c["card"]("No surprise variations", "If we find something concealed on the day, we stop, explain it and investment it before continuing. Never on the invoice.")
 
     compare = [
         ("Is the price itemised, or one number?", "One number hides what you are paying for. Ask for the treatment, the report and any follow-up as separate lines."),
@@ -66,43 +66,43 @@ def pricing(c):
     ]
 
     faqs = [
-        ("How much does pest control cost?", "In Perth a general pest treatment for a standard three-bedroom home is typically $250 to $350 including GST. Targeted treatments for ants, German cockroaches or rodents sit between $220 and $450 depending on the extent of the problem. Termite work is priced by the perimeter and construction and ranges from $250 for an inspection to $2,500 to $5,500 for a full chemical management system. Every DJ Pest job is quoted itemised in writing before it is booked."),
+        ("How much does pest control cost?", "In Perth a general pest treatment for a standard three-bedroom home is typically $250 to $350 including GST. Targeted treatments for ants, German cockroaches or rodents sit between $220 and $450 depending on the extent of the problem. Termite work is quoted by the perimeter and construction and ranges from $250 for an inspection to $2,500 to $5,500 for a full chemical management system. Every DJ Pest job is quoted itemised in writing before it is booked."),
         ("What are typical pest control prices in Perth?", "The tables on this page are our typical ranges for Perth's northern suburbs: general pest $250–$350, external ants $250–$400, German cockroach program $250–$450, rodent program $220–$380, spider treatment $220–$300, termite inspection $250–$350, pre-purchase timber pest inspection $300–$400, termite chemical system $2,500–$5,500, termite baiting $1,500–$3,000 plus monitoring, wasp nest $180–$280, mosquito yard treatment $220–$320."),
-        ("How much does termite treatment cost?", "A termite chemical management system installed to AS 3660.2:2017 typically costs $2,500 to $5,500 in Perth, depending on the length of the perimeter and how much of it is paved or concreted (which has to be drilled and injected rather than trenched). A baiting system is $1,500 to $3,000 to install plus an ongoing monitoring program. An inspection first ($250–$350) tells you which one the house actually needs."),
+        ("How much does termite treatment cost?", "A termite chemical management system installed to AS 3660.2:2017 typically runs $2,500 to $5,500 in Perth, depending on the length of the perimeter and how much of it is paved or concreted (which has to be drilled and injected rather than trenched). A baiting system is $1,500 to $3,000 to install plus an ongoing monitoring program. An inspection first ($250–$350) tells you which one the house actually needs."),
         ("What does an exterminator cost per visit?", "We do not use the word exterminator, because no treatment removes every pest for good. A single general pest visit is $250 to $350. Follow-up visits, where a program needs them, are $90 to $140. There is no call-out fee for a look and a quote."),
-        ("Why is one quote so much cheaper than another?", "Usually one of four things: a smaller scope (external only, no roof void), a repellent spray instead of a colony treatment, no report or follow-up, or a variation clause that lifts the price on the day. Ask the six questions above and the difference usually explains itself."),
+        ("Why is one quote so much cheaper than another?", "Usually one of four things: a smaller scope (external only, no roof void), a repellent spray instead of a colony treatment, no report or follow-up, or a variation clause that lifts the investment on the day. Ask the six questions above and the difference usually explains itself."),
         ("Do you charge more for same-day or weekend work?", "No. We work Monday to Saturday, 7am to 6pm, at the same rates. If we can fit an active infestation in today, we do."),
         ("Are prices GST inclusive?", "Yes. Every figure on this page and every quote we send includes GST. There is no deposit and payment terms are seven days from the invoice."),
     ]
 
-    body = _hero(c, "Pricing guide · Perth northern suburbs",
+    body = _hero(c, "Investment guide · Perth northern suburbs",
                  "How much does pest control cost in Perth?",
-                 "Here is what we charge, before you call. These are typical ranges for a standard home in Perth's northern suburbs. Every job is quoted itemised in writing, and the quote is the price. We're not the lowest price in Perth, we're thorough.")
+                 "Here is what we charge, before you call. These are typical ranges for a standard home in Perth's northern suburbs. Every job is quoted itemised in writing, and the quote is the investment. We're not the lowest investment in Perth, we're thorough.")
 
     body += c["section"](c["eyebrow"]("General pest, ants, cockroaches, spiders") + '<div class="section-head"><h2>Everyday pests</h2><p class="lead">The jobs most northern-suburbs homes need once a year. Internal treatments use non-staining, low-odour products; external treatments use the chemistry that suits the pest, not the one that suits the truck.</p></div>' + general + note, "ledger")
-    body += c["section"](c["eyebrow"]("Rodents and wasps") + '<div class="section-head"><h2>Rodents and wasps</h2><p class="lead">Rodent work is a program, not a visit. The first price includes proofing advice because sealing the entry is what stops them coming back.</p></div>' + rodents + note, "ledger")
-    body += c["section"](c["eyebrow"]("Termites and timber pests") + '<div class="section-head"><h2>Termite inspections and treatment</h2><p class="lead">Termite prices vary more than any other pest because they follow the building, not the pest. We inspect first and quote the system the house needs, with a drawing of where it goes.</p></div>' + termites + note + '<p><a href="/termite-inspection-perth">About termite inspections</a> · <a href="/termite-treatment-perth">About termite treatment</a></p>', "ledger")
+    body += c["section"](c["eyebrow"]("Rodents and wasps") + '<div class="section-head"><h2>Rodents and wasps</h2><p class="lead">Rodent work is a program, not a visit. The first investment includes proofing advice because sealing the entry is what stops them coming back.</p></div>' + rodents + note, "ledger")
+    body += c["section"](c["eyebrow"]("Termites and timber pests") + '<div class="section-head"><h2>Termite inspections and treatment</h2><p class="lead">The investment in termite work varies more than for any other pest because they follow the building, not the pest. We inspect first and quote the system the house needs, with a drawing of where it goes.</p></div>' + termites + note + '<p><a href="/termite-inspection-perth">About termite inspections</a> · <a href="/termite-treatment-perth">About termite treatment</a></p>', "ledger")
 
-    body += c["section"](c["eyebrow"]("What moves the price") + '<div class="section-head"><h2>Why your quote lands where it does</h2><p class="lead">Four things account for almost every difference between the low and high end of a range. We tell you which apply to your property on the quote itself.</p></div>' + movers, "ledger")
+    body += c["section"](c["eyebrow"]("What moves the investment") + '<div class="section-head"><h2>Why your quote lands where it does</h2><p class="lead">Four things account for almost every difference between the low and high end of a range. We tell you which apply to your property on the quote itself.</p></div>' + movers, "ledger")
 
-    body += c["section"](c["eyebrow"]("Always included") + '<div class="section-head"><h2>What every price includes</h2></div><div class="grid grid-3">' + included + '</div>', "ledger")
+    body += c["section"](c["eyebrow"]("Always included") + '<div class="section-head"><h2>What every investment includes</h2></div><div class="grid grid-3">' + included + '</div>', "ledger")
     body += c["section"](c["eyebrow"]("Never charged") + '<div class="section-head"><h2>What we never charge for</h2></div><div class="grid grid-3">' + never + '</div>', "ledger")
 
-    body += c["section"](c["eyebrow"]("How to compare quotes") + '<div class="section-head"><h2>Six questions to ask any pest controller</h2><p class="lead">Ask these of us too. A fair operator answers all six without hesitating.</p></div>' + c["steps"](compare), "ledger")
+    body += c["section"](c["eyebrow"]("How to compare quotes") + '<div class="section-head"><h2>Six questions to ask any pest manager</h2><p class="lead">Ask these of us too. A fair operator answers all six without hesitating.</p></div>' + c["steps"](compare), "ledger")
 
     body += _prose(c, """<h2>A note on the accountant's approach</h2>
-<p>DJ Pest is run by a Chartered Accountant. That shapes the pricing in three ways. First, every quote is a ledger: line items, quantities, a total, nothing folded into a single "from" price. Second, every job leaves a paper trail, the treatment record and the report, so you can see what the money bought. Third, there are no incentives to upsell on the day. The technician who quotes is the technician who treats, and the price does not change once you have accepted it unless we find something concealed, in which case we stop and explain before we continue.</p>
-<p>If you are comparing this page with a "from $99" advertisement, look for what the $99 covers. Usually it is an external spray with no roof void, no report and no re-treatment period. That is not a pest treatment; it is a lower price for a different job.</p>
-<p>Ranges on this page are updated as our costs change. The quote you accept is the price you pay. <a href="/services">See all services</a> or <a href="/service-areas">check we cover your suburb</a>.</p>""")
+<p>DJ Pest is run by a Chartered Accountant. That shapes the investment in three ways. First, every quote is a ledger: line items, quantities, a total, nothing folded into a single "from" investment. Second, every job leaves a paper trail, the treatment record and the report, so you can see what the money bought. Third, there are no incentives to upsell on the day. The technician who quotes is the technician who treats, and the investment does not change once you have accepted it unless we find something concealed, in which case we stop and explain before we continue.</p>
+<p>If you are comparing this page with a "from $99" advertisement, look for what the $99 covers. Usually it is an external spray with no roof void, no report and no re-treatment period. That is not a pest treatment; it is a lower investment for a different job.</p>
+<p>Ranges on this page are updated as our rates change. The quote you accept is the investment you pay. <a href="/services">See all services</a> or <a href="/service-areas">check we cover your suburb</a>.</p>""")
 
-    body += c["section"](c["eyebrow"]("Pricing questions") + '<div class="section-head"><h2>Straight answers about cost</h2></div>' + c["faq"](faqs), "ledger")
-    body += c["quote_block"]("Get your itemised price.", "Tell us the pest, the suburb and roughly what you are seeing. We'll send a written, itemised price, usually the same day, before anything is booked.")
+    body += c["section"](c["eyebrow"]("Investment questions") + '<div class="section-head"><h2>Straight answers about the investment</h2></div>' + c["faq"](faqs), "ledger")
+    body += c["quote_block"]("Get your itemised investment.", "Tell us the pest, the suburb and roughly what you are seeing. We'll send a written, itemised investment, usually the same day, before anything is booked.")
 
     offers = [("General pest treatment", 250, 350), ("External ant treatment", 250, 400), ("German cockroach program", 250, 450),
-              ("Rodent control program", 220, 380), ("Spider treatment", 220, 300), ("Termite inspection", 250, 350),
+              ("Rodent management program", 220, 380), ("Spider treatment", 220, 300), ("Termite inspection", 250, 350),
               ("Pre-purchase timber pest inspection", 300, 400), ("Termite chemical management system", 2500, 5500),
               ("Termite baiting system", 1500, 3000), ("Wasp nest removal", 180, 280), ("Mosquito yard treatment", 220, 320)]
-    offer_schema = {"@type": "OfferCatalog", "name": "DJ Pest price guide", "itemListElement": [
+    offer_schema = {"@type": "OfferCatalog", "name": "DJ Pest investment guide", "itemListElement": [
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "provider": {"@id": DOMAIN + "/#business"}},
          "priceCurrency": "AUD", "price": lo,
          "priceSpecification": {"@type": "PriceSpecification", "minPrice": lo, "maxPrice": hi, "priceCurrency": "AUD", "valueAddedTaxIncluded": True}}
@@ -113,7 +113,7 @@ def pricing(c):
         "desc": "How much does pest control cost in Perth? Typical ranges for general pest, ants, cockroaches, rodents, spiders, termite inspections and treatment. Itemised quotes, no call-out fee.",
         "body": body,
         "schema": [c["faq_schema"](faqs), offer_schema],
-        "crumbs": [("Pricing guide", None)],
+        "crumbs": [("Investment guide", None)],
     }
 
 
@@ -146,11 +146,11 @@ def whats_my_pest(c):
                  actions=False)
     body += c["section"](c["eyebrow"]("What did you see?") + grid, "ledger")
     body += _prose(c, f"""<h2>Still not sure? Text a photo.</h2>
-<p>A phone photo is enough for most identifications. Send it to <a href="{S['phone_sms']}">{S['phone_display']}</a> with your suburb and where you found it (kitchen, roof void, garden bed). We reply during business hours, Monday to Saturday, with what it is, whether it needs treatment and roughly what that would cost. No charge for the identification.</p>
+<p>A phone photo is enough for most identifications. Send it to <a href="{S['phone_sms']}">{S['phone_display']}</a> with your suburb and where you found it (kitchen, roof void, garden bed). We reply during business hours, Monday to Saturday, with what it is, whether it needs treatment and roughly what that would investment. No charge for the identification.</p>
 <div class="callout"><p><strong>Helpful photos:</strong> the pest next to a coin for scale, droppings where you found them, mud tubes with a wider shot of the wall, and any damage to timber or packaging. A blurry photo of a fast ant is still useful if the trail is in the frame.</p></div>
 <h2>Why identification comes first</h2>
 <p>Every pest on this page is treated differently, and getting the species wrong wastes the treatment. A repellent spray on a coastal brown ant trail splits the colony into several. Aerosol on German cockroaches scatters them deeper into the voids. Breaking a termite mud tube sends the workers elsewhere and hides the evidence an inspector needs. Rat bait placed for mice, or mouse bait for rats, gets ignored.</p>
-<p>That is why the first thing we do on any visit is look, not spray. Species, entry point, harbourage and conditions first, then the chemistry that fits, applied to its APVMA label. The <a href="/pest-control-prices-perth">pricing guide</a> shows what each treatment typically costs once we know what we are dealing with.</p>
+<p>That is why the first thing we do on any visit is look, not spray. Species, entry point, harbourage and conditions first, then the chemistry that fits, applied to its APVMA label. The <a href="/pest-control-prices-perth">investment guide</a> shows the typical investment for each treatment once we know what we are dealing with.</p>
 <h2>Perth's northern suburbs pest calendar</h2>
 <p>Timing narrows the answer too. Ants and spiders build in spring as the sand warms. Termite swarmers appear on warm, humid evenings from November to April. Cockroaches move indoors as the nights cool in autumn. Rodents look for roof voids in winter. If you saw the pest this week, the season is a strong clue.</p>""")
     body += c["section"](c["eyebrow"]("Right now") + c["season_strip"]())
@@ -172,17 +172,20 @@ def about(c):
             f'<div class="num">{c["esc"](S["owner"])}</div><p>{c["esc"](S["owner_title"])}<br>{c["esc"](S["licence_label"])}<br>{c["esc"](S["reg_short"])}<br>Based in {S["base_suburb"]} WA {S["base_postcode"]}</p></div>')
 
     body = _hero(c, "About DJ Pest · Warwick, WA",
-                 f"A Perth family pest control business since {S['family_since']}. Second generation, run by a Chartered Accountant.",
+                 f"A Perth family pest management business since {S['family_since']}. Second generation, run by a Chartered Accountant.",
                  "DJ Pest is a small, family-run pest management business in Warwick, servicing Perth's northern suburbs. The technician who quotes is the technician who treats and writes the report.")
     body += c["section"]('<div class="grid grid-2" style="align-items:start;gap:3rem"><div class="prose">'
-        "<h2>In Perth pest control since 2011.</h2>"
-        "<p>Our family started in Perth pest control in 2011, working the northern suburbs out of a ute: roof voids in January, sub-floors in July, learning which suburbs have the sand that coastal brown ants love and which have the limestone that termites track along. That is where we learned how a good technician reads a house before opening a drum of anything.</p>"
-        "<p>The second generation kept the books for that business from the start and went on to qualify as a Chartered Accountant. Fifteen years of watching how service businesses price by feel, promise by mouth and keep no records teaches you that the fix is not marketing, it is bookkeeping.</p>"
+        "<h2>Four generations of farmers at Coorow.</h2>"
+        "<p>Before any of us ever opened a drum of anything, the Johns family farmed at Coorow, in WA's northern wheatbelt, for four generations. Farming teaches you the things a city trade can forget: you manage pests, you never ‘control’ them; the season doesn't care about your excuses; and your name is only worth what your last job looked like. When our family brought that country work ethic to Perth, it came with us into pest management.</p>"
+        "<p>It's why we say we treat every house like it's our own — because on a farm, the place you look after and the place you live are the same place. And it's why we talk about the investment in your property rather than racing anyone to the bottom &mdash; we'd rather do a job properly than do it twice. Price is what you pay. Value is what you receive.</p>"
+        "<h2>In Perth pest management since 2011.</h2>"
+        "<p>Our family started in Perth pest management in 2011, working the northern suburbs out of a ute: roof voids in January, sub-floors in July, learning which suburbs have the sand that coastal brown ants love and which have the limestone that termites track along. That is where we learned how a good technician reads a house before opening a drum of anything.</p>"
+        "<p>The second generation kept the books for that business from the start and went on to qualify as a Chartered Accountant. Fifteen years of watching how service businesses quote by feel, promise by mouth and keep no records teaches you that the fix is not marketing, it is bookkeeping.</p>"
         f"<p>DJ Pest was formed in 2026 as the second generation of that family business, run its own way. Every treatment is carried out by, or under the direct supervision of, a technician licensed under the WA Health (Pesticides) Regulations 2011. {S['reg_line']}</p>"
         "<h2>Why the accountant's approach matters</h2>"
-        "<p>Pest control is a trust purchase. You cannot see what was applied in the roof void, you cannot verify the rate, and you find out whether it worked six weeks later. Most of the industry's bad reputation comes from that gap: a one-line invoice, a verbal promise and no way to check either.</p>"
+        "<p>Pest management is a trust purchase. You cannot see what was applied in the roof void, you cannot verify the rate, and you find out whether it worked six weeks later. Most of the industry's bad reputation comes from that gap: a one-line invoice, a verbal promise and no way to check either.</p>"
         "<p>An accountant closes gaps like that with documents. So every DJ Pest job produces three: an itemised quote before the work, a chemical application ledger during it (product, active constituent, rate, areas, re-entry period) and a treatment report after it, with photos of what was found and a prevention plan. The ledger doubles as the treatment record WA law requires us to keep for three years. You get a copy of all of it without asking.</p>"
-        "<p>It also means the numbers are honest. There is no call-out fee, no deposit and no variation on the day without stopping to explain it. The <a href=\"/pest-control-prices-perth\">pricing guide</a> is published so you can check a quote against it. The <a href=\"/warranty\">re-treatment promise</a> is written down with its conditions rather than implied.</p>"
+        "<p>It also means the numbers are honest. There is no call-out fee, no deposit and no variation on the day without stopping to explain it. The <a href=\"/pest-control-prices-perth\">investment guide</a> is published so you can check a quote against it. The <a href=\"/warranty\">re-treatment promise</a> is written down with its conditions rather than implied.</p>"
         "</div><div>" + mark +
         '<div class="card" style="margin-top:.8rem"><div class="num">Credentials</div><ul style="list-style:none;padding:0;margin:0;line-height:1.9;font-size:.95rem">'
         f"<li>Licensed technicians (WA Health (Pesticides) Regulations 2011)</li><li>{S['reg_short']}</li><li>Run by a Chartered Accountant</li><li>Public liability insured</li><li>ABN {S['abn']}</li></ul></div>"
@@ -191,7 +194,7 @@ def about(c):
     body += c["section"](c["eyebrow"]("The first visit") + '<div class="section-head"><h2>What a first visit is like</h2><p class="lead">About an hour for a general pest job, longer for termites. No sales script.</p></div>' + c["steps"]([
         ("A conversation at the door", "What you have seen, where, for how long, and anything we need to know: pregnancy, asthma, pets, fish tanks, edible gardens. That changes the product and the timing."),
         ("A walk-through with a torch", "Inside, roof void and sub-floor where it is safe, then the perimeter and yard. Photos of droppings, trails, tubes, moisture and entry points. If there is nothing to treat, we say so."),
-        ("An itemised price, on paper", "What is being treated, with what, the re-entry period and the re-treatment period. Written on the spot or sent within the hour. Accept it then or later; nothing is booked until you do."),
+        ("An itemised investment, on paper", "What is being treated, with what, the re-entry period and the re-treatment period. Written on the spot or sent within the hour. Accept it then or later; nothing is booked until you do."),
         ("Treatment, then the report", "Products applied to label, warning signs where required, re-entry explained. The treatment report follows by email with the ledger and a prevention plan for the things only you can fix."),
     ]), "ledger")
 
@@ -205,7 +208,7 @@ def about(c):
 </ul>
 <h2>Where we are</h2>
 <p>Based in Warwick, WA 6024, in the middle of the northern corridor. Most of the service area is within twenty minutes. Hours are {S['hours']}. Call <a href="tel:{S['phone_tel']}">{S['phone_display']}</a>, text a photo to the same number, or email <a href="mailto:{S['email']}">{S['email']}</a>.</p>""")
-    body += c["quote_block"]("Talk to us directly.", "The person who answers the phone is one of the technicians who comes out. Tell us what you are seeing and we'll give you a straight answer and a written price.")
+    body += c["quote_block"]("Talk to us directly.", "The person who answers the phone is one of the technicians who comes out. Tell us what you are seeing and we'll give you a straight answer and a written investment.")
     schema = [{
         "@type": "AboutPage", "name": "About DJ Pest", "url": DOMAIN + "/about",
         "mainEntity": {"@id": DOMAIN + "/#business"}}]
@@ -225,14 +228,14 @@ def contact(c):
              c["card"]("Text a photo", f'<a href="{S["phone_sms"]}" style="font-size:1.3rem;text-decoration:none">{S["phone_display"]}</a><br>Send a photo of the pest, droppings or damage with your suburb. Free identification.') +
              c["card"]("Email", f'<a href="mailto:{S["email"]}" style="font-size:1.1rem;text-decoration:none">{S["email"]}</a><br>For quotes, reports, invoices and strata or commercial enquiries.') +
              c["card"]("Hours", f'{S["hours"]}<br>Closed Sundays and public holidays. Same-day for active infestations where the run allows.'))
-    body = _hero(c, "Contact", "Get in touch.", "Phone, text or the form. Whichever you choose, you get a written, itemised price before anything is booked.", actions=False)
+    body = _hero(c, "Contact", "Get in touch.", "Phone, text or the form. Whichever you choose, you get a written, itemised investment before anything is booked.", actions=False)
     body += c["section"]('<div class="grid grid-4">' + cards + '</div>', "ledger")
     body += c["section"]('<div class="grid grid-2" style="gap:3rem;align-items:start"><div class="prose">'
         f"<h2>Where we work</h2><p>DJ Pest is based in {S['base_suburb']} WA {S['base_postcode']} and services Perth's northern suburbs: {c['esc'](areas)} and the coastal strip north to Yanchep. Most jobs are within twenty minutes of the depot. <a href=\"/service-areas\">Full list of service areas</a>.</p>"
         f"<h2>Business details</h2><p>{c['esc'](S['legal_name'])}<br>ABN {S['abn']} · ACN {S['acn']}<br>{c['esc'](S['reg_line'])}<br>{c['esc'](S['licence_label'])}</p>"
         "<p>We do not have a shopfront. Visits are by appointment at your property; there is nothing to collect from ours.</p>"
         '</div><div class="card" style="min-height:280px;display:grid;place-items:center;text-align:center"><div><div class="num">Map</div><p>Warwick, WA 6024. Servicing the northern corridor from Balcatta and Karrinyup up the coast to Yanchep, and inland to Wanneroo.</p><p><a href="/service-areas">See the suburb list</a></p></div></div></div>', "")
-    body += c["quote_block"]("Or use the form.", "Name, mobile and suburb are enough. We'll call back with the right questions and a written price.")
+    body += c["quote_block"]("Or use the form.", "Name, mobile and suburb are enough. We'll call back with the right questions and a written investment.")
     return {
         "path": "/contact",
         "title": "Contact DJ Pest | Pest Control Warwick & Perth Northern Suburbs",
@@ -249,7 +252,7 @@ def _retreat_table(c):
         ["External ant treatment", "3 months"],
         ["Rodent baiting", "3 months, or the agreed program period"],
         ["Fleas", "30 days, subject to your completing the preparation and vacuuming plan"],
-                ["Wasps, bees (relocation), bird control, one-off nests", "30 days"],
+                ["Wasps, bees (relocation), bird management, one-off nests", "30 days"],
         ["Termite chemical management system", "The period stated on your AS 3660.2 certificate (typically up to 8 years), conditional on annual inspections (clause 5.4)"],
         ["Termite baiting / monitoring", "Duration of the agreed monitoring agreement"],
         ["Timber pest and termite inspections", "No re-treatment period; see clause 5.5"],
@@ -263,9 +266,9 @@ def terms(c):
 <p>1.2 Pest management treatments are carried out by technicians licensed under the <em>Health (Pesticides) Regulations 2011</em> (WA). Licence numbers appear on every treatment record.</p>
 <p>1.3 DJ Pest Pty Ltd has applied for registration as a pest management business with the Western Australian Department of Health under the <em>Health (Pesticides) Regulations 2011</em> (registration number PMB 3000 assigned, certificate pending). Until the certificate issues, treatments are carried out and recorded under a registered pest management business, and invoiced accordingly.</p>
 <h2>2. Quotes and acceptance</h2>
-<p>2.1 Quotes are valid for <strong>30 days</strong> and are based on the information you gave us and what we could see at the time. Concealed conditions (for example inaccessible roof voids or sub-floors, undisclosed infestation extent, structural issues) may require a variation, which we will explain and price before proceeding.</p>
+<p>2.1 Quotes are valid for <strong>30 days</strong> and are based on the information you gave us and what we could see at the time. Concealed conditions (for example inaccessible roof voids or sub-floors, undisclosed infestation extent, structural issues) may require a variation, which we will explain and investment before proceeding.</p>
 <p>2.2 A quote is accepted when you accept it online, in writing, by SMS, or by allowing us to start work.</p>
-<p>2.3 All prices are in Australian dollars and <strong>include GST</strong> unless stated.</p>
+<p>2.3 All investment ranges are in Australian dollars and <strong>include GST</strong> unless stated.</p>
 <p>2.4 <strong>Cooling-off.</strong> If we quoted in your home without you inviting us (an unsolicited consumer agreement), you may cancel within 10 business days under section 82 of the Australian Consumer Law. This does not apply to work you requested.</p>
 <h2>3. Scheduling, access and preparation</h2>
 <p>3.1 Bookings are confirmed by SMS or email. We give an arrival window rather than a fixed time and send an "on the way" text where possible.</p>
@@ -287,7 +290,7 @@ def terms(c):
 <p>5.5 Timber pest and termite <strong>inspections</strong> are visual and non-invasive within the limits of AS 4349.3. An inspection is a snapshot on the day; it is not a warranty that timber pests are absent or will not appear later, and it does not cover concealed areas listed as inaccessible in the report.</p>
 <h2>6. Australian Consumer Law</h2>
 <p>6.1 Our services come with guarantees that cannot be excluded under the Australian Consumer Law: they will be provided with due care and skill, be fit for any purpose you told us about, and be delivered within a reasonable time. Nothing in these terms limits those rights.</p>
-<p>6.2 Where the law allows, our liability for a failure to comply with a consumer guarantee is limited to supplying the service again or paying the cost of having it supplied again (ACL s 64A).</p>
+<p>6.2 Where the law allows, our liability for a failure to comply with a consumer guarantee is limited to supplying the service again or paying the investment of having it supplied again (ACL s 64A).</p>
 <p>6.3 Clause 5 is in addition to, and does not replace, your rights under the Australian Consumer Law.</p>
 <h2>7. Payment</h2>
 <p>7.1 Invoices are due 7 days from the invoice date unless a different term is shown on the invoice.</p>
@@ -302,7 +305,7 @@ def terms(c):
 <p>9.2 We will send booking confirmations, reminders, reports, invoices and annual service reminders by SMS and email. Marketing messages are only sent with your consent and every message has an unsubscribe option (Spam Act 2003).</p>
 <h2>10. Insurance and limits</h2>
 <p>10.1 We hold public liability insurance and, where applicable, professional indemnity insurance for timber pest inspections. Certificates are available on request.</p>
-<p>10.2 To the extent permitted by law, we are not liable for indirect or consequential loss, or for loss caused by your failure to follow our instructions, by third parties, or by conditions outside our control.</p>
+<p>10.2 To the extent permitted by law, we are not liable for indirect or consequential loss, or for loss caused by your failure to follow our instructions, by third parties, or by conditions outside our management.</p>
 <h2>11. Disputes</h2>
 <p>11.1 Tell us within 7 days if you are unhappy with our work and we will come back to look. If we cannot resolve it, you may contact Consumer Protection WA (1300 30 40 54) or, for licensing matters, the WA Department of Health Pesticide Safety Section (9222 2000). These terms are governed by the laws of Western Australia.</p>
 <h2>12. General</h2>
@@ -345,7 +348,7 @@ def warranty(c):
 <h2>Why we write it down</h2>
 <p>Most operators promise something similar verbally. We put ours in the terms, on the quote and on the invoice because a promise you cannot read is not one you can hold anyone to. It also keeps us honest about what a treatment can do: pest management reduces activity, and pests can re-enter from next door. A written period with clear conditions is the fair way to share that risk.</p>
 <div class="callout"><p><strong>Australian Consumer Law.</strong> Our services come with guarantees that cannot be excluded under the Australian Consumer Law, including that they will be provided with due care and skill and be fit for the purpose you told us about. This re-treatment promise is in addition to those rights and does not replace or limit them.</p></div>
-<p>Full wording: <a href="/terms">terms and conditions</a>, clauses 5 and 6. Pricing for each service: <a href="/pest-control-prices-perth">pricing guide</a>.</p>""")
+<p>Full wording: <a href="/terms">terms and conditions</a>, clauses 5 and 6. Investment for each service: <a href="/pest-control-prices-perth">investment guide</a>.</p>""")
     body += c["quote_block"]("Book a treatment that comes with a promise.", "Every quote shows the re-treatment period that applies. Tell us what you are seeing and we'll put it in writing.")
     return {
         "path": "/warranty",
@@ -422,11 +425,11 @@ POSTS = [
     {"slug": "how-to-get-rid-of-ants", "title": "How to get rid of ants (Australian guide, 2026)",
      "desc": "Why spraying makes coastal brown super-colonies worse, how to identify the species, which non-repellent baits work and when to call a licensed Perth pest controller.",
      "img": "/assets/img/blog-ant-food.jpg", "alt": "Ant trail across a kitchen counter, typical foraging behaviour",
-     "date": "2026-05-01", "read": "10 minutes", "service": "/ant-control-perth", "service_label": "Ant control Perth"},
+     "date": "2026-05-01", "read": "10 minutes", "service": "/ant-control-perth", "service_label": "Ant management Perth"},
     {"slug": "how-to-get-rid-of-cockroaches", "title": "How to get rid of cockroaches (2026 Australian guide)",
      "desc": "Species identification, why spray-and-forget fails on German cockroaches, the gel bait and IGR protocol that works, and when DIY is enough versus when to call a pro.",
      "img": "/assets/img/blog-cockroach-german.jpg", "alt": "German cockroach, small and tan with two dark stripes",
-     "date": "2026-05-01", "read": "9 minutes", "service": "/cockroach-control-perth", "service_label": "Cockroach control Perth"},
+     "date": "2026-05-01", "read": "9 minutes", "service": "/cockroach-control-perth", "service_label": "Cockroach management Perth"},
 ]
 
 
@@ -435,8 +438,8 @@ def _post(c, p, lede, content):
     body = f'<section class="hero"><div class="wrap"><div>{c["eyebrow"]("Blog · Pest guides")}<h1>{c["esc"](p["title"])}</h1><p class="lead">{lede}</p><p class="notice">Published 1 May 2026 · Reading time {p["read"]} · By DJ Pest</p></div></div></section>'
     body += _prose(c, content + f"""<hr>
 <h2>Related</h2>
-<ul><li><a href="{p['service']}">{p['service_label']}</a>, the full service and what it costs</li><li><a href="/pest-control-prices-perth">Pest control prices in Perth</a>, every service with a typical range</li><li><a href="/whats-my-pest">What's my pest?</a>, pick what you saw</li><li><a href="/blog">All guides</a></li></ul>""")
-    body += c["quote_block"]("Rather have it done properly?", "Tell us what you are seeing and where. Itemised price in writing, no call-out fee.")
+<ul><li><a href="{p['service']}">{p['service_label']}</a>, the full service and the investment</li><li><a href="/pest-control-prices-perth">Pest management investment ranges in Perth</a>, every service with a typical range</li><li><a href="/whats-my-pest">What's my pest?</a>, pick what you saw</li><li><a href="/blog">All guides</a></li></ul>""")
+    body += c["quote_block"]("Rather have it done properly?", "Tell us what you are seeing and where. Itemised investment in writing, no call-out fee.")
     path = f"/blog/{p['slug']}"
     schema = [{
         "@type": "BlogPosting", "@id": DOMAIN + path + "#post", "headline": p["title"], "description": p["desc"],
@@ -449,11 +452,11 @@ def _post(c, p, lede, content):
 
 def blog_index(c):
     cards = "".join(c["card"](p["title"], p["desc"], f"/blog/{p['slug']}", f"Guide · {p['read']}", p["img"], p["alt"], more="Read the guide") for p in POSTS)
-    body = _hero(c, "Blog", "Pest guides from a licensed Perth operator.", "What actually works, what doesn't, when DIY is enough and when to call someone. Written by our technicians, second-generation Perth pest controller. No upsells.", actions=False)
+    body = _hero(c, "Blog", "Pest guides from a licensed Perth operator.", "What actually works, what doesn't, when DIY is enough and when to call someone. Written by our technicians, second-generation Perth pest manager. No upsells.", actions=False)
     body += c["section"]('<div class="grid grid-2">' + cards + '</div>', "ledger")
     body += _prose(c, """<h2>What these guides are for</h2>
 <p>Most pest problems in Perth's northern suburbs start with a wrong identification and a can of spray. These guides are written to fix that: identify the species first, understand why the obvious product fails, then either do it properly yourself or know exactly what to ask a licensed operator for. Every guide names the chemistry class that works, not a brand, and says plainly when a professional is the faster and cheaper route.</p>
-<p>New guides are added as the seasons turn. Spring for ants and spiders, summer for termite swarmers, autumn for cockroaches, winter for rodents. If there is a pest you would like covered, <a href="/contact">tell us</a>. For prices, see the <a href="/pest-control-prices-perth">pricing guide</a>; to identify what you saw, try <a href="/whats-my-pest">What's my pest?</a>.</p>""")
+<p>New guides are added as the seasons turn. Spring for ants and spiders, summer for termite swarmers, autumn for cockroaches, winter for rodents. If there is a pest you would like covered, <a href="/contact">tell us</a>. For investment ranges, see the <a href="/pest-control-prices-perth">investment guide</a>; to identify what you saw, try <a href="/whats-my-pest">What's my pest?</a>.</p>""")
     body += c["quote_block"]()
     return {"path": "/blog", "title": "Pest Control Guides | DJ Pest Blog Perth",
             "desc": "Plain-English pest guides from a licensed Perth pest controller: how to get rid of ants and cockroaches, what works, what doesn't, and when to call a pro.",
@@ -483,7 +486,7 @@ def post_ants(c):
 <h3>Bull ant (<em>Myrmecia</em> spp.)</h3>
 <p>Large (10–25 mm), aggressive, painful sting, isolated nests in bushland-adjacent properties. Single nest treatment with a directed liquid product. Not really a "trail" species; they're solitary hunters.</p>
 <h2>Step two: the right bait for the species.</h2>
-<p>Stop ringing pest controllers and asking "do you have anything stronger than what I bought at the hardware store?". The issue isn't strength, it's chemistry class. There are three things you want from an ant bait:</p>
+<p>Stop ringing pest managers and asking "do you have anything stronger than what I bought at the hardware store?". The issue isn't strength, it's chemistry class. There are three things you want from an ant bait:</p>
 <ol>
 <li><strong>Non-repellent active ingredient</strong>: fipronil, hydramethylnon or indoxacarb. Workers shouldn't be able to detect they're walking on it.</li>
 <li><strong>Slow-acting</strong>: a worker that drops dead 30 seconds after picking up bait can't carry it back to the colony. Modern transfer baits take hours to kill, giving the worker time to share with nest-mates.</li>
@@ -517,14 +520,14 @@ def post_ants(c):
 <li>You're using non-repellent bait, you've placed it correctly, and you can wait 2–4 weeks.</li>
 <li>The ants are confined to one room or one external area.</li>
 </ul>
-<h3>Call a licensed pest controller when:</h3>
+<h3>Call a licensed pest manager when:</h3>
 <ul>
 <li>You suspect a coastal brown super-colony covering large parts of your property. These need a coordinated fipronil treatment along every trail and nest entry to collapse properly.</li>
 <li>You've baited correctly for four weeks and activity hasn't dropped (that means re-invasion from a neighbouring property, and an annual professional treatment is the realistic answer).</li>
 <li>Bull ants near a play area or outdoor entertaining zone. Directed treatment is faster than DIY.</li>
 <li>You're in a commercial premises and ant activity is a food-safety risk.</li>
 </ul>
-<div class="callout"><p>A typical Perth <a href="/ant-control-perth">external ant treatment</a> with a licensed technician runs $250–$400 for a standard property, uses fipronil outdoors and gel indoors where needed, and carries a three-month <a href="/warranty">re-treatment period</a>. Every figure is on the <a href="/pest-control-prices-perth">pricing guide</a>.</p></div>
+<div class="callout"><p>A typical Perth <a href="/ant-control-perth">external ant treatment</a> with a licensed technician runs $250–$400 for a standard property, uses fipronil outdoors and gel indoors where needed, and carries a three-month <a href="/warranty">re-treatment period</a>. Every figure is on the <a href="/pest-control-prices-perth">investment guide</a>.</p></div>
 <h2>Common Perth-specific questions.</h2>
 <h3>Why are coastal brown ants so common in Perth?</h3>
 <p>Sandy soil (great for nest-building), mild climate (year-round breeding), and <em>Pheidole megacephala</em>'s general invasive success. Beachside suburbs are particularly heavy because the species thrives in the lawn-paving-garden interface that Perth landscapes favour. It's basically the perfect environment for them.</p>
@@ -562,13 +565,13 @@ def post_cockroaches(c):
 <li><strong>Seal entry points.</strong> Caulk gaps around plumbing, pipe penetrations, weep holes wider than 6 mm, gaps between cabinetry and wall. Pay particular attention to where the dishwasher hose enters cabinetry, sink waste pipes, and around the back of the fridge.</li>
 <li><strong>Re-monitor at 14 days.</strong> Re-deploy the sticky traps. Catch should be down 80 per cent or more from baseline. If not, you've missed a harbourage zone; reset and find it (usually inside an appliance you didn't pull out).</li>
 </ol>
-<figure><img src="/assets/img/blog-cockroach-trap.jpg" alt="Sticky monitor trap used to identify cockroach activity zones" width="1200" height="800" loading="lazy"><figcaption class="notice">Sticky monitor traps cost a few dollars and are the single best DIY tool for understanding where your cockroach activity actually is.</figcaption></figure>
+<figure><img src="/assets/img/blog-cockroach-trap.jpg" alt="Sticky monitor trap used to identify cockroach activity zones" width="1200" height="800" loading="lazy"><figcaption class="notice">Sticky monitor traps are a few dollars and are the single best DIY tool for understanding where your cockroach activity actually is.</figcaption></figure>
 <h2>What doesn't work (don't waste your money).</h2>
 <ul>
 <li><strong>Boric acid alone.</strong> It works on cockroaches that walk through it, but they groom obsessively and avoid heavy dustings. Useful as part of a multi-tool approach, useless on its own.</li>
 <li><strong>Aerosol "kill on contact" sprays.</strong> See above: kills the few in the open, scatters the rest deeper into voids.</li>
 <li><strong>Bay leaves, cucumber peel, peppermint oil.</strong> All popular on social media. None of them have any meaningful effect on a real infestation.</li>
-<li><strong>Bug bombs and foggers.</strong> Push cockroaches into wall voids where they breed back. Considered actively counterproductive by most professional pest controllers.</li>
+<li><strong>Bug bombs and foggers.</strong> Push cockroaches into wall voids where they breed back. Considered actively counterproductive by most professional pest managers.</li>
 <li><strong>Ultrasonic repellers.</strong> No scientific evidence they work. Consumer tests have shown no effect on cockroach populations.</li>
 </ul>
 <h2>When DIY is fine, and when you need a pro.</h2>
@@ -579,7 +582,7 @@ def post_cockroaches(c):
 <li>You're in a stand-alone house with no shared walls.</li>
 <li>You're catching them, but it's manageable and you're seeing decline.</li>
 </ul>
-<h3>Call a licensed pest controller when:</h3>
+<h3>Call a licensed pest manager when:</h3>
 <ul>
 <li>You're seeing cockroaches during the day. Cockroaches are nocturnal; daytime sightings mean the population is large enough to spill out of harbourage.</li>
 <li>You're in an apartment or townhouse. German cockroaches travel between units through wall cavities, and uncoordinated treatment usually fails.</li>
@@ -587,7 +590,7 @@ def post_cockroaches(c):
 <li>You run a commercial kitchen, café or food premises; there are regulatory implications for an active infestation.</li>
 <li>You have very young children or immunocompromised family members. Cockroach allergens are documented asthma triggers.</li>
 </ul>
-<div class="callout"><p>A typical Perth <a href="/cockroach-control-perth">German cockroach kitchen program</a> with a licensed technician runs $250–$450 depending on severity, includes an IGR (which DIY products often don't) and a follow-up visit, and carries a six-month <a href="/warranty">re-treatment period</a>. See the <a href="/pest-control-prices-perth">pricing guide</a>. That's not always cheaper than a determined DIY effort, but it's almost always faster and more reliable.</p></div>
+<div class="callout"><p>A typical Perth <a href="/cockroach-control-perth">German cockroach kitchen program</a> with a licensed technician runs $250–$450 depending on severity, includes an IGR (which DIY products often don't) and a follow-up visit, and carries a six-month <a href="/warranty">re-treatment period</a>. See the <a href="/pest-control-prices-perth">investment guide</a>. That's not always cheaper than a determined DIY effort, but it's almost always faster and more reliable.</p></div>
 <h2>Common questions Perth homeowners ask.</h2>
 <h3>Are cockroaches dangerous?</h3>
 <p>They don't bite. They are, however, mechanical vectors of <em>Salmonella</em>, <em>E. coli</em> and <em>Staphylococcus</em>. They walk through drains and refuse, then across food preparation surfaces. Their droppings and shed skins are documented asthma and allergy triggers, particularly in kids. The food safety implications are why commercial kitchens are under regulatory pressure to maintain ongoing pest programs.</p>
@@ -601,4 +604,4 @@ def post_cockroaches(c):
 
 
 def pages(c):
-    return [pricing(c), whats_my_pest(c), about(c), contact(c), terms(c), warranty(c), privacy(c), blog_index(c), post_ants(c), post_cockroaches(c)]
+    return [investment(c), whats_my_pest(c), about(c), contact(c), terms(c), warranty(c), privacy(c), blog_index(c), post_ants(c), post_cockroaches(c)]

@@ -25,8 +25,8 @@ def pages(c):
                 "provider": {"@id": DOMAIN + "/#business"}, "areaServed": {"@type": "Place", "name": "Perth northern suburbs, Western Australia"},
                 "offers": {"@type": "Offer", "priceCurrency": "AUD", "price": lo, "priceSpecification": {"@type": "PriceSpecification", "minPrice": lo, "maxPrice": hi, "priceCurrency": "AUD"}}}
 
-    price_note = ('<p class="notice">GST inclusive. Quoted from the address within the hour, itemised in writing. No call-out fee, no deposit, seven-day terms. '
-                  'See the <a href="/pest-control-prices-perth">pricing guide</a>.</p>')
+    investment_note = ('<p class="notice">GST inclusive. Quoted from the address within the hour, itemised in writing. No call-out fee, no deposit, seven-day terms. '
+                  'See the <a href="/pest-control-prices-perth">investment guide</a>.</p>')
 
     # ================================================================ /flea-treatment-perth
     fl_faqs = [
@@ -36,7 +36,7 @@ def pages(c):
         ("Does the house need to be empty?", "Empty and vacuumed is ideal: fleas and their eggs live in carpet, under furniture and in pet bedding, so a bare floor means full coverage. If furniture is still in, we treat around and under what we can reach and note it on the certificate. Vacuum thoroughly beforehand and empty the vacuum outside."),
         ("What do you use, and is it OK for the next tenant?", "An APVMA-registered flea product with an insect growth regulator, applied to label to carpets, rugs, hard-floor edges, skirtings, under furniture and pet areas, plus the yard where pets spent time. Non-staining formulations indoors. The incoming tenant can move in once surfaces are dry, usually two to four hours, and the certificate states the re-entry period."),
         ("Why are there still fleas a week after the treatment?", "Flea pupae are protected in their cocoons and can hatch for up to two weeks after treatment; the growth regulator stops them breeding and the residual kills them as they emerge. Keep vacuuming daily for two weeks. If adults are still active after 30 days inside the treated areas and you followed the preparation steps, we return at no charge."),
-        (f"What does an end-of-lease flea treatment cost in Perth?", f"{money(*FLEA)} depending on floor area and pet history: a unit or two-bedroom at the low end, a four-bedroom house with a dog in every room at the top. We quote from the address using the floor plan, so the price is fixed before we arrive."),
+        (f"What does an end-of-lease flea treatment cost in Perth?", f"{money(*FLEA)} depending on floor area and pet history: a unit or two-bedroom at the low end, a four-bedroom house with a dog in every room at the top. We quote from the address using the floor plan, so the investment is fixed before we arrive."),
     ]
     fl_body = hero("Flea treatment · end of lease, tenants and owners",
                    "Vacate flea treatment Perth.<br>Quoted in an hour. Certificate <em class=\"red\">within the hour</em> of treatment.",
@@ -49,17 +49,17 @@ def pages(c):
             + card("Property managers", "One supplier who quotes from the address, turns up the same week and sends a certificate you can file without chasing. <a href=\"/property-managers\">See how we work with agencies</a>.")
             + '</div>', "ledger") + \
         sec(eb("How it works") + head("Address in, certificate out.") + steps([
-            ("Send the address", "Text, email or the form. We pull the floor plan and property details, count the carpeted rooms and pet areas, and send an itemised fixed price within the hour."),
+            ("Send the address", "Text, email or the form. We pull the floor plan and property details, count the carpeted rooms and pet areas, and send an itemised fixed investment within the hour."),
             ("Same-week treatment", "An APVMA-registered flea product with an insect growth regulator applied to label: carpets, rugs, hard-floor edges, skirtings, under and behind furniture, pet bedding areas and the yard where the pet lived. Non-staining indoors."),
             ("Certificate within the hour", "Before we reach the next job, the treatment certificate is in your inbox and the property manager's: products, rates, areas, licence number, re-entry period. Ready for the bond file."),
         ])) + \
-        sec(eb("What it costs") + head("Fixed price by floor area.") +
-            ledger(["Property", "Price", "Includes"], [
+        sec(eb("The investment") + head("Fixed investment by floor area.") +
+            ledger(["Property", "Investment", "Includes"], [
                 ["Unit, apartment or 2-bedroom", "$150", "Internal treatment with IGR, certificate within the hour"],
                 ["3-bedroom house", "$185", "Internal plus pet yard areas, certificate within the hour"],
                 ["4-bedroom or larger, or heavy pet history", "$220", "Full internal and external pet areas, certificate within the hour"],
                 ["Add a general pest treatment for the incoming tenant", "Itemised", "Cockroaches, spiders, silverfish, ants on the same visit at a reduced rate"],
-            ], amount_cols=(1,)) + price_note, "ledger") + \
+            ], amount_cols=(1,)) + investment_note, "ledger") + \
         sec(eb("Prepare the property") + head("Ten minutes of prep, full coverage.") + '<div class="prose"><ul>'
             '<li>Vacuum every carpet, rug and hard-floor edge, then empty the vacuum into an outside bin.</li>'
             '<li>Remove or wash pet bedding on a hot cycle. Take pet bowls and toys out.</li>'
@@ -67,9 +67,9 @@ def pages(c):
             '<li>Cover fish tanks and switch off their air pumps; take birds and reptiles out for the day.</li>'
             '<li>Leave the key arrangement with us or the agent; we do not need anyone home.</li>'
             '<li>Stay off treated floors until dry, usually two to four hours, then keep vacuuming daily for two weeks.</li></ul>'
-            '<p>Related: <a href="/general-pest-control-perth">General pest treatment</a> · <a href="/property-managers">Property managers</a> · <a href="/pest-control-prices-perth">Pricing guide</a></p></div>') + \
+            '<p>Related: <a href="/general-pest-control-perth">General pest treatment</a> · <a href="/property-managers">Property managers</a> · <a href="/pest-control-prices-perth">Investment guide</a></p></div>') + \
         sec(eb("Questions") + head("Vacate flea treatment FAQ.") + faq(fl_faqs), "ledger") + \
-        quote("Send the address. Price back within the hour.", "Put the property address and your move-out date in the message. Tell us if the agent needs the certificate sent to them too, and we will copy them in.")
+        quote("Send the address. Investment back within the hour.", "Put the property address and your move-out date in the message. Tell us if the agent needs the certificate sent to them too, and we will copy them in.")
 
     # ================================================================ /property-managers
     pm_faqs = [
@@ -86,24 +86,24 @@ def pages(c):
                    ["Quote within the hour", "Certificate within the hour of treatment", "One invoice a month", "Licence details on every certificate"],
                    art_card("What we handle", ["Vacate flea treatments with certificate", "Lease-start general pest treatments", "Ant, cockroach, spider and rodent call-outs", "Key collection and empty properties", "Termite inspections and annual re-inspections"])) + \
         sec(eb("Why agencies use us") + head("Three things a PM actually needs.") + '<div class="grid grid-3">'
-            + card("Speed you can promise a tenant", "Address in, fixed price out within the hour. Same-week slot. You tell the tenant one thing and it happens.")
+            + card("Speed you can promise a tenant", "Address in, fixed investment out within the hour. Same-week slot. You tell the tenant one thing and it happens.")
             + card("Paper for the bond file", "Every treatment produces a certificate with products, APVMA numbers, rates, areas and the technician's licence. It arrives within the hour of the job, to you and the tenant.")
             + card("Admin that does itself", "One monthly invoice itemised by property, or per job. Trust entity and ABN on every document. No call-out fees, no deposits, no surprises to on-charge.")
             + '</div>', "ledger") + \
-        sec(eb("Vacate flea treatment") + head("The standard job, priced by floor area.") +
-            ledger(["Property", "Price", "Turnaround"], [
+        sec(eb("Vacate flea treatment") + head("The standard job, quoted by floor area.") +
+            ledger(["Property", "Investment", "Turnaround"], [
                 ["Unit, apartment, 2-bedroom", "$150", "Same week · certificate within the hour"],
                 ["3-bedroom house", "$185", "Same week · certificate within the hour"],
                 ["4-bedroom or larger, heavy pet history", "$220", "Same week · certificate within the hour"],
                 ["Lease-start general pest treatment", "From $250", "Bundled with the flea treatment at a reduced rate"],
-            ], amount_cols=(1,)) + price_note + '<p><a class="btn btn-ghost" href="/flea-treatment-perth">Flea treatment details ' + icon("arrow", "icon") + '</a></p>') + \
+            ], amount_cols=(1,)) + investment_note + '<p><a class="btn btn-ghost" href="/flea-treatment-perth">Flea treatment details ' + icon("arrow", "icon") + '</a></p>') + \
         sec(eb("How to send us a job") + head("Three ways, all under a minute.") + steps([
             ("Email the address", f"Send the property address, the tenant's contact and the vacate date to <a href=\"mailto:{S['email']}\">{S['email']}</a>. Quote back within the hour."),
-            ("Text it", f"Same details to <a href=\"{S['phone_sms']}\">{S['phone_display']}</a> from your mobile. We reply with the price and the earliest slot."),
+            ("Text it", f"Same details to <a href=\"{S['phone_sms']}\">{S['phone_display']}</a> from your mobile. We reply with the investment and the earliest slot."),
             ("Put us on the vacate checklist", "Add \"Flea treatment: DJ Pest, 0447 747 769, certificate within the hour\" to your vacate pack and let tenants book direct. You get the certificate either way."),
         ]), "ledger") + \
         sec(eb("Questions") + head("Property manager FAQ.") + faq(pm_faqs)) + \
-        quote("Set up your agency.", "Tell us the agency, your name and roughly how many managed properties are in the northern corridor. We will send the certificate sample, the price sheet and the account form.")
+        quote("Set up your agency.", "Tell us the agency, your name and roughly how many managed properties are in the northern corridor. We will send the certificate sample, the investment sheet and the account form.")
 
     return [
         {"path": "/flea-treatment-perth", "title": "Vacate Flea Treatment Perth | Certificate Within the Hour | DJ Pest",

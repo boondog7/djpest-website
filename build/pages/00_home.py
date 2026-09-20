@@ -14,9 +14,9 @@ def pages(c):
 <div>
   {c['eyebrow']("Perth's northern suburbs · Warwick-based · Family-run since 2011")}
   <h1>Rats in the roof tonight?<br>We fix it <em class="red">properly</em>, and put it in writing.</h1>
-  <p class="lead">Local pest control for Perth's northern suburbs, based in Warwick. Same-day for active rats, mice, ants and spiders where the run allows, with the price in writing before we start and a treatment record after.</p>
+  <p class="lead">Local pest management for Perth's northern suburbs, based in Warwick. Same-day for active rats, mice, ants and spiders where the run allows, with the investment in writing before we start and a treatment record after.</p>
   {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
-  <ul class="trust"><li>Licensed technicians</li><li>In Perth pest control since {S['family_since']}</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
+  <ul class="trust"><li>Licensed technicians</li><li>In Perth pest management since {S['family_since']}</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
 </div>
 {hero_art}
 </div></section>"""
@@ -28,25 +28,25 @@ def pages(c):
         c["card"]("Termite inspection", "A full AS 4349.3 timber pest inspection with photos, moisture readings and a written report you can act on.", "/termite-inspection-perth", "01 / Termites") +
         c["card"]("Termite treatment", "Non-repellent chemical management systems installed to AS 3660.2, or baiting where that suits the site better.", "/termite-treatment-perth", "02 / Termites") +
         c["card"]("General pest treatment", "Cockroaches, spiders, silverfish and ants in one internal and external treatment. Six-month re-treatment promise.", "/general-pest-control-perth", "03 / General") +
-        c["card"]("Ant control", "Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a quick spray. We treat the colony.", "/ant-control-perth", "04 / Ants") +
-        c["card"]("Cockroach control", "German cockroaches in the kitchen or Australian cockroaches from the garden. Gel baits, IGRs and non-staining products indoors.", "/cockroach-control-perth", "05 / Cockroaches") +
-        c["card"]("Rodent control", "Species identified, entry points found, tamper-resistant stations placed and a sealing plan so they don't come back.", "/rodent-control-perth", "06 / Rodents") +
-        c["card"]("Spider control", "Redbacks, white-tails and huntsmen. External web-and-harbourage treatment with the internal spray only where it's needed.", "/spider-control-perth", "07 / Spiders") +
-        c["card"]("Mosquito control", "Breeding-site audit first, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes") +
+        c["card"]("Ant management", "Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a quick spray. We treat the colony.", "/ant-control-perth", "04 / Ants") +
+        c["card"]("Cockroach management", "German cockroaches in the kitchen or Australian cockroaches from the garden. Gel baits, IGRs and non-staining products indoors.", "/cockroach-control-perth", "05 / Cockroaches") +
+        c["card"]("Rodent management", "Species identified, entry points found, tamper-resistant stations placed and a sealing plan so they don't come back.", "/rodent-control-perth", "06 / Rodents") +
+        c["card"]("Spider management", "Redbacks, white-tails and huntsmen. External web-and-harbourage treatment with the internal spray only where it's needed.", "/spider-control-perth", "07 / Spiders") +
+        c["card"]("Mosquito management", "Breeding-site audit first, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes") +
         c["card"]("Vacate flea treatment", "Moving out with a pet? Quoted from the address within the hour, certificate to you and your agent within the hour of treatment.", "/flea-treatment-perth", "09 / Fleas") +
         c["card"]("Wasp removal", "Paper wasp nests under eaves and pergolas found, treated and removed, usually same day. Suspected European wasps are reported to DPIRD.", "/wasp-removal-perth", "10 / Wasps") +
         c["card"]("Bee removal", "Swarms go to a beekeeper alive. Hives in walls and roof voids are treated in the evening, sealed, and you get a comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees") +
-        c["card"]("Commercial pest control", "Cafes, strata, childcare and warehouses on a documented program: numbered stations, same-day reports, a folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
+        c["card"]("Commercial pest management", "Cafes, strata, childcare and warehouses on a documented program: numbered stations, same-day reports, a folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
         '</div>', "ledger")
 
     ca = c["section"](
         '<div class="grid grid-2" style="align-items:center;gap:3rem">'
         '<div>' + c["eyebrow"]("Why an accountant runs this") +
         '<h2>Most pest companies are run by exterminators. This one is run by a Chartered Accountant.</h2>'
-        '<p class="lead">Our family has been in Perth pest control since 2011. DJ Pest is the second generation, run by a Chartered Accountant, and that shapes how it works: itemised quotes, a chemical application ledger for every job, and a re-treatment promise you can read in full before you book.</p>'
+        '<p class="lead">Our family has been in Perth pest management since 2011. DJ Pest is the second generation, run by a Chartered Accountant, and that shapes how it works: itemised quotes, a chemical application ledger for every job, and a re-treatment promise you can read in full before you book.</p>'
         '<p><a class="btn btn-ghost" href="/about">About DJ Pest ' + icon("arrow", "icon") + '</a></p></div>'
         '<div class="grid" style="gap:.8rem">'
-        + c["card"]("Priced in writing before we start", "No call-out fee, no deposit, no surprises on the invoice. Seven-day terms.")
+        + c["card"]("Quoted in writing before we start", "No call-out fee, no deposit, no surprises on the invoice. Seven-day terms.")
         + c["card"]("A record of every treatment", "Product, active constituent, rate, areas treated and re-entry period, kept for three years as WA law requires and given to you.")
         + c["card"]("A promise, not a slogan", "If the pest we treated comes back inside the period on your invoice, we come back at no charge. <a href=\"/warranty\">Read the terms</a>.")
         + '</div></div>')
@@ -85,9 +85,20 @@ def pages(c):
         '<div class="section-head"><h2>Three steps. No sales pitch.</h2></div>' +
         c["steps"]([
             ("We look before we spray", "A walk-through of the house, roof void or sub-floor where it's safe, and the yard. Photos of what we find, and a straight answer about whether you need treatment at all."),
-            ("You get an itemised price", "Written on the spot or sent within the hour. What's being treated, with what, and the re-treatment period that applies. If you'd rather think about it, that's fine."),
+            ("You get an itemised investment", "Written on the spot or sent within the hour. What's being treated, with what, and the re-treatment period that applies. If you'd rather think about it, that's fine."),
             ("Treatment, then the report", "Products applied to label with re-entry times explained. Your treatment report follows by email, and a reminder before your next inspection is due."),
         ]))
+
+    heritage = c["section"](
+        c["eyebrow"]("Our roots") +
+        '<div class="grid grid-2" style="align-items:center;gap:3rem"><div>'
+        '<h2>Four generations on the land at Coorow.<br>Now looking after yours.</h2>'
+        '<p class="lead">Before pest management there was farming. Four generations of our family worked the land at Coorow in the WA wheatbelt, where your word is your handshake and a job is done properly or not at all. That\'s the standard we brought to Perth, and it\'s why we treat every house like it\'s our own.</p>'
+        '<p>Country people don\'t dress a job up. We tell you what we found, what it needs, what it doesn\'t, and we put it in writing. The way you\'d want a neighbour to.</p>'
+        '<p><a class="btn btn-ghost" href="/about">Our story ' + icon("arrow", "icon") + '</a></p></div>'
+        '<div class="card" style="padding:2.2rem"><div class="num">The way we see it</div>'
+        '<p style="font-size:1.35rem;line-height:1.5;margin:.6rem 0 0">&ldquo;Price is what you pay. Value is what you receive.&rdquo;</p>'
+        '<p style="margin-top:.9rem;color:var(--ink-2)">You\'re not paying for a spray. You\'re investing in your biggest asset &mdash; and we treat it that way.</p></div></div>', "ledger")
 
     season = c["section"](
         c["eyebrow"]("Perth pest calendar") +
@@ -108,12 +119,12 @@ def pages(c):
         ("Do I need to leave the house during treatment?", "For a standard general pest treatment, no. You and pets stay out of treated areas until surfaces are dry, usually two hours. We tell you the re-entry period for the specific product before we start."),
         ("What about kids and pets during treatment?", "Every product we use is registered by the APVMA and applied at the label rate. We use non-staining, low-odour formulations indoors and keep people and pets out until the re-entry period has passed. If anyone in the home is pregnant, asthmatic or chemically sensitive, tell us and we adjust the plan."),
         ("What if the pests come back?", "If the pest on your invoice is still active inside the treated area within the re-treatment period, we come back and re-treat at no charge. Periods are six months for general pest, three months for ants and rodents, 30 days for fleas and wasps. <a href=\"/warranty\">Full terms here</a>."),
-        ("How much does pest control cost in Perth?", "It depends on the pest, the size of the property and how established the problem is. We publish a <a href=\"/pest-control-prices-perth\">transparent pricing guide</a> so you know the range before you call, and every quote is itemised."),
+        ("How much does pest control cost in Perth?", "It depends on the pest, the size of the property and how established the problem is. We publish a <a href=\"/pest-control-prices-perth\">transparent investment guide</a> so you know the range before you call, and every quote is itemised."),
         ("Are you licensed?", f"Yes. Every treatment is carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence under the Health (Pesticides) Regulations 2011, and the technician's name and licence number appear on your treatment record. {S['reg_line']}"),
     ]
     faq_sec = c["section"](c["eyebrow"]("Questions") + '<div class="section-head"><h2>Straight answers.</h2></div>' + c["faq"](faqs), "ledger")
 
-    body = hero + services + ca + report + process + season + areas + faq_sec + c["quote_block"]()
+    body = hero + services + ca + report + process + heritage + season + areas + faq_sec + c["quote_block"]()
     return [{
         "path": "/",
         "title": "DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants",

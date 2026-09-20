@@ -17,7 +17,7 @@ def service_schema(name, lo, hi, desc):
                        "priceSpecification": {"@type": "PriceSpecification", "minPrice": lo, "maxPrice": hi, "priceCurrency": "AUD"}}}
 
 PRICE_NOTE = ('<p class="notice">Typical range, GST inclusive. Every job is quoted itemised in writing before we start. '
-              'No call-out fee, no deposit, seven-day payment terms. See the full <a href="/pest-control-prices-perth">pricing guide</a>.</p>')
+              'No call-out fee, no deposit, seven-day payment terms. See the full <a href="/pest-control-prices-perth">investment guide</a>.</p>')
 
 
 def pages(c):
@@ -66,22 +66,22 @@ def pages(c):
         card("Termite inspection", "A full AS 4349.3 timber pest inspection: roof void, sub-floor, interior, exterior and the yard. Photos, moisture readings and a written report you can act on.", "/termite-inspection-perth", "01 / Termites"),
         card("Termite treatment", "Non-repellent chemical management systems installed to AS 3660.2, or baiting and monitoring where the construction suits it. Certificate issued, annual inspection scheduled.", "/termite-treatment-perth", "02 / Termites"),
         card("General pest treatment", "Cockroaches, spiders, silverfish and ants in one internal and external treatment. Non-staining products indoors. Six-month re-treatment promise.", "/general-pest-control-perth", "03 / General"),
-        card("Ant control", "Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a repellent spray that splits the colony. We treat the colony, not the trail.", "/ant-control-perth", "04 / Ants"),
-        card("Cockroach control", "German cockroaches in the kitchen or Australian cockroaches from the garden. Gel bait, insect growth regulator and drain treatment where the species calls for it.", "/cockroach-control-perth", "05 / Cockroaches"),
-        card("Rodent control", "Species identified, entry points mapped, tamper-resistant stations placed, and a sealing plan so the roof void stays quiet.", "/rodent-control-perth", "06 / Rodents"),
-        card("Spider control", "Redbacks, white-tails and black house spiders. Web removal, retic-box check and a residual treatment of eaves, weep holes and fence lines.", "/spider-control-perth", "07 / Spiders"),
-        card("Mosquito control", "Breeding-site audit of the yard, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes"),
+        card("Ant management", "Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a repellent spray that splits the colony. We treat the colony, not the trail.", "/ant-control-perth", "04 / Ants"),
+        card("Cockroach management", "German cockroaches in the kitchen or Australian cockroaches from the garden. Gel bait, insect growth regulator and drain treatment where the species calls for it.", "/cockroach-control-perth", "05 / Cockroaches"),
+        card("Rodent management", "Species identified, entry points mapped, tamper-resistant stations placed, and a sealing plan so the roof void stays quiet.", "/rodent-control-perth", "06 / Rodents"),
+        card("Spider management", "Redbacks, white-tails and black house spiders. Web removal, retic-box check and a residual treatment of eaves, weep holes and fence lines.", "/spider-control-perth", "07 / Spiders"),
+        card("Mosquito management", "Breeding-site audit of the yard, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes"),
         card("Vacate flea treatment", "End-of-lease flea treatment quoted from the address within the hour, same-week slot, certificate to you and the agent within the hour of treatment.", "/flea-treatment-perth", "09 / Fleas"),
         card("Wasp removal", "Paper wasp nests under eaves, pergolas and in hedges: found, treated, removed and the site treated so the next queen moves on. Suspected European wasps are reported to DPIRD, not treated.", "/wasp-removal-perth", "10 / Wasps"),
         card("Bee removal", "Swarm on a branch? A beekeeper collects it alive and we give you the number. Hive in a wall or roof void? Evening treatment, entry sealed, comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees"),
-        card("Commercial pest control", "Cafes, strata, childcare, aged care, warehouses and offices. Numbered stations on a site map, same-day service reports and a site folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial"),
+        card("Commercial pest management", "Cafes, strata, childcare, aged care, warehouses and offices. Numbered stations on a site map, same-day service reports and a site folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial"),
     ]) + "</div>"
 
-    pricing = sec(eb("How we price") + head("One method for every job.",
-        "DJ Pest is run by a Chartered Accountant, and the quoting habits come with that: a written, itemised price before anything is booked, no call-out fee, no deposit, and a seven-day invoice that matches the quote.") +
+    investment = sec(eb("How we investment") + head("One method for every job.",
+        "DJ Pest is run by a Chartered Accountant, and the quoting habits come with that: a written, itemised investment before anything is booked, no call-out fee, no deposit, and a seven-day invoice that matches the quote.") +
         steps([
-            ("Look, then price", "We inspect first. Where the pest is, how established it is, and what construction we are working with. If you do not need a treatment, we say so."),
-            ("Itemised in writing", "Product, areas treated, number of stations or metres of perimeter, follow-up visits and the re-treatment period that applies. Prices include GST."),
+            ("Look, then investment", "We inspect first. Where the pest is, how established it is, and what construction we are working with. If you do not need a treatment, we say so."),
+            ("Itemised in writing", "Product, areas treated, number of stations or metres of perimeter, follow-up visits and the re-treatment period that applies. Investment ranges include GST."),
             ("Invoice matches quote", "No surprises on the invoice. If we find something on the day that changes the scope, we stop and talk to you before doing it."),
         ]), "ledger")
 
@@ -94,7 +94,7 @@ def pages(c):
     hub_faqs = [
         ("Which service do I need if I am not sure what the pest is?", "Text a photo of the pest, the droppings or the damage to 0447 747 769 and we will identify it and tell you which treatment applies. Our <a href=\"/whats-my-pest\">What's my pest?</a> page covers the common Perth suspects."),
         ("Can I combine services on one visit?", "Yes. A general pest treatment already covers cockroaches, spiders, silverfish and nuisance ants. Rodent stations, a termite inspection or an external ant program can be added to the same visit and itemised on one quote."),
-        ("Do you charge a call-out fee?", "No. Inspections that lead to a quote are free within our northern-suburbs service area. A stand-alone timber pest inspection with a written AS 4349.3 report is a priced service because the report itself is the product."),
+        ("Do you charge a call-out fee?", "No. Inspections that lead to a quote are free within our northern-suburbs service area. A stand-alone timber pest inspection with a written AS 4349.3 report is a quoted service because the report itself is the product."),
         ("Are the prices on this site fixed?", "They are typical ranges for a standard three-bedroom home in Perth's northern suburbs. Every job is quoted itemised in writing after we have seen it, and the invoice matches the quote."),
         ("What do I receive after the job?", "A treatment report by email: where the pests were getting in, exactly what was applied and where, the re-entry period, and a prevention plan. It doubles as the record WA regulations require us to keep for three years."),
         ("Which suburbs do you cover?", f"We are based in Warwick and cover {', '.join(S['service_area'][:10])} and the rest of the northern corridor. See the <a href=\"/service-areas\">service areas</a> page."),
@@ -103,12 +103,12 @@ def pages(c):
     hub_body = hero("Services · Perth's northern suburbs",
                     "Twelve pest problems.<br>One <em class=\"red\">documented</em> way of fixing them.",
                     "Diagnosed first, treated with the right chemistry for the pest and the site, then written up. Every product is APVMA-registered and applied to its label, and every job carries a re-treatment period you can read before you book.",
-                    ["Licensed technicians", f"In Perth pest control since {S['family_since']}", "Itemised quotes", "Treatment report after every job"],
-                    art_card("Every job includes", ["Inspection before any product is opened", "Written, itemised price. No call-out fee, no deposit", "Re-entry period explained before treatment", "Treatment report and prevention plan by email", "Re-treatment promise on the invoice"])) + \
-        sec(eb("What we treat") + head("Choose the pest. We handle the rest.") + hub_cards, "ledger") + pricing + retreat + \
+                    ["Licensed technicians", f"In Perth pest management since {S['family_since']}", "Itemised quotes", "Treatment report after every job"],
+                    art_card("Every job includes", ["Inspection before any product is opened", "Written, itemised investment. No call-out fee, no deposit", "Re-entry period explained before treatment", "Treatment report and prevention plan by email", "Re-treatment promise on the invoice"])) + \
+        sec(eb("What we treat") + head("Choose the pest. We handle the rest.") + hub_cards, "ledger") + investment + retreat + \
         sec(eb("Perth pest calendar") + head("When each pest is active in the northern suburbs.") + c["season_strip"]()) + \
         sec(eb("Questions") + head("Straight answers.") + faq(hub_faqs), "ledger") + \
-        quote("Not sure which service? Start here.", "Tell us what you are seeing and where. We will identify it, tell you which treatment applies, and send an itemised price. No obligation.")
+        quote("Not sure which service? Start here.", "Tell us what you are seeing and where. We will identify it, tell you which treatment applies, and send an itemised investment. No obligation.")
 
     out.append({"path": "/services", "title": "Pest Control Services Perth Northern Suburbs | DJ Pest",
                 "desc": "Termite inspections and treatment, general pest, ants, cockroaches, rodents and spiders across Perth's northern suburbs. Licensed, itemised, documented.",
@@ -117,12 +117,12 @@ def pages(c):
     # ================================================================ /termite-inspection-perth
     ti_faqs = [
         ("How often should a Perth home be inspected for termites?", "AS 3660.2 recommends inspections at intervals not exceeding 12 months, and more often where the risk is higher. In the northern suburbs, a house with a garden bed against the wall, timber retaining, a paved-over inspection zone or a nearby bush reserve sits in the higher-risk bracket. Annual is the sensible default."),
-        ("What is the difference between a termite inspection and a pre-purchase timber pest inspection?", "The inspection method is the same and both follow AS 4349.3. A pre-purchase inspection is written for someone who does not yet own the property, so the report gives more weight to the limitations, the areas we could not access and the conducive conditions a buyer would want to negotiate on. It is priced slightly higher because the report is longer and usually needed within a short settlement window."),
+        ("What is the difference between a termite inspection and a pre-purchase timber pest inspection?", "The inspection method is the same and both follow AS 4349.3. A pre-purchase inspection is written for someone who does not yet own the property, so the report gives more weight to the limitations, the areas we could not access and the conducive conditions a buyer would want to negotiate on. It is quoted slightly higher because the report is longer and usually needed within a short settlement window."),
         ("Can you tell me if there are termites inside the walls?", "Not with certainty, and no inspector can. AS 4349.3 is a visual inspection of accessible areas, backed by moisture readings and sounding of timbers. We report evidence of activity, evidence of past damage and the conditions that make an attack more likely. Where readings suggest something behind a surface, we tell you and recommend an invasive inspection with the owner's consent."),
         ("Do I need to be home?", "It helps. We need access to the roof void manhole, the sub-floor where there is one, every room, the garage and the yard, and we like to walk you through the findings before we leave. If you cannot be there, arrange access and we will call you afterwards."),
         ("How long does the inspection take?", "Sixty to ninety minutes for a typical single-storey home on a standard block, longer for two-storey homes, large sheds, heavy landscaping or a sub-floor. We do not rush an inspection to fit more into a day."),
-        ("What if you find live termites?", "We show you, photograph them and identify the species. We do not disturb the workings, because that makes them harder to treat. You receive the report with a treatment recommendation and an itemised price for a <a href=\"/termite-treatment-perth\">management system</a>. There is no obligation to have us do the treatment."),
-        ("Is the inspection priced in writing?", f"Yes. A standard timber pest inspection with report is typically {money(*PRICES['inspection'])} and a pre-purchase inspection {money(*PRICES['prepurchase'])}, GST inclusive. We confirm the price before booking based on the size of the property and construction."),
+        ("What if you find live termites?", "We show you, photograph them and identify the species. We do not disturb the workings, because that makes them harder to treat. You receive the report with a treatment recommendation and an itemised investment for a <a href=\"/termite-treatment-perth\">management system</a>. There is no obligation to have us do the treatment."),
+        ("Is the inspection priced in writing?", f"Yes. A standard timber pest inspection with report is typically {money(*PRICES['inspection'])} and a pre-purchase inspection {money(*PRICES['prepurchase'])}, GST inclusive. We confirm the investment before booking based on the size of the property and construction."),
     ]
     ti_body = hero("Termite inspection · AS 4349.3:2010",
                    "Termite inspection Perth.<br>Every accessible timber, <em class=\"red\">documented</em>.",
@@ -132,7 +132,7 @@ def pages(c):
         sec('<div class="prose">'
             '<h2>Why an inspection comes first</h2>'
             '<p>Subterranean termites do not announce themselves. By the time a skirting board sounds hollow or a door frame gives under a thumb, the colony has usually been feeding for months. Perth\'s northern suburbs give them everything they need: warm sandy soil that is easy to tunnel, garden beds built against brick, timber retaining walls, and a swarm season that runs from November to April.</p>'
-            '<p>An inspection is the only way to know where you stand. It is also the first step of every treatment. AS 3660.2 requires a thorough inspection before a management system is designed, and any quote you receive without one is a guess. We inspect, report, and only then price a treatment if one is needed.</p>'
+            '<p>An inspection is the only way to know where you stand. It is also the first step of every treatment. AS 3660.2 requires a thorough inspection before a management system is designed, and any quote you receive without one is a guess. We inspect, report, and only then investment a treatment if one is needed.</p>'
             '<h2>What is inspected</h2>'
             '<p>The inspection follows AS 4349.3:2010, the Australian Standard for timber pest inspections of buildings. It is a visual inspection of accessible areas, supported by instruments. On a typical northern-suburbs home we cover:</p>'
             '<ul><li><strong>Roof void.</strong> Entered where the manhole and clearance allow. We check rafters, battens, ceiling joists, wall plates and the tops of internal walls for mud leads, damage and moisture.</li>'
@@ -143,7 +143,7 @@ def pages(c):
             '<p>We photograph evidence and points of interest as we go. The photos go into the report, not a filing cabinet.</p>'
             '<h2>The limitations, stated plainly</h2>'
             '<p>AS 4349.3 is a visual inspection. It cannot see inside a wall cavity, under a fixed floor covering, behind stored goods, under a concrete slab or inside a timber. We do not move furniture or stored items, lift carpet or open walls. Where clearance in a roof void or sub-floor is too low, or an area is unsafe, we say so in the report rather than pretend we saw it.</p>'
-            '<div class="callout"><p>The report lists every area that was not accessible and why. If an inaccessible area worries you, we can arrange an invasive inspection with the owner\'s written consent, priced separately.</p></div>'
+            '<div class="callout"><p>The report lists every area that was not accessible and why. If an inaccessible area worries you, we can arrange an invasive inspection with the owner\'s written consent, quoted separately.</p></div>'
             '<p>Moisture readings and sounding raise the odds of finding concealed activity but do not remove the possibility. A clear report means no evidence was found in the accessible areas on the day. It is not a statement about the future, which is why the Standard recommends inspections at intervals not exceeding 12 months.</p>'
             '<h2>What the report contains</h2>'
             '<ul><li>Property description, construction type, date and weather, and who was present.</li>'
@@ -153,7 +153,7 @@ def pages(c):
             '<li>Evidence of borers, timber decay (fungal rot) and, where relevant, other timber pests.</li>'
             '<li>Conducive conditions: moisture, drainage, timber-to-ground contact, garden beds bridging the slab edge, stored timber, leaking taps and air-conditioner drains.</li>'
             '<li>Any existing termite management system, its condition and whether it is being maintained.</li>'
-            '<li>Recommendations, in order of priority, with an indicative cost where treatment or repairs are advised.</li></ul>'
+            '<li>Recommendations, in order of priority, with an indicative investment where treatment or repairs are advised.</li></ul>'
             '<p>The report is emailed as a PDF, usually the same day. We keep a copy for three years as the Health (Pesticides) Regulations 2011 require of treatment records, and longer for our own files.</p>'
             '<h2>Risk factors in Perth\'s northern suburbs</h2>'
             '<p>The northern corridor is not one environment. The coastal strip from Sorrento to Yanchep sits on deep Spearwood and Quindalup sands: free-draining, warm and easy for termites to tunnel through. Further inland, the limestone ridge suburbs such as Greenwood, Warwick and Kingsley carry pockets of shallow limestone that push moisture and termite activity toward the slab edge. Both are active termite country.</p>'
@@ -163,7 +163,7 @@ def pages(c):
             '<p>Buying in the northern suburbs? A pre-purchase timber pest inspection follows the same AS 4349.3 method but is written for a buyer. It leans harder on limitations, on what could not be accessed with the current owner\'s furniture and stored goods in place, and on the conducive conditions you would want to fix or negotiate on. We can usually inspect within two to three business days and report the same day, which suits a standard WA settlement timeline.</p>'
             '<p>We do not do the building inspection. If your building inspector also offers a timber pest report, ask whether it is a separate AS 4349.3 report by a licensed pest management technician. Ours is.</p>'
             '</div>') + \
-        sec(eb("What it costs") + head("Priced before booking.") +
+        sec(eb("The investment") + head("Quoted before booking.") +
             ledger(["Inspection", "Typical range", "Includes"], [
                 ["Timber pest inspection (AS 4349.3)", money(*PRICES['inspection']), "Full inspection, moisture readings, photos, PDF report, same-day"],
                 ["Pre-purchase timber pest inspection", money(*PRICES['prepurchase']), "As above, buyer-focused report, priority booking for settlement"],
@@ -171,19 +171,19 @@ def pages(c):
             ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
         sec(eb("What you get") + head("The report is the product.") + included([
             ("A written AS 4349.3 report", "Findings, photos, moisture readings, areas not accessed, conducive conditions and prioritised recommendations. Emailed as a PDF, usually same day."),
-            ("A straight recommendation", "If we find nothing, we say so. If we find activity, we explain the options and price a management system separately. No pressure either way."),
+            ("A straight recommendation", "If we find nothing, we say so. If we find activity, we explain the options and investment a management system separately. No pressure either way."),
             ("A reminder before it lapses", "Inspections have no re-treatment period. We diarise your next 12-month inspection and remind you before it is due."),
         ])) + \
         sec(eb("Prepare for the visit") + head("Ten minutes of prep gets a better inspection.") + prep([
             "Clear access to the roof manhole. Move anything stored in a cupboard below it.",
             "Open the sub-floor access door or hatch if the home has one.",
             "Pull stored items back from the garage walls and shed walls where you can.",
-            "Unlock side gates and sheds. Note where the retic control boxes are.",
+            "Unlock side gates and sheds. Note where the retic management boxes are.",
             "Tell us about any past termite treatment, damage or repairs you know of, and where.",
             "Keep pets inside or secured. Nothing is sprayed during an inspection, but we open a lot of doors.",
-        ]) + related([("Termite treatment", "/termite-treatment-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Termite blog posts", "/blog")]), "ledger") + \
+        ]) + related([("Termite treatment", "/termite-treatment-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Termite blog posts", "/blog")]), "ledger") + \
         sec(eb("Questions") + head("Termite inspection FAQ.") + faq(ti_faqs)) + \
-        quote("Book a termite inspection.", "Tell us the suburb, the age of the house and whether it is for peace of mind, a suspected problem or a purchase. We will confirm a price and a time.")
+        quote("Book a termite inspection.", "Tell us the suburb, the age of the house and whether it is for peace of mind, a suspected problem or a purchase. We will confirm a investment and a time.")
     out.append({"path": "/termite-inspection-perth", "title": "Termite Inspection Perth | AS 4349.3 Timber Pest Reports | DJ Pest",
                 "desc": f"AS 4349.3 termite inspections across Perth's northern suburbs. Roof void, sub-floor, interior and grounds. Same-day report. Typical {money(*PRICES['inspection'])}.",
                 "body": ti_body, "crumbs": crumbs("Termite inspection"),
@@ -191,7 +191,7 @@ def pages(c):
 
     # ================================================================ /termite-treatment-perth
     tt_faqs = [
-        ("Do you need to inspect before quoting a termite treatment?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot price a perimeter we have not measured or a construction type we have not seen. If you already have a current AS 4349.3 report from another licensed technician we can work from it, but we still walk the site before quoting."),
+        ("Do you need to inspect before quoting a termite treatment?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot investment a perimeter we have not measured or a construction type we have not seen. If you already have a current AS 4349.3 report from another licensed technician we can work from it, but we still walk the site before quoting."),
         ("Chemical system or baiting: which is better?", "Neither, in general. A non-repellent chemical treated zone gives faster, continuous protection and suits most northern-suburbs brick homes on a slab. Baiting suits sites where trenching or drilling is impractical, where the owner wants to avoid soil treatment, or where live activity needs to be eliminated first. Often we recommend a chemical system with a small number of monitoring stations as a check. We explain the reasoning on your quote."),
         ("Will a treatment kill the nest?", "A non-repellent treated zone is designed so that foraging termites pass through it, pick up the active and transfer it through the colony. Field results are strong, but the colony may be a hundred metres away under a neighbour's yard and cannot be located or confirmed. The system protects the building; the annual inspection confirms it is still doing so."),
         ("Why is the annual inspection a condition of the certificate?", "Because a treated zone can be breached: a new garden bed, paving laid over the slab edge, a deck footing, a plumber's trench. Chemicals also degrade over time. AS 3660.2 sets an inspection interval not exceeding 12 months for this reason, and our re-treatment promise on the system is conditional on those inspections being carried out."),
@@ -223,7 +223,7 @@ def pages(c):
             '<p>The decision and the reasons are written on the quote, not delivered as a verdict.</p>'
             '<h2>The annual inspection condition</h2>'
             '<p>AS 3660.2 sets an inspection interval not exceeding 12 months for every management system, and more frequent inspections where the risk is high. This is not a sales device. A treated zone is only as good as its weakest point, and the weakest point is usually created after installation: a raised garden bed bridging the slab edge, a new deck footing punched through the zone, a trench for a retic line. The annual inspection finds those breaches and finds any termite entry while it is still a small repair.</p>'
-            '<p>Our re-treatment promise on a termite management system is set out on your AS 3660.2 certificate and is conditional on the annual inspections being carried out. Miss one and the promise lapses. We remind you before each is due and price it with the system so there is no surprise.</p>'
+            '<p>Our re-treatment promise on a termite management system is set out on your AS 3660.2 certificate and is conditional on the annual inspections being carried out. Miss one and the promise lapses. We remind you before each is due and investment it with the system so there is no surprise.</p>'
             '<h2>What the certificate covers</h2>'
             '<ul><li>The type of system installed and the product used, with its APVMA registration and the rate applied.</li>'
             '<li>A site plan showing treated zones, drill lines, bait or monitoring station positions and any areas that could not be treated, with the reason.</li>'
@@ -232,10 +232,10 @@ def pages(c):
             '<li>Durable notice details for the meter box as the Standard requires, so the next owner or tradesperson knows a system is in place.</li></ul>'
             '<p>The treatment record is kept for three years as the Health (Pesticides) Regulations 2011 (WA) require. If you sell the house, the certificate and site plan go to the buyer and save everyone an argument.</p>'
             '</div>') + \
-        sec(eb("What it costs") + head("Two systems, both itemised.") +
-            ledger(["System", "Typical range", "What drives the price"], [
+        sec(eb("The investment") + head("Two systems, both itemised.") +
+            ledger(["System", "Typical range", "What drives the investment"], [
                 ["Non-repellent chemical management system", money(*PRICES['chem']), "Perimeter length, drilling through paving or concrete, sub-floor, extensions"],
-                ["Baiting and monitoring system (install)", money(*PRICES['bait']), "Number of stations, plus scheduled monitoring visits priced separately"],
+                ["Baiting and monitoring system (install)", money(*PRICES['bait']), "Number of stations, plus scheduled monitoring visits quoted separately"],
                 ["Treatment of live activity (spot)", "Quoted on inspection", "Extent of workings, access, product"],
                 ["Annual AS 3660.2 inspection", "Quoted with the system", "Keeps the certificate and re-treatment promise current"],
             ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
@@ -246,14 +246,14 @@ def pages(c):
         ])) + \
         sec(eb("Prepare for the visit") + head("Before installation day.") + prep([
             "Clear at least a metre of access along every external wall: pots, furniture, firewood, bins.",
-            "Locate and mark retic lines and control boxes near the walls. We trench carefully, but a plan helps.",
+            "Locate and mark retic lines and management boxes near the walls. We trench carefully, but a plan helps.",
             "Tell us about bores, soakwells, rainwater tanks and vegetable beds. Label setbacks apply.",
             "Unlock side gates, sheds and garages. Move cars out of the garage if the floor is to be drilled.",
             "Keep pets inside for the day. Kids and pets stay out of the treated zone until the re-entry period we advise has passed.",
             "Have a plan for the meter box notice. We fit it on the day.",
-        ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Service areas", "/service-areas")]), "ledger") + \
+        ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Service areas", "/service-areas")]), "ledger") + \
         sec(eb("Questions") + head("Termite treatment FAQ.") + faq(tt_faqs)) + \
-        quote("Get a termite treatment priced properly.", "Tell us what has been found and where. We will inspect, design the system to the house and send an itemised price with the reasoning written down.")
+        quote("Get a termite treatment quoted properly.", "Tell us what has been found and where. We will inspect, design the system to the house and send an itemised investment with the reasoning written down.")
     out.append({"path": "/termite-treatment-perth", "title": "Termite Treatment Perth | AS 3660.2 Management Systems | DJ Pest",
                 "desc": f"Termite treatment for Perth's northern suburbs: non-repellent chemical systems and baiting to AS 3660.2, certificate issued. Typical {money(*PRICES['chem'])}.",
                 "body": tt_body, "crumbs": crumbs("Termite treatment"),
@@ -270,7 +270,7 @@ def pages(c):
         ("Will one treatment fix a German cockroach problem?", "Not always. German cockroaches breed fast and live inside voids. A general treatment includes gel and an insect growth regulator in the kitchen, and that is often enough for a light problem. For an established infestation we recommend the <a href=\"/cockroach-control-perth\">dedicated kitchen program</a> with a follow-up visit."),
     ]
     gp_body = hero("General pest treatment · internal + external",
-                   "General pest control Perth.<br>One visit, inside and out, <em class=\"red\">six-month promise</em>.",
+                   "General pest management Perth.<br>One visit, inside and out, <em class=\"red\">six-month promise</em>.",
                    "Cockroaches, spiders, silverfish and ants treated in one itemised visit. Non-staining products indoors, a residual treatment outside, and a written record of what went where.",
                    ["Licensed technicians", "6-month re-treatment promise", f"Typical {money(*PRICES['general'])}", "Around 90 minutes on site"],
                    art_card("Covered in one visit", ["German, American and Australian cockroaches", "Redbacks, black house and other spiders", "Silverfish", "Nuisance ants around the home", "Internal skirtings, wet areas, kitchen voids", "External perimeter, eaves, weep holes, fences"])) + \
@@ -282,11 +282,11 @@ def pages(c):
             '<li>Ant trails along the kitchen bench or the bathroom skirting after rain.</li>'
             '<li>It has been more than a year since the last treatment, or you have just moved in.</li></ul></div>', "ledger") + \
         sec(eb("How we treat it") + head("Three parts to every general treatment.") + steps([
-            ("Walk-through and identification", "We look before we spray. Which species, where they are harbouring, where they are getting in. We photograph findings and confirm the scope and price with you before opening a product."),
+            ("Walk-through and identification", "We look before we spray. Which species, where they are harbouring, where they are getting in. We photograph findings and confirm the scope and investment with you before opening a product."),
             ("Inside: targeted, non-staining", "Skirting lines, wet areas, behind appliances, wardrobes and the roof void entry are treated with a non-staining, low-odour residual. Kitchens get gel bait and an insect growth regulator in the voids rather than spray on benches."),
             ("Outside: the residual perimeter", "Eaves, weep holes, window and door frames, fence lines, garage, patio and sub-floor vents are treated with a residual product. Webs are brushed down first so spiders re-establish on treated surfaces. Retic boxes are checked for redbacks."),
         ])) + \
-        sec(eb("What it costs") + head("Typical range for a three-bedroom home.") +
+        sec(eb("The investment") + head("Typical range for a three-bedroom home.") +
             ledger(["Treatment", "Typical range", "Includes"], [
                 ["General pest, internal + external", money(*PRICES['general']), "All areas above, gel and IGR in kitchen, treatment report, 6-month promise"],
                 ["External only", "Quoted", "Perimeter, eaves, fences, retic check. Suits rentals and pre-summer top-ups"],
@@ -305,9 +305,9 @@ def pages(c):
             "Strip beds if you have asked for a bedroom treatment. Otherwise bedrooms are skirting-only.",
             "Unlock side gates, sheds and the garage. Point out retic boxes and any redback sightings.",
             "Plan to be out of treated rooms until surfaces are dry, around two hours. We confirm the re-entry period before we start.",
-        ]) + related([("Cockroach control", "/cockroach-control-perth"), ("Spider control", "/spider-control-perth"), ("Ant control", "/ant-control-perth"), ("Pricing guide", "/pest-control-prices-perth")]), "ledger") + \
+        ]) + related([("Cockroach management", "/cockroach-control-perth"), ("Spider management", "/spider-control-perth"), ("Ant management", "/ant-control-perth"), ("Investment guide", "/pest-control-prices-perth")]), "ledger") + \
         sec(eb("Questions") + head("General pest FAQ.") + faq(gp_faqs)) + \
-        quote("Book a general pest treatment.", "Tell us the suburb, the size of the home and what you have been seeing. We will send an itemised price and a time.")
+        quote("Book a general pest treatment.", "Tell us the suburb, the size of the home and what you have been seeing. We will send an itemised investment and a time.")
     out.append({"path": "/general-pest-control-perth", "title": "General Pest Control Perth | Internal + External Treatment | DJ Pest",
                 "desc": f"General pest treatment for Perth's northern suburbs: cockroaches, spiders, silverfish and ants, inside and out. Six-month promise. Typical {money(*PRICES['general'])}.",
                 "body": gp_body, "crumbs": crumbs("General pest treatment"),
@@ -323,8 +323,8 @@ def pages(c):
         ("Will the ants come back?", "Coastal brown ants re-invade from neighbouring properties, so pressure never drops to zero on the coast. Our external ant program carries a three-month re-treatment promise on the treated zones. For properties with chronic pressure, an annual spring top-up is realistic and we say so rather than sell a quarterly plan."),
         ("Which ant species are common in Perth's northern suburbs?", "Coastal brown ant (super-colonies, the most common call), white-footed house ant (kitchens and bathrooms, moisture-seeking), sugar ant (large, slow, sweet feeders, mostly outdoors), Argentine ant (an invasive super-colony species restricted to some Perth zones), and bull ants near bushland. The species decides the chemistry, which is why we identify first."),
     ]
-    ant_body = hero("Ant control · coastal brown super-colonies",
-                    "Ant control Perth.<br>We treat the <em class=\"red\">colony</em>, not the trail.",
+    ant_body = hero("Ant management · coastal brown super-colonies",
+                    "Ant management Perth.<br>We treat the <em class=\"red\">colony</em>, not the trail.",
                     "Months of spraying and more ants than when you started? That is a coastal brown super-colony, and repellent spray makes it split. We use slow-acting non-repellents and baits that workers carry home.",
                     ["Licensed technicians", "3-month re-treatment promise", f"Typical {money(*PRICES['ant'])}", "Species identified first"],
                     art_img("/assets/img/ant-closeup.jpg", "Close-up of a brown ant on a pale surface, illustrative image")) + \
@@ -341,7 +341,7 @@ def pages(c):
             ("Non-repellent external treatment", "A slow-acting non-repellent such as fipronil is applied at label rate to nest zones, paving joints, lawn margins and the perimeter. Workers walk through it undetected, groom it and transfer it through the colony. Never mixed with a repellent in the same zone."),
             ("Gel inside, then prevention", "Indoors, gel bait goes inside cabinetry and behind appliances, away from food-contact surfaces. We note the leaking tap, the pet bowl and the mulch against the wall that keep them coming, and put it in writing."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Treatment", "Typical range", "Includes"], [
                 ["External ant program (whole property)", money(*PRICES['ant']), "Identification, non-repellent treatment of nest zones and perimeter, gel indoors, report, 3-month promise"],
                 ["Ants within a general pest treatment", money(*PRICES['general']), "Nuisance ants around the home; super-colonies need the program above"],
@@ -359,13 +359,13 @@ def pages(c):
             "Turn retic off the night before so soil treatments are not flushed.",
             "Unlock side gates and note where the worst mounds are.",
             "Kids and pets stay off treated soil and paving until the re-entry period we advise has passed.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Ant blog posts", "/blog")]), "ledger") + \
-        sec(eb("Questions") + head("Ant control FAQ.") + faq(ant_faqs)) + \
-        quote("Get the ants treated properly.", "Tell us the suburb and where the trails run. Text a photo if you can. We will identify the species and send an itemised price.")
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Ant blog posts", "/blog")]), "ledger") + \
+        sec(eb("Questions") + head("Ant management FAQ.") + faq(ant_faqs)) + \
+        quote("Get the ants treated properly.", "Tell us the suburb and where the trails run. Text a photo if you can. We will identify the species and send an itemised investment.")
     out.append({"path": "/ant-control-perth", "title": "Ant Control Perth | Coastal Brown Ant Super-Colony Treatment | DJ Pest",
                 "desc": f"Ant control for Perth's northern suburbs. Coastal brown super-colonies treated with non-repellents and baits, not repellent spray. Typical {money(*PRICES['ant'])}.",
-                "body": ant_body, "crumbs": crumbs("Ant control"),
-                "schema": [service_schema("Ant control", *PRICES['ant'], "External ant treatment for coastal brown super-colonies using non-repellent products and baits."), faq_schema(ant_faqs)]})
+                "body": ant_body, "crumbs": crumbs("Ant management"),
+                "schema": [service_schema("Ant management", *PRICES['ant'], "External ant treatment for coastal brown super-colonies using non-repellent products and baits."), faq_schema(ant_faqs)]})
 
     # ================================================================ /cockroach-control-perth
     ck_faqs = [
@@ -377,8 +377,8 @@ def pages(c):
         ("What does cockroach treatment cost in Perth?", f"A German cockroach kitchen program, including gel, growth regulator, a targeted residual and a follow-up visit, typically runs {money(*PRICES['cockroach'])}. Light cockroach activity is covered within a <a href=\"/general-pest-control-perth\">general pest treatment</a> at {money(*PRICES['general'])}."),
         ("Are cockroaches actually a health issue?", "They do not bite, but they walk through drains and refuse, then across food-preparation surfaces, carrying bacteria with them, and their droppings and shed skins are a recognised asthma trigger. That is why food businesses run continuous cockroach programs and why we treat the breeding sites, not just the visible adults."),
     ]
-    ck_body = hero("Cockroach control · German, American, Australian",
-                   "Cockroach control Perth.<br>Break the <em class=\"red\">breeding cycle</em>, not just the ones you see.",
+    ck_body = hero("Cockroach management · German, American, Australian",
+                   "Cockroach management Perth.<br>Break the <em class=\"red\">breeding cycle</em>, not just the ones you see.",
                    "Saw one cockroach? There are more. We identify the species, place gel bait and an insect growth regulator where they breed, treat the drains if that is the source, and follow up. No spray on your benches.",
                    ["Licensed technicians", "Gel + IGR method", f"Typical {money(*PRICES['cockroach'])}", "Follow-up included on kitchen programs"],
                    art_img("/assets/img/cockroach-closeup.jpg", "Close-up of a cockroach on a dark surface, illustrative image")) + \
@@ -389,11 +389,11 @@ def pages(c):
             '<li><strong>Australian cockroach</strong> (<em>Periplaneta australasiae</em>): similar size to the American with yellow wing edges. Breeds outdoors in mulch, compost, wood piles and under pavers, and wanders in through gaps under doors and weep holes.</li></ul>'
             '<p>Signs: droppings like coarse ground pepper inside cupboards, brown smear marks along the top of cupboard doors, a musty smell in the pantry, egg cases behind appliances, and adults seen in daylight, which means the harbourages are full. Perth\'s mild winters mean there is no seasonal die-off. Autumn is when they move indoors.</p></div>', "ledger") + \
         sec(eb("How we treat it") + head("Gel, growth regulator, drains, then a follow-up.") + steps([
-            ("Identify the species and the harbourages", "German jobs are cabinetry gel and growth regulator. American jobs are drain treatment and penetrations. Australian jobs are external harbourage clean-up and a perimeter. We inspect with a torch and a flushing agent to find where they are living, then confirm the plan and price."),
+            ("Identify the species and the harbourages", "German jobs are cabinetry gel and growth regulator. American jobs are drain treatment and penetrations. Australian jobs are external harbourage clean-up and a perimeter. We inspect with a torch and a flushing agent to find where they are living, then confirm the plan and investment."),
             ("Gel bait and insect growth regulator", "Gel placements go inside cabinetry voids, behind and under appliances and on hinge sides, away from food-contact surfaces. An insect growth regulator is applied to the voids so juveniles cannot mature into breeding adults. Indoors we use non-staining products only. Actives are rotated to avoid resistance."),
             ("Drains, perimeter and follow-up", "Floor wastes, sub-floor cavities and external drain pits are treated for drain-breeding species and pipe penetrations sealed where we can. A residual goes on the external perimeter, not inside the kitchen. Kitchen programs include a scheduled follow-up to check placements and re-apply."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Treatment", "Typical range", "Includes"], [
                 ["German cockroach kitchen program", money(*PRICES['cockroach']), "Inspection, gel, growth regulator, targeted residual, follow-up visit, report, 6-month promise"],
                 ["Cockroaches within a general pest treatment", money(*PRICES['general']), "Light activity; gel and growth regulator in the kitchen plus external perimeter"],
@@ -412,13 +412,13 @@ def pages(c):
             "Fix or report dripping taps and leaking dishwasher hoses. Water is the reason they chose your kitchen.",
             "Tell us about anyone in the home with asthma or chemical sensitivity so we can adjust the plan.",
             "Kids and pets stay out of treated rooms until surfaces are dry and the re-entry period we advise has passed.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Cockroach blog posts", "/blog")]), "ledger") + \
-        sec(eb("Questions") + head("Cockroach control FAQ.") + faq(ck_faqs)) + \
-        quote("Get the cockroaches treated at the source.", "Tell us where you are seeing them and when. A photo helps us identify the species before we arrive. Itemised price, no obligation.")
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Cockroach blog posts", "/blog")]), "ledger") + \
+        sec(eb("Questions") + head("Cockroach management FAQ.") + faq(ck_faqs)) + \
+        quote("Get the cockroaches treated at the source.", "Tell us where you are seeing them and when. A photo helps us identify the species before we arrive. Itemised investment, no obligation.")
     out.append({"path": "/cockroach-control-perth", "title": "Cockroach Control Perth | German Cockroach Gel + IGR Program | DJ Pest",
                 "desc": f"Cockroach control for Perth's northern suburbs. German, American and Australian species treated with gel bait and growth regulator. Typical {money(*PRICES['cockroach'])}.",
-                "body": ck_body, "crumbs": crumbs("Cockroach control"),
-                "schema": [service_schema("Cockroach control", *PRICES['cockroach'], "Cockroach treatment using gel bait, insect growth regulator and targeted residual, with follow-up."), faq_schema(ck_faqs)]})
+                "body": ck_body, "crumbs": crumbs("Cockroach management"),
+                "schema": [service_schema("Cockroach management", *PRICES['cockroach'], "Cockroach treatment using gel bait, insect growth regulator and targeted residual, with follow-up."), faq_schema(ck_faqs)]})
 
     # ================================================================ /spider-control-perth
     sp_faqs = [
@@ -430,8 +430,8 @@ def pages(c):
         ("When is the best time to treat spiders in Perth?", "October to December is peak activity: the most webs, the most wandering males and the most new redback nests. A treatment in spring sets the property up for summer. Properties backing onto bush or with a lot of retic boxes and hard landscaping benefit most."),
         ("What about kids and pets during a spider treatment?", "Residual products are applied to external surfaces, eaves, weep holes, fence lines and sub-floor vents at label rate. Kids and pets stay off treated surfaces until they are dry and the re-entry period we advise has passed, usually around two hours. Pets should not lick treated surfaces in that window."),
     ]
-    sp_body = hero("Spider control · redbacks, white-tails, black house spiders",
-                   "Spider control Perth.<br>The retic box gets checked <em class=\"red\">every time</em>.",
+    sp_body = hero("Spider management · redbacks, white-tails, black house spiders",
+                   "Spider management Perth.<br>The retic box gets checked <em class=\"red\">every time</em>.",
                    "Two kinds of northern-suburbs household: those who have found a redback in the retic box, and those who are about to. Webs removed, harbourages treated, redback hotspots opened and photographed.",
                    ["Licensed technicians", "Included in general pest", f"Stand-alone {money(*PRICES['spider'])}", "Retic-box check on every job"],
                    art_img("/assets/img/spider-redback.jpg", "Redback spider showing the red hourglass marking, illustrative image")) + \
@@ -448,7 +448,7 @@ def pages(c):
             ("Residual treatment of harbourage zones", "Eaves and gutter lines, weep holes, window and door frames, fence lines, sub-floor vents, garage corners, under coping on patios and pool surrounds, and the outside of sheds. Spiders pick the residual up on their legs and groom it in."),
             ("Retic boxes and inside", "Every visible retic valve box is opened, any redback photographed, and the lid and surrounds treated. Indoors, white-tail treatment is a targeted skirting and wardrobe-margin application with a non-staining product, only where it is warranted."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Treatment", "Typical range", "Includes"], [
                 ["Spiders within a general pest treatment", money(*PRICES['general']), "All external zones above plus internal treatment; 6-month promise"],
                 ["Stand-alone spider treatment", money(*PRICES['spider']), "External harbourage treatment, web removal, retic-box check, report"],
@@ -466,13 +466,13 @@ def pages(c):
             "Bring washing in and close windows on the treated sides for the visit.",
             "Cover fish ponds and outdoor tanks. Tell us about reptiles, birds and chickens.",
             "Kids and pets stay off treated surfaces until dry and the re-entry period we advise has passed.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Spider blog posts", "/blog")]), "ledger") + \
-        sec(eb("Questions") + head("Spider control FAQ.") + faq(sp_faqs)) + \
-        quote("Get the redback hotspots dealt with.", "Tell us the suburb, what you have seen and where. We will send an itemised price and a time, and we will check every retic box.")
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Spider blog posts", "/blog")]), "ledger") + \
+        sec(eb("Questions") + head("Spider management FAQ.") + faq(sp_faqs)) + \
+        quote("Get the redback hotspots dealt with.", "Tell us the suburb, what you have seen and where. We will send an itemised investment and a time, and we will check every retic box.")
     out.append({"path": "/spider-control-perth", "title": "Spider Control Perth | Redback and White-Tail Treatment | DJ Pest",
                 "desc": f"Spider control for Perth's northern suburbs. Redbacks and white-tails: webs removed, eaves treated, every retic box checked. Stand-alone {money(*PRICES['spider'])}.",
-                "body": sp_body, "crumbs": crumbs("Spider control"),
-                "schema": [service_schema("Spider control", *PRICES['spider'], "External spider treatment with web removal and retic-box redback check."), faq_schema(sp_faqs)]})
+                "body": sp_body, "crumbs": crumbs("Spider management"),
+                "schema": [service_schema("Spider management", *PRICES['spider'], "External spider treatment with web removal and retic-box redback check."), faq_schema(sp_faqs)]})
 
     # ================================================================ /rodent-control-perth
     ro_faqs = [
@@ -484,8 +484,8 @@ def pages(c):
         ("What does rodent control cost in Perth?", f"A rodent program with the initial visit, two tamper-resistant stations and a written proofing plan typically runs {money(*PRICES['rodent'])}. Follow-up checks are {money(*PRICES['rodent_follow'])}. Additional stations, roof or sub-floor access and sealing work are itemised on the quote."),
         ("Why do rodents come inside in winter?", "Warmth and food. Perth's May to August rains push rats and mice out of bush margins and garden beds toward roof voids and garages, and a dripping tap or a pet bowl left out overnight keeps them there. Sealing entry points before winter beats baiting in July."),
     ]
-    ro_body = hero("Rodent control · rats and mice",
-                   "Rodent control Perth.<br>Bait the runs, then <em class=\"red\">seal the gaps</em>.",
+    ro_body = hero("Rodent management · rats and mice",
+                   "Rodent management Perth.<br>Bait the runs, then <em class=\"red\">seal the gaps</em>.",
                    "Noises in the roof at night? We identify the species, map every entry point, place locked tamper-resistant stations, and give you a sealing plan so the roof stays quiet after the bait is gone.",
                    ["Licensed technicians", "3-month re-treatment promise", f"Typical {money(*PRICES['rodent'])}", "Follow-up visit scheduled"],
                    art_img("/assets/img/rodent-rat.jpg", "Brown rat on a ledge, illustrative image")) + \
@@ -502,7 +502,7 @@ def pages(c):
             ("Tamper-resistant stations and traps", "Locked, anchored stations with an APVMA-registered rodenticide block go on the external runs and in the roof void. Inside the living space, where pets or kids are present, we use covered snap traps to avoid secondary poisoning. Every placement is numbered and listed."),
             ("Proofing and the follow-up", "Simple seals such as mesh over an eave gap or a conduit escutcheon are done on the day. Larger sealing work is quoted. A follow-up visit checks consumption, repositions stations along the runs and confirms the house has gone quiet."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Service", "Typical range", "Includes"], [
                 ["Rodent program (initial visit)", money(*PRICES['rodent']), "Inspection, species ID, two tamper-resistant stations, entry-point map and proofing advice, report, 3-month promise"],
                 ["Follow-up check", money(*PRICES['rodent_follow']), "Consumption check, re-bait, reposition, confirm clearance"],
@@ -521,13 +521,13 @@ def pages(c):
             "Note where you hear the noise and at what time. It tells us the species and the run.",
             "Unlock side gates, the garage and the shed.",
             "Keep pets secured while we work in the roof and along the perimeter, and away from station positions we point out.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth"), ("Rodent blog posts", "/blog")]), "ledger") + \
-        sec(eb("Questions") + head("Rodent control FAQ.") + faq(ro_faqs)) + \
-        quote("Get the roof quiet again.", "Tell us the suburb, where the noise is and whether you have pets. We will send an itemised price and a time, usually within a day or two for active rodents.")
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Rodent blog posts", "/blog")]), "ledger") + \
+        sec(eb("Questions") + head("Rodent management FAQ.") + faq(ro_faqs)) + \
+        quote("Get the roof quiet again.", "Tell us the suburb, where the noise is and whether you have pets. We will send an itemised investment and a time, usually within a day or two for active rodents.")
     out.append({"path": "/rodent-control-perth", "title": "Rodent Control Perth | Rats and Mice in the Roof | DJ Pest",
                 "desc": f"Rodent control for Perth's northern suburbs. Species identified, entry points mapped, tamper-resistant stations and a sealing plan. Typical {money(*PRICES['rodent'])}.",
-                "body": ro_body, "crumbs": crumbs("Rodent control"),
-                "schema": [service_schema("Rodent control", *PRICES['rodent'], "Rodent baiting with tamper-resistant stations, entry-point mapping and proofing advice."), faq_schema(ro_faqs)]})
+                "body": ro_body, "crumbs": crumbs("Rodent management"),
+                "schema": [service_schema("Rodent management", *PRICES['rodent'], "Rodent baiting with tamper-resistant stations, entry-point mapping and proofing advice."), faq_schema(ro_faqs)]})
 
         # ================================================================ /mosquito-control-perth
     mo_faqs = [
@@ -539,8 +539,8 @@ def pages(c):
         ("What does mosquito control cost?", f"A residential yard treatment with the breeding-site audit typically runs {money(*PRICES['mosquito'])}. Larger blocks, dense vegetation and additional structures are itemised on the quote. Because mosquitoes fly in from outside the property, this service carries a recommended re-treatment interval rather than a re-treatment promise."),
         ("Do you treat for Ross River virus?", "We treat mosquitoes, not the virus. WA Health advises that mosquito-borne viruses including Ross River virus occur in Western Australia and that the best protection is avoiding bites: reducing breeding sites, screening, repellent and covering up at dusk. A yard treatment reduces the number of biting mosquitoes at home; it is not a substitute for personal protection."),
     ]
-    mo_body = hero("Mosquito control · yards, patios and pool areas",
-                   "Mosquito control Perth.<br>Fix the <em class=\"red\">breeding</em>, treat the resting sites.",
+    mo_body = hero("Mosquito management · yards, patios and pool areas",
+                   "Mosquito management Perth.<br>Fix the <em class=\"red\">breeding</em>, treat the resting sites.",
                    "Can't sit outside after five? We audit the yard for every place water sits, fix or flag it, then treat the shaded surfaces where adult mosquitoes rest during the day. Timed for Perth's warm-season peak.",
                    ["Licensed technicians", f"Typical {money(*PRICES['mosquito'])}", "Breeding-site audit included", "Bee-aware application"],
                    art_card("The audit covers", ["Gutters, downpipe sumps and drains", "Pot saucers, bird baths, buckets, tarps", "Retic and meter boxes, pool covers", "Ponds, water features, rain tanks", "Shaded harbourage: eaves, hedges, sheds"])) + \
@@ -556,7 +556,7 @@ def pages(c):
             ("Residual harbourage treatment", "An APVMA-registered residual insecticide labelled for mosquitoes is applied to the surfaces where adults rest: eaves, shaded walls and fences, hedges and dense shrubs, the underside of outdoor furniture, sheds and gazebos. Applied to label, not fogged, kept off flowering plants and food crops."),
             ("Timing and follow-up", "Treatments are timed for the warm season and ahead of events. A follow-up in late summer keeps the interval covered. Every visit is recorded with product, rate and areas."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Service", "Typical range", "Includes"], [
                 ["Residential yard mosquito treatment", money(*PRICES['mosquito']), "Breeding-site audit, residual harbourage treatment of yard, patio and structures, report and prevention plan"],
                 ["Follow-up treatment (same season)", "Itemised", "Repeat harbourage treatment, audit re-check"],
@@ -574,13 +574,13 @@ def pages(c):
             "Bring washing in and cover outdoor food-prep areas and pet bowls.",
             "Unlock side gates and clear the path around the house.",
             "Keep kids and pets inside during treatment and off treated surfaces until dry.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Spider control", "/spider-control-perth"), ("Pricing guide", "/pest-control-prices-perth")]), "ledger") + \
-        sec(eb("Questions") + head("Mosquito control FAQ.") + faq(mo_faqs)) + \
-        quote("Get the yard back after five.", "Tell us the suburb, whether you back onto bush or wetland, and if you have a pond or veggie patch. We will send an itemised price and a time.")
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Spider management", "/spider-control-perth"), ("Investment guide", "/pest-control-prices-perth")]), "ledger") + \
+        sec(eb("Questions") + head("Mosquito management FAQ.") + faq(mo_faqs)) + \
+        quote("Get the yard back after five.", "Tell us the suburb, whether you back onto bush or wetland, and if you have a pond or veggie patch. We will send an itemised investment and a time.")
     out.append({"path": "/mosquito-control-perth", "title": "Mosquito Control Perth | Yard Treatment and Breeding-Site Audit | DJ Pest",
                 "desc": f"Mosquito control for Perth's northern suburbs. Breeding-site audit, residual treatment of the shaded harbourages where adults rest, timed for the warm season. Typical {money(*PRICES['mosquito'])}.",
-                "body": mo_body, "crumbs": crumbs("Mosquito control"),
-                "schema": [service_schema("Mosquito control", *PRICES['mosquito'], "Residential mosquito control: breeding-site audit and residual harbourage treatment."), faq_schema(mo_faqs)]})
+                "body": mo_body, "crumbs": crumbs("Mosquito management"),
+                "schema": [service_schema("Mosquito management", *PRICES['mosquito'], "Residential mosquito management: breeding-site audit and residual harbourage treatment."), faq_schema(mo_faqs)]})
 
     
 
@@ -615,7 +615,7 @@ def pages(c):
             ("Remove and treat the site", "Once the nest is quiet the comb comes off and goes with us. The surface is treated with a residual product so returning foragers and next season's queens are discouraged from rebuilding on the same beam. Vents and gaps that were being used are flagged for screening."),
             ("Record and promise", "Product, rate, every nest position and the re-entry period go on your treatment record. Treated nests carry a 30-day re-treatment promise: if a treated nest is active again inside that period, we come back at no charge."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Service", "Typical range", "Includes"], [
                 ["Paper wasp nest, accessible, treatment and removal", money(*PRICES['wasp']), "Roofline check for other nests, direct treatment, comb removal, residual treatment of the site, record and 30-day re-treatment promise"],
                 ["Additional nests on the same visit", "Itemised", "Each extra nest at a reduced rate on the same quote"],
@@ -630,7 +630,7 @@ def pages(c):
             ("30-day re-treatment promise", "If a treated nest is active again inside 30 days we return at no charge. It is written into our terms, not a slogan."),
         ])) + \
         sec(eb("Wasp calendar") + head("The paper wasp year in the northern suburbs.") + steps([
-            ("Sep – Oct · Spring: queens start small nests", "Overwintered queens begin golf-ball-sized combs under eaves. The easiest and lowest-cost time to deal with them, and the time nobody notices."),
+            ("Sep – Oct · Spring: queens start small nests", "Overwintered queens begin golf-ball-sized combs under eaves. The easiest and lowest-investment time to deal with them, and the time nobody notices."),
             ("Nov – Jan · Early summer: colonies grow", "Workers emerge, nests reach palm size, traffic becomes obvious. Most first calls come now, often after someone is stung near a door or the pool."),
             ("Feb – Apr · Late summer and autumn: peak defence", "Nests at full size with the most wasps and the most to defend. New queens and males are reared. The busiest wasp months, and the ones with the most multiple-sting incidents."),
             ("May – Aug · Winter: colonies die, queens hide", "Workers die off and nests are abandoned. Mated queens shelter in roof voids and wall cavities nearby. Old nests can be scraped off; screen the vents they used before spring."),
@@ -642,9 +642,9 @@ def pages(c):
             "Tell us about anyone in the household with a wasp or bee sting allergy.",
             "If you can do it safely from a distance, text a photo of the nest and note any other spots you have seen traffic.",
             "Unlock side gates and clear the path along the walls so we can walk the full roofline.",
-        ]) + related([("Bee removal", "/bee-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth")])) + \
+        ]) + related([("Bee removal", "/bee-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth")])) + \
         sec(eb("Questions") + head("Wasp removal FAQ.") + faq(wa_faqs), "ledger") + \
-        quote("A nest by the door gets fast-tracked.", "Text a photo of the nest and your suburb. We will tell you what it is, send an itemised price and, for a nest over a door or a path, usually get there the same day.")
+        quote("A nest by the door gets fast-tracked.", "Text a photo of the nest and your suburb. We will tell you what it is, send an itemised investment and, for a nest over a door or a path, usually get there the same day.")
     out.append({"path": "/wasp-removal-perth", "title": "Wasp Removal Perth | Paper Wasp Nest Treatment, Same Day | DJ Pest",
                 "desc": f"Wasp nest removal across Perth's northern suburbs. Paper wasp nests found, treated and removed, site treated, 30-day re-treatment promise. Suspected European wasps reported to DPIRD. Typical {money(*PRICES['wasp'])}.",
                 "body": wa_body, "crumbs": crumbs("Wasp removal"),
@@ -653,14 +653,14 @@ def pages(c):
     # ================================================================ /bee-removal-perth
     be_faqs = [
         ("Do you kill bees?", "Not when there is a reasonable alternative. A swarm hanging on a branch, a fence or a letterbox can usually be collected alive by a beekeeper, and that is what we recommend first. An established hive that has been building comb inside a double-brick wall or a roof void for months is a different problem: it cannot be coaxed out, a cut-out is a building job, and if nobody can reach the comb the only responsible option is a treatment done properly, with the entry sealed and the comb removed afterwards."),
-        ("Why can't the bees in my wall just be removed alive?", "Because the colony is not the bees you see at the vent. It is the comb, the brood and the honey behind the bricks. Removing it alive means opening the wall, cutting out every piece of comb and boxing the queen, which is beekeeper and builder work, not pest control. Where the cavity can be opened and a beekeeper is willing, we will put you in touch and step back. Where it cannot, we treat."),
+        ("Why can't the bees in my wall just be removed alive?", "Because the colony is not the bees you see at the vent. It is the comb, the brood and the honey behind the bricks. Removing it alive means opening the wall, cutting out every piece of comb and boxing the queen, which is beekeeper and builder work, not pest management. Where the cavity can be opened and a beekeeper is willing, we will put you in touch and step back. Where it cannot, we treat."),
         ("Can I just leave the hive in the wall?", "You can, but the problems compound. The colony grows through spring and summer, throws off new swarms, and becomes more defensive as the honey stores build. Honey and wax stored inside a wall soften in Perth summer heat and can stain plaster, attract ants, cockroaches and wax moth, and draw robbing bees from other hives. Anyone in the household with a sting allergy is living next to an ongoing risk. Most people who wait end up calling in autumn with a bigger, angrier colony."),
         ("What actually happens on a bee treatment?", "We come in the evening when the foragers are home so the whole colony is inside. An APVMA-registered insecticide whose label covers bees is applied directly into the entry and the cavity, then the entry is sealed straight away so bees from other hives cannot rob the treated honey and carry it back to their own colony. We come back to confirm the traffic has stopped, and we give you a written plan for getting the comb out and proofing the weep holes."),
         ("Do I have to remove the comb afterwards?", "We strongly advise it, and we say so on the treatment record. Dead bees, brood and honey left inside a wall break down, smell, and pull in secondary pests. Unattended comb also smells like home to next spring's swarms, which is the most common reason people get bees in the same wall two years running. Comb removal is usually a handyman or builder opening a small section of plaster or a few bricks; we can recommend people who do it and tell them exactly where the comb is."),
         ("Are the bees in Perth dangerous?", "The bees that swarm and nest in Perth homes are European honey bees. A single sting is painful and, for most people, nothing more. For the small number of people with a bee venom allergy a sting can cause anaphylaxis, which is a 000 call. Swarms in transit are usually placid because they have no home to defend; a hive with stores is not. Keep children, pets and mowers away from the flight line and call before you poke anything."),
         ("What about native bees?", "Perth's native bees, including blue-banded bees, resin bees and leafcutter bees, are mostly solitary, nest in small burrows or borer holes, and rarely sting. They do not form the large colonies that cause problems in walls, and we do not treat them. If you send us a photo and it is a native bee, we will tell you so and suggest you enjoy it."),
         ("When is bee swarm season in Perth?", "Spring. Colonies that have built up over winter split as the weather warms and the flowering starts, so most swarm calls come between September and December, with October and November the peak. A swarm that lands in your garden will usually move on within a day or two once the scouts find a cavity, which is exactly when it becomes someone's wall problem. Late summer and autumn calls are usually established hives that were swarms in spring."),
-        ("What does bee removal cost?", f"A swarm referral costs nothing: we identify it from your photo and give you the beekeeper's number. A treatment of an established hive with an accessible entry typically runs {money(*PRICES['bee'])}, including the evening visit, sealing the entry and the follow-up check. Hives high on a two-storey wall, in a roof void or behind cladding are quoted after we have seen them. Comb removal is a building task and is itemised or referred separately."),
+        ("What does bee removal cost?", f"A swarm referral is free: we identify it from your photo and give you the beekeeper's number. A treatment of an established hive with an accessible entry typically runs {money(*PRICES['bee'])}, including the evening visit, sealing the entry and the follow-up check. Hives high on a two-storey wall, in a roof void or behind cladding are quoted after we have seen them. Comb removal is a building task and is itemised or referred separately."),
     ]
     be_body = hero("Bee removal · swarms, wall cavities and roof voids",
                    "Bee removal Perth.<br>Relocate the <em class=\"red\">swarm</em>, resolve the hive.",
@@ -680,7 +680,7 @@ def pages(c):
             ("Treat where it cannot", "Where the hive is deep in a double-brick cavity or a roof void and nobody can reach the comb, we treat. An APVMA-registered insecticide whose label covers bees is applied into the entry in the evening when the foragers are home. The entry is sealed immediately so bees from other colonies cannot rob the treated honey. A follow-up visit confirms the traffic has stopped."),
             ("Remove the comb, proof the wall", "The treatment record tells you exactly where the comb is and why it should come out: honey softens in summer heat, stains plaster, feeds ants and cockroaches, and draws next spring's swarms to the same wall. We recommend people who can open and close the wall, and we fit or specify weep-hole guards and vent screens that keep the ventilation and keep the bees out."),
         ])) + \
-        sec(eb("What it costs") + head("Typical ranges.") +
+        sec(eb("The investment") + head("Typical ranges.") +
             ledger(["Service", "Typical range", "Includes"], [
                 ["Swarm on a branch, fence or post", "No charge", "Identification from your photo and a referral to a registered beekeeper who collects swarms"],
                 ["Established hive, accessible entry", money(*PRICES['bee']), "Evening treatment with an APVMA-registered product, entry sealed, follow-up check, treatment record and comb-removal plan"],
@@ -706,9 +706,9 @@ def pages(c):
             "Tell us about anyone in the household with a bee-sting allergy, and where the EpiPen is kept.",
             "Text a photo of the cluster or the entry point and tell us how long the traffic has been going on.",
             "Let us know if a neighbour keeps hives. Sealing the treated entry promptly matters more when there are managed colonies nearby.",
-        ]) + related([("Wasp removal", "/wasp-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Pricing guide", "/pest-control-prices-perth")])) + \
+        ]) + related([("Wasp removal", "/wasp-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth")])) + \
         sec(eb("Questions") + head("Bee removal FAQ.") + faq(be_faqs), "ledger") + \
-        quote("Swarm or hive, start with a photo.", "Text a photo and how long it has been going on. If it is a swarm you get a beekeeper's number; if it is a hive you get an itemised price and an evening slot.")
+        quote("Swarm or hive, start with a photo.", "Text a photo and how long it has been going on. If it is a swarm you get a beekeeper's number; if it is a hive you get an itemised investment and an evening slot.")
     out.append({"path": "/bee-removal-perth", "title": "Bee Removal Perth | Swarm Relocation and Hive Treatment | DJ Pest",
                 "desc": f"Bee removal in Perth's northern suburbs. Swarms referred to a beekeeper at no charge; hives in walls and roof voids treated and sealed. Typical {money(*PRICES['bee'])}.",
                 "body": be_body, "crumbs": crumbs("Bee removal"),
@@ -718,17 +718,17 @@ def pages(c):
     co_faqs = [
         ("How often does a cafe or restaurant need pest control?", "Monthly is the norm for a working commercial kitchen, and it is what environmental health officers and HACCP auditors expect to see in the folder. The frequency is driven by food, warmth and water being present every day, and by German cockroaches breeding in six weeks. Small, dry, low-risk premises such as an office kitchenette can sit on quarterly. We recommend a frequency after the site survey and put the reasoning in writing."),
         ("Do you provide the reports an EHO or HACCP auditor wants?", "Yes, and that is most of the point. Your site folder holds the site map with numbered stations, the station register, a service report for every visit showing activity per station and actions taken, the pesticide ledger with product, active, rate and location, the safety data sheets, our licence and registration details and our insurance certificate. Auditors ask for exactly those documents, in roughly that order."),
-        ("Can you service outside trading hours?", "Yes. Kitchens are treated before open or after close so nothing is applied around food preparation, and re-entry periods are met before staff return. Childcare and aged care sites are serviced when the rooms are empty. Early-morning and evening slots are part of the price for food premises, not an extra."),
-        ("What does the Food Standards Code actually require?", "Standard 3.2.2 of the Australia New Zealand Food Standards Code, which applies in WA through the Food Act 2008, requires a food business to take all practicable measures to prevent pests entering the premises and to eradicate and prevent the harbourage of pests on the premises and in vehicles. The local government's environmental health officers inspect against that, and evidence of pests or no documented control is one of the fastest ways to a poor inspection result."),
+        ("Can you service outside trading hours?", "Yes. Kitchens are treated before open or after close so nothing is applied around food preparation, and re-entry periods are met before staff return. Childcare and aged care sites are serviced when the rooms are empty. Early-morning and evening slots are part of the investment for food premises, not an extra."),
+        ("What does the Food Standards Code actually require?", "Standard 3.2.2 of the Australia New Zealand Food Standards Code, which applies in WA through the Food Act 2008, requires a food business to take all practicable measures to prevent pests entering the premises and to eradicate and prevent the harbourage of pests on the premises and in vehicles. The local government's environmental health officers inspect against that, and evidence of pests or no documented management is one of the fastest ways to a poor inspection result."),
         ("Do you do strata common property?", "Yes. Bin rooms, basements, car parks, plant rooms, lift wells, gardens and common walkways, on a quarterly or monthly cycle depending on the building. Cockroaches and rodents move between lots through service ducts and bin chutes, so a program that treats only the lot that complained does not work; we report to the strata manager or council of owners with what we found where, and quote individual lots separately when residents ask."),
-        ("Is there a lock-in contract?", "There is a written agreement so the price, the frequency and what is included are not in dispute, and it is written in plain English. We do not rely on long lock-ins to keep clients; we rely on the folder being in order when the inspector walks in."),
-        ("How is commercial work priced?", "Per site, after a walk-through, as a fixed price per visit, invoiced monthly on seven-day terms with a proper tax invoice. The indicative ranges on this page cover most northern-suburbs premises. What moves the price is floor area, the number of rodent stations and insect monitors the site needs, whether kitchens need a cockroach clean-out before the routine program can start, and access outside hours."),
-        ("Which areas do you cover for commercial work?", "The northern corridor from Balcatta and Stirling up through Warwick, Greenwood, Duncraig, Hillarys, Joondalup and Wanneroo to Clarkson and Alkimos. Keeping the run tight is how we hold monthly prices down and turn up on time."),
+        ("Is there a lock-in contract?", "There is a written agreement so the investment, the frequency and what is included are not in dispute, and it is written in plain English. We do not rely on long lock-ins to keep clients; we rely on the folder being in order when the inspector walks in."),
+        ("How is commercial work priced?", "Per site, after a walk-through, as a fixed investment per visit, invoiced monthly on seven-day terms with a proper tax invoice. The indicative ranges on this page cover most northern-suburbs premises. What moves the investment is floor area, the number of rodent stations and insect monitors the site needs, whether kitchens need a cockroach clean-out before the routine program can start, and access outside hours."),
+        ("Which areas do you cover for commercial work?", "The northern corridor from Balcatta and Stirling up through Warwick, Greenwood, Duncraig, Hillarys, Joondalup and Wanneroo to Clarkson and Alkimos. Keeping the run tight is how we hold monthly investment ranges down and turn up on time."),
     ]
-    co_body = hero("Commercial pest control · food, strata, care, warehouse, office",
-                   "Commercial pest control Perth.<br>A program your <em class=\"red\">auditor</em> can read.",
+    co_body = hero("Commercial pest management · food, strata, care, warehouse, office",
+                   "Commercial pest management Perth.<br>A program your <em class=\"red\">auditor</em> can read.",
                    "Cafes and restaurants, strata common property, childcare and aged care, medical suites, warehouses and offices across the northern corridor. A documented program: numbered stations on a site map, a service report after every visit and a pesticide ledger in your site folder, so the environmental health officer or HACCP auditor finds what they need on the first look.",
-                   ["Licensed technicians", "Site folder and same-day service reports", "Fixed per-visit price in writing", "Food Standards Code 3.2.2 aware"],
+                   ["Licensed technicians", "Site folder and same-day service reports", "Fixed per-visit investment in writing", "Food Standards Code 3.2.2 aware"],
                    art_card("Built for", ["Food premises under Food Standards Code 3.2.2", "Strata common property, bin rooms and basements", "Childcare, aged care, medical and dental", "Offices, retail and showrooms", "Warehouses, workshops and depots"])) + \
         sec(eb("What the rules ask of you") + head("Documented, or it did not happen.") + '<div class="prose">'
             "<p><strong>Food businesses.</strong> Standard 3.2.2 of the Food Standards Code, applied in WA through the Food Act 2008, requires you to take all practicable measures to prevent pests entering and to eradicate and prevent their harbourage. Your local government's environmental health officers inspect against it. Droppings behind the fryer, a German cockroach in the coffee machine or no evidence of a program are the fastest routes to a poor result, a follow-up inspection and, in the worst case, a public notice. HACCP-based food safety programs and third-party audits go further: they want to see the station map, the service history, safety data sheets and licences in a folder, and a trend they can read.</p>"
@@ -737,12 +737,12 @@ def pages(c):
             "<p><strong>Warehouses and workshops.</strong> Rodents are the usual issue: pallets, cardboard, roller doors that do not seal and food in the lunchroom. Numbered external and internal bait stations, proofing that actually gets done, and stock protected.</p>"
             "<p><strong>Offices and retail.</strong> Lower risk, quarterly is usually enough, but the kitchenette and the loading dock still need looking at, and a tenant's lease often requires a program in place.</p></div>", "ledger") + \
         sec(eb("How a program runs") + head("Survey, install, service, report.") + steps([
-            ("Site survey and risk map", "A walk-through with whoever runs the site: kitchens, stores, bin areas, plant rooms, roof void and perimeter. We mark harbourages, entry points and conducive conditions, list the proofing that needs doing and by whom, recommend a frequency, and price it per visit in writing. If the site needs a cockroach clean-out or a rodent knock-down before a routine program makes sense, that is quoted separately and first."),
+            ("Site survey and risk map", "A walk-through with whoever runs the site: kitchens, stores, bin areas, plant rooms, roof void and perimeter. We mark harbourages, entry points and conducive conditions, list the proofing that needs doing and by whom, recommend a frequency, and investment it per visit in writing. If the site needs a cockroach clean-out or a rodent knock-down before a routine program makes sense, that is quoted separately and first."),
             ("Install and baseline", "Numbered, tamper-resistant rodent stations inside and out, insect monitors in kitchens and stores, gel and insect growth regulator in food areas, drain treatment where the species calls for it. The site folder is set up: site map, station register, safety data sheets, our licence and registration details and insurance certificate."),
             ("Scheduled service", "Each visit checks every station and monitor, records activity, re-baits or replaces, treats as needed and notes proofing items still outstanding on your side. Food premises are serviced outside food preparation, with re-entry met before staff return. Out-of-cycle callouts for a sighting are part of the agreement."),
             ("Report and trend", "A service report is emailed the same day: activity by station, product ledger, actions, photos, and what we need from you. Quarterly you get a trend summary you can hand to an auditor or table at a strata meeting. Records are kept three years under the Health (Pesticides) Regulations 2011."),
         ])) + \
-        sec(eb("What it costs") + head("Indicative per-visit pricing.", "Every site is priced after the survey, as a fixed price per visit. These are the ranges most northern-suburbs premises land in.") +
+        sec(eb("The investment") + head("Indicative per-visit investment.", "Every site is quoted after the survey, as a fixed investment per visit. These are the ranges most northern-suburbs premises land in.") +
             ledger(["Site type", "Typical range per visit", "Usual frequency and scope"], [
                 ["Cafe, takeaway or small restaurant kitchen", "$140–$220", "Monthly. Cockroach gel and IGR, insect monitors, rodent stations, drain treatment, service report"],
                 ["Larger restaurant, pub or commercial kitchen", "$220–$380", "Monthly. As above across multiple prep areas, cool rooms, stores and bin area"],
@@ -751,30 +751,30 @@ def pages(c):
                 ["Office, retail or showroom", "$150–$260", "Quarterly. Kitchenette, stores, loading dock, perimeter stations"],
                 ["Warehouse or workshop rodent program", "$180–$320", "Monthly. Numbered internal and external stations, proofing list, stock protection"],
                 ["One-off kitchen clean-out before a program starts", money(*PRICES['comm_cleanout']), "German cockroach gel and IGR program with follow-up visit, or initial rodent knock-down"],
-            ], amount_cols=(1,)) + '<p class="notice">Indicative ranges, GST inclusive, invoiced monthly on seven-day terms. Every program is quoted itemised in writing after the site survey; the invoice matches the quote. No call-out fee for the survey. See the <a href="/pest-control-prices-perth">residential pricing guide</a> for one-off treatments.</p>', "ledger") + \
+            ], amount_cols=(1,)) + '<p class="notice">Indicative ranges, GST inclusive, invoiced monthly on seven-day terms. Every program is quoted itemised in writing after the site survey; the invoice matches the quote. No call-out fee for the survey. See the <a href="/pest-control-prices-perth">residential investment guide</a> for one-off treatments.</p>', "ledger") + \
         sec(eb("What you get") + head("What you get.") + included([
             ("The site folder", "Site map with numbered stations, station register, safety data sheets, our licence and registration details and insurance certificate. Everything an inspector or auditor asks for, in one place, kept current."),
             ("Same-day service reports", "Activity by station, what was applied where, photos, actions and the proofing we need from you, emailed the day of the visit. Quarterly trend summaries for audits and strata meetings."),
-            ("Clean paperwork", "DJ Pest is run by a Chartered Accountant. One agreement in plain English, a fixed price per visit, one tax invoice a month with your purchase order on it, and a supplier who understands what your bookkeeper needs."),
+            ("Clean paperwork", "DJ Pest is run by a Chartered Accountant. One agreement in plain English, a fixed investment per visit, one tax invoice a month with your purchase order on it, and a supplier who understands what your bookkeeper needs."),
         ])) + \
         sec(eb("Why this suits a business") + head("Run by a Chartered Accountant.") + '<div class="prose">'
-            "<p>Most commercial pest programs fail on paperwork, not chemistry: the station map is out of date, two service reports are missing, the SDS folder has the wrong products in it, and the auditor is standing in the kitchen. DJ Pest is run by a Chartered Accountant, in a family that has been in Perth pest control since 2011. The technical work is done to label and to the Australian standards that apply; the record-keeping is done the way an auditor would do it. That is the whole pitch.</p>"
+            "<p>Most commercial pest programs fail on paperwork, not chemistry: the station map is out of date, two service reports are missing, the SDS folder has the wrong products in it, and the auditor is standing in the kitchen. DJ Pest is run by a Chartered Accountant, in a family that has been in Perth pest management since 2011. The technical work is done to label and to the Australian standards that apply; the record-keeping is done the way an auditor would do it. That is the whole pitch.</p>"
             "<ul><li>The same technician on your site each visit, who knows where the problems were last time.</li>"
             "<li>Proofing recommendations in writing, with who is responsible, so the same finding is not on every report.</li>"
             "<li>Out-of-cycle callouts for a sighting are part of the program, not a surprise invoice.</li>"
             "<li>Property managers with residential portfolios: see the <a href=\"/property-managers\">property managers</a> page for vacate flea treatments and lease-start programs.</li></ul></div>"
-            + related([("Cockroach control", "/cockroach-control-perth"), ("Rodent control", "/rodent-control-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Service areas", "/service-areas")])) + \
+            + related([("Cockroach management", "/cockroach-control-perth"), ("Rodent management", "/rodent-control-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Service areas", "/service-areas")])) + \
         sec(eb("Commercial pest calendar") + head("What turns up at work, and when.") + steps([
             ("Sep – Nov · Spring: ants and paper wasps", "Ant trails across loading docks and outdoor dining, wasp nests over entrances and in bin enclosures. Perimeter work and nest checks on the spring visits."),
             ("Dec – Feb · Summer: flies, cockroaches and drains", "German cockroaches at peak breeding in warm kitchens, drain flies and mosquitoes around bin rooms and grease traps. Gel, IGR and drain treatment carry the load."),
             ("Mar – May · Autumn: cockroaches move in", "Australian and American cockroaches follow warmth indoors from gardens, drains and mulch. Harbourage treatment of the perimeter and stores."),
             ("Jun – Aug · Winter: rodents", "Rats and mice into warehouses, roof voids, bin rooms and ceiling spaces above kitchens. Station activity peaks; proofing roller doors and pipe penetrations is the fix that lasts."),
         ]), "ledger") + \
-        sec(eb("Questions") + head("Commercial pest control FAQ.") + faq(co_faqs)) + \
-        quote("Book a site survey.", "Tell us the premises type, the suburb and what you have seen. We walk the site, recommend a frequency and send a fixed per-visit price in writing. No call-out fee for the survey.")
+        sec(eb("Questions") + head("Commercial pest management FAQ.") + faq(co_faqs)) + \
+        quote("Book a site survey.", "Tell us the premises type, the suburb and what you have seen. We walk the site, recommend a frequency and send a fixed per-visit investment in writing. No call-out fee for the survey.")
     out.append({"path": "/commercial-pest-control-perth", "title": "Commercial Pest Control Perth | Cafes, Strata, Childcare, Warehouses | DJ Pest",
                 "desc": "Commercial pest control, Perth northern suburbs: documented programs for cafes, strata, childcare, aged care, offices and warehouses. Numbered stations, same-day reports, audit-ready folder.",
-                "body": co_body, "crumbs": crumbs("Commercial pest control"),
-                "schema": [service_schema("Commercial pest control", PRICES['comm_visit'][0], PRICES['comm_cleanout'][1], "Documented commercial pest management programs: site survey, numbered stations, scheduled service, same-day reports."), faq_schema(co_faqs)]})
+                "body": co_body, "crumbs": crumbs("Commercial pest management"),
+                "schema": [service_schema("Commercial pest management", PRICES['comm_visit'][0], PRICES['comm_cleanout'][1], "Documented commercial pest management programs: site survey, numbered stations, scheduled service, same-day reports."), faq_schema(co_faqs)]})
 
     return out

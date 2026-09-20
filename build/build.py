@@ -48,7 +48,7 @@ def btn_call(label=None, cls="btn btn-primary"):
     label = label or f"Call {SITE['phone_display']}"
     return f'<a class="{cls}" href="tel:{SITE["phone_tel"]}">{icon("phone")}{esc(label)}</a>'
 
-def btn_quote(label="Get a fair price", cls="btn btn-ghost", href="#quote"):
+def btn_quote(label="Get an honest quote", cls="btn btn-ghost", href="#quote"):
     return f'<a class="{cls}" href="{href}">{esc(label)}{icon("arrow")}</a>'
 
 def hours_cue():
@@ -95,8 +95,8 @@ def season_strip():
 <div><span class="m">May – Aug</span><strong>Winter: rodents in the roof</strong><p>Rats and mice look for warm voids. Sealing entry points now beats baiting later.</p></div>
 </div>"""
 
-def quote_block(heading="Get a fair, itemised price.", intro=None):
-    intro = intro or ("Tell us what you're seeing and where. We'll call you back with a written, itemised price before anything is booked. "
+def quote_block(heading="Get an honest, itemised quote.", intro=None):
+    intro = intro or ("Tell us what you're seeing and where. We'll call you back with a written, itemised quote before anything is booked. "
                       "No obligation, no pressure.")
     suburbs = "".join(f'<option>{esc(s)}</option>' for s in SITE["service_area"])
     return f"""<section class="quote" id="quote"><div class="wrap">
@@ -120,14 +120,14 @@ def quote_block(heading="Get a fair, itemised price.", intro=None):
     <label>What's the problem?<select name="pest"><option>Not sure — please identify</option><option>Termites / timber pest</option><option>General pest (cockroaches, spiders, silverfish)</option><option>Ants</option><option>Rodents</option><option>Mosquitoes</option><option>Wasps or bees</option><option>Fleas or bed bugs</option><option>Pre-purchase inspection</option><option>Commercial / strata</option></select></label>
     <label>Anything else we should know?<textarea name="message" rows="3"></textarea></label>
     <label class="consent"><input type="checkbox" name="marketing" value="yes"> Send me seasonal pest reminders (a few emails a year, unsubscribe any time).</label>
-    <button class="btn btn-primary" type="submit">Request my price {icon("arrow","icon")}</button>
+    <button class="btn btn-primary" type="submit">Request my quote {icon("arrow","icon")}</button>
     <div class="form-msg" role="status" aria-live="polite"></div>
     <p class="notice">By sending this form you agree to our <a href="/privacy">privacy policy</a>. We only use your details to respond to this enquiry.</p>
   </form>
 </div></section>"""
 
 # ---------------------------------------------------------------- chrome
-NAV = [("Services", "/services"), ("Termites", "/termite-inspection-perth"), ("Pricing", "/pest-control-prices-perth"),
+NAV = [("Services", "/services"), ("Termites", "/termite-inspection-perth"), ("Investment", "/pest-control-prices-perth"),
        ("Areas", "/service-areas"), ("About", "/about"), ("Blog", "/blog")]
 
 def header():
@@ -145,26 +145,26 @@ def footer():
   <div class="cols">
     <div>
       <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
-      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Licensed, documented, priced in writing before we start.</p>
+      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Licensed, documented, quoted in writing before we start.</p>
       <p><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a><br><a href="mailto:{SITE['email']}">{SITE['email']}</a><br>{SITE['hours']}</p>
     </div>
     <div><div class="fh">Services</div><ul>
       <li><a href="/termite-inspection-perth">Termite inspections</a></li>
       <li><a href="/termite-treatment-perth">Termite treatment</a></li>
       <li><a href="/general-pest-control-perth">General pest treatment</a></li>
-      <li><a href="/ant-control-perth">Ant control</a></li>
-      <li><a href="/cockroach-control-perth">Cockroach control</a></li>
-      <li><a href="/spider-control-perth">Spider control</a></li>
-      <li><a href="/mosquito-control-perth">Mosquito control</a></li>
+      <li><a href="/ant-control-perth">Ant management</a></li>
+      <li><a href="/cockroach-control-perth">Cockroach management</a></li>
+      <li><a href="/spider-control-perth">Spider management</a></li>
+      <li><a href="/mosquito-control-perth">Mosquito management</a></li>
       <li><a href="/flea-treatment-perth">Vacate flea treatment</a></li>
-      <li><a href="/rodent-control-perth">Rodent control</a></li>
+      <li><a href="/rodent-control-perth">Rodent management</a></li>
       <li><a href="/wasp-removal-perth">Wasp removal</a></li>
       <li><a href="/bee-removal-perth">Bee removal</a></li>
-      <li><a href="/commercial-pest-control-perth">Commercial pest control</a></li>
+      <li><a href="/commercial-pest-control-perth">Commercial pest management</a></li>
     </ul></div>
     <div><div class="fh">Company</div><ul>
       <li><a href="/about">About</a></li>
-      <li><a href="/pest-control-prices-perth">Pricing guide</a></li>
+      <li><a href="/pest-control-prices-perth">Investment guide</a></li>
       <li><a href="/whats-my-pest">What's my pest?</a></li>
       <li><a href="/property-managers">Property managers</a></li>
       <li><a href="/service-areas">Service areas</a></li>
@@ -218,7 +218,7 @@ def site_graph():
         "geo": {"@type": "GeoCoordinates", "latitude": SITE["geo"]["lat"], "longitude": SITE["geo"]["lng"]},
         "areaServed": [{"@type": "City", "name": s} for s in SITE["service_area"]],
         "openingHours": "Mo-Sa 07:00-18:00", "priceRange": "$$",
-        "foundingDate": "2026", "slogan": "Perth family pest control since 2011",
+        "foundingDate": "2026", "slogan": "Perth family pest management since 2011",
         "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": SITE["abn"].replace(" ", "")},
                         {"@type": "PropertyValue", "propertyID": "WA Pest Management Business Registration (pending)", "value": SITE["pmb"] + " (assigned, certificate pending)"}],
         "hasCredential": {"@type": "EducationalOccupationalCredential", "name": SITE["licence_label"], "recognizedBy": {"@type": "GovernmentOrganization", "name": "WA Department of Health"}},
@@ -387,13 +387,13 @@ def main():
         sub = [u for u in urls if u.count("/") == 1 and u not in svc and u not in ("/", "/services", "/service-areas", "/pest-control-prices-perth", "/whats-my-pest", "/about", "/contact", "/terms", "/warranty", "/privacy", "/blog", "/property-managers") and not u.startswith("/blog/")]
         blog = [u for u in urls if u.startswith("/blog/")]
         llms = (f"# {SITE['name']}\n\n> {SITE['name']} is a family-run pest management business based in {SITE['base_suburb']}, Western Australia, "
-                f"servicing {SITE['base_region']}. In Perth pest control since {SITE.get('family_since','2011')}. Run by a Chartered Accountant: "
+                f"servicing {SITE['base_region']}. In Perth pest management since {SITE.get('family_since','2011')}. Run by a Chartered Accountant: "
                 f"itemised written quotes, a treatment record for every job, and a written re-treatment promise. "
                 f"Technicians are licensed under the WA Health (Pesticides) Regulations 2011. {SITE.get('reg_line','')}\n\n"
                 f"Phone {SITE['phone_display']} · {SITE['email']} · Hours {SITE['hours']}. Legal entity: {SITE['legal_name']}, ABN {SITE['abn']}.\n"
                 f"Service area: {', '.join(SITE['service_area'])}.\n"
                 + _sec("Services", ["/services"] + svc)
-                + _sec("Pricing and guidance", ["/pest-control-prices-perth", "/whats-my-pest", "/property-managers", "/warranty"])
+                + _sec("Investment and guidance", ["/pest-control-prices-perth", "/whats-my-pest", "/property-managers", "/warranty"])
                 + _sec("Suburb pages", ["/service-areas"] + sub)
                 + _sec("Guides", ["/blog"] + blog)
                 + _sec("Company", ["/about", "/contact", "/terms", "/privacy"])
