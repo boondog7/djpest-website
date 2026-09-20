@@ -14,7 +14,7 @@ def pages(c):
 
     def hero(eyebrow, h1, lead, trust, art):
         return f"""<section class="hero"><div class="wrap"><div>{eb(eyebrow)}<h1>{h1}</h1><p class="lead">{lead}</p>
-<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div><ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul></div>{art}</div></section>"""
+<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}<ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul></div>{art}</div></section>"""
 
     def art_card(title, items):
         lis = "".join(f'<li style="display:flex;gap:.6rem;align-items:flex-start;margin:.5rem 0">{icon("check")}<span>{i}</span></li>' for i in items)
@@ -41,8 +41,8 @@ def pages(c):
     fl_body = hero("Flea treatment · end of lease, tenants and owners",
                    "Vacate flea treatment Perth.<br>Quoted in an hour. Certificate <em class=\"red\">within the hour</em> of treatment.",
                    "Moving out with a pet, or moving in after one? We quote from the address, treat the same week, and email the treatment certificate to you and your property manager within the hour of finishing. Bond file sorted.",
-                   [f"WA licence {S['licence']}", f"{money(*FLEA)} by floor area", "Same-week slot", "30-day re-treatment promise"],
-                   art_card("What the certificate carries", ["Property address, date and time", "Products, APVMA numbers, actives, rates", "Areas treated, inside and out", "Technician name and WA licence 13914", "Re-entry period for the next occupant"])) + \
+                   ["Licensed technicians", f"{money(*FLEA)} by floor area", "Same-week slot", "30-day re-treatment promise"],
+                   art_card("What the certificate carries", ["Property address, date and time", "Products, APVMA numbers, actives, rates", "Areas treated, inside and out", "Technician name and licence number", "Re-entry period for the next occupant"])) + \
         sec(eb("Who this is for") + head("Three people, one document.") + '<div class="grid grid-3">'
             + card("Tenants moving out", "Your lease says a professional flea treatment at vacate. You need it done fast and you need the certificate for the bond. That is the whole job.")
             + card("Owners and landlords", "Between tenancies, after a pet, or before you move back in. Treated and documented so the next lease starts clean.")
@@ -83,7 +83,7 @@ def pages(c):
     pm_body = hero("For property managers and strata",
                    "Vacate treatments that don't need <em class=\"red\">chasing</em>.",
                    "One supplier for the northern corridor who quotes from the address, turns up the same week, and puts the certificate in your inbox within the hour of treatment. Run by a Chartered Accountant, so the invoice is right the first time too.",
-                   ["Quote within the hour", "Certificate within the hour of treatment", "One invoice a month", f"WA licence {S['licence']} · {S['pmb']}"],
+                   ["Quote within the hour", "Certificate within the hour of treatment", "One invoice a month", "Licence details on every certificate"],
                    art_card("What we handle", ["Vacate flea treatments with certificate", "Lease-start general pest treatments", "Ant, cockroach, spider and rodent call-outs", "Key collection and empty properties", "Termite inspections and annual re-inspections"])) + \
         sec(eb("Why agencies use us") + head("Three things a PM actually needs.") + '<div class="grid grid-3">'
             + card("Speed you can promise a tenant", "Address in, fixed price out within the hour. Same-week slot. You tell the tenant one thing and it happens.")

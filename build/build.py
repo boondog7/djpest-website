@@ -51,6 +51,10 @@ def btn_call(label=None, cls="btn btn-primary"):
 def btn_quote(label="Get a fair price", cls="btn btn-ghost", href="#quote"):
     return f'<a class="{cls}" href="{href}">{esc(label)}{icon("arrow")}</a>'
 
+def hours_cue():
+    return (f'<p class="hours-cue">Mon–Sat 7am–6pm. After hours, text a photo to '
+            f'<a href="{SITE["phone_sms"]}">{SITE["phone_display"]}</a> and we reply first thing.</p>')
+
 def eyebrow(text): return f'<div class="eyebrow mono">{esc(text)}</div>'
 
 def section(inner, cls="", id_=""):
@@ -266,6 +270,19 @@ def _picturize(html_text):
         return f'<picture style="display:contents"><source type="image/webp" srcset="{w}">{tag}</picture>'
     return _re.sub(r'<img\b[^>]*\bsrc="(/assets/img/[^"]+\.(?:jpe?g|png))"[^>]*>', rep, html_text)
 
+
+import os as _os
+def _gated_paths():
+    if _os.environ.get("DJPEST_GATE", "1") == "0": return []
+    return list(SITE.get("unpublished", []))
+def _strip_gated(html_text):
+    for g in _gated_paths():
+        html_text = re.sub(r'<a class="card" href="%s">.*?</a>' % re.escape(g), '', html_text, flags=re.S)
+        html_text = re.sub(r'<li><a href="%s">[^<]*</a></li>\s*' % re.escape(g), '', html_text)
+        html_text = re.sub(r'<tr>(?:(?!</tr>).)*href="%s"(?:(?!</tr>).)*</tr>' % re.escape(g), '', html_text, flags=re.S)
+        html_text = re.sub(r'<a href="%s"><strong>.*?</a>' % re.escape(g), '', html_text, flags=re.S)
+    return html_text
+
 def render(page):
     path = page["path"]
     canonical = DOMAIN + ("" if path == "/" else path)
@@ -275,7 +292,7 @@ def render(page):
     robots = '<meta name="robots" content="noindex,nofollow">' if page.get("noindex") else ""
     ver = SITE.get("verification", {})
     vtags = "".join(f'<meta name="{esc(k)}" content="{esc(v)}">' for k, v in ver.items() if v)
-    return _picturize(f"""<!DOCTYPE html>
+    return _strip_gated(_picturize(f"""<!DOCTYPE html>
 <html lang="en-AU">
 <head>
 <script>document.documentElement.className+=' js';</script>
@@ -306,7 +323,7 @@ def render(page):
 {SCRIPT}
 </body>
 </html>
-""")
+"""))
 
 # ---------------------------------------------------------------- compliance
 FORBIDDEN = [r"\bguarantee[ds]?\b", r"100\s?%", r"\bpest[- ]proof\b", r"\btermite[- ]proof\b", r"\brodent[- ]proof\b", r"\bnon[- ]toxic\b",
@@ -344,6 +361,10 @@ def main():
     check_only = "--check" in sys.argv
     pages = load_pages()
     seen = set(); hits = []; urls = []
+    for g in _gated_paths():  # remove stale output of gated pages so they cannot ship
+        gp = out_path(g)
+        if gp.exists(): gp.unlink()
+    pages = [p for p in pages if p["path"] not in _gated_paths()]
     for p in pages:
         assert p["path"] not in seen, f"duplicate path {p['path']}"; seen.add(p["path"])
         html_text = render(p)

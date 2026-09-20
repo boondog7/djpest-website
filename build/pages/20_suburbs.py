@@ -233,7 +233,7 @@ def pages(c):
   {c['eyebrow'](f"Pest control · {name} WA {d['postcode']} · {d["drive_short"] + (" from our Warwick base" if name != "Warwick" else "")}")}
   <h1>{esc(d['h1'])}</h1>
   <p class="lead">{esc(d['lead'])}</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
+  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
   <ul class="trust"><li>Licensed technicians</li><li>In Perth pest control since {S['family_since']}</li><li>Itemised price in writing</li><li>Same-day for active pests</li></ul>
 </div></div></section>"""
 
@@ -284,7 +284,7 @@ def pages(c):
   {c['eyebrow']("Service areas · Based in Warwick WA 6024")}
   <h1>We keep the service area tight <em class="red">on purpose</em>.</h1>
   <p class="lead">DJ Pest works Perth's northern suburbs from a base in Warwick, and we do not stretch beyond them. That keeps response times short, means we know each suburb's soil, housing and pest pressure first-hand, and keeps travel out of your quote.</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
+  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
 </div></div></section>"""
 
     why = c["section"](
@@ -327,7 +327,7 @@ def pages(c):
         ("Is there a travel charge for the far northern suburbs?", "No call-out fee and no travel line on any quote. For Alkimos, Butler, Yanchep and Two Rocks we group bookings by day so the drive is absorbed in scheduling rather than charged to you. It may mean a day or two's wait for a routine job."),
         ("Why does the suburb matter for pest treatment?", "Soil and construction decide the method. A chemical termite management system on the limestone under Sorrento is drilled and injected; on the deep sand under Wanneroo it is trenched. A 1970s Warwick roof with timber framing is proofed differently from a 2015 Joondalup slab home. Knowing the ground saves you money and gets a better result."),
         ("Do you do strata and commercial work across the area?", "Yes: strata common areas, small commercial kitchens, warehouses in the Balcatta and Joondalup industrial precincts, and shopping strip tenancies. Every visit is documented with a treatment record kept for three years as WA regulations require."),
-        ("How do I know you are licensed to work in my suburb?", f"Every treatment is carried out by a technician licensed under the WA Health (Pesticides) Regulations 2011, and a WA licence applies anywhere in the state. The technician's name and licence number are on your treatment record, and you can ask to see the licence card on the day. {esc(S['reg_line'])}"),
+        ("How do I know you are licensed to work in my suburb?", f"Every treatment is carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence, which applies anywhere in the state. The technician's name and licence number are on your treatment record, and you can ask to see the licence card on the day. {esc(S['reg_line'])}"),
     ]
     hub_faq = c["section"](c["eyebrow"]("Questions") + '<div class="section-head"><h2>About where we work.</h2></div>' + c["faq"](hub_faqs))
 

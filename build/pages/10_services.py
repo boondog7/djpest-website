@@ -31,7 +31,7 @@ def pages(c):
   {eb(eyebrow)}
   <h1>{h1}</h1>
   <p class="lead">{lead}</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
+  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
   <ul class="trust">{"".join(f"<li>{esc(t)}</li>" for t in trust)}</ul>
 </div>
 {art_html}
@@ -127,7 +127,7 @@ def pages(c):
     ti_body = hero("Termite inspection · AS 4349.3:2010",
                    "Termite inspection Perth.<br>Every accessible timber, <em class=\"red\">documented</em>.",
                    "A full timber pest inspection to AS 4349.3, from roof void to fence line, with photos, moisture readings and a written report that tells you what we found, what we could not see, and what to do next.",
-                   [f"WA licence {S['licence']}", "AS 4349.3 report", f"Typical {money(*PRICES['inspection'])}", "60–90 minutes on site"],
+                   ["Licensed technicians", "AS 4349.3 report", f"Typical {money(*PRICES['inspection'])}", "60–90 minutes on site"],
                    art_card("Inspected on every visit", ["Roof void and ceiling timbers", "Sub-floor where one exists", "Every internal room, skirting, architraves and frames", "External walls, weep holes, slab edge and paving", "Fences, retaining walls, sheds, trees and stumps to 50 m", "Moisture readings and sounding of timbers"])) + \
         sec('<div class="prose">'
             '<h2>Why an inspection comes first</h2>'
@@ -202,7 +202,7 @@ def pages(c):
     tt_body = hero("Termite treatment · AS 3660.2:2017",
                    "Termite treatment Perth.<br>Designed for your house, <em class=\"red\">certified</em> in writing.",
                    "Non-repellent chemical management systems and baiting programs installed to AS 3660.2 by a licensed technician. Inspected first, quoted itemised, certificate issued, annual inspection scheduled.",
-                   [f"WA licence {S['licence']}", "AS 3660.2 certificate", "Non-repellent chemistry", "Annual inspection scheduled"],
+                   ["Licensed technicians", "AS 3660.2 certificate", "Non-repellent chemistry", "Annual inspection scheduled"],
                    art_card("How a treatment runs", ["AS 4349.3 inspection first, always", "System designed to the construction and soil", "Itemised quote: metres, drill points, product, follow-ups", "Installed to label and to the Standard", "Certificate and site plan issued", "12-month inspection diarised"])) + \
         sec('<div class="prose">'
             '<h2>What a termite management system is</h2>'
@@ -272,7 +272,7 @@ def pages(c):
     gp_body = hero("General pest treatment · internal + external",
                    "General pest control Perth.<br>One visit, inside and out, <em class=\"red\">six-month promise</em>.",
                    "Cockroaches, spiders, silverfish and ants treated in one itemised visit. Non-staining products indoors, a residual treatment outside, and a written record of what went where.",
-                   [f"WA licence {S['licence']}", "6-month re-treatment promise", f"Typical {money(*PRICES['general'])}", "Around 90 minutes on site"],
+                   ["Licensed technicians", "6-month re-treatment promise", f"Typical {money(*PRICES['general'])}", "Around 90 minutes on site"],
                    art_card("Covered in one visit", ["German, American and Australian cockroaches", "Redbacks, black house and other spiders", "Silverfish", "Nuisance ants around the home", "Internal skirtings, wet areas, kitchen voids", "External perimeter, eaves, weep holes, fences"])) + \
         sec(eb("Signs you need it") + head("What a northern-suburbs home looks like before we visit.") + '<div class="prose"><ul>'
             '<li>Cockroaches in the kitchen at night, or small brown ones inside cupboards and behind the fridge.</li>'
@@ -326,7 +326,7 @@ def pages(c):
     ant_body = hero("Ant control · coastal brown super-colonies",
                     "Ant control Perth.<br>We treat the <em class=\"red\">colony</em>, not the trail.",
                     "Months of spraying and more ants than when you started? That is a coastal brown super-colony, and repellent spray makes it split. We use slow-acting non-repellents and baits that workers carry home.",
-                    [f"WA licence {S['licence']}", "3-month re-treatment promise", f"Typical {money(*PRICES['ant'])}", "Species identified first"],
+                    ["Licensed technicians", "3-month re-treatment promise", f"Typical {money(*PRICES['ant'])}", "Species identified first"],
                     art_img("/assets/img/ant-closeup.jpg", "Close-up of a brown ant on a pale surface, illustrative image")) + \
         sec(eb("Signs you have a super-colony") + head("Why most Perth ant treatments fail.") + '<div class="prose">'
             '<p>Perth\'s biggest ant problem is the coastal brown ant, <em>Pheidole megacephala</em>. It forms super-colonies: networks of linked nests that share queens, workers and food across hundreds of metres. Hit them with a repellent spray and the colony detects the threat and buds, splitting into satellite nests to escape. What was one nest under the patio becomes several across the property in weeks.</p>'
@@ -380,7 +380,7 @@ def pages(c):
     ck_body = hero("Cockroach control · German, American, Australian",
                    "Cockroach control Perth.<br>Break the <em class=\"red\">breeding cycle</em>, not just the ones you see.",
                    "Saw one cockroach? There are more. We identify the species, place gel bait and an insect growth regulator where they breed, treat the drains if that is the source, and follow up. No spray on your benches.",
-                   [f"WA licence {S['licence']}", "Gel + IGR method", f"Typical {money(*PRICES['cockroach'])}", "Follow-up included on kitchen programs"],
+                   ["Licensed technicians", "Gel + IGR method", f"Typical {money(*PRICES['cockroach'])}", "Follow-up included on kitchen programs"],
                    art_img("/assets/img/cockroach-closeup.jpg", "Close-up of a cockroach on a dark surface, illustrative image")) + \
         sec(eb("Signs you have cockroaches") + head("Three species, three different treatments.") + '<div class="prose">'
             '<p>Almost every cockroach call in Perth\'s northern suburbs is one of three species, and they do not respond to the same treatment.</p>'
@@ -433,7 +433,7 @@ def pages(c):
     sp_body = hero("Spider control · redbacks, white-tails, black house spiders",
                    "Spider control Perth.<br>The retic box gets checked <em class=\"red\">every time</em>.",
                    "Two kinds of northern-suburbs household: those who have found a redback in the retic box, and those who are about to. Webs removed, harbourages treated, redback hotspots opened and photographed.",
-                   [f"WA licence {S['licence']}", "Included in general pest", f"Stand-alone {money(*PRICES['spider'])}", "Retic-box check on every job"],
+                   ["Licensed technicians", "Included in general pest", f"Stand-alone {money(*PRICES['spider'])}", "Retic-box check on every job"],
                    art_img("/assets/img/spider-redback.jpg", "Redback spider showing the red hourglass marking, illustrative image")) + \
         sec(eb("Signs and species") + head("The spiders that actually matter in Perth.") + '<div class="prose">'
             '<p>Of the dozens of species in a northern-suburbs garden, only the redback (<em>Latrodectus hasselti</em>) is a genuine medical concern, with the white-tail a distant and overstated second. The rest are alarming, harmless or actively useful.</p>'
@@ -487,7 +487,7 @@ def pages(c):
     ro_body = hero("Rodent control · rats and mice",
                    "Rodent control Perth.<br>Bait the runs, then <em class=\"red\">seal the gaps</em>.",
                    "Noises in the roof at night? We identify the species, map every entry point, place locked tamper-resistant stations, and give you a sealing plan so the roof stays quiet after the bait is gone.",
-                   [f"WA licence {S['licence']}", "3-month re-treatment promise", f"Typical {money(*PRICES['rodent'])}", "Follow-up visit scheduled"],
+                   ["Licensed technicians", "3-month re-treatment promise", f"Typical {money(*PRICES['rodent'])}", "Follow-up visit scheduled"],
                    art_img("/assets/img/rodent-rat.jpg", "Brown rat on a ledge, illustrative image")) + \
         sec(eb("Signs you have rodents") + head("Rats, mice, and why winter is the season.") + '<div class="prose">'
             '<p>Three species cover almost every rodent call in Perth\'s northern suburbs. <strong>Black rats</strong> (<em>Rattus rattus</em>) are climbers: they enter roof voids along gutter lines, eaves and unsealed roof penetrations, and they are the usual reason for the scratching above the bedroom at 2 am. <strong>Norway rats</strong> (<em>Rattus norvegicus</em>) are larger, ground-based and prefer sub-floors, drains and burrows under sheds. <strong>House mice</strong> (<em>Mus musculus</em>) need a gap the width of a pen and a little dropped food.</p>'
@@ -710,7 +710,7 @@ def pages(c):
         sec(eb("Questions") + head("Bee removal FAQ.") + faq(be_faqs), "ledger") + \
         quote("Swarm or hive, start with a photo.", "Text a photo and how long it has been going on. If it is a swarm you get a beekeeper's number; if it is a hive you get an itemised price and an evening slot.")
     out.append({"path": "/bee-removal-perth", "title": "Bee Removal Perth | Swarm Relocation and Hive Treatment | DJ Pest",
-                "desc": f"Bee removal across Perth's northern suburbs. Swarms referred to a beekeeper for live collection at no charge; established hives in walls and roof voids treated in the evening, entry sealed, comb-removal plan. Typical {money(*PRICES['bee'])} for a hive.",
+                "desc": f"Bee removal in Perth's northern suburbs. Swarms referred to a beekeeper at no charge; hives in walls and roof voids treated and sealed. Typical {money(*PRICES['bee'])}.",
                 "body": be_body, "crumbs": crumbs("Bee removal"),
                 "schema": [service_schema("Bee removal", *PRICES['bee'], "Swarm identification and beekeeper referral; established hive treatment with entry sealing and comb-removal plan."), faq_schema(be_faqs)]})
 
@@ -773,7 +773,7 @@ def pages(c):
         sec(eb("Questions") + head("Commercial pest control FAQ.") + faq(co_faqs)) + \
         quote("Book a site survey.", "Tell us the premises type, the suburb and what you have seen. We walk the site, recommend a frequency and send a fixed per-visit price in writing. No call-out fee for the survey.")
     out.append({"path": "/commercial-pest-control-perth", "title": "Commercial Pest Control Perth | Cafes, Strata, Childcare, Warehouses | DJ Pest",
-                "desc": "Commercial pest control for Perth's northern suburbs: documented programs for cafes and restaurants, strata, childcare, aged care, offices and warehouses. Numbered stations, same-day service reports, a site folder your EHO or HACCP auditor can read.",
+                "desc": "Commercial pest control, Perth northern suburbs: documented programs for cafes, strata, childcare, aged care, offices and warehouses. Numbered stations, same-day reports, audit-ready folder.",
                 "body": co_body, "crumbs": crumbs("Commercial pest control"),
                 "schema": [service_schema("Commercial pest control", PRICES['comm_visit'][0], PRICES['comm_cleanout'][1], "Documented commercial pest management programs: site survey, numbered stations, scheduled service, same-day reports."), faq_schema(co_faqs)]})
 

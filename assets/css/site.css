@@ -215,3 +215,5 @@ form.lead-form{display:grid;gap:.9rem}
 .divider-x{display:flex;align-items:center;gap:1rem;color:var(--ink-4);font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
 .divider-x::before,.divider-x::after{content:"";flex:1;height:1px;background:var(--line)}
 .notice{font-size:.82rem;color:var(--ink-3)}
+.hours-cue{font-size:.85rem;color:var(--ink-3);margin:.7rem 0 0;max-width:34rem}
+.hours-cue a{color:inherit;text-decoration:underline}

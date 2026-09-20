@@ -61,7 +61,7 @@ def pricing(c):
         ("What product will you use, and is it on the APVMA register?", "A licensed operator can name the product and its active constituent before they arrive. If they cannot, keep looking."),
         ("What is the re-treatment period, and is it in writing?", "A verbal promise is not a promise. It should be on the quote and the invoice with its conditions."),
         ("Will I get a treatment record?", "WA law requires the operator to make one. You should receive a copy, not have to ask for it."),
-        ("What is your licence and business registration number?", f"Ours are Technician Licence {S['licence']} and business registration {S['pmb']}, both with the WA Department of Health. Every operator should be able to give you theirs."),
+        ("What is your licence and business registration number?", f"The technician's licence number is printed on every treatment record and the licence card is shown on request on the day. {S['reg_line']}"),
         ("Is there a call-out fee, a deposit or a variation clause?", "Read the fine print for the phrase \"additional charges may apply\". Ask what would trigger one."),
     ]
 
@@ -175,10 +175,10 @@ def about(c):
                  f"A Perth family pest control business since {S['family_since']}. Second generation, run by a Chartered Accountant.",
                  "DJ Pest is a small, family-run pest management business in Warwick, servicing Perth's northern suburbs. The technician who quotes is the technician who treats and writes the report.")
     body += c["section"]('<div class="grid grid-2" style="align-items:start;gap:3rem"><div class="prose">'
-        "<h2>Fifteen years in Perth pest control.</h2>"
+        "<h2>In Perth pest control since 2011.</h2>"
         "<p>Our family started in Perth pest control in 2011, working the northern suburbs out of a ute: roof voids in January, sub-floors in July, learning which suburbs have the sand that coastal brown ants love and which have the limestone that termites track along. That is where we learned how a good technician reads a house before opening a drum of anything.</p>"
         "<p>The second generation kept the books for that business from the start and went on to qualify as a Chartered Accountant. Fifteen years of watching how service businesses price by feel, promise by mouth and keep no records teaches you that the fix is not marketing, it is bookkeeping.</p>"
-        f"<p>DJ Pest was formed in 2026 as the second generation of that family business, run its own way. Our technicians are licensed under the WA Health (Pesticides) Regulations 2011. {S['reg_line']}</p>"
+        f"<p>DJ Pest was formed in 2026 as the second generation of that family business, run its own way. Every treatment is carried out by, or under the direct supervision of, a technician licensed under the WA Health (Pesticides) Regulations 2011. {S['reg_line']}</p>"
         "<h2>Why the accountant's approach matters</h2>"
         "<p>Pest control is a trust purchase. You cannot see what was applied in the roof void, you cannot verify the rate, and you find out whether it worked six weeks later. Most of the industry's bad reputation comes from that gap: a one-line invoice, a verbal promise and no way to check either.</p>"
         "<p>An accountant closes gaps like that with documents. So every DJ Pest job produces three: an itemised quote before the work, a chemical application ledger during it (product, active constituent, rate, areas, re-entry period) and a treatment report after it, with photos of what was found and a prevention plan. The ledger doubles as the treatment record WA law requires us to keep for three years. You get a copy of all of it without asking.</p>"
@@ -249,8 +249,7 @@ def _retreat_table(c):
         ["External ant treatment", "3 months"],
         ["Rodent baiting", "3 months, or the agreed program period"],
         ["Fleas", "30 days, subject to your completing the preparation and vacuuming plan"],
-        ["Bed bugs", "30 days, subject to your completing the treatment plan (usually two visits)"],
-        ["Wasps, bees (relocation), bird control, one-off nests", "30 days"],
+                ["Wasps, bees (relocation), bird control, one-off nests", "30 days"],
         ["Termite chemical management system", "The period stated on your AS 3660.2 certificate (typically up to 8 years), conditional on annual inspections (clause 5.4)"],
         ["Termite baiting / monitoring", "Duration of the agreed monitoring agreement"],
         ["Timber pest and termite inspections", "No re-treatment period; see clause 5.5"],

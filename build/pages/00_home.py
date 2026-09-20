@@ -14,8 +14,8 @@ def pages(c):
 <div>
   {c['eyebrow']("Perth's northern suburbs · Warwick-based · Family-run since 2011")}
   <h1>Rats in the roof tonight?<br>We fix it <em class="red">properly</em>, and put it in writing.</h1>
-  <p class="lead">A Perth family pest control business since 2011, now run by a Chartered Accountant who hates hidden fees more than termites. Every job gets an itemised price before we start and a written treatment record after.</p>
-  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
+  <p class="lead">Local pest control for Perth's northern suburbs, based in Warwick. Same-day for active rats, mice, ants and spiders where the run allows, with the price in writing before we start and a treatment record after.</p>
+  <div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>{c['hours_cue']()}
   <ul class="trust"><li>Licensed technicians</li><li>In Perth pest control since {S['family_since']}</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
 </div>
 {hero_art}
@@ -109,7 +109,7 @@ def pages(c):
         ("What about kids and pets during treatment?", "Every product we use is registered by the APVMA and applied at the label rate. We use non-staining, low-odour formulations indoors and keep people and pets out until the re-entry period has passed. If anyone in the home is pregnant, asthmatic or chemically sensitive, tell us and we adjust the plan."),
         ("What if the pests come back?", "If the pest on your invoice is still active inside the treated area within the re-treatment period, we come back and re-treat at no charge. Periods are six months for general pest, three months for ants and rodents, 30 days for fleas and wasps. <a href=\"/warranty\">Full terms here</a>."),
         ("How much does pest control cost in Perth?", "It depends on the pest, the size of the property and how established the problem is. We publish a <a href=\"/pest-control-prices-perth\">transparent pricing guide</a> so you know the range before you call, and every quote is itemised."),
-        ("Are you licensed?", f"Yes. Every treatment is carried out by a technician licensed under the WA Health (Pesticides) Regulations 2011, and the technician's name and licence number appear on your treatment record. {S['reg_line']}"),
+        ("Are you licensed?", f"Yes. Every treatment is carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence under the Health (Pesticides) Regulations 2011, and the technician's name and licence number appear on your treatment record. {S['reg_line']}"),
     ]
     faq_sec = c["section"](c["eyebrow"]("Questions") + '<div class="section-head"><h2>Straight answers.</h2></div>' + c["faq"](faqs), "ledger")
 
