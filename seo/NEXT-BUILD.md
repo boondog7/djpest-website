@@ -55,3 +55,6 @@ Battle plan consensus: the website is already ahead of every competitor. **Googl
 
 ## Blockers
 None. Termite licence confirmed (PMB 3000 + Licence 13914 in schema). Deploy: `./deploy.sh --prod` (after porting pages into the generator, see above).
+
+## 2026-09-20 note (Claude Code, local)
+The three pages are now generator entries in build/pages/10_services.py and build/ is tracked in git. Future coach runs: edit build/pages/*.py, run python3 build/build.py, never hand-edit root HTML. Prices for bee/commercial await Dane's confirmation before prod.
