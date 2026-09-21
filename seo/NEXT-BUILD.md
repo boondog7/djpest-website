@@ -1,59 +1,41 @@
-# NEXT BUILD — 2026-09-21
+# NEXT BUILD — 2026-09-21 (evening update)
 
 ## Progress summary
-**Done: 10 service pages + 8 suburb pages + pricing hub + service-areas hub + 2 blog posts + 2 gated pages; ~88% of plan.**
+**Done: 13 service pages live (incl. bee, commercial, bed bug) + 10 Tier-1 suburb pages + pricing hub + service-areas hub + 2 blog posts; ~95% of plan.**
 
-No changes since yesterday. Bee, commercial, bed-bug, Marangaroo and Stirling are all still outstanding. Same tasks as yesterday — pick one and ship it.
+Shipped today (all built, compliance-clean, pushed):
+- `bee-removal-perth.html` and `commercial-pest-control-perth.html` ungated. Prices set just above Perth average: bee hive $320–$480; commercial $160–$420/visit, clean-out $400–$750.
+- `bed-bug-treatment-perth.html` built — 110/mo, KD17. Two-visit program $450–$950 (one room $450–$550, whole home $650–$950). Last BOFU service gap closed.
+- `marangaroo.html` (90/mo, KD0) and `stirling.html` (70/mo, KD0) built — Tier-1 corridor cluster complete.
+- Pricing page, services hub, home, footer, what's-my-pest, llms.txt and sitemap all updated to match.
 
 ### Pages live right now
-**Service (10):** ant, cockroach, flea, general, mosquito, rodent, spider, termite-inspection, termite-treatment, wasp
-**Service (2 gated — price sign-off needed):** bee-removal-perth, commercial-pest-control-perth
-**Suburb (8/10 Tier-1):** warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta
+**Service (13):** ant, bed-bug, bee, cockroach, commercial, flea, general, mosquito, rodent, spider, termite-inspection, termite-treatment, wasp
+**Suburb (10/10 Tier-1):** warwick, greenwood, duncraig, sorrento, hillarys, joondalup, wanneroo, balcatta, marangaroo, stirling
 **Support:** service-areas, pest-control-prices-perth, whats-my-pest, property-managers, blog + 2 posts, about, contact
 
 ---
 
 ## Next tasks (priority order)
 
-### 1. Ungate bee + commercial — 10-minute win, no writing needed
+### 1. Sanity-check today's prices on your phone (5 min)
+Open `/pest-control-prices-perth`, `/bee-removal-perth`, `/commercial-pest-control-perth`, `/bed-bug-treatment-perth`. If any number feels wrong, edit the `PRICES` dict at the top of `build/pages/10_services.py` (`bee`, `comm_visit`, `comm_cleanout`, `bedbug_room`, `bedbug_home`) plus the matching rows in `build/pages/30_company.py`, run `python3 build/build.py`, push.
 
-Two complete pages are sitting unpublished. All that's blocking them is your price sign-off:
+### 2. Tier-2 suburb pages — first three
+The plan's next cluster. All on the corridor, all low KD:
+- **`alkimos.html`** — 70/mo, KD5. New estates 2010s+, slab-on-ground with builder barriers now lapsing; coastal dune + Alkimos Beach reserve; big ant pressure.
+- **`clarkson.html`** — 50/mo, KD6. 1990s–2000s stock, Ocean Keys precinct feeds rodents/cockroaches, Neerabup bush to the east = termites.
+- **`yanchep.html`** — 50/mo, KD4. Furthest north (45 min); Yanchep National Park and Lagoon; grouped bookings, say so on the page.
 
-- **`bee-removal-perth.html`** — target: `bee removal perth` (480/mo, KD27). Staged price: **$250–$400**. Right?
-- **`commercial-pest-control-perth.html`** — target: `commercial pest control perth` (390/mo, KD30). Staged prices: **per-visit $140–$380; one-off kitchen clean-out $350–$650**. Right?
+**How to build:** add to `SUBURBS` in `build/pages/20_suburbs.py` and to the `PAGES8` list (it's the linked-suburbs list). Follow the Marangaroo/Stirling pattern: two intro paragraphs with real landmarks and soil, four pest cards, a "now" paragraph, five FAQs. Home page suburb list is in `build/pages/00_home.py`.
 
-If yes: remove both slugs from `build/site.json → unpublished`, run `python3 build/build.py`, push. Done in under 10 minutes.
-If the numbers are wrong: edit `build/pages/10_services.py` (the `PRICES` dict), then ungate + build + push.
-
----
-
-### 2. `/bed-bug-treatment-perth.html` — last missing BOFU service page
-
-**Keyword:** `bed bug treatment perth` — 110/mo, KD17, CPC ~$4.
-**Why now:** every other service is covered. The warranty page already promises a "30-day, two-visit bed-bug plan" — that promise currently floats with no page to land on.
-**How to build:** add a new function to `build/pages/10_services.py` following the flea/mosquito pattern. Angles: heat + residual two-visit protocol, mattress-edge ID tips, "no one-spray fix" honesty. Add to `SITE.nav_services` + sitemap. Run `python3 build/build.py` then push.
+### 3. MOFU: dedicated `termite-treatment-cost-perth` page
+720/mo, KD8. The pricing hub answers it in one FAQ; a dedicated page with a worked example (perimeter metres × drilling vs trenching) would own the query and feed the termite BOFU pages. Real $ tables only.
 
 ---
-
-### 3. `/marangaroo.html` + `/stirling.html` — last two Tier-1 corridor suburbs
-
-Both are KD0 with real monthly search volume. Zero competition. Dane already drives there.
-
-**`marangaroo.html`** — 90/mo, KD0.
-Local signals: Marangaroo Golf Course boundary + Lake Goollelal fringe → mosquitoes and ants from irrigation runoff; older 60s–70s brick-veneer stock → rodent harbourage in wall cavities and sub-floor.
-
-**`stirling.html`** — 70/mo, KD0.
-Local signals: Lake Gwelup reserve, Stirling Civic Gardens; mix of 60s–70s brick + newer infill → termite risk from garden beds against original timber framing; Council stormwater drains as rodent runs.
-
-**How to build:** add both to `build/pages/20_suburbs.py` following the balcatta/greenwood pattern. Each needs a suburb-specific intro, one landmark reference, pest-pressure angle, mini case-study sentence. Run generator + push.
-
----
-
-## Tier-2 suburbs (after the above are done)
-Alkimos (70/KD5), Clarkson (50/KD6), Yanchep (50/KD4), Butler (50/KD0), Woodvale (30/KD0), Mindarie (40/KD0) — all still unbuilt, all in the corridor.
 
 ## Blockers
-- Bee + commercial: self-blocked on your price confirmation (30 seconds).
-- Bed-bug + suburbs: no blocker, ready to build.
-- GBP at Warwick 6024 + review-ask after every job still outranks all of the above for phone calls. If not verified yet, do that first.
-- Termite pages are live. PMB 3000 registered. No change needed there.
+- None on the build side. Everything above is unblocked.
+- Build script needs Python 3.12+ (nested f-string quotes in `20_suburbs.py`). Fine on your machine (3.14).
+- GBP at Warwick 6024 + review-ask after every job still outranks all of the above for calls. If not verified yet, that is the real next task.
+- Termite pages are live; PMB 3000 registered. No change needed.

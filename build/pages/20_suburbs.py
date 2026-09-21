@@ -1,4 +1,4 @@
-"""Service-areas hub + eight suburb pages (Warwick base)."""
+"""Service-areas hub + ten suburb pages (Warwick base)."""
 
 DRIVE = {  # honest estimates from Warwick, off-peak
     "Warwick": "we're here", "Greenwood": "about 5 minutes", "Hamersley": "about 5 minutes", "Kingsley": "about 5 minutes",
@@ -18,7 +18,7 @@ GROUPS = [
     ("Northern growth corridor", "Joondalup, Wanneroo and the estates that keep going north. Slab-on-ground homes from the 1990s onward, bush and wetland on the doorstep.",
      ["Joondalup", "Wanneroo", "Currambine", "Kinross", "Clarkson", "Mindarie", "Butler", "Quinns Rocks", "Alkimos", "Yanchep"]),
 ]
-PAGES8 = ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Joondalup", "Wanneroo", "Balcatta"]
+PAGES8 = ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Joondalup", "Wanneroo", "Balcatta", "Marangaroo", "Stirling"]
 slug = lambda s: "/" + s.lower().replace(" ", "-")
 
 # --------------------------------------------------------------- suburb copy
@@ -207,6 +207,52 @@ SUBURBS = {
         ("Can you treat my vegetable garden for ants without harming the plants?", "We treat the nests and trails on paving, edges and retaining walls with products applied to label and keep treatment out of edible beds. Baits are placed in stations rather than spread. We explain what has been applied and where in your treatment record."),
         ("How far is Balcatta from Warwick?", "About ten minutes down Wanneroo Road or Erindale Road. Same-day for active rodents or wasps is usually possible."),
     ]),
+"Marangaroo": dict(
+    postcode="6064", drive="about 8 minutes", drive_short="8 minutes",
+    h1="Pest management in Marangaroo, between the golf course and the bush.",
+    lead="Marangaroo is eight minutes east of our Warwick base along Hepburn Avenue. It is a suburb of 1980s and 1990s brick-and-tile homes wrapped around a public golf course, with Koondoola's banksia bushland on its south-east corner. Both keep the pests coming.",
+    intro=[
+        "Marangaroo was built out through the 1980s and early 1990s, a decade after Warwick and Greenwood, so the typical home is double brick or brick veneer with a tiled roof on timber framing, a bigger floorplan than the 1970s suburbs to the west, and a patio or pergola added at some point since. Blocks are still a decent size, gardens are established, and a lot of the original timber, pergola posts, retaining sleepers, fence rails, has now been in the ground for thirty-plus years. The suburb sits on yellow Spearwood sand along the Hepburn Avenue and Marangaroo Drive side, grading into the greyer, moister Bassendean sand as you head east toward Alexander Heights. Warm, free-draining sand on one side and moister ground on the other is a good recipe for subterranean termites, coastal brown ants and the rats that use the golf course as a larder.",
+        "Two features define the pest pressure. Marangaroo Golf Course sits in the middle of the suburb, irrigated year-round, with dams, mature trees, sandy rough and a constant supply of insects, worms and fallen seed. It is a wildlife corridor, and the wildlife includes black rats, mice, and the mosquito population that breeds in the water hazards after rain. On the south-east edge is Koondoola Regional Bushland, one of the largest surviving pieces of banksia woodland in the northern suburbs. It is worth having, and it carries a standing population of <em>Coptotermes acinaciformis</em>, native cockroaches, spiders and rodents that push into the surrounding streets in autumn and winter. Highview Park and the smaller reserves stitched through the suburb do the same on a smaller scale.",
+    ],
+    pests=[
+        ("Termites", "Thirty-year-old timber framing, pergola posts set in sand, pine sleeper retaining walls and a bush reserve on the boundary. Homes on the Koondoola side and along the golf course edge are the ones we find activity in most. <a href=\"/termite-inspection-perth\">AS 4349.3 inspection</a> every 12 months is the sensible baseline."),
+        ("Rats and mice", "The golf course feeds them and the 1980s roof voids house them. Entry is usually a gap at the eave, an unsealed flue or a gutter joint under a tree. We seal first, then station. <a href=\"/rodent-control-perth\">Rodent management</a>."),
+        ("Coastal brown ants", "Super-colonies under paving, along retaining walls and through irrigated lawn edges facing the course. Repellent sprays split them; slow-acting non-repellents and baits collapse them. <a href=\"/ant-control-perth\">Ant management</a>."),
+        ("Mosquitoes, spiders and cockroaches", "Golf course dams and irrigation runoff produce mosquitoes from spring; redbacks in retic boxes and under coping; native and Australian cockroaches from the bushland in autumn. <a href=\"/mosquito-control-perth\">Mosquito management</a> and a <a href=\"/general-pest-control-perth\">general pest treatment</a> cover them."),
+    ],
+    now="Spring in Marangaroo: ant trails are back along paths and the lawn edges facing the golf course, redbacks are setting up under outdoor furniture and in retic boxes, and the water hazards will start producing mosquitoes as the evenings warm. Homes backing onto Koondoola bushland or the course should book a termite inspection before the November swarms if it has been a year.",
+    neighbours=["Warwick", "Greenwood", "Balcatta"],
+    faqs=[
+        ("Does backing onto Marangaroo Golf Course change the treatment?", "It changes the emphasis. Golf course boundaries bring rodents, mosquitoes and coastal brown ants in numbers, so we spend longer on the fence-line side: eave and roofline proofing, harbourage treatment of shaded walls and shrubs facing the course, and the ant colonies along the irrigated edge. The chemistry is the same as anywhere else; the time and attention shift to the boundary."),
+        ("Is Marangaroo a termite-risk suburb?", "Yes, at a typical-to-elevated northern-suburbs level. The 1980s and 1990s housing has timber roof framing and no physical barrier, most of the pergolas and retaining walls are timber in sand, and Koondoola Regional Bushland on the south-east boundary keeps a resident termite population. Streets within a few hundred metres of the reserve or the golf course rough we treat as elevated risk and say so on the report. An <a href=\"/termite-inspection-perth\">inspection to AS 4349.3</a> every 12 months is the baseline."),
+        ("Why are the rats worse in winter here?", "The golf course and the bushland feed them all year; in May to August the rain and cold push them into the nearest warm, dry void, and a 1980s roof with sarking and timber framing is ideal. Sealing the eave gaps, flues and gutter joints before winter beats baiting in July. Where we do bait it goes in locked, tamper-resistant stations and every placement is on your report."),
+        ("What does a general pest treatment cost in Marangaroo?", "A typical three-bedroom home, internal and external, sits in the $250 to $350 range, GST inclusive, with a six-month re-treatment promise. Every job is quoted itemised in writing. <a href=\"/pest-control-prices-perth\">See the investment guide</a>."),
+        ("How far is Marangaroo from your base?", "About eight minutes from Warwick along Hepburn Avenue or Marangaroo Drive. We are through the suburb most weeks, so routine treatments are easy to fit and active rodents or wasps are usually same-day."),
+    ]),
+"Stirling": dict(
+    postcode="6021", drive="about 12 minutes", drive_short="12 minutes",
+    h1="Pest management in Stirling, the suburb that is rebuilding itself.",
+    lead="Stirling is the civic centre of the City of Stirling and one of the most rapidly infilling suburbs on our run: 1970s brick-and-tile on big blocks, side by side with new grouped dwellings around the train station and Cedric Street. Old roofs and fresh slabs get pests for different reasons, and Osborne Park's industrial precinct next door feeds both.",
+    intro=[
+        "Stirling was developed mostly through the late 1960s and 1970s on yellow Spearwood sand, with a few older pockets toward the Karrinyup Road end. The original homes are double brick with tiled roofs on timber framing, generous blocks and fifty-year-old gardens: mature trees against the eaves, fruit trees, timber sheds and garden beds that have crept up over the slab edge. That is the classic termite and rodent profile of the inland northern suburbs. But Stirling has been changing faster than almost any suburb around it. The streets near Stirling train station, Cedric Street and the freeway have been subdivided into grouped dwellings, townhouses and two-storey rebuilds, and a single street can have a 1972 brick-and-tile next to three new homes on what used to be one block.",
+        "That mix matters for pests. The old homes carry timber framing, settled roofs and decades of garden build-up. The new ones carry a slab with plumbing penetrations, a chemical termite management system that only stays effective if it is inspected annually and not bridged by the landscaping added after handover, and shared walls and services through which German cockroaches and mice move between lots. On the southern boundary is the Osborne Park industrial and commercial precinct, one of Perth's biggest, with food processors, warehouses and showrooms producing a steady rodent and cockroach population that spills across Cedric Street. Lake Gwelup's wetland reserve is a few minutes to the north-west, Stirling Civic Gardens and the smaller reserves sit in the middle, and the freeway and rail corridor run the length of the suburb, giving rats a highway through it.",
+    ],
+    pests=[
+        ("Rats and mice", "Osborne Park's industrial precinct, the rail and freeway reserves and fifty-year-old roof voids. Stirling is a rodent suburb from May to August. We proof the roofline, place tamper-resistant stations and follow up. <a href=\"/rodent-control-perth\">Rodent management</a>."),
+        ("Termites", "Original 1970s timber framing and mature gardens in the old homes; bridged or lapsed management systems in the rebuilds. Both need an <a href=\"/termite-inspection-perth\">AS 4349.3 inspection</a> every 12 months, and the new-home certificate usually requires it."),
+        ("Cockroaches", "German cockroaches moving between grouped dwellings through shared services, American cockroaches from drains and the precinct. Gel and growth regulator in the kitchen, drain treatment where the species calls for it, and strata coordination where it is a complex. <a href=\"/cockroach-control-perth\">Cockroach management</a>."),
+        ("Ants and spiders", "Coastal brown ants under paving and along retaining walls, black ants in the old vegetable gardens, redbacks in retic boxes, under coping and behind the roller door. <a href=\"/ant-control-perth\">Ant management</a> and a <a href=\"/general-pest-control-perth\">general pest treatment</a>."),
+    ],
+    now="Spring in Stirling: ant trails on driveways and pool surrounds, redbacks under outdoor furniture and in retic boxes, and the roof rats that spent winter in the ceiling are breeding. If you have bought or built a new home in the last few years, check the date on the termite management certificate; if the annual inspection has lapsed, book it before November's swarms.",
+    neighbours=["Balcatta", "Warwick", "Duncraig"],
+    faqs=[
+        ("I have just moved into a new townhouse in Stirling. Do I need to worry about termites?", "Yes, in a specific way. New homes are built with a termite management system, and its certificate almost always requires an annual inspection to stay valid. Garden beds, paving, retic and alfresco slabs added after handover are the most common thing we find bridging a system. An <a href=\"/termite-inspection-perth\">AS 4349.3 inspection</a> every 12 months keeps the house and the paperwork protected, and we can check the existing system's plan against what is on the ground."),
+        ("Why are cockroaches a problem in grouped dwellings and units?", "German cockroaches and mice move between lots through shared walls, plumbing penetrations and service risers, so a treatment that covers only the unit that complained gets re-infested from next door. We treat your lot thoroughly, seal the penetrations we can reach and, where it is a strata complex, recommend a coordinated program through the strata manager, which is what works. <a href=\"/cockroach-control-perth\">Cockroach management</a>."),
+        ("Where are the rats coming from in Stirling?", "Usually the Osborne Park precinct, the rail and freeway reserves and older sheds, then into roof voids through gaps at eaves, gutter joints under trees and unsealed penetrations. We find and seal the entry points first, then place locked stations along the runs. Bait without proofing in Stirling is a treadmill."),
+        ("Do you service businesses in the Osborne Park and Stirling commercial areas?", "Yes. Warehouses, showrooms, food processors and cafes around Cedric Street, Scarborough Beach Road and Hutton Street get a documented program: numbered stations on a site map, cockroach gel and IGR in kitchens, same-day service reports and a treatment record kept for three years as the Health (Pesticides) Regulations require. <a href=\"/commercial-pest-control-perth\">Commercial pest management</a>."),
+        ("How far is Stirling from Warwick?", "About twelve minutes down Wanneroo Road or the freeway to Cedric Street. Same-day for active rodents or wasps is usually possible, and we are in the suburb most weeks."),
+    ]),
 }
 
 
@@ -311,7 +357,7 @@ def pages(c):
 
     eight = c["section"](
         c["eyebrow"]("Suburb pages")
-        + '<div class="section-head"><h2>Eight suburbs, in detail.</h2></div>'
+        + '<div class="section-head"><h2>Ten suburbs, in detail.</h2></div>'
         + '<div class="grid grid-4">' + "".join(
             c["card"](s, f"{esc(SUBURBS[s]['lead'].split('.')[0])}. {(DRIVE[s].capitalize() + ' from Warwick.') if s != 'Warwick' else 'Our home base.'}", slug(s), f"WA {SUBURBS[s]['postcode']}", more="Read the suburb page")
             for s in PAGES8) + '</div>', "ledger")
@@ -334,7 +380,7 @@ def pages(c):
     out.insert(0, {
         "path": "/service-areas",
         "title": "Pest Control Service Areas | Perth Northern Suburbs | DJ Pest",
-        "desc": "DJ Pest services Perth's northern suburbs from Warwick: Greenwood, Duncraig, Sorrento, Hillarys, Joondalup, Wanneroo, Balcatta and 22 more. Drive times, suburb pages, no call-out fee.",
+        "desc": "DJ Pest services Perth's northern suburbs from Warwick: Greenwood, Duncraig, Sorrento, Hillarys, Joondalup, Wanneroo, Balcatta, Marangaroo, Stirling and 20 more. Drive times, suburb pages, no call-out fee.",
         "body": hub_hero + why + groups + eight + drive + hub_faq + c["quote_block"]("Get a fair, itemised investment anywhere in the northern suburbs."),
         "crumbs": [("Service areas", None)],
         "schema": [c["faq_schema"](hub_faqs), {

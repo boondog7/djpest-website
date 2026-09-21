@@ -58,6 +58,7 @@
     "External ant treatment": "3 months",
     "Rodent baiting": "3 months",
     "Fleas": "30 days",
+    "Bed bugs": "30 days, on completion of the two-visit plan",
     "Wasps and one-off nests": "30 days",
     "Termite management system": "Per your AS 3660.2 certificate, with annual inspections",
     "Termite and timber pest inspections": "No re-treatment period"
@@ -71,8 +72,5 @@
     "google-site-verification": "",
     "msvalidate.01": ""
   },
-  "unpublished": [
-    "/bee-removal-perth",
-    "/commercial-pest-control-perth"
-  ]
+  "unpublished": []
 }
