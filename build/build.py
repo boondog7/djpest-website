@@ -52,7 +52,7 @@ def btn_quote(label="Get an honest quote", cls="btn btn-ghost", href="#quote"):
     return f'<a class="{cls}" href="{href}">{esc(label)}{icon("arrow")}</a>'
 
 def hours_cue():
-    return (f'<p class="hours-cue">Mon–Sat 7am–6pm. After hours, text a photo to '
+    return (f'<p class="hours-cue">Mon–Sun 7am–6pm. After hours, text a photo to '
             f'<a href="{SITE["phone_sms"]}">{SITE["phone_display"]}</a> and we reply first thing.</p>')
 
 def eyebrow(text): return f'<div class="eyebrow mono">{esc(text)}</div>'
@@ -217,7 +217,7 @@ def site_graph():
         "address": {"@type": "PostalAddress", "addressLocality": SITE["base_suburb"], "addressRegion": "WA", "postalCode": SITE["base_postcode"], "addressCountry": "AU"},
         "geo": {"@type": "GeoCoordinates", "latitude": SITE["geo"]["lat"], "longitude": SITE["geo"]["lng"]},
         "areaServed": [{"@type": "City", "name": s} for s in SITE["service_area"]],
-        "openingHours": "Mo-Sa 07:00-18:00", "priceRange": "$$",
+        "openingHours": "Mo-Su 07:00-18:00", "priceRange": "$$",
         "foundingDate": "2026", "slogan": "Perth family pest management since 2011",
         "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": SITE["abn"].replace(" ", "")},
                         {"@type": "PropertyValue", "propertyID": "WA Pest Management Business Registration (pending)", "value": SITE["pmb"] + " (assigned, certificate pending)"}],
