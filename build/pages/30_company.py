@@ -239,7 +239,7 @@ def contact(c):
     return {
         "path": "/contact",
         "title": "Contact DJ Pest | Pest Control Warwick & Perth Northern Suburbs",
-        "desc": "Call or text 0447 747 769, email ops@djpest.com.au, or send the form. Mon–Sun 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
+        "desc": "Call or text 0447 747 769, email ops@djpest.com.au, or send the form. Mon–Sat 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
         "body": body, "schema": [{"@type": "ContactPage", "name": "Contact DJ Pest", "url": DOMAIN + "/contact", "mainEntity": {"@id": DOMAIN + "/#business"}}],
         "crumbs": [("Contact", None)],
     }
