@@ -191,6 +191,18 @@ def about(c):
         f"<li>Licensed technicians (WA Health (Pesticides) Regulations 2011)</li><li>{S['reg_short']}</li><li>Run by a Chartered Accountant</li><li>Public liability insured</li><li>ABN {S['abn']}</li></ul></div>"
         "</div></div>")
 
+    # WA Health consumer checklist, answered (DoH "Hiring a pest management business checklist", 2026)
+    checklist = [
+        ("Is the business registered with WA Health?", f"Yes. {S['reg_line']} The registration number is on the ute, the quote and the treatment record. Check it yourself with the Department on (08) 9222 2000 or ehinfo@health.wa.gov.au."),
+        ("Is the technician licensed for this work?", "Yes. Every treatment is carried out by a technician licensed under the Health (Pesticides) Regulations 2011 for commercial and domestic pests, termites and timber pests. The licence card is shown on request on the day and the licence number is on every quote and treatment record."),
+        ("Are you insured?", "Public liability insurance is held and a certificate of currency is available on request."),
+        ("Will I get a written quote?", "Always, and itemised: technician contact details, licence and registration details, ABN and a link to the terms and conditions, exactly as the WA Health checklist asks for."),
+        ("Will you explain what you will use, why, and how?", "Before the day, in writing: the areas to be treated and the areas left alone, the product and its active constituent, why it suits the job, how it is applied, and the re-entry period for people and pets."),
+        ("What about pets, kids and the garden?", "We ask about pregnancy, asthma, infants, pets, fish, birds, reptiles, bees and edible gardens before we quote, and adjust the product, method or timing. Nothing is applied where you have asked us not to."),
+        ("Will I get a report afterwards?", "A treatment record and report within two business days: what was found, what was applied where and at what rate, photos, the re-entry period, what to expect in the coming weeks, and the prevention steps only you can do."),
+    ]
+    body += c["section"](c["eyebrow"]("The WA Health checklist") + '<div class="section-head"><h2>The questions WA Health tells you to ask any pest business, answered.</h2><p class="lead">The Department of Health publishes a checklist for hiring a pest management business. Here is where DJ Pest stands on every line. <a href="https://www.healthywa.wa.gov.au/Articles/F_I/Guide-to-selecting-a-pest-management-business" rel="noopener">Read the Department\'s guide</a>.</p></div>' + c["faq"](checklist), "ledger")
+
     body += c["section"](c["eyebrow"]("The first visit") + '<div class="section-head"><h2>What a first visit is like</h2><p class="lead">About an hour for a general pest job, longer for termites. No sales script.</p></div>' + c["steps"]([
         ("A conversation at the door", "What you have seen, where, for how long, and anything we need to know: pregnancy, asthma, pets, fish tanks, edible gardens. That changes the product and the timing."),
         ("A walk-through with a torch", "Inside, roof void and sub-floor where it is safe, then the perimeter and yard. Photos of droppings, trails, tubes, moisture and entry points. If there is nothing to treat, we say so."),
@@ -260,11 +272,11 @@ def _retreat_table(c):
 
 
 def terms(c):
-    body = _hero(c, "Legal", "Terms and conditions of service.", "Version 1.0, 18 September 2026. The version on your quote applies to that job.", actions=False)
+    body = _hero(c, "Legal", "Terms and conditions of service.", "Version 1.1, 21 September 2026. The version on your quote applies to that job.", actions=False)
     body += _prose(c, f"""<h2>1. Who we are</h2>
 <p>1.1 Services are provided by <strong>DJ Pest Pty Ltd (ACN 697 588 579) as trustee for the Johns Family Trust, ABN 86 797 740 716</strong> ("DJ Pest", "we", "us"). Contact: ops@djpest.com.au, 0447 747 769, djpest.com.au.</p>
 <p>1.2 Pest management treatments are carried out by technicians licensed under the <em>Health (Pesticides) Regulations 2011</em> (WA). Licence numbers appear on every treatment record.</p>
-<p>1.3 DJ Pest Pty Ltd has applied for registration as a pest management business with the Western Australian Department of Health under the <em>Health (Pesticides) Regulations 2011</em> (registration number PMB 3000 assigned, certificate pending). Until the certificate issues, treatments are carried out and recorded under a registered pest management business, and invoiced accordingly.</p>
+<p>1.3 DJ Pest Pty Ltd is a pest management business registered with the Western Australian Department of Health under the <em>Health (Pesticides) Regulations 2011</em> (registration number PMB 3000). You can verify any WA pest management business or technician licence with the Department on (08) 9222 2000 or ehinfo@health.wa.gov.au.</p>
 <h2>2. Quotes and acceptance</h2>
 <p>2.1 Quotes are valid for <strong>30 days</strong> and are based on the information you gave us and what we could see at the time. Concealed conditions (for example inaccessible roof voids or sub-floors, undisclosed infestation extent, structural issues) may require a variation, which we will explain and investment before proceeding.</p>
 <p>2.2 A quote is accepted when you accept it online, in writing, by SMS, or by allowing us to start work.</p>
@@ -277,7 +289,7 @@ def terms(c):
 <p>3.4 Please give at least 24 hours' notice to cancel or move a booking so the time can be offered to someone else.</p>
 <h2>4. Our work</h2>
 <p>4.1 We use only pesticides registered by the APVMA, applied strictly in accordance with the approved label and the <em>Health (Pesticides) Regulations 2011</em>. We will not apply a product outside its label directions, even at your request.</p>
-<p>4.2 Before treatment we will tell you the product, the re-entry period and any precautions. During treatment we may erect warning signs as required by regulation 60. Do not remove them.</p>
+<p>4.2 Before treatment we will tell you which areas will be treated and which will not, the products and their active constituents, the re-entry and any withholding periods, and any precautions for people, pets and wildlife. In public places we display warning signs as required by regulations 88 to 89C. Do not remove them; they stay until treated surfaces are dry.</p>
 <p>4.3 Within 2 business days of each treatment we make a treatment record containing the details required by regulation 77 (address, areas treated, date and time, technician, product brand, active constituent, application rate, equipment). You receive a copy with your service report.</p>
 <p>4.4 Termite work is carried out to <strong>AS 3660.2:2017</strong> (management of existing buildings) and timber pest inspections to <strong>AS 4349.3:2010</strong>. These standards define the limitations of what can be inspected and treated; those limitations form part of our report and these terms.</p>
 <p>4.5 We may take photographs of the areas treated for your report and our records.</p>

@@ -179,7 +179,7 @@ def footer():
   </div>
   <div class="legal">
     {esc(SITE['legal_name'])} · ABN {SITE['abn']} · ACN {SITE['acn']}<br>
-    WA Department of Health pest management business registration pending ({SITE['pmb']} assigned) · {esc(SITE['licence_label'])}<br>
+    {("WA Department of Health registered pest management business " + SITE['pmb']) if SITE.get('pmb_status') == 'registered' else ("WA Department of Health pest management business registration pending (" + SITE['pmb'] + " assigned)")} · {esc(SITE['licence_label'])} · Verify any WA pest business or licence: WA Health (08) 9222 2000<br>
     Based in {SITE['base_suburb']} WA {SITE['base_postcode']}. Servicing {esc(areas)}.<br>
     All pesticides are APVMA-registered and applied to label. Re-entry periods are advised before every treatment. © {TODAY[:4]} DJ Pest.
   </div>
@@ -220,7 +220,7 @@ def site_graph():
         "openingHours": "Mo-Sa 07:00-18:00", "priceRange": "$$",
         "foundingDate": "2026", "slogan": "Perth family pest management since 2011",
         "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": SITE["abn"].replace(" ", "")},
-                        {"@type": "PropertyValue", "propertyID": "WA Pest Management Business Registration (pending)", "value": SITE["pmb"] + " (assigned, certificate pending)"}],
+                        {"@type": "PropertyValue", "propertyID": "WA Department of Health Pest Management Business Registration" if SITE.get("pmb_status") == "registered" else "WA Pest Management Business Registration (pending)", "value": SITE["pmb"] if SITE.get("pmb_status") == "registered" else SITE["pmb"] + " (assigned, certificate pending)"}],
         "hasCredential": {"@type": "EducationalOccupationalCredential", "name": SITE["licence_label"], "recognizedBy": {"@type": "GovernmentOrganization", "name": "WA Department of Health"}},
     }]
 
