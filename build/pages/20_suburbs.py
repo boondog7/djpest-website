@@ -2363,22 +2363,28 @@ def pages(c):
     S = c["SITE"]; esc = c["esc"]; icon = c["icon"]
     out = []
 
+    SVC = [("Termite inspection", "/termite-inspection-perth"), ("Termite treatment", "/termite-treatment-perth"), ("General pest treatment", "/general-pest-control-perth"),
+           ("Ant management", "/ant-control-perth"), ("Rodent management", "/rodent-control-perth"), ("Cockroach management", "/cockroach-control-perth"),
+           ("Spider management", "/spider-control-perth"), ("Mosquito management", "/mosquito-control-perth"), ("Vacate flea treatment", "/flea-treatment-perth"),
+           ("End-of-lease pest treatment", "/end-of-lease-pest-control-perth"), ("Wasp removal", "/wasp-removal-perth"), ("Bed bug treatment", "/bed-bug-treatment-perth")]
     def svc_cards(sub):
-        return ('<div class="grid grid-4">'
-            + c["card"](f"Termite inspection {sub}", "AS 4349.3 timber pest inspection with photos, moisture readings and a written report.", "/termite-inspection-perth", "Termites")
-            + c["card"](f"Termite treatment {sub}", "Non-repellent chemical management systems to AS 3660.2, or baiting where the site suits it.", "/termite-treatment-perth", "Termites")
-            + c["card"](f"General pest treatment {sub}", "Cockroaches, spiders, silverfish and ants, internal and external, with a six-month re-treatment promise.", "/general-pest-control-perth", "General")
-            + c["card"](f"Ant management {sub}", "Coastal brown ant super-colonies treated with non-repellents and baits, not a quick spray.", "/ant-control-perth", "Ants")
-            + c["card"](f"Rodent management {sub}", "Species identified, entry points sealed, tamper-resistant stations placed and checked.", "/rodent-control-perth", "Rodents")
-            + c["card"](f"Cockroach management {sub}", "German cockroaches in kitchens with gel bait and growth regulator; Australian cockroaches at the perimeter.", "/cockroach-control-perth", "Cockroaches")
-            + c["card"](f"Spider management {sub}", "Redbacks, white-tails and huntsmen. External web-and-harbourage treatment, internal only where needed.", "/spider-control-perth", "Spiders")
-            + c["card"](f"Mosquito management {sub}", "Breeding-site audit first, then residual treatment of the shaded harbourages where adults rest.", "/mosquito-control-perth", "Mosquitoes")
-            + '</div>')
+        return ('<ul class="grid grid-3" style="list-style:none;padding:0;margin:0;gap:.5rem">'
+            + "".join(f'<li><a href="{u}" style="display:block;padding:.7rem 1rem;border:1px solid var(--line);border-radius:.5rem;text-decoration:none;color:var(--ink)">{esc(n)} {esc(sub)} {icon("arrow", "icon")}</a></li>' for n, u in SVC)
+            + '</ul>')
 
     def investment_note(sub):
-        return (f'<div class="callout"><p><strong>The investment in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is typically $250 to $350, an external ant treatment $250 to $400, '
-                f'a rodent program $220 to $380 and a timber pest inspection $250 to $350. Typical ranges only; every job is quoted itemised in writing before we start, with no call-out fee and no deposit. '
-                f'<a href="/pest-control-prices-perth">See the full investment guide</a>.</p></div>')
+        g = next((title for title, _, subs in GROUPS if sub in subs), "")
+        if "Coast" in g or "coast" in g:
+            why = "Coastal blocks on limestone mean termite management systems are usually drilled and injected rather than trenched, which is the main thing that moves a termite quote here."
+        elif "growth corridor" in g or "estates" in g:
+            why = "Newer slab-on-ground homes are quicker to treat inside, so general pest jobs tend to sit at the lower end; termite work is quoted on perimeter length and how much of it is paved."
+        elif "Stirling" in g or "Inner" in g:
+            why = "Older timber-framed homes with roof voids and sub-floors take longer to inspect properly, so termite inspections here are quoted at the full scope rather than a quick look."
+        elif "Bayswater" in g:
+            why = "Grey sand with a high water table means termite pressure is higher and we quote management systems conservatively; general pest work is unaffected."
+        else:
+            why = "Most homes here are 1970s to 1980s brick and tile on sand, the standard job for us, so quotes sit close to the middle of each range."
+        return (f'<div class="callout"><p><strong>What it typically comes to in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is $250 to $350, an external ant treatment $250 to $400, a rodent program $220 to $380 and a timber pest inspection $250 to $350. {why} Every job is quoted itemised in writing before we start, with no call-out fee and no deposit. <a href="/pest-control-prices-perth">Full investment guide</a>.</p></div>')
 
     # ----------------------------------------------------------- suburb pages
     for name, d in SUBURBS.items():
@@ -2405,25 +2411,13 @@ def pages(c):
             + c["season_strip"](), "ledger")
 
         services = c["section"](
-            c["eyebrow"]("Services") + f'<div class="section-head"><h2>Every service we run in {name}.</h2><p class="lead">The same licensed technicians, the same itemised quote and treatment record, on every job in {name}.</p></div>' + svc_cards(name) + investment_note(name))
+            c["eyebrow"]("Services") + f'<div class="section-head"><h2>Every service we run in {name}.</h2></div>' + svc_cards(name) + investment_note(name))
 
         vacate = c["section"](
             c["eyebrow"]("Moving out, or between tenants")
-            + f'<div class="grid grid-2" style="align-items:start;gap:3rem"><div class="prose">'
-            + f'<h2>Vacate flea treatment and end-of-lease pest control in {name}.</h2>'
-            + f'<p>Moving out of a rental in {name} with a pet? Most WA leases that allowed the pet carry a special condition requiring a professional flea treatment at vacate, and your property manager will want the certificate for the bond file. We quote from the address within the hour, treat the same week, and email the certificate — products, APVMA numbers, rates and the technician\'s licence number — to you and your agent within the hour of finishing. Book it after the bond clean and carpet clean, just before the keys go back.</p>'
-            + f'<p>Owners and property managers in {name} use the same visit between tenancies, with a lease-start general pest treatment bundled at a reduced rate.</p>'
-            + '<p><a class="btn btn-ghost" href="/flea-treatment-perth">Vacate flea treatment ' + icon("arrow", "icon") + '</a> <a class="btn btn-ghost" href="/end-of-lease-pest-control-perth">End-of-lease pest control ' + icon("arrow", "icon") + '</a></p></div>'
-            + '<div class="card" style="align-self:center"><div class="num">The vacate job</div>'
-            + '<ul style="list-style:none;padding:0;margin:0;line-height:2;color:var(--ink-2)">'
-            + '<li>$150–$220 by floor area, fixed from the address</li>'
-            + '<li>Same-week slot, same-day where the run allows</li>'
-            + '<li>Certificate within the hour of treatment</li>'
-            + '<li>30-day re-treatment promise</li></ul></div></div>', "ledger")
-
-        vac_faq = (f"Do you do vacate flea treatments in {name}?",
-                   f"Yes, {name} is {'our home suburb' if name == 'Warwick' else d['drive'] + ' from our Warwick base'}, and vacate flea treatments are one of our most common jobs. Quoted from the address within the hour, $150 to $220 by floor area, treated the same week, and the certificate is emailed to you and your property manager within the hour of treatment. <a href=\"/flea-treatment-perth\">How the vacate flea treatment works</a>.")
-        d = dict(d); d["faqs"] = list(d["faqs"]) + [vac_faq]
+            + f'<div class="prose"><h2>Vacate flea treatment and end-of-lease pest control in {name}.</h2>'
+            + f'<p>Moving out of a rental in {name} with a pet? Most WA leases that allowed the pet carry a special condition requiring a professional flea treatment at vacate. We quote from the address within the hour, treat the same week, and email the certificate to you and your agent within the hour of finishing: $150 to $220 by floor area, 30-day re-treatment promise. Book it after the bond clean and carpet clean, just before the keys go back.</p>'
+            + '<p><a class="btn btn-ghost" href="/flea-treatment-perth">Vacate flea treatment ' + icon("arrow", "icon") + '</a> <a class="btn btn-ghost" href="/end-of-lease-pest-control-perth">End-of-lease pest control ' + icon("arrow", "icon") + '</a></p></div>', "ledger")
 
         nb = "".join(c["card"](n, f"Pest management in {esc(n)}, {DRIVE[n]} from Warwick.", slug(n), "Neighbouring suburb", more="See suburb page") for n in d["neighbours"])
         neighbours = c["section"](

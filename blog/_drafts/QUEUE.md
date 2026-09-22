@@ -1,6 +1,6 @@
 # Blog publishing queue (one post = one distinct topic; near-duplicate keywords are folded into the canonical post as H2/FAQ variants)
 
-Cadence: Mon / Wed / Fri, one post per run. Never more than one per day.
+Cadence: Mon / Thu, one post per run (2/week). Seasonal priority: wasps Oct–Nov, termites Sep–Nov, rodents May, mosquitoes Nov–Feb.
 Published so far: how-to-get-rid-of-ants (2026-05-01), how-to-get-rid-of-cockroaches (2026-05-01), how-much-does-pest-control-cost (2026-09-22).
 
 | # | Canonical slug | Primary keyword (vol/KD) | Fold in (secondary keywords to cover as H2s/FAQs) | Bundles | Service link | Status |

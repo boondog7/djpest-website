@@ -1,6 +1,6 @@
 #!/bin/bash
 # Publishes the next queued DJ Pest blog post via headless Claude Code.
-# Scheduled by launchd (com.jaystack.djpest-blog) Mon/Wed/Fri 06:00. Run by hand: bash build/publish-next-post.sh
+# Scheduled by launchd (com.jaystack.djpest-blog) Mon/Thu 06:00. Run by hand: bash build/publish-next-post.sh
 set -u
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin
 # launchd shells don't source .zshrc; pull the keys the pipeline needs
