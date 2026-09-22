@@ -300,6 +300,24 @@ def pages(c):
         services = c["section"](
             c["eyebrow"]("Services") + f'<div class="section-head"><h2>Four jobs we do every week in {name}.</h2></div>' + svc_cards() + investment_note(name))
 
+        vacate = c["section"](
+            c["eyebrow"]("Moving out, or between tenants")
+            + f'<div class="grid grid-2" style="align-items:start;gap:3rem"><div class="prose">'
+            + f'<h2>Vacate flea treatment and end-of-lease pest control in {name}.</h2>'
+            + f'<p>Moving out of a rental in {name} with a pet? Most WA leases that allowed the pet carry a special condition requiring a professional flea treatment at vacate, and your property manager will want the certificate for the bond file. We quote from the address within the hour, treat the same week, and email the certificate — products, APVMA numbers, rates and the technician\'s licence number — to you and your agent within the hour of finishing. Book it after the bond clean and carpet clean, just before the keys go back.</p>'
+            + f'<p>Owners and property managers in {name} use the same visit between tenancies, with a lease-start general pest treatment bundled at a reduced rate.</p>'
+            + '<p><a class="btn btn-ghost" href="/flea-treatment-perth">Vacate flea treatment ' + icon("arrow", "icon") + '</a> <a class="btn btn-ghost" href="/end-of-lease-pest-control-perth">End-of-lease pest control ' + icon("arrow", "icon") + '</a></p></div>'
+            + '<div class="card" style="align-self:center"><div class="num">The vacate job</div>'
+            + '<ul style="list-style:none;padding:0;margin:0;line-height:2;color:var(--ink-2)">'
+            + '<li>$150–$220 by floor area, fixed from the address</li>'
+            + '<li>Same-week slot, same-day where the run allows</li>'
+            + '<li>Certificate within the hour of treatment</li>'
+            + '<li>30-day re-treatment promise</li></ul></div></div>', "ledger")
+
+        vac_faq = (f"Do you do vacate flea treatments in {name}?",
+                   f"Yes, {name} is {'our home suburb' if name == 'Warwick' else d['drive'] + ' from our Warwick base'}, and vacate flea treatments are one of our most common jobs. Quoted from the address within the hour, $150 to $220 by floor area, treated the same week, and the certificate is emailed to you and your property manager within the hour of treatment. <a href=\"/flea-treatment-perth\">How the vacate flea treatment works</a>.")
+        d = dict(d); d["faqs"] = list(d["faqs"]) + [vac_faq]
+
         nb = "".join(c["card"](n, f"Pest management in {esc(n)}, {DRIVE[n]} from Warwick.", slug(n), "Neighbouring suburb", more="See suburb page") for n in d["neighbours"])
         neighbours = c["section"](
             c["eyebrow"]("Nearby")
@@ -308,11 +326,11 @@ def pages(c):
 
         faq_sec = c["section"](c["eyebrow"]("Questions") + f'<div class="section-head"><h2>Asked in {name}.</h2></div>' + c["faq"](d["faqs"]))
 
-        body = hero + intro + pests + now + services + neighbours + faq_sec + c["quote_block"](f"Get a fair, itemised investment in {name}.")
+        body = hero + intro + pests + now + services + vacate + neighbours + faq_sec + c["quote_block"](f"Get a fair, itemised investment in {name}.")
         out.append({
             "path": slug(name),
-            "title": f"Pest Control {name} | Termites, Ants, Rodents | DJ Pest",
-            "desc": f"Licensed pest control in {name} WA {d['postcode']}, {d['drive']} from our Warwick base. Termite inspections, ants, rodents and general pest. Itemised prices in writing.",
+            "title": f"Pest Control {name} | Termites, Ants, Rodents, Vacate Flea | DJ Pest",
+            "desc": f"Licensed pest control in {name} WA {d['postcode']}, {d['drive']} from our Warwick base. Termite inspections, ants, rodents, general pest and vacate flea treatments. Itemised prices in writing.",
             "body": body,
             "crumbs": [("Service areas", "/service-areas"), (name, None)],
             "schema": [{
