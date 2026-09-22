@@ -447,9 +447,38 @@ POSTS = [
 ]
 
 
+
+# ------------------------------------------------------------------ file-based posts (content-pipeline writes these)
+import pathlib as _pl, json as _json
+POST_DIR = _pl.Path(__file__).resolve().parent.parent / "posts"
+
+def _load_file_posts():
+    """posts/<slug>.html = a JSON header line, a line of ---, then the lede paragraph, a line of ---, then article HTML."""
+    out = []
+    for f in sorted(POST_DIR.glob("*.html")):
+        raw = f.read_text()
+        head, _, rest = raw.partition("\n---\n")
+        lede, _, content = rest.partition("\n---\n")
+        meta = _json.loads(head)
+        meta.setdefault("slug", f.stem)
+        meta.setdefault("read", "8 minutes")
+        out.append((meta, lede.strip(), content.strip()))
+    return out
+
+FILE_POSTS = _load_file_posts()
+POSTS = POSTS + [m for m, _, _ in FILE_POSTS]
+POSTS.sort(key=lambda p: p["date"], reverse=True)
+
+def file_posts(c):
+    return [_post(c, m, lede, content) for m, lede, content in FILE_POSTS]
+
+def _fmt_date(iso):
+    import datetime as _dt
+    d = _dt.date.fromisoformat(iso); return f"{d.day} {d.strftime('%B %Y')}"
+
 def _post(c, p, lede, content):
     S = c["SITE"]
-    body = f'<section class="hero"><div class="wrap"><div>{c["eyebrow"]("Blog · Pest guides")}<h1>{c["esc"](p["title"])}</h1><p class="lead">{lede}</p><p class="notice">Published 1 May 2026 · Reading time {p["read"]} · By DJ Pest</p></div></div></section>'
+    body = f'<section class="hero"><div class="wrap"><div>{c["eyebrow"]("Blog · Pest guides")}<h1>{c["esc"](p["title"])}</h1><p class="lead">{lede}</p><p class="notice">Published {_fmt_date(p["date"])} · Reading time {p["read"]} · By DJ Pest</p></div></div></section>'
     body += _prose(c, content + f"""<hr>
 <h2>Related</h2>
 <ul><li><a href="{p['service']}">{p['service_label']}</a>, the full service and the investment</li><li><a href="/pest-control-prices-perth">Pest management investment ranges in Perth</a>, every service with a typical range</li><li><a href="/whats-my-pest">What's my pest?</a>, pick what you saw</li><li><a href="/blog">All guides</a></li></ul>""")
@@ -457,7 +486,7 @@ def _post(c, p, lede, content):
     path = f"/blog/{p['slug']}"
     schema = [{
         "@type": "BlogPosting", "@id": DOMAIN + path + "#post", "headline": p["title"], "description": p["desc"],
-        "image": [DOMAIN + p["img"]], "datePublished": p["date"], "dateModified": "2026-09-18", "inLanguage": "en-AU",
+        "image": [DOMAIN + p["img"]], "datePublished": p["date"], "dateModified": p.get("modified", p["date"]), "inLanguage": "en-AU",
         "author": {"@id": DOMAIN + "/#business"}, "publisher": {"@id": DOMAIN + "/#business"},
         "mainEntityOfPage": {"@type": "WebPage", "@id": DOMAIN + path}, "about": {"@type": "Service", "name": p["service_label"], "url": DOMAIN + p["service"]}}]
     return {"path": path, "title": p["title"] + " | DJ Pest", "desc": p["desc"], "body": body, "schema": schema,
@@ -480,7 +509,7 @@ def blog_index(c):
 
 
 def post_ants(c):
-    p = POSTS[0]
+    p = next(x for x in POSTS if x["slug"] == "how-to-get-rid-of-ants")
     lede = "If you've been spraying for months and there are now more ants than when you started, you're probably making a coastal brown super-colony angry. Here's how to actually get rid of ants: the science, the species ID, the non-obvious \"stop spraying\" rule, and when DIY is enough versus when you need a pro."
     content = f"""<figure><img src="{p['img']}" alt="{p['alt']}" width="1200" height="800" loading="lazy"><figcaption class="notice">An ant trail tells you a lot: species, food preference, entry point, and most importantly, where to place the bait.</figcaption></figure>
 <h2>The thing nobody tells you: spraying often makes ants worse.</h2>
@@ -555,7 +584,7 @@ def post_ants(c):
 
 
 def post_cockroaches(c):
-    p = POSTS[1]
+    p = next(x for x in POSTS if x["slug"] == "how-to-get-rid-of-cockroaches")
     lede = "Species ID first, then the chemistry that fits. Why spray-and-forget fails on German cockroaches, the seven-step protocol that works, what doesn't, and when a licensed operator is the faster route."
     content = f"""<figure><img src="{p['img']}" alt="{p['alt']}" width="1200" height="800" loading="lazy"><figcaption class="notice">German cockroach: the small one with two dark stripes that lives in your kitchen.</figcaption></figure>
 <h2>Step one: which cockroach do you actually have?</h2>
@@ -618,4 +647,4 @@ def post_cockroaches(c):
 
 
 def pages(c):
-    return [investment(c), whats_my_pest(c), about(c), contact(c), terms(c), warranty(c), privacy(c), blog_index(c), post_ants(c), post_cockroaches(c)]
+    return [investment(c), whats_my_pest(c), about(c), contact(c), terms(c), warranty(c), privacy(c), blog_index(c), post_ants(c), post_cockroaches(c)] + file_posts(c)
