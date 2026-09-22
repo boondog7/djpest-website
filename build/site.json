@@ -116,7 +116,10 @@
     "Bayswater",
     "Maylands",
     "Eden Hill",
-    "Swanbourne"
+    "Swanbourne",
+    "Wangara",
+    "Malaga",
+    "Herdsman"
   ],
   "retreat_periods": {
     "General pest treatment": "6 months",
