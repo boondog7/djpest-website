@@ -280,7 +280,7 @@ def pages(c):
   <h1>{esc(d['h1'])}</h1>
   <p class="lead">{esc(d['lead'])}</p>
   {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
-  <ul class="trust"><li>Licensed technicians</li><li>In Perth pest management since {S['family_since']}</li><li>Itemised investment in writing</li><li>Same-day for active pests</li></ul>
+  <ul class="trust"><li>Licensed under the WA Pesticides Regs</li><li>In Perth pest management since {S['family_since']}</li><li>Itemised investment in writing</li><li>Same-day for active pests</li></ul>
 </div></div></section>"""
 
         intro = c["section"](

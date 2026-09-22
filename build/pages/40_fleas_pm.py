@@ -41,7 +41,7 @@ def pages(c):
     fl_body = hero("Flea treatment · end of lease, tenants and owners",
                    "Vacate flea treatment Perth.<br>Quoted in an hour. Certificate <em class=\"red\">within the hour</em> of treatment.",
                    "Moving out with a pet, or moving in after one? We quote from the address, treat the same week, and email the treatment certificate to you and your property manager within the hour of finishing. Bond file sorted.",
-                   ["Licensed technicians", f"{money(*FLEA)} by floor area", "Same-week slot", "30-day re-treatment promise"],
+                   ["Licensed under the WA Pesticides Regs", f"{money(*FLEA)} by floor area", "Same-week slot", "30-day re-treatment promise"],
                    art_card("What the certificate carries", ["Property address, date and time", "Products, APVMA numbers, actives, rates", "Areas treated, inside and out", "Technician name and licence number", "Re-entry period for the next occupant"])) + \
         sec(eb("Who this is for") + head("Three people, one document.") + '<div class="grid grid-3">'
             + card("Tenants moving out", "Your lease says a professional flea treatment at vacate. You need it done fast and you need the certificate for the bond. That is the whole job.")
