@@ -19,3 +19,4 @@ rsync -a --delete \
 BRANCH=preview; [[ "${1:-}" == "--prod" ]] && BRANCH=main
 wrangler pages deploy "$DIST" --project-name djpest --branch "$BRANCH" --commit-dirty=true
 echo "deployed branch=$BRANCH"
+[[ "$BRANCH" == "main" ]] && { sleep 20; python3 build/indexnow.py || true; }
