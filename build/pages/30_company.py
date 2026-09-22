@@ -160,7 +160,7 @@ def whats_my_pest(c):
     return {
         "path": "/whats-my-pest",
         "title": "What's My Pest? Identify Ants, Cockroaches, Termites, Rodents | DJ Pest Perth",
-        "desc": "Droppings in the roof, a trail of brown ants, mud tubes on brick or a messy web? Pick what you saw and find the right treatment. Or text a photo to 0447 747 769.",
+        "desc": "Droppings in the roof, a trail of brown ants, mud tubes on brick or a messy web? Pick what you saw and find the right treatment. Or text a photo to 0468 170 107.",
         "body": body,
         "crumbs": [("What's my pest?", None)],
     }
@@ -253,7 +253,7 @@ def contact(c):
     return {
         "path": "/contact",
         "title": "Contact DJ Pest | Pest Control Warwick & Perth Northern Suburbs",
-        "desc": "Call or text 0447 747 769, email ops@djpest.com.au, or send the form. Mon–Sat 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
+        "desc": "Call or text 0468 170 107, email ops@djpest.com.au, or send the form. Mon–Sat 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
         "body": body, "schema": [{"@type": "ContactPage", "name": "Contact DJ Pest", "url": DOMAIN + "/contact", "mainEntity": {"@id": DOMAIN + "/#business"}}],
         "crumbs": [("Contact", None)],
     }
@@ -276,7 +276,7 @@ def _retreat_table(c):
 def terms(c):
     body = _hero(c, "Legal", "Terms and conditions of service.", "Version 1.1, 21 September 2026. The version on your quote applies to that job.", actions=False)
     body += _prose(c, f"""<h2>1. Who we are</h2>
-<p>1.1 Services are provided by <strong>DJ Pest Pty Ltd (ACN 697 588 579) as trustee for the Johns Family Trust, ABN 86 797 740 716</strong> ("DJ Pest", "we", "us"). Contact: ops@djpest.com.au, 0447 747 769, djpest.com.au.</p>
+<p>1.1 Services are provided by <strong>DJ Pest Pty Ltd (ACN 697 588 579) as trustee for the Johns Family Trust, ABN 86 797 740 716</strong> ("DJ Pest", "we", "us"). Contact: ops@djpest.com.au, 0468 170 107, djpest.com.au.</p>
 <p>1.2 Pest management treatments are carried out by technicians licensed under the <em>Health (Pesticides) Regulations 2011</em> (WA). Licence numbers appear on every treatment record.</p>
 <p>1.3 DJ Pest Pty Ltd is a pest management business registered with the Western Australian Department of Health under the <em>Health (Pesticides) Regulations 2011</em> (registration number PMB 3000). You can verify any WA pest management business or technician licence with the Department on (08) 9222 2000 or ehinfo@health.wa.gov.au.</p>
 <h2>2. Quotes and acceptance</h2>
@@ -325,7 +325,7 @@ def terms(c):
 <h2>12. General</h2>
 <p>12.1 These terms, your quote and our service report make up the whole agreement. If any clause is unenforceable the rest still applies. We may update these terms; the version on your quote applies to that job.</p>
 <hr>
-<p class="notice"><em>Version 1.0, 18 September 2026. DJ Pest Pty Ltd ATF Johns Family Trust, ABN 86 797 740 716. ops@djpest.com.au | 0447 747 769 | djpest.com.au</em></p>
+<p class="notice"><em>Version 1.0, 18 September 2026. DJ Pest Pty Ltd ATF Johns Family Trust, ABN 86 797 740 716. ops@djpest.com.au | 0468 170 107 | djpest.com.au</em></p>
 <p>See also: <a href="/warranty">Our re-treatment promise</a> · <a href="/privacy">Privacy policy</a></p>""")
     body += c["quote_block"]()
     return {

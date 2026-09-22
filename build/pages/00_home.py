@@ -129,7 +129,7 @@ def pages(c):
     return [{
         "path": "/",
         "title": "DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants",
-        "desc": "Family-run pest control for Perth's northern suburbs since 2011. Itemised prices in writing, a treatment report after every job, and a re-treatment promise. Call 0447 747 769.",
+        "desc": "Family-run pest control for Perth's northern suburbs since 2011. Itemised prices in writing, a treatment report after every job, and a re-treatment promise. Call 0468 170 107.",
         "body": body,
         "schema": [c["faq_schema"](faqs)],
     }]

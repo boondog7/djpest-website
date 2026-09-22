@@ -103,7 +103,7 @@ def pages(c):
         sec(eb("How to send us a job") + head("Three ways, all under a minute.") + steps([
             ("Email the address", f"Send the property address, the tenant's contact and the vacate date to <a href=\"mailto:{S['email']}\">{S['email']}</a>. Quote back within the hour."),
             ("Text it", f"Same details to <a href=\"{S['phone_sms']}\">{S['phone_display']}</a> from your mobile. We reply with the investment and the earliest slot."),
-            ("Put us on the vacate checklist", "Add \"Flea treatment: DJ Pest, 0447 747 769, certificate within the hour\" to your vacate pack and let tenants book direct. You get the certificate either way."),
+            ("Put us on the vacate checklist", "Add \"Flea treatment: DJ Pest, 0468 170 107, certificate within the hour\" to your vacate pack and let tenants book direct. You get the certificate either way."),
         ]), "ledger") + \
         sec(eb("Questions") + head("Property manager FAQ.") + faq(pm_faqs)) + \
         quote("Set up your agency.", "Tell us the agency, your name and roughly how many managed properties are in the northern corridor. We will send the certificate sample, the investment sheet and the account form.")

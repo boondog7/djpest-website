@@ -94,7 +94,7 @@ def pages(c):
         '<p class="notice">Periods apply to the pest and areas named on your invoice. Conditions are set out in full on the <a href="/warranty">re-treatment promise</a> page.</p>')
 
     hub_faqs = [
-        ("Which service do I need if I am not sure what the pest is?", "Text a photo of the pest, the droppings or the damage to 0447 747 769 and we will identify it and tell you which treatment applies. Our <a href=\"/whats-my-pest\">What's my pest?</a> page covers the common Perth suspects."),
+        ("Which service do I need if I am not sure what the pest is?", "Text a photo of the pest, the droppings or the damage to 0468 170 107 and we will identify it and tell you which treatment applies. Our <a href=\"/whats-my-pest\">What's my pest?</a> page covers the common Perth suspects."),
         ("Can I combine services on one visit?", "Yes. A general pest treatment already covers cockroaches, spiders, silverfish and nuisance ants. Rodent stations, a termite inspection or an external ant program can be added to the same visit and itemised on one quote."),
         ("Do you charge a call-out fee?", "No. Inspections that lead to a quote are free within our northern-suburbs service area. A stand-alone timber pest inspection with a written AS 4349.3 report is a quoted service because the report itself is the product."),
         ("Are the prices on this site fixed?", "They are typical ranges for a standard three-bedroom home in Perth's northern suburbs. Every job is quoted itemised in writing after we have seen it, and the invoice matches the quote."),
