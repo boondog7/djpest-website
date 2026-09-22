@@ -81,7 +81,7 @@ def pages(c):
         ("Can you handle keys and empty properties?", "Yes. Key collection from your office or a lockbox, treatment with nobody home, keys returned or left as instructed. Photos of the property on arrival and departure are attached to the report."),
         ("Do you offer account terms?", "One invoice per month with every job itemised by property, seven-day terms. Or per job if you prefer to on-charge immediately. Either way the invoice carries the trust entity and ABN your trust accountant will want."),
         ("What else do you do for managed properties?", "General pest treatments at lease start, ant and cockroach call-outs, rodent programs with entry-point sealing, spider treatments, termite inspections for owners and annual inspections for properties with a termite management system. The same certificate-style report on every job."),
-        ("Which suburbs?", "The northern corridor from Balcatta and Karrinyup up to Yanchep, centred on Warwick. The full list is on the <a href=\"/service-areas\">service areas</a> page."),
+        ("Which suburbs?", "Every suburb within about fifteen kilometres of Warwick, plus the coast up to Yanchep. The full list is on the <a href=\"/service-areas\">service areas</a> page."),
     ]
     pm_body = hero("For property managers and strata",
                    "Vacate treatments that don't need <em class=\"red\">chasing</em>.",

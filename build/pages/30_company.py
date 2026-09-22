@@ -248,7 +248,7 @@ def contact(c):
         f"<h2>Where we work</h2><p>DJ Pest is based in {S['base_suburb']} WA {S['base_postcode']} and services Perth's northern suburbs: {c['esc'](areas)} and the coastal strip north to Yanchep. Most jobs are within twenty minutes of the depot. <a href=\"/service-areas\">Full list of service areas</a>.</p>"
         f"<h2>Business details</h2><p>{c['esc'](S['legal_name'])}<br>ABN {S['abn']} · ACN {S['acn']}<br>{c['esc'](S['reg_line'])}<br>{c['esc'](S['licence_label'])}</p>"
         "<p>We do not have a shopfront. Visits are by appointment at your property; there is nothing to collect from ours.</p>"
-        '</div><div class="card" style="min-height:280px;display:grid;place-items:center;text-align:center"><div><div class="num">Map</div><p>Warwick, WA 6024. Servicing the northern corridor from Balcatta and Karrinyup up the coast to Yanchep, and inland to Wanneroo.</p><p><a href="/service-areas">See the suburb list</a></p></div></div></div>', "")
+        '</div><div class="card" style="min-height:280px;display:grid;place-items:center;text-align:center"><div><div class="num">Map</div><p>Warwick, WA 6024. Servicing every suburb within about fifteen kilometres of Warwick, from Subiaco and Bayswater in the south to Joondalup, and up the coast to Yanchep.</p><p><a href="/service-areas">See the suburb list</a></p></div></div></div>', "")
     body += c["quote_block"]("Or use the form.", "Name, mobile and suburb are enough. We'll call back with the right questions and a written investment.")
     return {
         "path": "/contact",
