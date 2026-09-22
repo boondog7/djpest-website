@@ -10,7 +10,8 @@ target_h2_count: 8
 target_image_count: 4
 hero_image_url: (fetch with Pexels API at write time)
 image_query: pest control technician australia
-status: draft-research
+status: published
+published_url: https://djpest.com.au/blog/how-much-does-pest-control-cost
 published_url: ~
 ---
 
