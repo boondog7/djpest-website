@@ -4,7 +4,8 @@ DOMAIN = "https://djpest.com.au"
 
 PRICES = {
     "general": (250, 350), "ant": (250, 400), "cockroach": (250, 450), "rodent": (220, 380), "rodent_follow": (90, 140),
-    "spider": (220, 300), "inspection": (250, 350), "prepurchase": (300, 400), "chem": (2500, 5500), "bait": (1500, 3000), "wasp": (180, 280), "mosquito": (220, 320), "bee": (250, 400), "comm_visit": (140, 380), "comm_cleanout": (350, 650),
+    "spider": (220, 300), "inspection": (250, 350), "prepurchase": (300, 400), "chem": (2500, 5500), "bait": (1500, 3000), "wasp": (180, 280), "mosquito": (220, 320), "bee": (320, 480), "comm_visit": (160, 420), "comm_cleanout": (400, 750),
+    "bedbug": (450, 950), "bedbug_room": (450, 550), "bedbug_home": (650, 950),
 }
 
 def money(lo, hi): return f"${lo:,}–${hi:,}"
@@ -75,6 +76,7 @@ def pages(c):
         card("Wasp removal", "Paper wasp nests under eaves, pergolas and in hedges: found, treated, removed and the site treated so the next queen moves on. Suspected European wasps are reported to DPIRD, not treated.", "/wasp-removal-perth", "10 / Wasps"),
         card("Bee removal", "Swarm on a branch? A beekeeper collects it alive and we give you the number. Hive in a wall or roof void? Evening treatment, entry sealed, comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees"),
         card("Commercial pest management", "Cafes, strata, childcare, aged care, warehouses and offices. Numbered stations on a site map, same-day service reports and a site folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial"),
+        card("Bed bug treatment", "Bites along the mattress edge after travel or second-hand furniture. Every harbourage found and treated, insect growth regulator and dust into the voids, second visit built in to catch the hatch.", "/bed-bug-treatment-perth", "13 / Bed bugs"),
     ]) + "</div>"
 
     investment = sec(eb("How we investment") + head("One method for every job.",
@@ -101,7 +103,7 @@ def pages(c):
     ]
 
     hub_body = hero("Services · Perth's northern suburbs",
-                    "Twelve pest problems.<br>One <em class=\"red\">documented</em> way of fixing them.",
+                    "Thirteen pest problems.<br>One <em class=\"red\">documented</em> way of fixing them.",
                     "Diagnosed first, treated with the right chemistry for the pest and the site, then written up. Every product is APVMA-registered and applied to its label, and every job carries a re-treatment period you can read before you book.",
                     ["Licensed technicians", f"In Perth pest management since {S['family_since']}", "Itemised quotes", "Treatment report after every job"],
                     art_card("Every job includes", ["Inspection before any product is opened", "Written, itemised investment. No call-out fee, no deposit", "Re-entry period explained before treatment", "Treatment report and prevention plan by email", "Re-treatment promise on the invoice"])) + \
@@ -744,12 +746,12 @@ def pages(c):
         ])) + \
         sec(eb("The investment") + head("Indicative per-visit investment.", "Every site is quoted after the survey, as a fixed investment per visit. These are the ranges most northern-suburbs premises land in.") +
             ledger(["Site type", "Typical range per visit", "Usual frequency and scope"], [
-                ["Cafe, takeaway or small restaurant kitchen", "$140–$220", "Monthly. Cockroach gel and IGR, insect monitors, rodent stations, drain treatment, service report"],
-                ["Larger restaurant, pub or commercial kitchen", "$220–$380", "Monthly. As above across multiple prep areas, cool rooms, stores and bin area"],
-                ["Strata common property", "$180–$350", "Quarterly or monthly. Bin rooms, basement, car park, plant rooms, walkways; report to the strata manager"],
-                ["Childcare, aged care, medical or dental", "$160–$300", "Monthly or bi-monthly. Serviced when rooms are empty, product and timing chosen for the site"],
-                ["Office, retail or showroom", "$150–$260", "Quarterly. Kitchenette, stores, loading dock, perimeter stations"],
-                ["Warehouse or workshop rodent program", "$180–$320", "Monthly. Numbered internal and external stations, proofing list, stock protection"],
+                ["Cafe, takeaway or small restaurant kitchen", "$160–$250", "Monthly. Cockroach gel and IGR, insect monitors, rodent stations, drain treatment, service report"],
+                ["Larger restaurant, pub or commercial kitchen", "$250–$420", "Monthly. As above across multiple prep areas, cool rooms, stores and bin area"],
+                ["Strata common property", "$200–$380", "Quarterly or monthly. Bin rooms, basement, car park, plant rooms, walkways; report to the strata manager"],
+                ["Childcare, aged care, medical or dental", "$180–$330", "Monthly or bi-monthly. Serviced when rooms are empty, product and timing chosen for the site"],
+                ["Office, retail or showroom", "$170–$290", "Quarterly. Kitchenette, stores, loading dock, perimeter stations"],
+                ["Warehouse or workshop rodent program", "$200–$350", "Monthly. Numbered internal and external stations, proofing list, stock protection"],
                 ["One-off kitchen clean-out before a program starts", money(*PRICES['comm_cleanout']), "German cockroach gel and IGR program with follow-up visit, or initial rodent knock-down"],
             ], amount_cols=(1,)) + '<p class="notice">Indicative ranges, GST inclusive, invoiced monthly on seven-day terms. Every program is quoted itemised in writing after the site survey; the invoice matches the quote. No call-out fee for the survey. See the <a href="/pest-control-prices-perth">residential investment guide</a> for one-off treatments.</p>', "ledger") + \
         sec(eb("What you get") + head("What you get.") + included([
@@ -776,5 +778,63 @@ def pages(c):
                 "desc": "Commercial pest control, Perth northern suburbs: documented programs for cafes, strata, childcare, aged care, offices and warehouses. Numbered stations, same-day reports, audit-ready folder.",
                 "body": co_body, "crumbs": crumbs("Commercial pest management"),
                 "schema": [service_schema("Commercial pest management", PRICES['comm_visit'][0], PRICES['comm_cleanout'][1], "Documented commercial pest management programs: site survey, numbered stations, scheduled service, same-day reports."), faq_schema(co_faqs)]})
+
+    # ================================================================ /bed-bug-treatment-perth
+    bb_faqs = [
+        ("How do I know it is bed bugs and not fleas or mosquitoes?", "Look at the bed, not the bites. Bed bugs leave dark spotting, like a felt-tip dot, along mattress seams, the piping of the base, the slats and the joints of the bed frame, plus tiny cream-coloured eggs and shed skins in the same places. The insects are flat, oval, reddish-brown and about the size of an apple seed; the young are smaller and paler. Bites in a line or cluster on skin that was exposed overnight are typical but not proof, because people react very differently and some do not react at all. Text us a photo of the seam and we will tell you."),
+        ("Why does it take two visits?", "Eggs. Bed bug eggs are glued into cracks and seams and no residual reliably kills them. They hatch over seven to ten days, and the nymphs that emerge have to cross treated surfaces or pick up the growth regulator to die. The second visit, ten to fourteen days after the first, catches that hatch, re-inspects every harbourage and re-treats where needed. A one-visit bed bug job is a first visit with the second one left out, and it is why the problem comes back in a month."),
+        ("Do you use heat treatment?", "Not whole-room heat. It is a good method but needs a day of specialist equipment and a room stripped and monitored to hold above 50 degrees for hours, and in Perth it is priced accordingly. For a domestic infestation in one or two bedrooms, an inspection-led chemical program with a growth regulator, a desiccant dust into the voids and a second visit gives a reliable result at a fraction of the outlay. Where an infestation is severe and spread through a multi-unit building we will say so and talk about what that needs."),
+        ("Do I have to throw the mattress out?", "Usually not. A mattress and base can be treated to label along the seams, tufts and piping, and then sealed in a zippered bed bug encasement that traps anything still inside and stops re-infestation. Throwing an infested mattress out without wrapping it spreads bed bugs through the hallway, the lift and the verge, and the replacement gets colonised by the bugs still in the frame and skirting. If a mattress is badly stained or torn we will tell you and it goes out wrapped."),
+        ("Where do bed bugs come from in Perth?", "Luggage, mostly. Interstate and overseas travel, backpacker and short-stay accommodation along the coast, student housing around Joondalup, FIFO swings and a bag that sat on a hotel bed. Second-hand beds, sofas and bed frames are the other common route, and so is a neighbouring unit through shared walls and services. They are not a sign of a dirty house; they are hitch-hikers that feed on people, and a clean house with a suitcase feeds them just as well."),
+        ("What about pyrethroid resistance?", "It is real and well documented in Australian bed bug populations, and it is the reason a supermarket surface spray or a bug bomb makes things worse: the bugs scatter into the walls and the survivors breed. We inspect first, use a residual chosen for bed bugs, add an insect growth regulator so the survivors cannot breed, and put a desiccant dust into the cracks and voids where a liquid cannot go, because desiccants work on the exoskeleton and resistance does not apply to them. Actives are recorded on your treatment record."),
+        ("Can I stay in the room during the treatment?", "Not during, and not until the re-entry period we advise has passed, usually once treated surfaces are dry. You can sleep in the bed that night in most cases, and we recommend you do: bed bugs are drawn out to feed and cross the treated surfaces. Moving to the couch moves them to the couch. Kids, pets and anyone pregnant, asthmatic or chemically sensitive should be discussed with us when you book so the plan is adjusted."),
+        ("What does bed bug treatment cost in Perth?", f"A two-visit program for one bedroom typically runs {money(*PRICES['bedbug_room'])}; a whole two- or three-bedroom home {money(*PRICES['bedbug_home'])}, GST inclusive, including both visits, the inspection of adjoining rooms, the growth regulator and the dust. Mattress encasements and additional rooms are itemised. Heavy infestations across a unit block are quoted after inspection. It is not a low-investment job, because the second visit and the inspection time are what make it hold, and we would rather do it once."),
+    ]
+    bb_body = hero("Bed bug treatment · bedrooms, units, short-stay and student housing",
+                   "Bed bug treatment Perth.<br>Every harbourage found. <em class=\"red\">Two visits</em>, on purpose.",
+                   "Bites along the arm in the morning, dark dots on the mattress seam, a trip or a second-hand bed in the last few weeks. Bed bugs are the pest where the inspection is the treatment: we find every crack they are living in, treat it to label with a residual, a growth regulator and a desiccant dust, and come back for the hatch.",
+                   ["Licensed technicians", "Two visits, ten to fourteen days apart", f"Typical {money(*PRICES['bedbug'])} program", "30-day re-treatment promise"],
+                   art_card("Where we look, every time", ["Mattress seams, tufts, tags and the base piping", "Bed frame joints, slats, castors and the headboard", "Bedside tables, drawer runners and lamp bases", "Skirting, architrave and carpet-edge gaps", "Curtain hems, picture frames, power points", "Sofas, recliners and the spare room they did not mention"])) + \
+        sec(eb("Signs you have bed bugs") + head("The bed tells you, not the bites.") + '<div class="prose">'
+            "<p>The common bed bug, <em>Cimex lectularius</em>, and increasingly the tropical bed bug, <em>Cimex hemipterus</em>, are flat, wingless insects that hide within a metre or two of where people sleep and come out in the small hours to feed. They cannot fly or jump. They walk, and they are carried, which is why every bed bug story in Perth's northern suburbs starts with a suitcase, a second-hand bed or a neighbouring unit.</p>"
+            "<ul><li><strong>Spotting.</strong> Dark, ink-like dots along mattress seams, on the base fabric, in the frame joints and on the wall behind the bedhead. It is digested blood, and it is the most reliable sign.</li>"
+            "<li><strong>The insects.</strong> Adults are 4 to 6 mm, oval, reddish-brown and paper-flat when unfed, rounder and darker after a feed. Nymphs are smaller and cream to tan. Eggs are 1 mm, white, glued into cracks in clusters.</li>"
+            "<li><strong>Shed skins.</strong> Translucent casts in the same places, from five moults between egg and adult.</li>"
+            "<li><strong>Bites.</strong> Itchy welts, often in a line or cluster, on skin that was outside the covers. Some people react hard, some not at all, and in a couple the reaction can be one-sided, which is why one partner insists there is nothing wrong.</li>"
+            "<li><strong>A sweet, musty smell</strong> in a heavily infested room.</li></ul>"
+            "<p>A quick self-check: strip the bed, run a torch along every seam of the mattress and the base, then look at the slats and the joints where the frame bolts together. If you find spotting or a bug, stop there. Do not spray, do not bomb, do not move the mattress to another room. Every one of those scatters the population into the walls and the rest of the house and makes the job longer.</p></div>", "ledger") + \
+        sec(eb("How we treat it") + head("Inspect, treat every harbourage, dust the voids, come back.") + steps([
+            ("Inspection is the treatment", "The room is taken apart, in order: bedding stripped and bagged, mattress and base lifted and checked along every seam, frame joints and slats, headboard, bedside furniture emptied and drawers turned over, skirting and architrave gaps, curtain hems, picture frames, power points and the underside of anything within two metres of the bed. Adjoining rooms and any sofa or recliner that gets slept on are checked too. Visible clusters and eggs are vacuumed out first."),
+            ("Residual, growth regulator and dust", "An APVMA-registered residual insecticide labelled for bed bugs is applied to label to the frame, base, mattress seams, skirting lines, furniture joints and the harbourages found, with an insect growth regulator so survivors cannot breed. A desiccant dust goes into the cracks, voids and behind the skirting where a liquid cannot reach and where resistance does not help them. Indoors we use non-staining formulations only; nothing goes on the sleeping surface beyond what the label allows."),
+            ("Encase, advise, and the second visit", "Mattress and base go into zippered bed bug encasements where you want them, sealing anything still inside. You get a written plan for laundry, luggage and what to leave in place. Ten to fourteen days later we return, re-inspect every harbourage for the hatch and re-treat where needed. Both visits are on one quote and one treatment record."),
+        ])) + \
+        sec(eb("The investment") + head("Two visits, one quote.") +
+            ledger(["Program", "Typical range", "Includes"], [
+                ["One bedroom, two-visit program", money(*PRICES['bedbug_room']), "Full inspection of the room and adjoining rooms, residual, growth regulator, desiccant dust, written plan, second visit at ten to fourteen days, 30-day promise"],
+                ["Two- or three-bedroom home, two-visit program", money(*PRICES['bedbug_home']), "As above across every bedroom and any slept-on lounge furniture, both visits included"],
+                ["Additional room or lounge suite", "Itemised", "Per room, on the same quote"],
+                ["Mattress and base encasements", "Itemised", "Supplied and fitted on the day at cost plus fitting; queen, king and single sizes"],
+                ["Unit block, short-stay or multi-room infestation", "Quoted after inspection", "Room-by-room plan with the strata manager or operator, scheduled so treated rooms are not re-seeded"],
+                ["Inspection only, no activity found", "No charge", "If we inspect and find no evidence of bed bugs, we tell you what you do have and leave"],
+            ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
+        sec(eb("What you get") + head("What you get.") + included([
+            ("Harbourage map", "Every place we found them, what stage they were at and what was applied there, with photos. The second visit is checked against it."),
+            ("Treatment record", "Product, active constituent, rate, areas treated and re-entry period for both visits, kept three years under the Health (Pesticides) Regulations 2011 and emailed to you. Property managers and short-stay operators get a copy formatted for the file."),
+            ("30-day re-treatment promise", "If bed bugs are still active inside the treated rooms 30 days after the second visit, and the laundry and preparation plan has been followed, we return at no charge. It is written into our <a href=\"/warranty\">terms</a>."),
+        ])) + \
+        sec(eb("Prepare for the visit") + head("Before we arrive, and what not to do.") + prep([
+            "Do not spray, bomb or fog the room. Repellent aerosols scatter bed bugs into walls and adjoining rooms and make the job longer.",
+            "Do not move the mattress, bedding or furniture to another room or the verge. Leave the bed where it is; we treat it there.",
+            "Strip the bed and bag the bedding, pillowcases and any clothes from the floor in sealed bags, ready for a hot wash (60 degrees) and a hot tumble dry. Keep the bags closed until then.",
+            "Empty the bedside drawers into sealed bags and pull furniture 30 cm from the walls so we can reach the skirting.",
+            "Leave luggage, backpacks and travel bags in the room for us to inspect. Tell us where the bed bugs may have come from.",
+            "Tell us about anyone in the household who is pregnant, asthmatic, chemically sensitive or under two, and about pets, so we choose the product and timing to suit.",
+        ]) + related([("Vacate flea treatment", "/flea-treatment-perth"), ("Property managers", "/property-managers"), ("Investment guide", "/pest-control-prices-perth")])) + \
+        sec(eb("Questions") + head("Bed bug treatment FAQ.") + faq(bb_faqs), "ledger") + \
+        quote("Photograph the mattress seam, then call.", "Text a photo of the seam or the bug and tell us the suburb and how many bedrooms. We will confirm what it is, send an itemised two-visit investment and book the first visit, usually within a day or two.")
+    out.append({"path": "/bed-bug-treatment-perth", "title": "Bed Bug Treatment Perth | Two-Visit Program, 30-Day Promise | DJ Pest",
+                "desc": f"Bed bug treatment for Perth's northern suburbs. Every harbourage inspected and treated, growth regulator and desiccant dust, second visit built in for the hatch. Typical {money(*PRICES['bedbug'])}.",
+                "body": bb_body, "crumbs": crumbs("Bed bug treatment"),
+                "schema": [service_schema("Bed bug treatment", *PRICES['bedbug'], "Two-visit bed bug treatment program: inspection-led residual, insect growth regulator and desiccant dust, with a follow-up visit at ten to fourteen days."), faq_schema(bb_faqs)]})
 
     return out

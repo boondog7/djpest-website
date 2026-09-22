@@ -23,7 +23,7 @@ def pages(c):
 
     services = c["section"](
         c["eyebrow"]("What we treat") +
-        '<div class="section-head"><h2>Twelve jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div>' +
+        '<div class="section-head"><h2>Thirteen jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div>' +
         '<div class="grid grid-3">' +
         c["card"]("Termite inspection", "A full AS 4349.3 timber pest inspection with photos, moisture readings and a written report you can act on.", "/termite-inspection-perth", "01 / Termites") +
         c["card"]("Termite treatment", "Non-repellent chemical management systems installed to AS 3660.2, or baiting where that suits the site better.", "/termite-treatment-perth", "02 / Termites") +
@@ -37,6 +37,7 @@ def pages(c):
         c["card"]("Wasp removal", "Paper wasp nests under eaves and pergolas found, treated and removed, usually same day. Suspected European wasps are reported to DPIRD.", "/wasp-removal-perth", "10 / Wasps") +
         c["card"]("Bee removal", "Swarms go to a beekeeper alive. Hives in walls and roof voids are treated in the evening, sealed, and you get a comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees") +
         c["card"]("Commercial pest management", "Cafes, strata, childcare and warehouses on a documented program: numbered stations, same-day reports, a folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
+        c["card"]("Bed bug treatment", "Bites after a trip or a second-hand bed? Every harbourage inspected and treated, with a second visit built in to catch the hatch.", "/bed-bug-treatment-perth", "13 / Bed bugs") +
         '</div>', "ledger")
 
     ca = c["section"](
@@ -112,7 +113,7 @@ def pages(c):
         '<p class="lead">We deliberately keep the service area tight so response times stay short and we know the suburbs, soils and pests personally. Greenwood, Duncraig, Sorrento, Hillarys, Joondalup, Wanneroo and everything between.</p>'
         '<p><a class="btn btn-ghost" href="/service-areas">All service areas ' + icon("arrow", "icon") + '</a></p></div>'
         '<div class="card"><div class="num">Suburb pages</div><ul style="columns:2;list-style:none;padding:0;margin:0;font-size:.95rem;line-height:2">'
-        + "".join(f'<li><a href="/{s.lower().replace(" ", "-")}" style="text-decoration:none;color:var(--ink-2)">{esc(s)}</a></li>' for s in ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Joondalup", "Wanneroo", "Balcatta"])
+        + "".join(f'<li><a href="/{s.lower().replace(" ", "-")}" style="text-decoration:none;color:var(--ink-2)">{esc(s)}</a></li>' for s in ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Joondalup", "Wanneroo", "Balcatta", "Marangaroo", "Stirling"])
         + '</ul></div></div>')
 
     faqs = [
