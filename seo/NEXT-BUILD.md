@@ -1,10 +1,17 @@
 # NEXT BUILD — 2026-09-21 (evening update)
 
+> ## HARD RULES FOR THE CLOUD ROUTINE (added 22 Sep 2026 by Dane's Mac session)
+> 1. **Never edit `site.json → "unpublished"`, the `PRICES` dict, or any dollar figure.** Prices are Dane's decision. Build the page, leave it gated, and list the proposed prices in this file for him to confirm.
+> 2. **Never claim a page is "live".** The cloud commits HTML; only `./deploy.sh --prod` on the Mac deploys. As of 22 Sep bee, commercial and bed-bug are GATED (404 live) pending Dane's price sign-off and a beekeeper's number for the bee page.
+> 3. Every public claim passes the compliance scanner and the licensing wording is the fixed string ("carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence"), never bare "Licensed technicians".
+> 4. Read `~/business/djpest/marketing/vibe/brand-bible.md` voice rules before writing copy.
+
+
 ## Progress summary
-**Done: 13 service pages live (incl. bee, commercial, bed bug) + 10 Tier-1 suburb pages + pricing hub + service-areas hub + 2 blog posts; ~95% of plan.**
+**Done: 10 service pages live + 3 built-but-gated (bee, commercial, bed bug: awaiting Dane price sign-off) + 10 Tier-1 suburb pages + pricing hub + service-areas hub + 2 blog posts; ~95% of plan.**
 
 Shipped today (all built, compliance-clean, pushed):
-- `bee-removal-perth.html` and `commercial-pest-control-perth.html` ungated. Prices set just above Perth average: bee hive $320–$480; commercial $160–$420/visit, clean-out $400–$750.
+- `bee-removal-perth.html` and `commercial-pest-control-perth.html` built, RE-GATED 22/9 pending Dane. Proposed prices: bee hive $320–$480; commercial $160–$420/visit, clean-out $400–$750.
 - `bed-bug-treatment-perth.html` built — 110/mo, KD17. Two-visit program $450–$950 (one room $450–$550, whole home $650–$950). Last BOFU service gap closed.
 - `marangaroo.html` (90/mo, KD0) and `stirling.html` (70/mo, KD0) built — Tier-1 corridor cluster complete.
 - Pricing page, services hub, home, footer, what's-my-pest, llms.txt and sitemap all updated to match.
