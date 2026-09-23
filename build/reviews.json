@@ -1,138 +1,143 @@
 {
-  "_readme": "Source of truth for reviews on djpest.com.au. Written by reviews/sync.py (GBP API or Gmail alerts) or reviews/add.py. Never edit review text. status: publish = shown; hold = waiting on full text or a relationship check (still counted in the rating); removed = removed by Google (not counted).",
-  "profile": {
-    "name": "DJ Pest",
-    "public_url": "https://maps.google.com/?cid=1838203878538281363",
-    "write_review_url": "",
-    "location_id": "15160553245548961270",
-    "google_totals": null
+ "_readme": "Source of truth for reviews on djpest.com.au. Written by reviews/sync.py (GBP API or Gmail alerts) or reviews/add.py. Never edit review text. status: publish = shown; hold = waiting on full text or a relationship check (still counted in the rating); removed = removed by Google (not counted).",
+ "profile": {
+  "name": "DJ Pest",
+  "public_url": "https://maps.google.com/?cid=1838203878538281363",
+  "write_review_url": "",
+  "location_id": "15160553245548961270",
+  "google_totals": {
+   "rating": 5.0,
+   "count": 10,
+   "as_of": "2026-09-24",
+   "source": "Google Business Profile, via Places API (New) watcher"
+  }
+ },
+ "reviews": [
+  {
+   "id": "Ci9DQUlRQUNvZENodHljRjlvT2xwTVpGUlpVa1ZWU2xoUk4xbzBUbTlFUzJ4elpuYxAB",
+   "source": "google",
+   "author": "Brooke Jones",
+   "rating": 5,
+   "date": "2026-09-22",
+   "text": "Really happy with DJ Pest!!!! We'd been putting up with rats scratching around in the roof at our place in Warwick for weeks, plus mosquitoes making the backyard unusable in the evenings and ants marching across the driveway. DJ Pest came out, sorted all three in one go and explained exactly what they were doing and why. The roof has been silent since, the mozzies are gone and the driveway is clear. Professional, on time and fair on price. Wouldn't hesitate to recommend them to anyone!!!",
+   "text_complete": true,
+   "suburb": "Warwick",
+   "services": [
+    "rodents",
+    "mosquitoes",
+    "ants"
+   ],
+   "reply": "You are very welcome Brooke! I personally get targeted by mozzies and there is nothing worse when they are getting the kids too! Thanks for calling DJ Pest!",
+   "status": "hold",
+   "social": {},
+   "text_sha": "498ed5277c518e42",
+   "hold_reason": "Dane to confirm Brooke Jones is not his partner/family (ACCC)"
   },
-  "reviews": [
-    {
-      "id": "Ci9DQUlRQUNvZENodHljRjlvT2xwTVpGUlpVa1ZWU2xoUk4xbzBUbTlFUzJ4elpuYxAB",
-      "source": "google",
-      "author": "Brooke Jones",
-      "rating": 5,
-      "date": "2026-09-22",
-      "text": "Really happy with DJ Pest!!!! We'd been putting up with rats scratching around in the roof at our place in Warwick for weeks, plus mosquitoes making the backyard unusable in the evenings and ants marching across the driveway. DJ Pest came out, sorted all three in one go and explained exactly what they were doing and why. The roof has been silent since, the mozzies are gone and the driveway is clear. Professional, on time and fair on price. Wouldn't hesitate to recommend them to anyone!!!",
-      "text_complete": true,
-      "suburb": "Warwick",
-      "services": [
-        "rodents",
-        "mosquitoes",
-        "ants"
-      ],
-      "reply": "You are very welcome Brooke! I personally get targeted by mozzies and there is nothing worse when they are getting the kids too! Thanks for calling DJ Pest!",
-      "status": "hold",
-      "social": {},
-      "text_sha": "498ed5277c518e42",
-      "hold_reason": "Dane to confirm Brooke Jones is not his partner/family (ACCC)"
-    },
-    {
-      "id": "manual-ef19eb3f0a4f",
-      "source": "google",
-      "author": "Scott Buchanan",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "Excellent customer service, very knowledgeable and explained thoroughly what he was going to do and what each chemical did. Punctual, happy to discuss your needs and no nasty surprises for price. You get what you pay for, and this was a service that really was more than I paid for. Highly recommended!!",
-      "text_complete": true,
-      "text_sha": "764d4b4a01f37410",
-      "services": [
-        "ants",
-        "termites",
-        "cockroaches",
-        "spiders"
-      ],
-      "suburb": "",
-      "reply": "Scott you are a world class sparky and even better bloke. Appreciate you and your support. Wishing Collingwood Magpies better luck next year!",
-      "status": "publish"
-    },
-    {
-      "id": "manual-968e2321f1c6",
-      "source": "google",
-      "author": "Leah Smith",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "Couldn’t recommend Dane highly enough! We’d been having an ongoing issue with ants around the house and nothing we tried seemed to keep them away.\n\nDane came out, was incredibly thorough, explained exactly what he was doing and got the problem under control straight away. We’ve noticed such a huge difference since!\n\nProfessional, reliable and genuinely cares about doing the job properly. Phenomenal service from start to finish and we’ll definitely be using him again!",
-      "text_complete": true,
-      "text_sha": "2ce3ed7b5ef85abf",
-      "services": [
-        "ants"
-      ],
-      "suburb": "",
-      "reply": "Thanks Trish! You sure did have an ant problem but I’m glad we found the source. I may have to call in for a haircut soon, I hear you are world class! Until next next time 🕷️🐀🦂🦟🪳",
-      "status": "publish"
-    },
-    {
-      "id": "manual-ee3a564d765b",
-      "source": "google",
-      "author": "Olivia Taylor",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "I can’t recommend DJ Pest highly enough! Response time was excellent, Dane was very friendly and professional and was able to eradicate a persistent ant problem that another pest company hadn’t been able to!",
-      "text_complete": true,
-      "text_sha": "a109aadec1cc4f94",
-      "services": [
-        "ants"
-      ],
-      "suburb": "",
-      "reply": "Thanks Liv! You have a beautiful property! I love what you’ve done with your new pool and bbq area! Honoured you chose DJ Pest 🕷️🪳🐜🐀🦟",
-      "status": "publish"
-    },
-    {
-      "id": "manual-74c1ed3e8d66",
-      "source": "google",
-      "author": "Blair Jarvis",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "",
-      "text_complete": false,
-      "text_sha": "e3b0c44298fc1c14",
-      "services": [
-        "termites"
-      ],
-      "suburb": "",
-      "reply": "Appreciate you Blair! Phenomenal builder! Keep it up mate 🦂🪲🦟",
-      "status": "hold",
-      "hold_reason": "star-only review (Great price tag, no text); counted in the rating"
-    },
-    {
-      "id": "manual-376c2237da64",
-      "source": "google",
-      "author": "Si May Hair",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "",
-      "text_complete": false,
-      "text_sha": "e3b0c44298fc1c14",
-      "services": [],
-      "suburb": "",
-      "reply": "Thanks for your support legend! 🦂🕷️🦟",
-      "status": "hold",
-      "hold_reason": "star-only review, no text; counted in the rating"
-    },
-    {
-      "id": "manual-1d0612c29862",
-      "source": "google",
-      "author": "Amber Johns",
-      "social": {},
-      "rating": 5,
-      "date": "2026-09-23",
-      "text": "DJ Pest got rid of my cockroach problem in Sorrento — fast, professional, and no mess. Highly recommend! 🪳",
-      "text_complete": true,
-      "text_sha": "e05c2df6cab0464e",
-      "services": [
-        "cockroaches"
-      ],
-      "suburb": "Sorrento",
-      "reply": "Thanks Amber appreciate your feedback!!!! 🪳🕷️🦟",
-      "status": "hold",
-      "hold_reason": "surname Johns: Dane to confirm not family (ACCC)"
-    }
-  ]
+  {
+   "id": "manual-ef19eb3f0a4f",
+   "source": "google",
+   "author": "Scott Buchanan",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "Excellent customer service, very knowledgeable and explained thoroughly what he was going to do and what each chemical did. Punctual, happy to discuss your needs and no nasty surprises for price. You get what you pay for, and this was a service that really was more than I paid for. Highly recommended!!",
+   "text_complete": true,
+   "text_sha": "764d4b4a01f37410",
+   "services": [
+    "ants",
+    "termites",
+    "cockroaches",
+    "spiders"
+   ],
+   "suburb": "",
+   "reply": "Scott you are a world class sparky and even better bloke. Appreciate you and your support. Wishing Collingwood Magpies better luck next year!",
+   "status": "publish"
+  },
+  {
+   "id": "manual-968e2321f1c6",
+   "source": "google",
+   "author": "Leah Smith",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "Couldn’t recommend Dane highly enough! We’d been having an ongoing issue with ants around the house and nothing we tried seemed to keep them away.\n\nDane came out, was incredibly thorough, explained exactly what he was doing and got the problem under control straight away. We’ve noticed such a huge difference since!\n\nProfessional, reliable and genuinely cares about doing the job properly. Phenomenal service from start to finish and we’ll definitely be using him again!",
+   "text_complete": true,
+   "text_sha": "2ce3ed7b5ef85abf",
+   "services": [
+    "ants"
+   ],
+   "suburb": "",
+   "reply": "Thanks Trish! You sure did have an ant problem but I’m glad we found the source. I may have to call in for a haircut soon, I hear you are world class! Until next next time 🕷️🐀🦂🦟🪳",
+   "status": "publish"
+  },
+  {
+   "id": "manual-ee3a564d765b",
+   "source": "google",
+   "author": "Olivia Taylor",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "I can’t recommend DJ Pest highly enough! Response time was excellent, Dane was very friendly and professional and was able to eradicate a persistent ant problem that another pest company hadn’t been able to!",
+   "text_complete": true,
+   "text_sha": "a109aadec1cc4f94",
+   "services": [
+    "ants"
+   ],
+   "suburb": "",
+   "reply": "Thanks Liv! You have a beautiful property! I love what you’ve done with your new pool and bbq area! Honoured you chose DJ Pest 🕷️🪳🐜🐀🦟",
+   "status": "publish"
+  },
+  {
+   "id": "manual-74c1ed3e8d66",
+   "source": "google",
+   "author": "Blair Jarvis",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "",
+   "text_complete": false,
+   "text_sha": "e3b0c44298fc1c14",
+   "services": [
+    "termites"
+   ],
+   "suburb": "",
+   "reply": "Appreciate you Blair! Phenomenal builder! Keep it up mate 🦂🪲🦟",
+   "status": "hold",
+   "hold_reason": "star-only review (Great price tag, no text); counted in the rating"
+  },
+  {
+   "id": "manual-376c2237da64",
+   "source": "google",
+   "author": "Si May Hair",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "",
+   "text_complete": false,
+   "text_sha": "e3b0c44298fc1c14",
+   "services": [],
+   "suburb": "",
+   "reply": "Thanks for your support legend! 🦂🕷️🦟",
+   "status": "hold",
+   "hold_reason": "star-only review, no text; counted in the rating"
+  },
+  {
+   "id": "manual-1d0612c29862",
+   "source": "google",
+   "author": "Amber Johns",
+   "social": {},
+   "rating": 5,
+   "date": "2026-09-23",
+   "text": "DJ Pest got rid of my cockroach problem in Sorrento — fast, professional, and no mess. Highly recommend! 🪳",
+   "text_complete": true,
+   "text_sha": "e05c2df6cab0464e",
+   "services": [
+    "cockroaches"
+   ],
+   "suburb": "Sorrento",
+   "reply": "Thanks Amber appreciate your feedback!!!! 🪳🕷️🦟",
+   "status": "hold",
+   "hold_reason": "surname Johns: Dane to confirm not family (ACCC)"
+  }
+ ]
 }

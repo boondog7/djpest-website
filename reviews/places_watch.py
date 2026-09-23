@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hourly Google review watcher for DJ Pest, via the Places API (New). Alert-only.
+"""Hourly Google review watcher for DJ Pest, via the Places API (New). Alerts + keeps the site count in sync.
 
 Why this exists: Google Business Profile emails are unreliable (1 alert email for the first 10
 reviews, verified 24/9/2026), and the Business Profile API is still awaiting access approval.
@@ -12,7 +12,9 @@ What it does each run:
 
 Google Maps Platform terms: review content must not be cached/stored. State keeps only the review
 resource names (identifiers), the count and the rating. Text is shown in the alert and discarded.
-Nothing here writes to reviews.json or the website; publishing stays with sync.py / add.py and Dane.
+It also writes Google's own rating + count into build/reviews.json (profile.google_totals) and redeploys
+whenever they change, so the website number always matches Google. Review TEXT is never written:
+publishing individual reviews stays with sync.py / add.py and Dane.
 
 key + place id: ~/.config/jaystack/google-places.env (GOOGLE_PLACES_API_KEY, DJPEST_PLACE_ID)
 launchd: au.com.djpest.places-watch (hourly).     --dry = print, no Telegram, no state write.
@@ -75,6 +77,27 @@ else:
         log(f"DROP {prev['count']} → {count}")
     else:
         log(f"no change: {count} reviews, {rating}★")
+
+def push_totals_to_site():
+    """Keep the website's review count/rating identical to Google's. reviews_lib uses profile.google_totals."""
+    import subprocess
+    site = HERE.parent
+    rj = site / "build" / "reviews.json"
+    data = json.loads(rj.read_text())
+    cur = data["profile"].get("google_totals") or {}
+    if cur.get("count") == count and float(cur.get("rating") or 0) == float(rating or 0):
+        return
+    data["profile"]["google_totals"] = {"rating": float(rating), "count": int(count),
+        "as_of": datetime.date.today().isoformat(), "source": "Google Business Profile, via Places API (New) watcher"}
+    rj.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
+    r = subprocess.run(["./deploy.sh", "--prod"], cwd=site, capture_output=True, text=True)
+    ok = r.returncode == 0
+    log(f"site totals -> {count} reviews {rating}★, deploy {'OK' if ok else 'FAILED: ' + r.stderr[-300:]}")
+    if not ok:
+        telegram(f"⚠️ Review count changed to {count} but the website deploy failed. Check reviews/places_watch.log.")
+
+if not DRY and count:
+    push_totals_to_site()
 
 if not DRY:
     seen = set((prev or {}).get("seen", [])) | {r["name"] for r in reviews}
