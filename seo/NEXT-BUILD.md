@@ -1,4 +1,4 @@
-# NEXT BUILD — 2026-09-22
+# NEXT BUILD — 2026-09-23
 
 > ## HARD RULES FOR THE CLOUD ROUTINE (added 22 Sep 2026 by Dane's Mac session)
 > 1. **Never edit `site.json → "unpublished"`, the `PRICES` dict, or any dollar figure.** Prices are Dane's decision. Build the page, leave it gated, and list the proposed prices in this file for him to confirm.
@@ -10,51 +10,57 @@
 ## Progress summary
 **Done: 13 service pages + ~95 suburb pages + pricing hub + service-areas hub + 3 blog posts; ~98% of 14-day battle plan complete.**
 
-Everything from the battle plan's Day 2–10 is shipped: all Tier-1 and Tier-2 corridor suburbs, all BOFU service pages, MOFU pricing hub + blog post. One MOFU cost page is the last gap.
+Same status as yesterday — the one remaining build gap is still open.
 
 ---
 
 ## Next tasks (priority order)
 
-### 1. Build `termite-treatment-cost-perth.html` ← THE THING TO DO TODAY
-**Keyword:** `termite treatment cost` — 720/mo, KD8, CPC $6.20 (highest in the set)
-**Why it's next:** The pricing hub (`/pest-control-prices-perth`) has a single termite FAQ. A dedicated page with a worked cost table (perimeter metres → drilling + soil treatment vs baiting system) would own this query outright — and at $6.20 CPC, competitors are spending real money here. No competitor has a transparent worked example.
+### 1. ⚠️ CARRY-OVER (day 2) — Build `termite-treatment-cost-perth.html`
+**Keyword:** `termite treatment cost` — 720/mo, KD8, CPC $6.20 (highest CPC in the set)
+**Why it's still #1:** This was yesterday's priority and still hasn't been built. It's the only MOFU cost page in the battle plan that's missing. `/pest-control-prices-perth` covers termite in one FAQ line — not enough to own the `termite treatment cost` query, which at $6.20 CPC means competitors pay real money for every click. A standalone page with worked cost tables would rank uncontested.
 
 **What to build:**
 - Filename: `termite-treatment-cost-perth.html`
 - H1: "Termite Treatment Cost Perth (2026) — What It Actually Costs"
-- Core content: two cost tables (chemical barrier: perimeter metres × drilling/trenching; bait system: station count × annual monitoring); worked real-house example (e.g. 180 m² slab home in Greenwood); factors that move the price (timber floor, sub-floor, heritage stone, garden beds against the wall)
-- CA angle: "no line-item surprises — here's what you get for every dollar"
-- Internal links to: `/termite-inspection-perth`, `/termite-treatment-perth`, `/pest-control-prices-perth`, `/warwick` (home base)
-- JSON-LD: `@graph` with LocalBusiness + Service + FAQPage + BreadcrumbList (same pattern as termite-inspection page)
-- Proposed prices (Dane to confirm): chemical barrier $1,800–$4,500 depending on perimeter; Termidor HE typically 15–25% more than standard; bait station install $1,800–$3,200 + ~$600–$900/yr monitoring
+- Core content:
+  - Table 1 — Chemical barrier: perimeter metres × drilling/trenching cost (e.g. 120m = ~$1,800, 200m = ~$3,200, 280m = ~$4,500; Termidor HE adds ~20%)
+  - Table 2 — Bait system: station count × install; annual monitoring fee
+  - Worked example: 180m² slab home in Greenwood — step-by-step quote breakdown
+  - Factors that move the price (sub-floor access, heritage stone, garden beds against the wall, timber floors)
+  - CA angle: "No line-item surprises — here's what every dollar pays for"
+- Internal links: `/termite-inspection-perth`, `/termite-treatment-perth`, `/pest-control-prices-perth`, `/warwick`
+- JSON-LD: `@graph` — LocalBusiness + Service + FAQPage + BreadcrumbList (copy pattern from termite-inspection-perth.html)
+- **⚠️ Proposed prices below — Dane to confirm before deploying:**
+  - Chemical barrier (Termidor): $1,800–$4,500 depending on perimeter
+  - Termidor HE upgrade: +15–25% on the above
+  - Bait system install: $1,800–$3,200; annual monitoring ~$600–$900/yr
 
-**How to build:** add a new file entry in `build/pages/10_services.py` following the bee/flea pattern, or write it directly as static HTML following the termite-inspection page structure.
+**How to build:** Copy `termite-inspection-perth.html` as scaffold; adapt H1/meta/content/tables/schema. Or add an entry in `build/pages/10_services.py` following the bee/flea pattern.
 
 ---
 
-### 2. Publish next blog post from queue
-**File:** `blog/_drafts/02_how-to-dispose-of-a-wasp-nest.md` — already drafted, just needs HTML rendering and publishing.
-- Blog cadence is set to 2/week; 3 posts are live, 9 drafts are staged.
-- Wasp content = high-conversion intent (people googling "how to get rid of a wasp nest" are 1 call away from booking).
-- Run the blog publish script, push.
+### 2. Publish next blog post from the draft queue
+**File:** `blog/_drafts/02_how-to-dispose-of-a-wasp-nest.md`
+**Keyword:** `how to dispose of a wasp nest` — 1,600/mo, KD10, CPC $0.79 (rank 4 in pipeline)
+**Why:** Blog cadence is 2/week, 3 posts are live, 26 drafts are staged. The wasp disposal post captures people who already have a nest — they're one step from booking a removal. Script exists: `build/publish-next-post.sh`.
 
 ---
 
 ### 3. Internal linking audit (30-min skim)
-With ~95 suburb pages now live, verify the hub-and-spoke wiring:
-- Every suburb page → `/service-areas` (hub) and the 2–3 most relevant service pages (e.g. Yanchep → `/termite-inspection-perth` + `/ant-control-perth`)
-- `/service-areas` → all suburb pages (already has a full list — confirm no new suburbs are missing)
+With ~95 suburb pages live, verify hub-and-spoke wiring:
+- `/service-areas` → all suburb pages (check none are missing)
+- Every suburb page → `/service-areas` + 2–3 relevant service pages (e.g. Yanchep → `/termite-inspection-perth` + `/ant-control-perth`)
 - Every service page → 3–5 nearby suburb pages in a "We cover…" strip
-This is the Day 11–14 "connect + dominate" step from the battle plan.
+This is the Day 11–14 "connect + dominate" step from the battle plan — still unverified.
 
 ---
 
 ## Off-site tasks (not build work — Dane's side)
-- **GBP at Warwick 6024** — still the single highest-leverage move. If not verified yet, this is the real #1 task for calls.
+- **GBP at Warwick 6024** — still the single highest-leverage move for phone calls. Map pack > organic rankings.
 - **NAP citations** (TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal) — consistent "Warwick WA 6024 / 0468 170 107"
-- **Review-ask SMS/email** after every job
+- **Review-ask SMS/email** after every job; ask clients to mention suburb + pest in the review text
 
 ## Blockers
-- None on the build side. Everything above is unblocked.
-- GBP outranks all of the above for phone calls — prioritise it over any build task.
+- None on the build side.
+- GBP outranks all build tasks for phone calls — if not yet verified, it is the real #1.
