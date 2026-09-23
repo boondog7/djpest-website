@@ -10,7 +10,7 @@ python3 build/build.py   # exits non-zero on compliance hits
 
 DIST=dist; rm -rf "$DIST"; mkdir -p "$DIST"
 rsync -a --delete \
-  --exclude 'build/' --exclude 'seo/' --exclude 'samples/' --exclude '_archive/' --exclude 'dist/' --exclude '.git/' \
+  --exclude 'build/' --exclude 'reviews/' --exclude 'seo/' --exclude 'samples/' --exclude '_archive/' --exclude 'dist/' --exclude '.git/' \
   --exclude '*.md' --exclude 'deploy.sh' --exclude 'blog/_drafts/' --exclude 'assets/img/higgsfield/' \
   --exclude 'assets/img/hero-a.png' --exclude 'assets/img/hero-b.png' --exclude 'assets/email-signature-logo.png' \
   --exclude 'node_modules/' --exclude '.DS_Store' --exclude 'wrangler.toml' \

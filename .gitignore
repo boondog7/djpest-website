@@ -11,3 +11,7 @@ build/__pycache__/
 seo/semrush/raw/
 seo/semrush/all_responses.json
 seo/semrush/harvest.log
+reviews/places_watch_state.json
+reviews/places_watch.log
+reviews/places_watch.out
+reviews/places_watch.err

@@ -22,6 +22,7 @@ SITE = json.loads((ROOT / "build" / "site.json").read_text())
 DOMAIN = SITE["domain"]
 TODAY = datetime.date.today().isoformat()
 import hashlib
+sys.path.insert(0, str(ROOT / 'build')); import reviews_lib as RV
 CSS_VER = hashlib.md5((ROOT / "assets" / "css" / "site.css").read_bytes()).hexdigest()[:8]
 
 # ---------------------------------------------------------------- helpers
@@ -128,10 +129,11 @@ def quote_block(heading="Get an honest, itemised quote.", intro=None):
 
 # ---------------------------------------------------------------- chrome
 NAV = [("Services", "/services"), ("Termites", "/termite-inspection-perth"), ("Investment", "/pest-control-prices-perth"),
-       ("Areas", "/service-areas"), ("About", "/about"), ("Blog", "/blog")]
+       ("Areas", "/service-areas"), ("Reviews", "/reviews"), ("About", "/about"), ("Blog", "/blog")]
 
 def header():
-    links = "".join(f'<a href="{h}">{esc(t)}</a>' for t, h in NAV)
+    live = bool(RV.shown(RV.load()))
+    links = "".join(f'<a href="{h}">{esc(t)}</a>' for t, h in NAV if h != "/reviews" or live)
     return f"""<a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
@@ -165,6 +167,7 @@ def footer():
       <li><a href="/commercial-pest-control-perth">Commercial pest management</a></li>
     </ul></div>
     <div><div class="fh">Company</div><ul>
+      {'<li><a href="/reviews">Customer reviews</a></li>' if RV.shown(RV.load()) else ''}
       <li><a href="/about">About</a></li>
       <li><a href="/pest-control-prices-perth">Investment guide</a></li>
       <li><a href="/whats-my-pest">What's my pest?</a></li>
@@ -219,6 +222,7 @@ def site_graph():
         "address": {"@type": "PostalAddress", "addressLocality": SITE["base_suburb"], "addressRegion": "WA", "postalCode": SITE["base_postcode"], "addressCountry": "AU"},
         "geo": {"@type": "GeoCoordinates", "latitude": SITE["geo"]["lat"], "longitude": SITE["geo"]["lng"]},
         "areaServed": [{"@type": "City", "name": s} for s in SITE["service_area"]],
+        **RV.schema(RV.load()),
         "openingHours": "Mo-Su 07:00-18:00", "priceRange": "$$",
         "foundingDate": "2026", "slogan": "Perth family pest management since 2011",
         "identifier": [{"@type": "PropertyValue", "propertyID": "ABN", "value": SITE["abn"].replace(" ", "")},
@@ -289,6 +293,9 @@ def _strip_gated(html_text):
 
 def render(page):
     path = page["path"]
+    cr = page.get("crumbs") or []
+    sub = cr[-1][0] if len(cr) == 2 and cr[0][1] == "/service-areas" else None
+    page = {**page, "body": RV.inject(path, page["body"], sub)}
     canonical = DOMAIN + ("" if path == "/" else path)
     schema = {"@context": "https://schema.org", "@graph": site_graph() + list(page.get("schema", []))}
     if page.get("crumbs"): schema["@graph"].append(crumbs_schema(page["crumbs"], path))
@@ -363,6 +370,9 @@ def out_path(path):
 
 def main():
     check_only = "--check" in sys.argv
+    rv_problems = RV.validate()
+    if rv_problems:
+        print("REVIEWS GATE FAILED:"); [print("  " + x) for x in rv_problems]; sys.exit(3)
     pages = load_pages()
     seen = set(); hits = []; urls = []
     for g in _gated_paths():  # remove stale output of gated pages so they cannot ship
