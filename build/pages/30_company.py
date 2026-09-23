@@ -72,7 +72,7 @@ def investment(c):
         ("How much does termite treatment cost?", "A termite chemical management system installed to AS 3660.2:2017 typically runs $2,500 to $5,500 in Perth, depending on the length of the perimeter and how much of it is paved or concreted (which has to be drilled and injected rather than trenched). A baiting system is $1,500 to $3,000 to install plus an ongoing monitoring program. An inspection first ($250–$350) tells you which one the house actually needs."),
         ("What does an exterminator cost per visit?", "We do not use the word exterminator, because no treatment removes every pest for good. A single general pest visit is $250 to $350. Follow-up visits, where a program needs them, are $90 to $140. There is no call-out fee for a look and a quote."),
         ("Why is one quote so much cheaper than another?", "Usually one of four things: a smaller scope (external only, no roof void), a repellent spray instead of a colony treatment, no report or follow-up, or a variation clause that lifts the investment on the day. Ask the six questions above and the difference usually explains itself."),
-        ("Do you charge more for same-day or weekend work?", "No. We work Monday to Saturday, 7am to 6pm, at the same rates. If we can fit an active infestation in today, we do."),
+        ("Do you charge more for same-day or weekend work?", "No. We work Monday to Sunday, 7am to 6pm, at the same rates. If we can fit an active infestation in today, we do."),
         ("Are prices GST inclusive?", "Yes. Every figure on this page and every quote we send includes GST. There is no deposit and payment terms are seven days from the invoice."),
     ]
 
@@ -148,7 +148,7 @@ def whats_my_pest(c):
                  actions=False)
     body += c["section"](c["eyebrow"]("What did you see?") + grid, "ledger")
     body += _prose(c, f"""<h2>Still not sure? Text a photo.</h2>
-<p>A phone photo is enough for most identifications. Send it to <a href="{S['phone_sms']}">{S['phone_display']}</a> with your suburb and where you found it (kitchen, roof void, garden bed). We reply during business hours, Monday to Saturday, with what it is, whether it needs treatment and roughly what that would investment. No charge for the identification.</p>
+<p>A phone photo is enough for most identifications. Send it to <a href="{S['phone_sms']}">{S['phone_display']}</a> with your suburb and where you found it (kitchen, roof void, garden bed). We reply during business hours, Monday to Sunday, with what it is, whether it needs treatment and roughly what that would investment. No charge for the identification.</p>
 <div class="callout"><p><strong>Helpful photos:</strong> the pest next to a coin for scale, droppings where you found them, mud tubes with a wider shot of the wall, and any damage to timber or packaging. A blurry photo of a fast ant is still useful if the trail is in the frame.</p></div>
 <h2>Why identification comes first</h2>
 <p>Every pest on this page is treated differently, and getting the species wrong wastes the treatment. A repellent spray on a coastal brown ant trail splits the colony into several. Aerosol on German cockroaches scatters them deeper into the voids. Breaking a termite mud tube sends the workers elsewhere and hides the evidence an inspector needs. Rat bait placed for mice, or mouse bait for rats, gets ignored.</p>
@@ -241,7 +241,7 @@ def contact(c):
     cards = (c["card"]("Call", f'<a href="tel:{S["phone_tel"]}" style="font-size:1.3rem;text-decoration:none">{S["phone_display"]}</a><br>Answered by one of our technicians. If we are in a roof void, leave a message and we call back within the hour.') +
              c["card"]("Text a photo", f'<a href="{S["phone_sms"]}" style="font-size:1.3rem;text-decoration:none">{S["phone_display"]}</a><br>Send a photo of the pest, droppings or damage with your suburb. Free identification.') +
              c["card"]("Email", f'<a href="mailto:{S["email"]}" style="font-size:1.1rem;text-decoration:none">{S["email"]}</a><br>For quotes, reports, invoices and strata or commercial enquiries.') +
-             c["card"]("Hours", f'{S["hours"]}<br>Closed Sundays and public holidays. Same-day for active infestations where the run allows.'))
+             c["card"]("Hours", f'{S["hours"]}<br>Public holidays by arrangement. Same-day for active infestations where the run allows.'))
     body = _hero(c, "Contact", "Get in touch.", "Phone, text or the form. Whichever you choose, you get a written, itemised investment before anything is booked.", actions=False)
     body += c["section"]('<div class="grid grid-4">' + cards + '</div>', "ledger")
     body += c["section"]('<div class="grid grid-2" style="gap:3rem;align-items:start"><div class="prose">'
@@ -253,7 +253,7 @@ def contact(c):
     return {
         "path": "/contact",
         "title": "Contact DJ Pest | Pest Control Warwick & Perth Northern Suburbs",
-        "desc": "Call or text 0468 170 107, email ops@djpest.com.au, or send the form. Mon–Sat 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
+        "desc": "Call or text 0468 170 107, email ops@djpest.com.au, or send the form. Mon–Sun 7am–6pm. Based in Warwick, servicing Perth's northern suburbs.",
         "body": body, "schema": [{"@type": "ContactPage", "name": "Contact DJ Pest", "url": DOMAIN + "/contact", "mainEntity": {"@id": DOMAIN + "/#business"}}],
         "crumbs": [("Contact", None)],
     }
