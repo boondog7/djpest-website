@@ -269,7 +269,7 @@ def pages(c):
     tc_faqs = [
         ("How much does termite treatment cost in Perth?", f"A non-repellent chemical management system to AS 3660.2 typically costs {money(*chem)}, and a baiting and monitoring system typically costs {money(*bait)} to install, plus monitoring visits quoted separately. Both come after an AS 4349.3 inspection, typically {money(*ins)}. All figures are GST inclusive and every system is quoted itemised in writing after the inspection."),
         ("Why do termite treatment quotes vary so much?", "Because the job is measured in metres, not bedrooms. Two houses the same size can have very different perimeters, very different amounts of paving against the wall and very different floors. Drilling and injecting through concrete takes far longer than trenching open soil, and a timber floor adds a sub-floor treatment. A quote that does not show the metres, the product and the rate cannot be compared with one that does."),
-        ("Is baiting cheaper than a chemical system?", f"Up front it usually is: a baiting install typically runs {money(*bait)} against {money(*chem)} for a chemical system. Baiting then carries scheduled monitoring visits for as long as the system is in place, so the fair comparison is over several years, not on day one. We put both options side by side on the quote where both suit the house."),
+        ("Is a baiting system cheaper than a chemical barrier?", f"Up front it usually is: a baiting install typically runs {money(*bait)} against {money(*chem)} for a chemical system. Baiting then carries scheduled monitoring visits for as long as the system is in place, so the fair comparison is over several years, not on day one. We put both options side by side on the quote where both suit the house."),
         ("Do I need an inspection before you can quote?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot price a perimeter we have not measured. If you already hold a current AS 4349.3 report from another technician we can work from it, but we still walk the site before quoting."),
         ("Does home insurance cover termite damage?", "Usually not. Most Australian home and contents policies exclude damage caused by termites, which is why inspection and a maintained management system matter. Check the exclusions in your own product disclosure statement rather than relying on a general answer."),
         ("Can I treat termites myself?", "Retail termite products are not designed to create a continuous treated zone to AS 3660.2, and spraying live workings with a repellent usually drives the termites elsewhere in the house and makes a professional treatment harder. If you have found termites, leave them alone, photograph them and call us."),
@@ -300,6 +300,9 @@ def pages(c):
             '<li><strong>Extensions and slab joins.</strong> Every join between an original slab and an extension, and every plumbing penetration, is a known termite path that is treated individually.</li>'
             '<li><strong>Ground and water.</strong> Limestone pockets in suburbs like Greenwood, Warwick and Kingsley mean more drilling. Bores, soakwells and vegetable beds bring label setbacks that can change the design along one side.</li>'
             '<li><strong>Live activity.</strong> Active termites in the house are usually treated or baited first, before the perimeter system goes in. That is a separate line on the quote.</li></ul>'
+            '<h2>Termite barrier cost in Perth</h2>'
+            f'<p>Most people still call it a termite barrier, and most quotes still say barrier. For an existing home, a chemical termite barrier is a non-repellent treated zone in the soil around and under the building, typically {money(*chem)}. AS 3660.2 calls it a management system, because no barrier stops termites outright: a well-installed one makes concealed entry unlikely and makes any entry visible at the next inspection.</p>'
+            '<p>Physical barriers, such as stainless steel mesh or graded stone, are installed while a house is being built and are not something that can be retrofitted under an existing slab. If your home was built with one, the annual inspection checks that renovations, paving and garden beds have not bridged it. If it has been bridged, the usual repair is a chemical treated zone or bait stations across the gap, quoted on the metres involved.</p>'
             '<h2>Where a typical northern-suburbs home lands</h2>'
             '<p>These are illustrations, not quotes. Your house will differ, and the inspection is what turns an illustration into a number.</p>'
             '<ul><li><strong>A 1970s brick-veneer on a slab in <a href="/greenwood">Greenwood</a> or <a href="/warwick">Warwick</a></strong>, garden beds along most walls and a paved path down one side. Mostly trenching, some drilling. Usually the lower to middle part of the chemical range.</li>'
@@ -307,7 +310,7 @@ def pages(c):
             '<li><strong>A two-storey rebuild on a small lot</strong> with paving to the fence. A shorter perimeter but almost all of it under concrete, so often a baiting and monitoring system is the better design.</li>'
             '<li><strong>An older timber-floored home</strong> in the inner-north suburbs. Perimeter plus sub-floor, so toward the top of the chemical range.</li></ul>'
             '<h2>The first-year sum, done properly</h2>'
-            f'<p>The inspection comes first, so a realistic first-year budget is the inspection plus the system: {yr1_chem} for an inspection and a chemical system, or {yr1_bait} for an inspection and a baiting install, before monitoring visits. After that, the AS 3660.2 inspection is due at intervals not exceeding 12 months. If it is priced at our standard inspection range, five years of inspections adds up to {five_insp}. Some years it will find nothing. Some years it will find the new garden bed that bridged the treated zone, which is the whole point.</p>'
+            f'<p>The inspection comes first, so a realistic first-year budget is the inspection plus the system: {yr1_chem} for an inspection and a chemical system, or {yr1_bait} for an inspection and a baiting install, before monitoring visits. After that, the AS 3660.2 inspection is due at intervals not exceeding 12 months. As an illustration only, if each annual inspection fell within our {money(*ins)} inspection range, five annual inspections would total {five_insp}. Your quote shows the actual price. Some years it will find nothing. Some years it will find the new garden bed that bridged the treated zone, which is the whole point.</p>'
             '<div class="callout"><p>Every figure on this page is GST inclusive. GST is one-eleventh of an inclusive price, so if you are claiming it back on an investment property, your accountant will want the tax invoice, which we issue for every job.</p></div>'
             '<h2>What an itemised termite quote should show</h2>'
             '<p>A termite quote that fits on a sticky note is a termite quote you cannot check. Ours shows each of these lines, and any quote you are comparing it with should too.</p>'
@@ -338,10 +341,10 @@ def pages(c):
         ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Termite treatment", "/termite-treatment-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Re-treatment terms", "/warranty")]), "ledger") + \
         sec(eb("Questions") + head("Termite cost FAQ.") + faq(tc_faqs)) + \
         quote("Get the termite quote itemised.", "Tell us the suburb, roughly how old the house is and what has been found. We will book the inspection and send the itemised investment in writing. No call-out fee, no deposit.")
-    out.append({"path": "/termite-treatment-cost-perth", "title": "Termite Treatment Cost Perth (2026) | Itemised Chemical & Baiting Prices | DJ Pest",
-                "desc": f"Termite treatment cost in Perth, GST inclusive: chemical systems {money(*chem)}, baiting {money(*bait)} to install, inspections {money(*ins)}. What moves the price, and how to check a quote.",
+    out.append({"path": "/termite-treatment-cost-perth", "title": "Termite Treatment Cost Perth (2026) | Barrier vs Baiting | DJ Pest",
+                "desc": f"Termite treatment cost in Perth, GST incl: chemical barrier {money(*chem)}, baiting {money(*bait)}, inspection {money(*ins)}. What moves the price.",
                 "body": tc_body, "crumbs": [("Investment guide", "/pest-control-prices-perth"), ("Termite treatment cost", None)],
-                "schema": [service_schema("Termite treatment", bait[0], chem[1], "Termite management systems to AS 3660.2:2017, inspected first and quoted itemised in writing."), faq_schema(tc_faqs)]})
+                "schema": [service_schema("Termite treatment cost guide", bait[0], chem[1], "Typical Perth costs for termite management systems to AS 3660.2:2017, inspected first and quoted itemised in writing."), faq_schema(tc_faqs)]})
 
     # ================================================================ /general-pest-control-perth
     gp_faqs = [
@@ -790,7 +793,7 @@ def pages(c):
             "Tell us about anyone in the household with a bee-sting allergy, and where the EpiPen is kept.",
             "Text a photo of the cluster or the entry point and tell us how long the traffic has been going on.",
             "Let us know if a neighbour keeps hives. Sealing the treated entry promptly matters more when there are managed colonies nearby.",
-        ]) + related([("Wasp removal", "/wasp-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth")])) + \
+        ]) + related([("Wasp removal", "/wasp-removal-perth"), ("Wasp or bee? How to get rid of a wasp nest", "/blog/how-to-get-rid-of-a-wasp-nest"), ("Investment guide", "/pest-control-prices-perth")])) + \
         sec(eb("Questions") + head("Bee removal FAQ.") + faq(be_faqs), "ledger") + \
         quote("Swarm or hive, start with a photo.", "Text a photo and how long it has been going on. If it is a swarm you get a beekeeper's number; if it is a hive you get an itemised investment and an evening slot.")
     out.append({"path": "/bee-removal-perth", "title": "Bee Removal Perth | Swarm Relocation and Hive Treatment | DJ Pest",
@@ -937,8 +940,8 @@ def pages(c):
     for pg in out:
         if pg["path"] in LOCAL:
             label, subs = LOCAL[pg["path"]]
-            links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{label} in {esc(n)}</a>' for n in subs)
-            block = sec(eb("Local notes") + head("By suburb.", "Housing, ground and what we look for, suburb by suburb.") + f'<p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
+            links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{esc(n)}</a>' for n in subs)
+            block = sec(eb("Local notes") + head(f"{label} by suburb.", "Housing, ground and what we look for, suburb by suburb.") + f'<p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
             i = pg["body"].rfind('<section class="quote"')
             pg["body"] = pg["body"][:i] + block + pg["body"][i:] if i >= 0 else pg["body"] + block
 

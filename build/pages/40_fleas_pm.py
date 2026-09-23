@@ -147,8 +147,8 @@ def pages(c):
              "/end-of-lease-pest-control-perth": ("End-of-lease pest control", ["Joondalup", "Scarborough", "Girrawheen", "Westminster", "Nollamara", "Joondanna"])}
     def _local(path, body):
         label, subs = LOCAL[path]
-        links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{label} in {esc(n)}</a>' for n in subs)
-        block = sec(eb("Local notes") + f'<div class="section-head"><h2>By suburb.</h2><p class="lead">Housing, ground and what we look for, suburb by suburb.</p></div><p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
+        links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{esc(n)}</a>' for n in subs)
+        block = sec(eb("Local notes") + f'<div class="section-head"><h2>{label} by suburb.</h2><p class="lead">Housing, ground and what we look for, suburb by suburb.</p></div><p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
         i = body.rfind('<section class="quote"')
         return body[:i] + block + body[i:] if i >= 0 else body + block
     pages_out = [

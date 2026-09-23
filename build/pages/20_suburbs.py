@@ -2384,7 +2384,7 @@ def pages(c):
             why = "Grey sand with a high water table means termite pressure is higher and we quote management systems conservatively; general pest work is unaffected."
         else:
             why = "Most homes here are 1970s to 1980s brick and tile on sand, the standard job for us, so quotes sit close to the middle of each range."
-        return (f'<div class="callout"><p><strong>What it typically comes to in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is $250 to $350, an external ant treatment $250 to $400, a rodent program $220 to $380 and a timber pest inspection $250 to $350. {why} Every job is quoted itemised in writing before we start, with no call-out fee and no deposit. <a href="/pest-control-prices-perth">Full investment guide</a> · <a href="/termite-treatment-cost-perth">{("What termite treatment costs", "Termite treatment cost, worked through", "How a termite quote is built")[sum(map(ord, sub)) % 3]}</a>.</p></div>')
+        return (f'<div class="callout"><p><strong>What it typically comes to in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is $250 to $350, an external ant treatment $250 to $400, a rodent program $220 to $380 and a timber pest inspection $250 to $350. {why} Every job is quoted itemised in writing before we start, with no call-out fee and no deposit. <a href="/pest-control-prices-perth">Full investment guide</a> · <a href="/termite-treatment-cost-perth">{("What termite treatment costs", "Termite barrier vs baiting prices", "How a termite quote is built")[sum(map(ord, sub)) % 3]}</a>.</p></div>')
 
     # ----------------------------------------------------------- suburb pages
     for name, d in SUBURBS.items():
