@@ -29,7 +29,14 @@ DRY = "--dry" in sys.argv
 
 def env(name):
     f = CFG / name
-    return dict(l.split("=", 1) for l in f.read_text().splitlines() if "=" in l and not l.startswith("#")) if f.exists() else {}
+    out = {}
+    if f.exists():
+        for l in f.read_text().splitlines():
+            l = l.strip()
+            if not l or l.startswith("#") or "=" not in l: continue
+            k, v = l.removeprefix("export ").split("=", 1)
+            out[k.strip()] = v.strip().strip('"').strip("'")
+    return out
 
 def log(msg):
     line = f"{datetime.datetime.now():%Y-%m-%d %H:%M} {msg}"
