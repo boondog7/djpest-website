@@ -183,7 +183,7 @@ def pages(c):
             "Unlock side gates and sheds. Note where the retic management boxes are.",
             "Tell us about any past termite treatment, damage or repairs you know of, and where.",
             "Keep pets inside or secured. Nothing is sprayed during an inspection, but we open a lot of doors.",
-        ]) + related([("Termite treatment", "/termite-treatment-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Termite blog posts", "/blog")]), "ledger") + \
+        ]) + related([("Termite treatment", "/termite-treatment-perth"), ("Termite treatment cost", "/termite-treatment-cost-perth"), ("Investment guide", "/pest-control-prices-perth")]), "ledger") + \
         sec(eb("Questions") + head("Termite inspection FAQ.") + faq(ti_faqs)) + \
         quote("Book a termite inspection.", "Tell us the suburb, the age of the house and whether it is for peace of mind, a suspected problem or a purchase. We will confirm a investment and a time.")
     out.append({"path": "/termite-inspection-perth", "title": "Termite Inspection Perth | AS 4349.3 Timber Pest Reports | DJ Pest",
@@ -193,17 +193,17 @@ def pages(c):
 
     # ================================================================ /termite-treatment-perth
     tt_faqs = [
-        ("Do you need to inspect before quoting a termite treatment?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot investment a perimeter we have not measured or a construction type we have not seen. If you already have a current AS 4349.3 report from another licensed technician we can work from it, but we still walk the site before quoting."),
+        ("Do you need to inspect before quoting a termite treatment?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot investment a perimeter we have not measured or a construction type we have not seen. If you already have a current AS 4349.3 report from another technician we can work from it, but we still walk the site before quoting."),
         ("Chemical system or baiting: which is better?", "Neither, in general. A non-repellent chemical treated zone gives faster, continuous protection and suits most northern-suburbs brick homes on a slab. Baiting suits sites where trenching or drilling is impractical, where the owner wants to avoid soil treatment, or where live activity needs to be eliminated first. Often we recommend a chemical system with a small number of monitoring stations as a check. We explain the reasoning on your quote."),
         ("Will a treatment kill the nest?", "A non-repellent treated zone is designed so that foraging termites pass through it, pick up the active and transfer it through the colony. Field results are strong, but the colony may be a hundred metres away under a neighbour's yard and cannot be located or confirmed. The system protects the building; the annual inspection confirms it is still doing so."),
         ("Why is the annual inspection a condition of the certificate?", "Because a treated zone can be breached: a new garden bed, paving laid over the slab edge, a deck footing, a plumber's trench. Chemicals also degrade over time. AS 3660.2 sets an inspection interval not exceeding 12 months for this reason, and our re-treatment promise on the system is conditional on those inspections being carried out."),
         ("How long does the treatment take, and do we need to leave?", "A full perimeter chemical system on a single-storey home takes most of a day. You can stay home. Kids and pets stay away from the treated zone until it is complete and any re-entry period we advise has passed. Baiting installations take two to three hours."),
-        ("What does a termite treatment cost in Perth?", f"A non-repellent chemical management system typically runs {money(*PRICES['chem'])} depending on perimeter length, construction and how much drilling is needed. A baiting and monitoring system typically runs {money(*PRICES['bait'])} to install, plus scheduled monitoring visits. Every system is quoted itemised in writing after inspection."),
+        ("What does a termite treatment cost in Perth?", f"A non-repellent chemical management system typically runs {money(*PRICES['chem'])} depending on perimeter length, construction and how much drilling is needed. A baiting and monitoring system typically runs {money(*PRICES['bait'])} to install, plus scheduled monitoring visits. Every system is quoted itemised in writing after inspection. The <a href=\"/termite-treatment-cost-perth\">full termite treatment cost breakdown</a> shows what moves the number."),
         ("Do you use physical barriers?", "Physical systems such as stainless mesh or graded stone are installed at construction and are not something we retrofit. For existing homes, the options are a chemical treated zone, a baiting and monitoring system, or a combination."),
     ]
     tt_body = hero("Termite treatment · AS 3660.2:2017",
                    "Termite treatment Perth.<br>Designed for your house, <em class=\"red\">certified</em> in writing.",
-                   "Non-repellent chemical management systems and baiting programs installed to AS 3660.2 by a licensed technician. Inspected first, quoted itemised, certificate issued, annual inspection scheduled.",
+                   "Non-repellent chemical management systems and baiting programs installed to AS 3660.2, carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence. Inspected first, quoted itemised, certificate issued, annual inspection scheduled.",
                    ["Licensed under the WA Pesticides Regs", "AS 3660.2 certificate", "Non-repellent chemistry", "Annual inspection scheduled"],
                    art_card("How a treatment runs", ["AS 4349.3 inspection first, always", "System designed to the construction and soil", "Itemised quote: metres, drill points, product, follow-ups", "Installed to label and to the Standard", "Certificate and site plan issued", "12-month inspection diarised"])) + \
         sec('<div class="prose">'
@@ -229,7 +229,7 @@ def pages(c):
             '<h2>What the certificate covers</h2>'
             '<ul><li>The type of system installed and the product used, with its APVMA registration and the rate applied.</li>'
             '<li>A site plan showing treated zones, drill lines, bait or monitoring station positions and any areas that could not be treated, with the reason.</li>'
-            '<li>The date of installation, the licensed technician who installed it and our WA business registration.</li>'
+            '<li>The date of installation, the technician who installed it and their licence details, and our WA business registration.</li>'
             '<li>The inspection interval and the conditions of the re-treatment promise.</li>'
             '<li>Durable notice details for the meter box as the Standard requires, so the next owner or tradesperson knows a system is in place.</li></ul>'
             '<p>The treatment record is kept for three years as the Health (Pesticides) Regulations 2011 (WA) require. If you sell the house, the certificate and site plan go to the buyer and save everyone an argument.</p>'
@@ -240,7 +240,7 @@ def pages(c):
                 ["Baiting and monitoring system (install)", money(*PRICES['bait']), "Number of stations, plus scheduled monitoring visits quoted separately"],
                 ["Treatment of live activity (spot)", "Quoted on inspection", "Extent of workings, access, product"],
                 ["Annual AS 3660.2 inspection", "Quoted with the system", "Keeps the certificate and re-treatment promise current"],
-            ], amount_cols=(1,)) + PRICE_NOTE, "ledger") + \
+            ], amount_cols=(1,)) + '<p class="prose">Want the arithmetic? The <a href="/termite-treatment-cost-perth">termite treatment cost guide</a> shows where a typical northern-suburbs home lands and what an itemised termite quote should show.</p>' + PRICE_NOTE, "ledger") + \
         sec(eb("What you get") + head("Paperwork that follows the house.") + included([
             ("AS 3660.2 certificate and site plan", "System type, product, rate, treated zones, drill lines, station positions and exclusions. The document a buyer's inspector will ask for."),
             ("Treatment record", "Product, active constituent, rate, litres, areas treated, re-entry period and technician. Kept three years under WA regulations and emailed to you."),
@@ -253,13 +253,95 @@ def pages(c):
             "Unlock side gates, sheds and garages. Move cars out of the garage if the floor is to be drilled.",
             "Keep pets inside for the day. Kids and pets stay out of the treated zone until the re-entry period we advise has passed.",
             "Have a plan for the meter box notice. We fit it on the day.",
-        ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Service areas", "/service-areas")]), "ledger") + \
+        ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Termite treatment cost", "/termite-treatment-cost-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Service areas", "/service-areas")]), "ledger") + \
         sec(eb("Questions") + head("Termite treatment FAQ.") + faq(tt_faqs)) + \
         quote("Get a termite treatment quoted properly.", "Tell us what has been found and where. We will inspect, design the system to the house and send an itemised investment with the reasoning written down.")
     out.append({"path": "/termite-treatment-perth", "title": "Termite Treatment Perth | AS 3660.2 Management Systems | DJ Pest",
                 "desc": f"Termite treatment for Perth's northern suburbs: non-repellent chemical systems and baiting to AS 3660.2, certificate issued. Typical {money(*PRICES['chem'])}.",
                 "body": tt_body, "crumbs": crumbs("Termite treatment"),
                 "schema": [service_schema("Termite treatment", PRICES['bait'][0], PRICES['chem'][1], "Termite management systems installed to AS 3660.2:2017."), faq_schema(tt_faqs)]})
+
+    # ================================================================ /termite-treatment-cost-perth
+    ins, pp, chem, bait = PRICES['inspection'], PRICES['prepurchase'], PRICES['chem'], PRICES['bait']
+    yr1_chem = money(ins[0] + chem[0], ins[1] + chem[1])
+    yr1_bait = money(ins[0] + bait[0], ins[1] + bait[1])
+    five_insp = money(5 * ins[0], 5 * ins[1])
+    tc_faqs = [
+        ("How much does termite treatment cost in Perth?", f"A non-repellent chemical management system to AS 3660.2 typically costs {money(*chem)}, and a baiting and monitoring system typically costs {money(*bait)} to install, plus monitoring visits quoted separately. Both come after an AS 4349.3 inspection, typically {money(*ins)}. All figures are GST inclusive and every system is quoted itemised in writing after the inspection."),
+        ("Why do termite treatment quotes vary so much?", "Because the job is measured in metres, not bedrooms. Two houses the same size can have very different perimeters, very different amounts of paving against the wall and very different floors. Drilling and injecting through concrete takes far longer than trenching open soil, and a timber floor adds a sub-floor treatment. A quote that does not show the metres, the product and the rate cannot be compared with one that does."),
+        ("Is baiting cheaper than a chemical system?", f"Up front it usually is: a baiting install typically runs {money(*bait)} against {money(*chem)} for a chemical system. Baiting then carries scheduled monitoring visits for as long as the system is in place, so the fair comparison is over several years, not on day one. We put both options side by side on the quote where both suit the house."),
+        ("Do I need an inspection before you can quote?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot price a perimeter we have not measured. If you already hold a current AS 4349.3 report from another technician we can work from it, but we still walk the site before quoting."),
+        ("Does home insurance cover termite damage?", "Usually not. Most Australian home and contents policies exclude damage caused by termites, which is why inspection and a maintained management system matter. Check the exclusions in your own product disclosure statement rather than relying on a general answer."),
+        ("Can I treat termites myself?", "Retail termite products are not designed to create a continuous treated zone to AS 3660.2, and spraying live workings with a repellent usually drives the termites elsewhere in the house and makes a professional treatment harder. If you have found termites, leave them alone, photograph them and call us."),
+        ("What ongoing costs should I budget for?", "Two things. First, the AS 3660.2 inspection at intervals not exceeding 12 months, which keeps the certificate and our re-treatment promise current. We price it with the system so it is on the quote from day one. Second, for a baiting system, the monitoring visits. Neither is hidden in a footnote."),
+        ("Are your termite prices GST inclusive?", "Yes. Every range on this page includes GST, there is no call-out fee and no deposit, and the itemised quote is in writing before anything is booked."),
+    ]
+    tc_body = hero("Termite treatment cost · Perth 2026",
+                   "Termite treatment cost in Perth.<br>The real numbers, <em class=\"red\">itemised</em>.",
+                   f"Straight answer: an inspection is typically {money(*ins)}, a baiting system {money(*bait)} to install and a full chemical management system {money(*chem)}, all GST inclusive. Where your house lands comes down to metres of perimeter and how much of it is under paving. (An accountant runs this business, so yes, there is a spreadsheet.)",
+                   ["GST inclusive", "Inspected before quoting", "Itemised in writing", "No call-out fee"],
+                   art_card("Typical ranges, GST inclusive", [f"Inspection (AS 4349.3): {money(*ins)}", f"Pre-purchase inspection: {money(*pp)}", f"Baiting system install: {money(*bait)}", f"Chemical system (AS 3660.2): {money(*chem)}", "Monitoring and annual inspections: priced on the quote"])) + \
+        sec(eb("The investment") + head("Termite prices in Perth, line by line.", "Typical ranges across Perth's northern suburbs. Your quote lands inside or outside them for reasons we write down.") +
+            ledger(["Service", "Typical range", "What decides where you land", "Who it suits"], [
+                ["Timber pest inspection (AS 4349.3)", money(*ins), "Size, roof void and sub-floor access, outbuildings", "Every home, every 12 months"],
+                ["Pre-purchase timber pest inspection", money(*pp), "As above, buyer-focused report and settlement timing", "Buyers before the cooling-off period ends"],
+                ["Baiting and monitoring system (install)", money(*bait), "Number of stations and the length of the perimeter", "Heavy paving, live activity, no soil treatment wanted"],
+                ["Non-repellent chemical management system", money(*chem), "Metres trenched, metres drilled through paving or concrete, sub-floor, extensions", "Most brick homes on a slab with an accessible perimeter"],
+                ["Bait monitoring visits", "Priced on the quote", "Visit frequency set to the site and activity", "Every baiting system"],
+                ["Annual AS 3660.2 inspection", "Priced with the system", "Keeps the certificate and re-treatment promise current", "Every management system"],
+            ], amount_cols=(1,)) +
+            '<div class="callout"><p><strong>Found termites today?</strong> Do not spray them and do not break open the workings. Photograph what you can see, leave it alone and ring us. Disturbed termites move, and a moved colony is harder and dearer to treat.</p></div>' + PRICE_NOTE, "ledger") + \
+        sec('<div class="prose">'
+            '<h2>What actually moves the number</h2>'
+            '<p>Termite work is priced on the ground around the house, not on the number of bedrooms. These are the things that push a quote up or down, roughly in order of how much they matter.</p>'
+            '<ul><li><strong>Perimeter length.</strong> The product goes on at a label rate per metre of treated zone, and the labour follows the metres. A long, stepped footprint costs more than a compact rectangle of the same floor area.</li>'
+            '<li><strong>Paving and concrete against the wall.</strong> Open soil is trenched, treated and backfilled. Paving, paths, patios and garage floors have to be drilled at close spacing, injected and plugged, which is slower. A house paved to the walls on three sides sits toward the top of the range.</li>'
+            '<li><strong>Floor type.</strong> A slab-on-ground home is treated from the outside. A timber-floored home adds a sub-floor treatment, and low clearance adds time.</li>'
+            '<li><strong>Extensions and slab joins.</strong> Every join between an original slab and an extension, and every plumbing penetration, is a known termite path that is treated individually.</li>'
+            '<li><strong>Ground and water.</strong> Limestone pockets in suburbs like Greenwood, Warwick and Kingsley mean more drilling. Bores, soakwells and vegetable beds bring label setbacks that can change the design along one side.</li>'
+            '<li><strong>Live activity.</strong> Active termites in the house are usually treated or baited first, before the perimeter system goes in. That is a separate line on the quote.</li></ul>'
+            '<h2>Where a typical northern-suburbs home lands</h2>'
+            '<p>These are illustrations, not quotes. Your house will differ, and the inspection is what turns an illustration into a number.</p>'
+            '<ul><li><strong>A 1970s brick-veneer on a slab in <a href="/greenwood">Greenwood</a> or <a href="/warwick">Warwick</a></strong>, garden beds along most walls and a paved path down one side. Mostly trenching, some drilling. Usually the lower to middle part of the chemical range.</li>'
+            '<li><strong>The same house after the renovations</strong>: alfresco slab across the back, pavers to the walls, a family-room extension. Mostly drilling, plus the extension join. Usually the upper part of the range, and baiting becomes a genuine alternative.</li>'
+            '<li><strong>A two-storey rebuild on a small lot</strong> with paving to the fence. A shorter perimeter but almost all of it under concrete, so often a baiting and monitoring system is the better design.</li>'
+            '<li><strong>An older timber-floored home</strong> in the inner-north suburbs. Perimeter plus sub-floor, so toward the top of the chemical range.</li></ul>'
+            '<h2>The first-year sum, done properly</h2>'
+            f'<p>The inspection comes first, so a realistic first-year budget is the inspection plus the system: {yr1_chem} for an inspection and a chemical system, or {yr1_bait} for an inspection and a baiting install, before monitoring visits. After that, the AS 3660.2 inspection is due at intervals not exceeding 12 months. If it is priced at our standard inspection range, five years of inspections adds up to {five_insp}. Some years it will find nothing. Some years it will find the new garden bed that bridged the treated zone, which is the whole point.</p>'
+            '<div class="callout"><p>Every figure on this page is GST inclusive. GST is one-eleventh of an inclusive price, so if you are claiming it back on an investment property, your accountant will want the tax invoice, which we issue for every job.</p></div>'
+            '<h2>What an itemised termite quote should show</h2>'
+            '<p>A termite quote that fits on a sticky note is a termite quote you cannot check. Ours shows each of these lines, and any quote you are comparing it with should too.</p>'
+            '</div>' +
+            ledger(["Line", "Unit", "What you should be able to see"], [
+                ["Inspection", "Per visit", "The AS 4349.3 report it is based on, with photos"],
+                ["Trenching and treating open soil", "Metres", "How many metres, which sides of the house"],
+                ["Drill, inject and plug through hard surfaces", "Metres", "How many metres, which surfaces, how the holes are finished"],
+                ["Product", "Litres at label rate", "Product name, active constituent, APVMA registration, rate"],
+                ["Bait stations (if baiting)", "Stations", "How many, where, and the monitoring frequency"],
+                ["Certificate, site plan and durable notice", "Per system", "Treated zones, drill lines, exclusions and the reason for each"],
+                ["Annual inspection", "Per visit", "The price, and what happens to the promise if one is missed"],
+            ]) +
+            '<div class="prose">'
+            '<h2>Six questions that expose a bad termite quote</h2>'
+            '<ol><li><strong>Is it itemised by metres and product?</strong> If not, there is nothing to compare.</li>'
+            '<li><strong>Was the house inspected first?</strong> A phone quote for a termite system is a guess, and guesses turn into variations on the day.</li>'
+            '<li><strong>Is the product a non-repellent, applied at label rate?</strong> Repellent chemistry lets termites find the gap.</li>'
+            '<li><strong>What is the re-treatment promise, and what are its conditions?</strong> It should be in writing and tied to the annual inspection.</li>'
+            '<li><strong>Can the price change on the day?</strong> Watch for a variations clause, and ask what would trigger one.</li>'
+            '<li><strong>Who is doing the work?</strong> In WA, termite management work must be carried out by, or under the direct supervision of, a technician holding a WA pest management technician\'s licence, working for a registered pest management business.</li></ol>'
+            '<p>Our re-treatment promise is set out on the AS 3660.2 certificate and in our <a href="/warranty">written terms</a>. It sits alongside your rights under the Australian Consumer Law, which it does not replace. For the non-termite jobs, the <a href="/pest-control-prices-perth">full investment guide</a> and our plain-English <a href="/blog/how-much-does-pest-control-cost">guide to pest control costs</a> cover every other service.</p>'
+            '</div>') + \
+        sec(eb("Next step") + head("Two ways in.") + included([
+            ("Book an inspection", f"Typically {money(*ins)}, same-day written report with photos. If treatment is needed, the itemised quote follows from it. <a href=\"/termite-inspection-perth\">Termite inspection</a>."),
+            ("Already have a report?", "Send it with photos of what was found. We walk the site, design the system to the house and quote it line by line. <a href=\"/termite-treatment-perth\">How the treatment works</a>."),
+            ("Buying a house?", f"A pre-purchase timber pest inspection is typically {money(*pp)}, booked around your settlement dates. Ask for it when you ring."),
+        ]) + related([("Termite inspection", "/termite-inspection-perth"), ("Termite treatment", "/termite-treatment-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Re-treatment terms", "/warranty")]), "ledger") + \
+        sec(eb("Questions") + head("Termite cost FAQ.") + faq(tc_faqs)) + \
+        quote("Get the termite quote itemised.", "Tell us the suburb, roughly how old the house is and what has been found. We will book the inspection and send the itemised investment in writing. No call-out fee, no deposit.")
+    out.append({"path": "/termite-treatment-cost-perth", "title": "Termite Treatment Cost Perth (2026) | Itemised Chemical & Baiting Prices | DJ Pest",
+                "desc": f"Termite treatment cost in Perth, GST inclusive: chemical systems {money(*chem)}, baiting {money(*bait)} to install, inspections {money(*ins)}. What moves the price, and how to check a quote.",
+                "body": tc_body, "crumbs": [("Investment guide", "/pest-control-prices-perth"), ("Termite treatment cost", None)],
+                "schema": [service_schema("Termite treatment", bait[0], chem[1], "Termite management systems to AS 3660.2:2017, inspected first and quoted itemised in writing."), faq_schema(tc_faqs)]})
 
     # ================================================================ /general-pest-control-perth
     gp_faqs = [
@@ -361,7 +443,7 @@ def pages(c):
             "Turn retic off the night before so soil treatments are not flushed.",
             "Unlock side gates and note where the worst mounds are.",
             "Kids and pets stay off treated soil and paving until the re-entry period we advise has passed.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Ant blog posts", "/blog")]), "ledger") + \
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("How to get rid of ants", "/blog/how-to-get-rid-of-ants")]), "ledger") + \
         sec(eb("Questions") + head("Ant management FAQ.") + faq(ant_faqs)) + \
         quote("Get the ants treated properly.", "Tell us the suburb and where the trails run. Text a photo if you can. We will identify the species and send an itemised investment.")
     out.append({"path": "/ant-control-perth", "title": "Ant Control Perth | Coastal Brown Ant Super-Colony Treatment | DJ Pest",
@@ -414,7 +496,7 @@ def pages(c):
             "Fix or report dripping taps and leaking dishwasher hoses. Water is the reason they chose your kitchen.",
             "Tell us about anyone in the home with asthma or chemical sensitivity so we can adjust the plan.",
             "Kids and pets stay out of treated rooms until surfaces are dry and the re-entry period we advise has passed.",
-        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("Cockroach blog posts", "/blog")]), "ledger") + \
+        ]) + related([("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth"), ("How to get rid of cockroaches", "/blog/how-to-get-rid-of-cockroaches")]), "ledger") + \
         sec(eb("Questions") + head("Cockroach management FAQ.") + faq(ck_faqs)) + \
         quote("Get the cockroaches treated at the source.", "Tell us where you are seeing them and when. A photo helps us identify the species before we arrive. Itemised investment, no obligation.")
     out.append({"path": "/cockroach-control-perth", "title": "Cockroach Control Perth | German Cockroach Gel + IGR Program | DJ Pest",
@@ -644,7 +726,7 @@ def pages(c):
             "Tell us about anyone in the household with a wasp or bee sting allergy.",
             "If you can do it safely from a distance, text a photo of the nest and note any other spots you have seen traffic.",
             "Unlock side gates and clear the path along the walls so we can walk the full roofline.",
-        ]) + related([("Bee removal", "/bee-removal-perth"), ("General pest treatment", "/general-pest-control-perth"), ("Investment guide", "/pest-control-prices-perth")])) + \
+        ]) + related([("How to get rid of a wasp nest yourself", "/blog/how-to-get-rid-of-a-wasp-nest"), ("Bee removal", "/bee-removal-perth"), ("Investment guide", "/pest-control-prices-perth")])) + \
         sec(eb("Questions") + head("Wasp removal FAQ.") + faq(wa_faqs), "ledger") + \
         quote("A nest by the door gets fast-tracked.", "Text a photo of the nest and your suburb. We will tell you what it is, send an itemised investment and, for a nest over a door or a path, usually get there the same day.")
     out.append({"path": "/wasp-removal-perth", "title": "Wasp Removal Perth | Paper Wasp Nest Treatment, Same Day | DJ Pest",
@@ -836,5 +918,28 @@ def pages(c):
                 "desc": f"Bed bug treatment for Perth's northern suburbs. Every harbourage inspected and treated, growth regulator and desiccant dust, second visit built in for the hatch. Typical {money(*PRICES['bedbug'])}.",
                 "body": bb_body, "crumbs": crumbs("Bed bug treatment"),
                 "schema": [service_schema("Bed bug treatment", *PRICES['bedbug'], "Two-visit bed bug treatment program: inspection-led residual, insect growth regulator and desiccant dust, with a follow-up visit at ten to fourteen days."), faq_schema(bb_faqs)]})
+
+    LOCAL = {
+        "/termite-inspection-perth": ("Termite inspection", ["Warwick", "Greenwood", "Duncraig", "Joondalup", "Padbury", "Kingsley"]),
+        "/termite-treatment-perth": ("Termite treatment", ["Joondalup", "Greenwood", "Marangaroo", "Balga", "Tapping", "Sinagra"]),
+        "/termite-treatment-cost-perth": ("Termite work", ["Warwick", "Greenwood", "Duncraig", "Kingsley", "Joondalup", "Marangaroo"]),
+        "/general-pest-control-perth": ("General pest treatment", ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Kingsley"]),
+        "/ant-control-perth": ("Ant management", ["Warwick", "Hillarys", "Currambine", "Balga", "Ballajura", "Hocking"]),
+        "/cockroach-control-perth": ("Cockroach management", ["Stirling", "Tuart Hill", "Innaloo", "Balcatta", "Osborne Park", "Mount Hawthorn"]),
+        "/spider-control-perth": ("Spider management", ["Craigie", "Iluka", "Karrinyup", "Clarkson", "Ocean Reef", "Duncraig"]),
+        "/rodent-control-perth": ("Rodent management", ["Kallaroo", "Ocean Reef", "Mullaloo", "Kinross", "Marangaroo", "Osborne Park"]),
+        "/mosquito-control-perth": ("Mosquito treatment", ["Edgewater", "Woodvale", "Noranda", "Pearsall", "Joondalup", "Gwelup"]),
+        "/wasp-removal-perth": ("Wasp removal", ["Craigie", "Padbury", "Hamersley", "Woodvale", "Warwick", "Greenwood"]),
+        "/bee-removal-perth": ("Bee removal", ["Woodvale", "Kinross", "Mullaloo", "Warwick", "Greenwood", "Kingsley"]),
+        "/commercial-pest-control-perth": ("Commercial pest management", ["Osborne Park", "Wangara", "Malaga", "Balcatta", "Joondalup", "Stirling"]),
+        "/bed-bug-treatment-perth": ("Bed bug treatment", ["Joondalup", "Scarborough", "Mirrabooka", "Osborne Park", "Balga", "Girrawheen"]),
+    }
+    for pg in out:
+        if pg["path"] in LOCAL:
+            label, subs = LOCAL[pg["path"]]
+            links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{label} in {esc(n)}</a>' for n in subs)
+            block = sec(eb("Local notes") + head("By suburb.", "Housing, ground and what we look for, suburb by suburb.") + f'<p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
+            i = pg["body"].rfind('<section class="quote"')
+            pg["body"] = pg["body"][:i] + block + pg["body"][i:] if i >= 0 else pg["body"] + block
 
     return out

@@ -508,7 +508,7 @@ SUBURBS = {
         ("Spiders and cockroaches", "Black house spiders and native cockroaches out of the dune scrub onto rendered walls and alfrescos, redbacks in retic pits and under limestone coping, American cockroaches from stormwater lines near the harbour. Low-odour, non-staining products indoors. <a href=\"/general-pest-control-perth\">General pest treatment</a>."),
     ],
     now="September in Ocean Reef: coastal brown ants are trailing along paving edges and driveways as the sand warms, black house spiders are re-webbing the walls that face the dune reserve, and rats that moved in over winter are still in the roof. The 1970s and 1980s homes south of Hodges Drive are the ones to book a termite inspection for now, before the November swarm flights.",
-    neighbours=["Mullaloo", "Currambine", "Joondalup"],
+    neighbours=["Mullaloo", "Currambine", "Joondalup", "Iluka"],
     faqs=[
         ("How far is Ocean Reef from your Warwick base?", "About twenty minutes along the Mitchell Freeway and Hodges Drive, or up Marmion Avenue. Same-day for active pests is usually possible, and routine treatments are booked within the week."),
         ("Is old Ocean Reef south of Hodges Drive a termite risk?", "Yes. That precinct is 1970s and 1980s double brick and brick veneer with timber roof framing on strip footings, over limestone that keeps moisture close to the house through summer. An inspection to AS 4349.3 every twelve months is what we recommend for that housing; the 1990s Beaumaris side needs its slab penetrations and neighbouring pressure checked too. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -531,7 +531,7 @@ SUBURBS = {
         ("Mosquitoes", "The golf course lakes and irrigated fairways on the south-eastern side breed mosquitoes through spring and summer. Harbourage treatment of shaded vegetation, applied to label, and advice on the water around your own block. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="September in Currambine: coastal brown ants are the first thing most residents notice as the paving warms, followed by mosquitoes off the golf course lakes on the still evenings. Rats that wintered in garages and roofs along the freeway edge are still active. Even on slab homes a termite inspection now, before the November swarm flights, catches anything that came in through a penetration last summer.",
-    neighbours=["Ocean Reef", "Kinross", "Joondalup"],
+    neighbours=["Ocean Reef", "Kinross", "Joondalup", "Connolly", "Iluka"],
     faqs=[
         ("How long does it take you to reach Currambine?", "About twenty minutes from Warwick up the Mitchell Freeway to Shenton Avenue or Burns Beach Road. Same-day for active pests is usually possible, and routine treatments are booked within the week."),
         ("My Currambine home is on a slab. Do I still need a termite inspection?", "Yes. Slab-on-ground removes timber from the ground but not the risk: termites come through plumbing and electrical penetrations, shrinkage cracks and any point where paving or garden beds have been built above the slab edge. Many 1990s homes have had their original management zone bridged that way. An inspection to AS 4349.3 every twelve months is the standard. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -577,7 +577,7 @@ SUBURBS = {
         ("Mosquitoes", "Big Carine Swamp and Little Carine Swamp breed mosquitoes from spring through autumn and the prevailing breeze pushes them across the surrounding streets. Harbourage treatment of shaded vegetation and fence lines, and advice on the water sitting in your own yard. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="Spring in Carine starts with coastal brown ants surfacing along the paving as the sand warms, then mosquitoes off the swamps as the evenings lengthen. Rats that spent winter in the roof are breeding now, so activity in the ceiling gets louder rather than quieter. With most of the suburb's timber-framed homes now past forty years old, a termite inspection before the November alate flights is the single most useful thing to book this month.",
-    neighbours=["Duncraig", "Warwick", "Karrinyup"],
+    neighbours=["Duncraig", "Warwick", "Karrinyup", "Gwelup"],
     faqs=[
         ("How long does it take you to get to Carine?", "About eight minutes from Warwick along Beach Road or Marmion Avenue. Same-day for active pests is usually possible, and we can generally fit Carine in around jobs in Duncraig and Karrinyup on the same run."),
         ("Are 1970s and 1980s Carine homes at real termite risk?", "Yes. They have timber roof framing and timber door frames, they sit on yellow sand over limestone that holds moisture, and many of the original chemical barriers have been bridged by later paving, extensions or garden beds. An inspection to AS 4349.3 every twelve months is the standard for this age of housing, and a management system to AS 3660.2 where activity or high risk is found. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -600,7 +600,7 @@ SUBURBS = {
         ("Spiders and cockroaches", "Redbacks under limestone coping and in retic boxes, black house spiders on rendered walls and brick, native bush cockroaches and American cockroaches from the stormwater system. <a href=\"/general-pest-control-perth\">General pest treatment</a>."),
     ],
     now="Spring in Karrinyup is spider season first: redbacks reappear under outdoor furniture and along limestone walls as soon as the days warm, and black house spiders web up window frames and eaves facing the bushland. Coastal brown ants follow along the paving through October. Roof rats that wintered in the ceiling are now breeding. With most of the original housing past fifty years old, a termite inspection before the November swarm is worth booking now.",
-    neighbours=["Carine", "Hamersley", "Balcatta"],
+    neighbours=["Carine", "Hamersley", "Balcatta", "Gwelup"],
     faqs=[
         ("How far is Karrinyup from your Warwick base?", "About twelve minutes via Reid Highway or Beach Road and Marmion Avenue. Same-day for active pests is usually possible, and Karrinyup pairs naturally with Carine and Hamersley jobs on the same run."),
         ("Are the older Karrinyup homes a termite risk?", "The 1960s and 1970s brick-and-tile homes have timber roof framing, and they sit on yellow sand over limestone that stays damp in pockets. Many original barriers were bridged decades ago by paving and garden beds. An annual inspection to AS 4349.3 is the standard, and where the limestone is shallow a management system to AS 3660.2 is installed by drilling and injecting rather than trenching. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -807,7 +807,7 @@ SUBURBS = {
         ("Mosquitoes", "Kingsway's ponds and irrigated ovals, plus retic overspray and pot saucers on small lots. Harbourage treatment and a breeding-site check around the yard. <a href=\"/mosquito-control-perth\">Mosquito treatment</a>."),
     ],
     now="Spring in Madeley starts with coastal brown ants trailing across warm paving and into kitchens, then mosquitoes as Kingsway's ponds and the retic come back on. Homes here are past twenty years old now, which is when the original builder termite systems have usually lapsed, so book an inspection before the November swarm nights rather than after.",
-    neighbours=["Darch", "Landsdale", "Kingsley"],
+    neighbours=["Darch", "Landsdale", "Kingsley", "Wangara"],
     faqs=[
         ("How long does it take you to get to Madeley?", "About eight minutes from Warwick along Hepburn Avenue or Wanneroo Road. Same-day treatment for active pests is usually possible."),
         ("Are 2000s homes in Madeley really at risk of termites?", "Yes. The original chemical or physical system installed at construction has a finite life and is often bridged by paving, garden beds and retic added later. A slab home hides activity well because termites enter through penetrations and behind the render. An inspection to AS 4349.3 every twelve months is the right interval here."),
@@ -1060,7 +1060,7 @@ SUBURBS = {
         ("Mosquitoes", "The lakes at Landsdale Gardens and the damp low ground in spring and early summer. Larval habitat checks on the property, a barrier treatment of resting vegetation, APVMA-registered and applied to label. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="Spring in Landsdale is coastal brown ants along the driveway and alfresco paving first, then mosquitoes building on the streets nearest the lakes as the days warm. Redbacks move back into retic boxes and under outdoor furniture. Homes now fifteen to twenty-five years old are past the life of their original termite system, so an inspection before the November flights is worth booking.",
-    neighbours=["Darch", "Alexander Heights", "Madeley"],
+    neighbours=["Darch", "Alexander Heights", "Madeley", "Wangara"],
     faqs=[
         ("How quickly can you get to Landsdale?", "About ten minutes from Warwick along Warwick Road and Alexander Drive. Same-day for active pests is usually possible."),
         ("My Landsdale home is only twenty years old. Do I need a termite inspection?", "Yes. The system installed at construction has a finite life and is often bridged by later paving, garden beds and retic penetrations. The neighbouring bush and every new stage of subdivision pushes disturbed colonies onto established homes. An inspection to AS 4349.3 every twelve months, and a perimeter system to AS 3660.2 once the original has lapsed."),
@@ -1175,7 +1175,7 @@ SUBURBS = {
         ("German cockroaches", "Cafes, kitchens and staff rooms across the commercial precinct. Gel baits and low-odour non-staining products applied to label, with a written record for your food safety file. <a href=\"/cockroach-control-perth\">Cockroach management</a>."),
     ],
     now="Spring in Osborne Park brings mosquitoes off Herdsman Lake as the evenings warm, coastal brown ants along the footpaths and warehouse aprons, and the start of the commercial rodent season as the lake margins dry and rats move toward the buildings. For the older homes around Royal and Main Streets, a termite inspection now, before the November alate flights, is the sensible move.",
-    neighbours=["Stirling", "Innaloo", "Tuart Hill"],
+    neighbours=["Stirling", "Innaloo", "Tuart Hill", "Herdsman"],
     faqs=[
         ("How far is Osborne Park from Warwick?", "About twelve minutes down the Mitchell Freeway to Hutton Street. Same-day for active pests is usually possible, and we schedule commercial work around your trading hours."),
         ("Is termite risk high for the older homes in Osborne Park?", "Yes. The residential pocket around Main Street and Royal Street is mostly 1960s brick and tile with timber roof framing, sitting on old market garden soil that stays damp. That is a good combination for subterranean termites. An annual inspection to AS 4349.3 and, where needed, a chemical management system to AS 3660.2 are the answer. <a href=\"/termite-inspection-perth\">Termite inspection</a>."),
@@ -1267,7 +1267,7 @@ SUBURBS = {
         ("Mosquitoes", "Emu Lake and Emu Swamp breed from the first warm weeks of spring. Harbourage treatment of foliage, fences and shaded walls, applied to label, for the outdoor season. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="Spring in Ballajura brings the first mosquito evenings off Emu Lake and Emu Swamp, coastal brown ants surfacing along driveways as the sand warms, and redbacks back under outdoor furniture. Rats that wintered in the roof need clearing now. Most of the suburb's brick and tile is thirty to forty years old on timber framing, so a termite inspection before the November alate flights is the sensible move.",
-    neighbours=["Koondoola", "Beechboro", "Alexander Heights"],
+    neighbours=["Koondoola", "Beechboro", "Alexander Heights", "Malaga"],
     faqs=[
         ("How far is Ballajura from Warwick?", "About twelve minutes east along Beach Road and Marangaroo Drive. Same-day for active pests is usually possible."),
         ("Are Ballajura's 1980s and 1990s homes at risk from termites?", "Yes. They were built with timber roof framing and many have had the original barrier bridged by a patio, a garden bed or a shed slab since. The damp Bassendean sand near the lakes keeps ground moisture up through summer. An annual inspection to AS 4349.3 is the minimum, and a chemical management system to AS 3660.2 where activity is found. <a href=\"/termite-inspection-perth\">Termite inspection</a>."),
@@ -1359,7 +1359,7 @@ SUBURBS = {
         ("Mosquitoes", "The Dog Swamp lake and drainage basin breed mosquitoes through the warm months, and they reach the streets south of Flinders Street on still evenings. Harbourage treatment of shaded vegetation and advice on standing water around the home. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="Spring in Yokine brings coastal brown ants out along the paving, the first mosquitoes off Dog Swamp as the water warms, and rats that wintered in roof spaces starting to breed. Much of the suburb still has original 1950s and 1960s roof framing, and November is swarm season for termite alates, so an inspection now finds a colony that has been feeding quietly since last summer.",
-    neighbours=["Dianella", "Tuart Hill", "Joondanna"],
+    neighbours=["Dianella", "Tuart Hill", "Joondanna", "Coolbinia"],
     faqs=[
         ("How far is Yokine from your Warwick base?", "About twelve minutes south down Wanneroo Road or the Mitchell Freeway. Same-day service for active pests is usually possible. We are in Yokine, Dianella and Tuart Hill most weeks, so a visit can often be fitted in around other jobs nearby."),
         ("Are the older Yokine homes a termite risk?", "Yes. The 1950s and 1960s homes around the golf course and in the southern streets have timber roof framing and often timber subfloors, plus decades of irrigated garden beds against the brickwork. A termite inspection to AS 4349.3 before buying, renovating or every year as a matter of course is the right approach, with a management system to AS 3660.2 where needed. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -1405,7 +1405,7 @@ SUBURBS = {
         ("Mosquitoes", "The perched wetland in Lightning Swamp holds water year-round and the seasonal swamps fill each winter, so the streets along Malaga Drive and Matthews Close get mosquitoes from spring to autumn. Harbourage treatment and standing-water advice. <a href=\"/mosquito-control-perth\">Mosquito management</a>."),
     ],
     now="Spring in Noranda means the first mosquitoes off Lightning Swamp as the water warms, coastal brown ants along the driveways, and rats that wintered in roof spaces starting to breed. The suburb's timber roof framing is now past forty years old, and November is termite swarm season, so an inspection this spring finds a colony that has been feeding since last summer before the alates fly.",
-    neighbours=["Morley", "Dianella", "Beechboro"],
+    neighbours=["Morley", "Dianella", "Beechboro", "Malaga"],
     faqs=[
         ("How far is Noranda from Warwick?", "About twelve minutes east along Beach Road or Reid Highway to Malaga Drive. Same-day service for active pests is usually possible, and we work Noranda, Morley and Dianella regularly enough that a visit can often be added to an existing run."),
         ("Are 1980s Noranda homes at risk from termites?", "Yes. The double brick and tile homes of that era have timber roof framing now past forty years old, and most were built before modern management systems were standard. Irrigated gardens on fast-draining Bassendean sand bring the moisture termites need to the wall line. A termite inspection to AS 4349.3 each year, with a system to AS 3660.2 if needed, is the right approach. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -1497,7 +1497,7 @@ SUBURBS = {
         ("Mosquitoes", "Herdsman Lake breeds from September, and the lake-edge streets carry the load. Residual harbourage treatment of shaded vegetation and fence lines, applied to label. <a href=\"/mosquito-control-perth\">Mosquito treatment</a>."),
     ],
     now="Spring in Churchlands means the lake wakes up: mosquito numbers climb from September along Pearson Street and the streets backing the regional park, and ants start surfacing through paving and alfresco edges across the newer estate. Spiders are rebuilding webs on rendered walls after winter. The 1980s homes on timber framing are due a termite inspection to AS 4349.3 now, before the November alate flights bring new colonies in from the wetland.",
-    neighbours=["Wembley Downs", "Floreat", "Woodlands"],
+    neighbours=["Wembley Downs", "Floreat", "Woodlands", "Herdsman"],
     faqs=[
         ("How far is Churchlands from your Warwick base?", "About fifteen minutes down the Mitchell Freeway and across on Hutton Street or Powis Street, or via Karrinyup Road and Empire Avenue. Same-day attendance for active pests is usually possible."),
         ("Do new homes in Churchlands Green still need termite inspections?", "Yes. A new slab-on-ground home has a termite management system installed at construction, but landscaping, paving and garden beds built up against the slab bridge it within a few years, and the surrounding older suburbs supply the colonies. An annual inspection to AS 4349.3 keeps the builder's system meaningful. <a href=\"/termite-inspection-perth\">Termite inspections</a>."),
@@ -1566,7 +1566,7 @@ SUBURBS = {
         ("Spiders and cockroaches", "Redbacks in retic boxes and under coping, black house spiders on brick, and native cockroaches from banksia litter in the reserves. <a href=\"/spider-control-perth\">Spider treatment</a> and <a href=\"/general-pest-control-perth\">general pest treatment</a>."),
     ],
     now="September in Heathridge is coastal brown ant season first, surfacing through brick paving and along pool surrounds as the sand warms, then redbacks back under outdoor furniture and in retic boxes. Rats are moving from roof voids to sheds and park edges to nest. With most of the suburb built in the 1980s on timber framing, a termite inspection to AS 4349.3 now, ahead of the November sea-breeze alate flights, is the booking that saves the most.",
-    neighbours=["Beldon", "Edgewater", "Ocean Reef"],
+    neighbours=["Beldon", "Edgewater", "Ocean Reef", "Connolly"],
     faqs=[
         ("How long from Warwick to Heathridge?", "About fifteen minutes north on the Mitchell Freeway to Ocean Reef Road or Hodges Drive. Same-day attendance for active pests is usually possible."),
         ("Are 1980s Heathridge homes at risk from termites?", "Yes. Timber roof framing on double brick over limestone is a standard northern-suburbs termite target, and any management system installed when the home was built has long since expired. Paving and garden beds built up against the slab edge add a bridge. An annual inspection to AS 4349.3 is the baseline. <a href=\"/termite-inspection-perth\">Termite inspections</a>."),
@@ -1612,7 +1612,7 @@ SUBURBS = {
         ("Spiders and cockroaches", "Black house spiders on brick and under eaves, redbacks in retic boxes and letterboxes, and American cockroaches from the old clay sewer and stormwater lines that serve the suburb. <a href=\"/general-pest-control-perth\">General pest treatment</a>."),
     ],
     now="Spring in Menora starts with ants working up through paving and garden edges as the ground warms, and with rodents that wintered in roof voids moving out into gardens where they are easier to notice. Black house spiders and redbacks build up quickly on warm brick. With so much original 1940s to 1960s timber framing, a termite inspection now, before the November alate flights, is the most useful thing a Menora owner can book this season.",
-    neighbours=["Mount Lawley", "Yokine", "Inglewood"],
+    neighbours=["Mount Lawley", "Yokine", "Inglewood", "Coolbinia"],
     faqs=[
         ("How long does it take you to get to Menora?", "About fifteen minutes from Warwick, down the Mitchell Freeway or Alexander Drive to Walcott Street. Same-day for active pests is usually possible, and we schedule around retirement village and strata access requirements without fuss."),
         ("Are the older character homes in Menora at real termite risk?", "Yes. Most of the suburb's bungalows and post-war homes have original timber roof framing, and the earliest have suspended timber floors. Termites reach them through garden beds against the walls and through subfloor vents blocked by paving. An inspection to AS 4349.3 each year is the sensible baseline; a chemical management system to AS 3660.2 follows only where it is needed. <a href=\"/termite-inspection-perth\">Book an inspection</a>."),
@@ -2384,7 +2384,7 @@ def pages(c):
             why = "Grey sand with a high water table means termite pressure is higher and we quote management systems conservatively; general pest work is unaffected."
         else:
             why = "Most homes here are 1970s to 1980s brick and tile on sand, the standard job for us, so quotes sit close to the middle of each range."
-        return (f'<div class="callout"><p><strong>What it typically comes to in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is $250 to $350, an external ant treatment $250 to $400, a rodent program $220 to $380 and a timber pest inspection $250 to $350. {why} Every job is quoted itemised in writing before we start, with no call-out fee and no deposit. <a href="/pest-control-prices-perth">Full investment guide</a>.</p></div>')
+        return (f'<div class="callout"><p><strong>What it typically comes to in {esc(sub)}.</strong> A general pest treatment for a three-bedroom home is $250 to $350, an external ant treatment $250 to $400, a rodent program $220 to $380 and a timber pest inspection $250 to $350. {why} Every job is quoted itemised in writing before we start, with no call-out fee and no deposit. <a href="/pest-control-prices-perth">Full investment guide</a> · <a href="/termite-treatment-cost-perth">{("What termite treatment costs", "Termite treatment cost, worked through", "How a termite quote is built")[sum(map(ord, sub)) % 3]}</a>.</p></div>')
 
     # ----------------------------------------------------------- suburb pages
     for name, d in SUBURBS.items():
