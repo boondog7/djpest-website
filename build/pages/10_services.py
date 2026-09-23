@@ -268,7 +268,7 @@ def pages(c):
     five_insp = money(5 * ins[0], 5 * ins[1])
     tc_faqs = [
         ("How much does termite treatment cost in Perth?", f"A non-repellent chemical management system to AS 3660.2 typically costs {money(*chem)}, and a baiting and monitoring system typically costs {money(*bait)} to install, plus monitoring visits quoted separately. Both come after an AS 4349.3 inspection, typically {money(*ins)}. All figures are GST inclusive and every system is quoted itemised in writing after the inspection."),
-        ("Why do termite treatment quotes vary so much?", "Because the job is measured in metres, not bedrooms. Two houses the same size can have very different perimeters, very different amounts of paving against the wall and very different floors. Drilling and injecting through concrete takes far longer than trenching open soil, and a timber floor adds a sub-floor treatment. A quote that does not show the metres, the product and the rate cannot be compared with one that does."),
+        ("Why do termite treatment quotes vary so much?", "Because the job is measured in metres, not bedrooms. Two houses the same size can differ a lot in perimeter, paving and flooring. Drilling and injecting through concrete takes far longer than trenching open soil, and a timber floor adds a sub-floor treatment. A quote that does not show the metres, the product and the rate cannot be compared with one that does."),
         ("Is a baiting system cheaper than a chemical barrier?", f"Up front it usually is: a baiting install typically runs {money(*bait)} against {money(*chem)} for a chemical system. Baiting then carries scheduled monitoring visits for as long as the system is in place, so the fair comparison is over several years, not on day one. We put both options side by side on the quote where both suit the house."),
         ("Do I need an inspection before you can quote?", "Yes. AS 3660.2 requires an inspection before a management system is designed, and we cannot price a perimeter we have not measured. If you already hold a current AS 4349.3 report from another technician we can work from it, but we still walk the site before quoting."),
         ("Does home insurance cover termite damage?", "Usually not. Most Australian home and contents policies exclude damage caused by termites, which is why inspection and a maintained management system matter. Check the exclusions in your own product disclosure statement rather than relying on a general answer."),
@@ -278,17 +278,17 @@ def pages(c):
     ]
     tc_body = hero("Termite treatment cost · Perth 2026",
                    "Termite treatment cost in Perth.<br>The real numbers, <em class=\"red\">itemised</em>.",
-                   f"Straight answer: an inspection is typically {money(*ins)}, a baiting system {money(*bait)} to install and a full chemical management system {money(*chem)}, all GST inclusive. Where your house lands comes down to metres of perimeter and how much of it is under paving. (An accountant runs this business, so yes, there is a spreadsheet.)",
+                   f"Straight answer: an inspection is typically {money(*ins)}, a baiting system {money(*bait)} to install and a full chemical management system {money(*chem)}, all GST inclusive. Your number depends mostly on two things: how many metres of perimeter, and how much of it is under paving. Found termites today? Don't spray them or break the mud; photograph them and ring us. (A Chartered Accountant runs this business, so every quote is itemised by the metre and the product. You can check the maths.)",
                    ["GST inclusive", "Inspected before quoting", "Itemised in writing", "No call-out fee"],
                    art_card("Typical ranges, GST inclusive", [f"Inspection (AS 4349.3): {money(*ins)}", f"Pre-purchase inspection: {money(*pp)}", f"Baiting system install: {money(*bait)}", f"Chemical system (AS 3660.2): {money(*chem)}", "Monitoring and annual inspections: priced on the quote"])) + \
         sec(eb("The investment") + head("Termite prices in Perth, line by line.", "Typical ranges across Perth's northern suburbs. Your quote lands inside or outside them for reasons we write down.") +
-            ledger(["Service", "Typical range", "What decides where you land", "Who it suits"], [
-                ["Timber pest inspection (AS 4349.3)", money(*ins), "Size, roof void and sub-floor access, outbuildings", "Every home, every 12 months"],
-                ["Pre-purchase timber pest inspection", money(*pp), "As above, buyer-focused report and settlement timing", "Buyers before the cooling-off period ends"],
-                ["Baiting and monitoring system (install)", money(*bait), "Number of stations and the length of the perimeter", "Heavy paving, live activity, no soil treatment wanted"],
-                ["Non-repellent chemical management system", money(*chem), "Metres trenched, metres drilled through paving or concrete, sub-floor, extensions", "Most brick homes on a slab with an accessible perimeter"],
-                ["Bait monitoring visits", "Priced on the quote", "Visit frequency set to the site and activity", "Every baiting system"],
-                ["Annual AS 3660.2 inspection", "Priced with the system", "Keeps the certificate and re-treatment promise current", "Every management system"],
+            ledger(["Service", "Typical range", "What decides where you land"], [
+                ["Timber pest inspection (AS 4349.3)", money(*ins), "Size, roof void and sub-floor access, outbuildings"],
+                ["Pre-purchase timber pest inspection", money(*pp), "Buyer-focused report, booked around settlement"],
+                ["Baiting and monitoring system (install)", money(*bait), "Number of stations and perimeter length. Suits heavy paving or live activity"],
+                ["Non-repellent chemical management system", money(*chem), "Metres trenched, metres drilled through paving, sub-floor, extensions"],
+                ["Bait monitoring visits", "Priced on the quote", "Visit frequency set to the site and activity"],
+                ["Annual AS 3660.2 inspection", "Priced with the system", "Keeps the certificate and re-treatment promise current"],
             ], amount_cols=(1,)) +
             '<div class="callout"><p><strong>Found termites today?</strong> Do not spray them and do not break open the workings. Photograph what you can see, leave it alone and ring us. Disturbed termites move, and a moved colony is harder and dearer to treat.</p></div>' + PRICE_NOTE, "ledger") + \
         sec('<div class="prose">'
@@ -309,7 +309,7 @@ def pages(c):
             '<li><strong>The same house after the renovations</strong>: alfresco slab across the back, pavers to the walls, a family-room extension. Mostly drilling, plus the extension join. Usually the upper part of the range, and baiting becomes a genuine alternative.</li>'
             '<li><strong>A two-storey rebuild on a small lot</strong> with paving to the fence. A shorter perimeter but almost all of it under concrete, so often a baiting and monitoring system is the better design.</li>'
             '<li><strong>An older timber-floored home</strong> in the inner-north suburbs. Perimeter plus sub-floor, so toward the top of the chemical range.</li></ul>'
-            '<h2>The first-year sum, done properly</h2>'
+            '<h2>What year one really costs</h2>'
             f'<p>The inspection comes first, so a realistic first-year budget is the inspection plus the system: {yr1_chem} for an inspection and a chemical system, or {yr1_bait} for an inspection and a baiting install, before monitoring visits. After that, the AS 3660.2 inspection is due at intervals not exceeding 12 months. As an illustration only, if each annual inspection fell within our {money(*ins)} inspection range, five annual inspections would total {five_insp}. Your quote shows the actual price. Some years it will find nothing. Some years it will find the new garden bed that bridged the treated zone, which is the whole point.</p>'
             '<div class="callout"><p>Every figure on this page is GST inclusive. GST is one-eleventh of an inclusive price, so if you are claiming it back on an investment property, your accountant will want the tax invoice, which we issue for every job.</p></div>'
             '<h2>What an itemised termite quote should show</h2>'

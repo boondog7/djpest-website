@@ -8,59 +8,22 @@
 
 
 ## Progress summary
-**Done: 13 service pages + ~95 suburb pages + pricing hub + service-areas hub + 3 blog posts; ~98% of 14-day battle plan complete.**
-
-Same status as yesterday — the one remaining build gap is still open.
-
----
-
-## Next tasks (priority order)
-
-### 1. ⚠️ CARRY-OVER (day 2) — Build `termite-treatment-cost-perth.html`
-**Keyword:** `termite treatment cost` — 720/mo, KD8, CPC $6.20 (highest CPC in the set)
-**Why it's still #1:** This was yesterday's priority and still hasn't been built. It's the only MOFU cost page in the battle plan that's missing. `/pest-control-prices-perth` covers termite in one FAQ line — not enough to own the `termite treatment cost` query, which at $6.20 CPC means competitors pay real money for every click. A standalone page with worked cost tables would rank uncontested.
-
-**What to build:**
-- Filename: `termite-treatment-cost-perth.html`
-- H1: "Termite Treatment Cost Perth (2026) — What It Actually Costs"
-- Core content:
-  - Table 1 — Chemical barrier: perimeter metres × drilling/trenching cost (e.g. 120m = ~$1,800, 200m = ~$3,200, 280m = ~$4,500; Termidor HE adds ~20%)
-  - Table 2 — Bait system: station count × install; annual monitoring fee
-  - Worked example: 180m² slab home in Greenwood — step-by-step quote breakdown
-  - Factors that move the price (sub-floor access, heritage stone, garden beds against the wall, timber floors)
-  - CA angle: "No line-item surprises — here's what every dollar pays for"
-- Internal links: `/termite-inspection-perth`, `/termite-treatment-perth`, `/pest-control-prices-perth`, `/warwick`
-- JSON-LD: `@graph` — LocalBusiness + Service + FAQPage + BreadcrumbList (copy pattern from termite-inspection-perth.html)
-- **⚠️ Proposed prices below — Dane to confirm before deploying:**
-  - Chemical barrier (Termidor): $1,800–$4,500 depending on perimeter
-  - Termidor HE upgrade: +15–25% on the above
-  - Bait system install: $1,800–$3,200; annual monitoring ~$600–$900/yr
-
-**How to build:** Copy `termite-inspection-perth.html` as scaffold; adapt H1/meta/content/tables/schema. Or add an entry in `build/pages/10_services.py` following the bee/flea pattern.
+**Built 23 Sep (cloud, NOT deployed): /termite-treatment-cost-perth, /blog/how-to-get-rid-of-a-wasp-nest, internal-linking pass. ~100% of the 14-day plan's build work.**
+Panel: 3 Claude advisers + 3 Claude reviewers (the real 10-brain panel needs Mac API keys). All blockers fixed.
 
 ---
 
-### 2. Publish next blog post from the draft queue
-**File:** `blog/_drafts/02_how-to-dispose-of-a-wasp-nest.md`
-**Keyword:** `how to dispose of a wasp nest` — 1,600/mo, KD10, CPC $0.79 (rank 4 in pipeline)
-**Why:** Blog cadence is 2/week, 3 posts are live, 26 drafts are staged. The wasp disposal post captures people who already have a nest — they're one step from booking a removal. Script exists: `build/publish-next-post.sh`.
+## Dane: before `./deploy.sh --prod`
+1. **Licence gate:** termite cost page is ungated like the other termite pages. If the termite endorsement isn't held, add `/termite-treatment-cost-perth` to `site.json → unpublished`.
+2. **Wasp post hero image:** uses og-default.jpg. Add a real paper-wasp nest photo (Pexels) and set `img`/`alt` in `build/posts/how-to-get-rid-of-a-wasp-nest.html`.
+3. **Sitewide wording change:** `licence_label` now reads the fixed supervision sentence (footer + JSON-LD on every page). Check you're happy.
+4. Proposed (not published) itemised termite line figures, for you to price if wanted: trench $/m, drill-and-inject $/m, bait monitoring $/visit.
 
----
+## Next tasks
+1. Blog queue #2 `what-do-termites-look-like` (1900/KD26 + white ants 1000/KD6), termite season Sep–Nov.
+2. Add FAQPage schema support to file-based blog posts (`_post` in `build/pages/30_company.py`).
+3. Suburb pages still say "Licensed under the WA Pesticides Regs" / "Licensed pest control in…" (hero trust + meta). Decide whether to switch to the fixed wording.
+4. Ledger tables still scroll horizontally at 390px (price table 436px in 350px box). Consider a stacked mobile layout in site.css.
 
-### 3. Internal linking audit (30-min skim)
-With ~95 suburb pages live, verify hub-and-spoke wiring:
-- `/service-areas` → all suburb pages (check none are missing)
-- Every suburb page → `/service-areas` + 2–3 relevant service pages (e.g. Yanchep → `/termite-inspection-perth` + `/ant-control-perth`)
-- Every service page → 3–5 nearby suburb pages in a "We cover…" strip
-This is the Day 11–14 "connect + dominate" step from the battle plan — still unverified.
-
----
-
-## Off-site tasks (not build work — Dane's side)
-- **GBP at Warwick 6024** — still the single highest-leverage move for phone calls. Map pack > organic rankings.
-- **NAP citations** (TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal) — consistent "Warwick WA 6024 / 0468 170 107"
-- **Review-ask SMS/email** after every job; ask clients to mention suburb + pest in the review text
-
-## Blockers
-- None on the build side.
-- GBP outranks all build tasks for phone calls — if not yet verified, it is the real #1.
+## Off-site (Dane)
+- GBP at Warwick 6024, NAP citations, review asks after every job. Still the biggest lever for calls.
