@@ -183,7 +183,7 @@ def pages(c):
             "Unlock side gates and sheds. Note where the retic management boxes are.",
             "Tell us about any past termite treatment, damage or repairs you know of, and where.",
             "Keep pets inside or secured. Nothing is sprayed during an inspection, but we open a lot of doors.",
-        ]) + related([("Termite treatment", "/termite-treatment-perth"), ("Termite treatment cost", "/termite-treatment-cost-perth"), ("Investment guide", "/pest-control-prices-perth")]), "ledger") + \
+        ]) + related([("What do termites look like?", "/blog/what-do-termites-look-like"), ("Termite treatment", "/termite-treatment-perth"), ("Termite treatment cost", "/termite-treatment-cost-perth"), ("Investment guide", "/pest-control-prices-perth")]), "ledger") + \
         sec(eb("Questions") + head("Termite inspection FAQ.") + faq(ti_faqs)) + \
         quote("Book a termite inspection.", "Tell us the suburb, the age of the house and whether it is for peace of mind, a suspected problem or a purchase. We will confirm a investment and a time.")
     out.append({"path": "/termite-inspection-perth", "title": "Termite Inspection Perth | AS 4349.3 Timber Pest Reports | DJ Pest",
