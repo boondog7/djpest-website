@@ -2389,7 +2389,7 @@ def pages(c):
     # ----------------------------------------------------------- suburb pages
     for name, d in SUBURBS.items():
         hero = f"""<section class="hero"><div class="wrap"><div>
-  {c['eyebrow'](f"Pest management · {name} WA {d['postcode']} · {d["drive_short"] + (" from our Warwick base" if name != "Warwick" else "")}")}
+  {c['eyebrow'](f"Pest management · {name} WA {d['postcode']} · {d['drive_short'] + (' from our Warwick base' if name != 'Warwick' else '')}")}
   <h1>{esc(d['h1'])}</h1>
   <p class="lead">{esc(d['lead'])}</p>
   {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>

@@ -85,23 +85,49 @@ else:
     else:
         log(f"no change: {count} reviews, {rating}★")
 
+def live_site_totals():
+    """Read what the LIVE website actually shows (JSON-LD aggregateRating). None if unreachable."""
+    import re, urllib.request
+    try:
+        req = urllib.request.Request("https://djpest.com.au/?pw=" + str(int(datetime.datetime.now().timestamp())),
+                                     headers={"User-Agent": "djpest-places-watch", "Cache-Control": "no-cache"})
+        html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "replace")
+        c = re.search(r'"reviewCount":"?(\d+)', html); r = re.search(r'"ratingValue":"?([\d.]+)', html)
+        return (int(c.group(1)), float(r.group(1))) if c and r else None
+    except Exception as e:
+        log(f"live check failed: {e}")
+        return None
+
+FAIL_FLAG = HERE / ".deploy_failing"
+
 def push_totals_to_site():
-    """Keep the website's review count/rating identical to Google's. reviews_lib uses profile.google_totals."""
+    """Keep the website's review count/rating identical to Google's.
+    Compares against the LIVE site, not the local file, so a failed deploy is retried every run until it lands."""
     import subprocess
     site = HERE.parent
     rj = site / "build" / "reviews.json"
     data = json.loads(rj.read_text())
     cur = data["profile"].get("google_totals") or {}
-    if cur.get("count") == count and float(cur.get("rating") or 0) == float(rating or 0):
+    live = live_site_totals()
+    local_ok = cur.get("count") == count and float(cur.get("rating") or 0) == float(rating or 0)
+    live_ok = live == (int(count), float(rating))
+    if local_ok and live_ok:
+        if FAIL_FLAG.exists():
+            FAIL_FLAG.unlink(); telegram(f"✅ Website review count is back in sync with Google: {count} reviews, {rating}★.")
         return
-    data["profile"]["google_totals"] = {"rating": float(rating), "count": int(count),
-        "as_of": datetime.date.today().isoformat(), "source": "Google Business Profile, via Places API (New) watcher"}
-    rj.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
-    r = subprocess.run(["./deploy.sh", "--prod"], cwd=site, capture_output=True, text=True)
+    if not local_ok:
+        data["profile"]["google_totals"] = {"rating": float(rating), "count": int(count),
+            "as_of": datetime.date.today().isoformat(), "source": "Google Business Profile, via Places API (New) watcher"}
+        rj.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
+    r = subprocess.run(["/bin/bash", "./deploy.sh", "--prod"], cwd=site, capture_output=True, text=True)
     ok = r.returncode == 0
-    log(f"site totals -> {count} reviews {rating}★, deploy {'OK' if ok else 'FAILED: ' + r.stderr[-300:]}")
-    if not ok:
-        telegram(f"⚠️ Review count changed to {count} but the website deploy failed. Check reviews/places_watch.log.")
+    log(f"site totals -> {count} reviews {rating}★ (live was {live}), deploy {'OK' if ok else 'FAILED: ' + (r.stderr or r.stdout)[-400:]}")
+    if ok:
+        if FAIL_FLAG.exists():
+            FAIL_FLAG.unlink(); telegram(f"✅ Website review count fixed: now {count} reviews, {rating}★.")
+    elif not FAIL_FLAG.exists():   # alert once per failure streak, retry silently every run after
+        FAIL_FLAG.write_text(datetime.datetime.now().isoformat(timespec="seconds"))
+        telegram(f"⚠️ Google shows {count} reviews but the website shows {live[0] if live else '?'}. Deploy failed; retrying every run. Log: reviews/places_watch.log.")
 
 if not DRY and count:
     push_totals_to_site()

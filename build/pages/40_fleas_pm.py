@@ -10,7 +10,8 @@ def pages(c):
     steps = c["steps"]; faq = c["faq"]; faq_schema = c["faq_schema"]; ledger = c["ledger_table"]; quote = c["quote_block"]
 
     def head(h2, lead=None):
-        return f'<div class="section-head"><h2>{h2}</h2>{f"<p class=\"lead\">{lead}</p>" if lead else ""}</div>'
+        lead_html = f'<p class="lead">{lead}</p>' if lead else ""
+        return f'<div class="section-head"><h2>{h2}</h2>{lead_html}</div>'
 
     def hero(eyebrow, h1, lead, trust, art):
         return f"""<section class="hero"><div class="wrap"><div>{eb(eyebrow)}<h1>{h1}</h1><p class="lead">{lead}</p>
