@@ -170,6 +170,8 @@ def gates(row):
             if w < 1200: errs.append(f"image {i} is only {w}px wide (need 1200+)")
         except Exception: pass
         if not f.with_suffix(".webp").exists(): errs.append(f"missing .webp for {i}")
+        if sh(["git", "ls-files", "--error-unmatch", i.lstrip("/")]).returncode == 0:
+            errs.append(f"image {i} is an existing site photo; download a NEW one for this post")
     # structure
     faq = re.split(r"<h2>[^<]*(?:Frequently asked|Quick answers|FAQ|Common questions)[^<]*</h2>", body, flags=re.I)
     nq = len(re.findall(r"<h3", faq[1])) if len(faq) > 1 else 0
@@ -286,7 +288,12 @@ def main():
         errs = gates(row)
         if errs:
             log("gates failed: " + " | ".join(errs))
-            run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs),
+            short = "-".join(w for w in row["slug"].split("-") if w not in ("how", "to", "get", "rid", "of", "a", "the", "do", "what", "is", "are"))[:30]
+            img_help = (f"\nIMAGES: download two NEW photos from Pexels (curl -H \"Authorization: $PEXELS_API_KEY\" \"https://api.pexels.com/v1/search?query=...&per_page=8\"), "
+                        f"look at them, pick ones that truly show the subject, save as assets/img/blog-{short}-1.jpg and assets/img/blog-{short}-2.jpg (?w=1600), "
+                        f"run cwebp -q 80 on each, then point the header \"img\" and the in-article <img src> at them. Existing files in assets/img are not allowed."
+                        ) if any("image" in e for e in errs) else ""
+            run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs) + img_help,
                        REPAIR_BUDGET_USD, 30)
             errs = gates(row)
             if errs: raise Fail("gates", " | ".join(errs[:6]))
