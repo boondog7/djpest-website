@@ -15,3 +15,6 @@ reviews/places_watch_state.json
 reviews/places_watch.log
 reviews/places_watch.out
 reviews/places_watch.err
+build/blog/.lock
+build/blog/state.json
+blog/_drafts/screens/

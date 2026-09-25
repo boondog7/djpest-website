@@ -1,0 +1,291 @@
+#!/opt/homebrew/bin/python3
+"""DJ Pest Blog desk: publish the next queued post, end to end, with no silent failures.
+
+Stages (only stage 2 uses a model):
+  1 preflight   STOP file, lock, git pull --rebase, auto-commit generated-only diffs (review sync), pick the next queued row
+  2 write       claude-lean (claude --bare on the API key, Sonnet, per-run dollar cap, no deploy/git tools) writes
+                build/posts/<slug>.html + images, following the content-pipeline skill
+  3 gates       script checks: header, compliance scan clean, images real + sized, FAQ >= 6, internal links incl. the
+                queue row's service page, word count, no em dashes, no DIY application rates, no quality-bar phrases,
+                not already published. One repair pass by the writer, then re-gate.
+  4 deploy      ./deploy.sh --prod (plain bash, so no permission prompt can block it)
+  5 verify      live URL 200 + title, hero image 200, desktop + mobile screenshots, a cheap Haiku visual check
+  6 books       QUEUE.md row -> published, PUBLISH-LOG.md, git commit + push
+  7 report      HQ signal (digest) on success; on failure: rollback, HQ signal, urgent after 2 failures in a row
+
+Usage: publish.py [--prepare] [--dry] [--slug <slug>]
+  --prepare  write + gate the next queued post, park it in blog/_drafts/ready/<slug>/, deploy a PREVIEW, mark the row
+             "ready <date>". The next normal run publishes a ready draft (re-gated, no rewrite) before writing anything new.
+  --dry      stop after gates and roll back
+Owner: Head of Blog (HQ). Model routing: Meter Maddie (hq/models.json route "draft").
+"""
+from __future__ import annotations
+import fcntl, json, os, re, subprocess, sys, time, datetime as dt
+from pathlib import Path
+
+SITE = Path.home() / "jaystack/djpest"
+POSTS = SITE / "build/posts"; IMG = SITE / "assets/img"; DRAFTS = SITE / "blog/_drafts"
+QUEUE = DRAFTS / "QUEUE.md"; PLOG = DRAFTS / "PUBLISH-LOG.md"; SHOTS = DRAFTS / "screens"
+HQ = Path.home() / "business/djpest/hq"; HQPY = HQ / ".venv/bin/python"
+LEAN = str(HQ / "bin/claude-lean"); SKILL = Path.home() / ".claude/skills/content-pipeline/SKILL.md"
+STATE = SITE / "build/blog/state.json"; LOG = SITE / "build/publish.log"
+CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+ROLE = "head-of-blog"
+DRY = "--dry" in sys.argv; PREPARE = "--prepare" in sys.argv; READY = DRAFTS / "ready"
+WRITE_BUDGET_USD = "2.50"; REPAIR_BUDGET_USD = "0.80"
+GENERATED_OK = re.compile(r"^(build/reviews\.json|[^/]+\.html|blog/[^/]+\.html|blog\.html|sitemap\.xml|llms\.txt|reviews/.*\.(log|out|json))$")
+
+def log(m):
+    line = f"{dt.datetime.now():%Y-%m-%d %H:%M:%S} {m}"; print(line)
+    with open(LOG, "a") as f: f.write(line + "\n")
+
+def sh(cmd, cwd=SITE, timeout=900, env=None, inp=None):
+    return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout, env=env, input=inp)
+
+def signal(sev, title, detail="", url=""):
+    if DRY: log(f"[dry] signal {sev}: {title} | {detail[:200]}"); return
+    sh([str(HQPY), str(HQ / "hq.py"), "signal", ROLE, sev, title, detail[:600], url], cwd=HQ)
+    if sev == "urgent": sh([str(HQPY), str(HQ / "hq.py"), "flush-urgent"], cwd=HQ)
+
+def zsh_env(*names):
+    env = dict(os.environ); rc = (Path.home() / ".zshrc").read_text()
+    for n in names:
+        m = re.search(rf'^\s*export\s+{n}=["\']?([^"\'\n]+)', rc, re.M)
+        if m and n not in env: env[n] = m.group(1)
+    env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:" + env.get("PATH", "")
+    return env
+
+def state(): return json.loads(STATE.read_text()) if STATE.exists() else {}
+def put_state(s): STATE.write_text(json.dumps(s, indent=1))
+
+# ------------------------------------------------------------------ 1 preflight
+def preflight():
+    if (HQ / "STOP").exists(): raise Fail("preflight", "HQ STOP file present")
+    r = sh(["git", "pull", "-q", "--rebase", "--autostash"])
+    if r.returncode: raise Fail("preflight", "git pull failed: " + (r.stderr or r.stdout)[-300:])
+    dirty = [l[3:] for l in sh(["git", "status", "--porcelain"]).stdout.splitlines() if l.strip()]
+    if dirty:
+        bad = [p for p in dirty if not GENERATED_OK.match(p)]
+        if bad: raise Fail("preflight", "uncommitted non-generated changes: " + ", ".join(bad[:8]))
+        if not DRY:
+            sh(["git", "add", "-A"]); sh(["git", "commit", "-q", "-m", "Sync generated pages (reviews/build) before blog run"])
+            log(f"committed {len(dirty)} generated files")
+
+def next_row(force_slug=None):
+    rows = []
+    for ln in QUEUE.read_text().splitlines():
+        cells = [c.strip() for c in ln.strip().strip("|").split("|")]
+        if len(cells) >= 7 and cells[0].isdigit():
+            rows.append({"n": cells[0], "slug": cells[1], "primary": cells[2], "fold": cells[3], "bundles": cells[4], "service": cells[5], "status": cells[6], "line": ln})
+    if force_slug: return next((r for r in rows if r["slug"] == force_slug), None)
+    if not PREPARE:
+        ready = next((r for r in rows if r["status"].lower().startswith("ready")), None)
+        if ready: return ready
+    return next((r for r in rows if r["status"].lower() == "queued"), None)
+
+def park(row):
+    """Move the written post + its images into blog/_drafts/ready/<slug>/ so the tree is clean until publish day."""
+    import shutil
+    d = READY / row["slug"]; d.mkdir(parents=True, exist_ok=True)
+    post = POSTS / f"{row['slug']}.html"; hdr = json.loads(post.read_text().splitlines()[0]); body = post.read_text()
+    files = [post] + [SITE / i.lstrip("/") for i in set([hdr["img"]] + re.findall(r'src="(/assets/img/[^"]+)"', body))]
+    files += [f.with_suffix(".webp") for f in files if f.suffix == ".jpg" and f.with_suffix(".webp").exists()]
+    manifest = []
+    for f in files:
+        if f.exists():
+            rel = f.relative_to(SITE); dst = d / rel; dst.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(f, dst); manifest.append(str(rel))
+    (d / "manifest.json").write_text(json.dumps(manifest, indent=1)); return manifest
+
+def unpark(row):
+    import shutil
+    d = READY / row["slug"]; manifest = json.loads((d / "manifest.json").read_text())
+    for rel in manifest: dst = SITE / rel; dst.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(d / rel, dst)
+    return manifest
+
+def set_status(row, status):
+    QUEUE.write_text(QUEUE.read_text().replace(row["line"], row["line"].replace(f"| {row['status']} |", f"| {status} |")))
+
+# ------------------------------------------------------------------ 2 write
+WRITER_TASK = """You are Inky Quill, DJ Pest's blog writer. Publish-quality work only; a script will check it and publish it.
+Write exactly ONE post for this queue row and stop. Do NOT deploy, do NOT run git, do NOT edit QUEUE.md or any other post.
+
+Queue row: slug={slug} | primary keyword: {primary} | fold in as H2s/FAQs: {fold} | research bundles: {bundles} (files in ~/jaystack/djpest/blog/_drafts/ whose names start with those numbers; NEW = research at write time) | service page to link: {service}
+Today: {today}.
+
+Follow the content-pipeline skill (appended to your instructions) steps 2 to 5 exactly: voice files, bundles, SERP check of the top 3 results, compliance overrides, TWO real Pexels images, then write ~/jaystack/djpest/build/posts/{slug}.html in the documented format with "date": "{today}" and "service": "{service}".
+Images: search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
+You are already in ~/jaystack/djpest. Then run: python3 build/build.py   and fix hits in YOUR post file until it prints "compliance scan: clean".
+Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 2 internal links including {service}; 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, sightings or numbers you cannot source; Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
+End your reply with exactly one line: WROTE {slug}  or  FAILED <reason>."""
+
+def run_writer(prompt, budget, turns):
+    env = zsh_env("PEXELS_API_KEY"); env["HQ_ROLE"] = "blog-writer"
+    cmd = [LEAN, "-p", "--output-format", "text", "--model", "sonnet", "--max-turns", str(turns), "--max-budget-usd", budget,
+           "--permission-mode", "acceptEdits", "--append-system-prompt-file", str(SKILL),
+           "--allowedTools", "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(curl:*),Bash(cwebp:*),Bash(python3 build/build.py:*),Bash(python3 /Users/danejohns/jaystack/djpest/build/build.py:*),Bash(ls:*),Bash(sips:*),Bash(cd:*),Bash(python3 build.py:*)",
+           "--add-dir", str(SITE), "--add-dir", str(Path.home() / "jaystack/internal/templates/seo-voice")]
+    r = sh(cmd, env=env, timeout=2400, inp=prompt)
+    out = (r.stdout or "").strip()
+    log("writer: " + (out.splitlines()[-1] if out else f"(no output) rc={r.returncode} {r.stderr[-300:]}"))
+    return out
+
+# ------------------------------------------------------------------ 3 gates
+BANNED = ["in today's fast-paced world", "this comprehensive guide", "everything you need to know", "look no further",
+          "faucet", "cilantro", "neighbor", "favorite", " color ", "exterminat", "guarantee", "100%", "non-toxic", "pest-proof"]
+RATE = re.compile(r"\b\d+(?:\.\d+)?\s?(?:mL|ml|g|grams?)\s?(?:/|per)\s?(?:L|litre|liter|\d+\s?L|m2|m²|square metre)", re.I)
+
+def gates(row):
+    slug = row["slug"]; p = POSTS / f"{slug}.html"; errs = []
+    if not p.exists(): return [f"post file build/posts/{slug}.html was not written"]
+    txt = p.read_text(); parts = txt.split("\n---\n", 2)
+    try: hdr = json.loads(txt.splitlines()[0])
+    except Exception: return ["line 1 is not a valid JSON header"]
+    for k in ("slug", "title", "desc", "img", "alt", "date", "read", "service", "service_label"):
+        if not hdr.get(k): errs.append(f"header missing '{k}'")
+    if hdr.get("slug") != slug: errs.append(f"header slug is '{hdr.get('slug')}', expected '{slug}'")
+    if hdr.get("service") != row["service"]: errs.append(f"header service is '{hdr.get('service')}', queue says '{row['service']}'")
+    if len(parts) < 3: errs.append("file must be: JSON header, ---, lede, ---, article HTML")
+    body = parts[-1] if parts else txt
+    # images
+    imgs = [hdr.get("img", "")] + re.findall(r'<img[^>]+src="([^"]+)"', body)
+    if "og-default" in hdr.get("img", ""): errs.append("hero image is the default site image; use a real photo")
+    if len(set(i for i in imgs if i)) < 2: errs.append("needs 2 distinct real images (hero + one in the article)")
+    for i in set(i for i in imgs if i.startswith("/assets/img/")):
+        f = SITE / i.lstrip("/")
+        if not f.exists(): errs.append(f"image {i} does not exist"); continue
+        try:
+            w = int(sh(["sips", "-g", "pixelWidth", str(f)]).stdout.split()[-1])
+            if w < 1200: errs.append(f"image {i} is only {w}px wide (need 1200+)")
+        except Exception: pass
+        if not f.with_suffix(".webp").exists(): errs.append(f"missing .webp for {i}")
+    # structure
+    faq = re.split(r"<h2>[^<]*(?:Frequently asked|Quick answers|FAQ|Common questions)[^<]*</h2>", body, flags=re.I)
+    nq = len(re.findall(r"<h3", faq[1])) if len(faq) > 1 else 0
+    if nq < 6: errs.append(f"FAQ has {nq} questions (need 6+ <h3> under a 'Frequently asked' or 'Quick answers' <h2>)")
+    links = set(re.findall(r'href="(/[^"#?]*)"', body))
+    if row["service"] not in links: errs.append(f"no link to the service page {row['service']}")
+    missing = [l for l in links if l not in ("/",) and not ((SITE / (l.strip("/") + ".html")).exists() or (SITE / l.strip("/") / "index.html").exists() or (POSTS / (l.rsplit("/", 1)[-1] + ".html")).exists())]
+    if missing: errs.append("internal links to pages that don't exist: " + ", ".join(sorted(missing)[:6]))
+    if len(links) < 2: errs.append("needs at least 2 internal links")
+    words = len(re.sub(r"<[^>]+>", " ", parts[1] + " " + body if len(parts) > 2 else body).split())
+    if not 1100 <= words <= 2400: errs.append(f"{words} words (need 1,100 to 2,400)")
+    if "—" in txt: errs.append(f"{txt.count('—')} em dashes (Dane's style: none)")
+    for m in RATE.findall(re.sub(r"<[^>]+>", " ", txt)): errs.append(f"application rate in copy: '{m}' (say 'at the label rate')")
+    low = txt.lower()
+    for b in BANNED:
+        if b in low: errs.append(f"banned phrase: '{b.strip()}'")
+    # compliance scanner (the site's own)
+    b = sh([sys.executable, "build/build.py"])
+    if "compliance scan: clean" not in b.stdout: errs.append("compliance scan not clean: " + (b.stdout + b.stderr)[-400:])
+    return errs
+
+def rollback(slug):
+    sh(["git", "checkout", "--", "."]); sh(["git", "clean", "-fdq", "build/posts", "assets/img", "blog"])
+    log(f"rolled back working tree for {slug}")
+
+# ------------------------------------------------------------------ 5 verify
+def verify(slug, title, hero):
+    url = f"https://djpest.com.au/blog/{slug}"; ok = False
+    for _ in range(12):
+        r = sh(["curl", "-s", "-L", "-o", "/dev/null", "-w", "%{http_code}", url + f"?v={int(time.time())}"])
+        if r.stdout == "200":
+            html = sh(["curl", "-s", "-L", url + f"?v={int(time.time())}"]).stdout
+            if title.split(":")[0][:40] in html or slug in html: ok = True; break
+        time.sleep(10)
+    if not ok: raise Fail("verify", f"{url} not serving the new post after 2 minutes")
+    if sh(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "https://djpest.com.au" + hero]).stdout != "200":
+        raise Fail("verify", f"hero image {hero} not serving")
+    SHOTS.mkdir(parents=True, exist_ok=True)
+    shots = []
+    for tag, size in (("desktop", "1280,2000"), ("mobile", "390,1800")):
+        out = SHOTS / f"{slug}-{tag}.png"
+        sh([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--window-size={size}", "--virtual-time-budget=6000", f"--screenshot={out}", url], timeout=120)
+        if out.exists(): shots.append(out)
+    verdict = "no screenshot"
+    if shots:
+        env = zsh_env(); env["HQ_ROLE"] = "blog-visual-check"
+        q = (f"Read these two screenshots of a newly published blog page ({', '.join(str(s) for s in shots)}). Judge as a stranger in 2 seconds: "
+             "is there a real photo hero or in-article photo, a readable headline, body text, and no broken layout (overlaps, huge blank areas, "
+             "missing images)? Reply with one line: PASS <reason> or FAIL <reason>.")
+        v = sh([LEAN, "-p", "--output-format", "text", "--model", "haiku", "--max-turns", "4", "--allowedTools", "Read", "--add-dir", str(SHOTS)], env=env, inp=q, timeout=300)
+        verdict = (v.stdout.strip().splitlines() or ["(no verdict)"])[-1]
+    log(f"visual check: {verdict}")
+    return url, verdict
+
+# ------------------------------------------------------------------ 6 books
+def books(row, title):
+    today = dt.date.today().isoformat()
+    set_status(row, f"published {today}")
+    import shutil; shutil.rmtree(READY / row["slug"], ignore_errors=True)
+    m = re.match(r"(.*?)\s*(\d[\d/]*)?\s*$", row["primary"]); kw, vol = (m.group(1) or row["primary"]).strip(), (m.group(2) or "-")
+    with open(PLOG, "a") as f: f.write(f"{today} | {row['slug']} | {kw} | {vol}\n")
+    sh(["git", "add", "-A"])
+    sh(["git", "commit", "-q", "-m", f"Publish blog: {row['slug']}\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"])
+    r = sh(["git", "pull", "-q", "--rebase"]); p = sh(["git", "push", "-q", "origin", "main"])
+    if p.returncode: log("git push failed (post is live; books committed locally): " + p.stderr[-200:])
+
+class Fail(Exception):
+    def __init__(self, stage, why): super().__init__(f"{stage}: {why}"); self.stage = stage; self.why = why
+
+def main():
+    force = sys.argv[sys.argv.index("--slug") + 1] if "--slug" in sys.argv else None
+    lock = open(SITE / "build/blog/.lock", "w")
+    try: fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError: log("another blog run is active"); return
+    st = state(); row = None
+    log(f"=== blog run start{' (dry)' if DRY else ''} ===")
+    try:
+        preflight()
+        row = next_row(force)
+        if not row: signal("notable", "Blog queue is empty", "Refill: seo/semrush/build_blog_pipeline.py or add rows to QUEUE.md."); return
+        log(f"row {row['n']}: {row['slug']} ({row['status']})")
+        if f"| {row['slug']} |" in PLOG.read_text():
+            raise Fail("preflight", f"{row['slug']} is already published; mark its QUEUE.md row")
+        if row["status"].lower().startswith("ready"):
+            unpark(row); log("restored ready draft")
+        else:
+            if (POSTS / f"{row['slug']}.html").exists(): raise Fail("preflight", f"build/posts/{row['slug']}.html already exists")
+            out = run_writer(WRITER_TASK.format(today=dt.date.today().isoformat(), **row), WRITE_BUDGET_USD, 45)
+            if "FAILED" in (out.splitlines()[-1] if out else "FAILED no output"): raise Fail("write", out.splitlines()[-1] if out else "writer returned nothing")
+        errs = gates(row)
+        if errs:
+            log("gates failed: " + " | ".join(errs))
+            run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs),
+                       REPAIR_BUDGET_USD, 15)
+            errs = gates(row)
+            if errs: raise Fail("gates", " | ".join(errs[:6]))
+        hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
+        if DRY:
+            log(f"[dry] gates passed for {row['slug']}; rolling back"); rollback(row["slug"]); return
+        if PREPARE:
+            pv = sh(["./deploy.sh"], timeout=900)   # preview branch only
+            preview = f"https://preview.djpest.pages.dev/blog/{row['slug']}"
+            manifest = park(row); rollback(row["slug"])
+            set_status(row, f"ready {dt.date.today().isoformat()}")
+            sh(["git", "add", "blog/_drafts"]); sh(["git", "commit", "-q", "-m", f"Blog draft ready: {row['slug']}\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"])
+            sh(["git", "pull", "-q", "--rebase"]); sh(["git", "push", "-q", "origin", "main"])
+            signal("notable", f"Blog draft ready: {hdr['title']}", f"Passed every gate. Preview: {preview} ({'ok' if pv.returncode == 0 else 'preview deploy failed'}). Publishes at the next Mon/Thu 06:00 run unless you say hold.", preview)
+            log(f"READY {row['slug']} ({len(manifest)} files parked) preview {preview}"); return
+        d = sh(["./deploy.sh", "--prod"], timeout=900)
+        if d.returncode: raise Fail("deploy", (d.stdout + d.stderr)[-400:])
+        url, verdict = verify(row["slug"], hdr["title"], hdr["img"])
+        books(row, hdr["title"])
+        st["fails"] = 0; st["last_ok"] = row["slug"]; put_state(st)
+        signal("notable", f"Blog published: {hdr['title']}", f"Visual check: {verdict}. Screens: blog/_drafts/screens/{row['slug']}-*.png", url)
+        log(f"PUBLISHED {url}")
+    except Fail as e:
+        if row and e.stage in ("write", "gates"): rollback(row["slug"])
+        st["fails"] = st.get("fails", 0) + 1; st["last_fail"] = str(e); put_state(st)
+        sev = "urgent" if st["fails"] >= 2 else "notable"
+        signal(sev, f"Blog run FAILED at {e.stage}" + (f" ({row['slug']})" if row else ""), e.why)
+        log(f"FAILED {e}")
+    except Exception as e:
+        if row: rollback(row["slug"])
+        st["fails"] = st.get("fails", 0) + 1; put_state(st)
+        signal("urgent" if st["fails"] >= 2 else "notable", "Blog run crashed", f"{type(e).__name__}: {e}")
+        log(f"CRASH {type(e).__name__}: {e}")
+    finally:
+        log("=== blog run end ===")
+
+if __name__ == "__main__":
+    main()
