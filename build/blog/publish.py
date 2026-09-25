@@ -317,6 +317,7 @@ def main():
             sh(["git", "add", "blog/_drafts"]); sh(["git", "commit", "-q", "-m", f"Blog draft ready: {row['slug']}\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"])
             sh(["git", "pull", "-q", "--rebase"]); sh(["git", "push", "-q", "origin", "main"])
             signal("notable", f"Blog draft ready: {hdr['title']}", f"Passed every gate. Preview: {preview} ({'ok' if pv.returncode == 0 else 'preview deploy failed'}). Publishes at the next Mon/Thu 06:00 run unless you say hold.", preview)
+            st["fails"] = 0; st["last_ok"] = f"ready:{row['slug']}"; put_state(st)
             log(f"READY {row['slug']} ({len(manifest)} files parked) preview {preview}"); return
         d = sh(["./deploy.sh", "--prod"], timeout=900)
         if d.returncode: raise Fail("deploy", (d.stdout + d.stderr)[-400:])
