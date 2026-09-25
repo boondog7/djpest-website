@@ -7,7 +7,7 @@ Published so far: how-to-get-rid-of-ants (2026-05-01), how-to-get-rid-of-cockroa
 |---|---|---|---|---|---|---|
 | 1 | how-to-get-rid-of-a-wasp-nest | how to get rid of wasp nest (18) | how to dispose of a wasp nest (02), how do i kill wasp nest (03), how to rid of wasp nest (07) | 02,03,07,18 | /wasp-removal-perth | published 2026-09-24 |
 | 2 | what-do-termites-look-like | what do termites look like 1900/26 | what do white ants look like 1000/6 (06) | 06,10 | /termite-inspection-perth | published 2026-09-24 |
-| 3 | how-to-get-rid-of-german-cockroaches | how to get rid of german cockroaches 590/8 | how to rid of german cockroaches (16), how do you get rid of german cockroaches (19) | 11,16,19 | /cockroach-control-perth | ready 2026-09-25 |
+| 3 | how-to-get-rid-of-german-cockroaches | how to get rid of german cockroaches 590/8 | how to rid of german cockroaches (16), how do you get rid of german cockroaches (19) | 11,16,19 | /cockroach-control-perth | queued |
 | 4 | how-to-get-rid-of-silverfish | how to get rid of silverfish 1600 | how get rid silverfish (20), how to repel silverfish | 14,20 | /general-pest-control-perth | queued |
 | 5 | white-tail-spider-bite | white tail spider bite 8100/27 | are white tail spiders dangerous 480, can a white tail spider kill you 320, what does a white tail spider (bite) look like 320/210, how to get rid of white tail spiders 90 | NEW (no bundle; research at write time) | /spider-control-perth | queued |
 | 6 | are-huntsman-spiders-venomous | are huntsman spiders venomous 1900/20 | — | 17 | /spider-control-perth | queued |
