@@ -262,6 +262,8 @@ def books(row, title):
     r = sh(["git", "pull", "-q", "--rebase"]); p = sh(["git", "push", "-q", "origin", "main"])
     if p.returncode: log("git push failed (post is live; books committed locally): " + p.stderr[-200:])
 
+EXIT = [0]
+
 class Fail(Exception):
     def __init__(self, stage, why): super().__init__(f"{stage}: {why}"); self.stage = stage; self.why = why
 
@@ -281,6 +283,9 @@ def main():
             raise Fail("preflight", f"{row['slug']} is already published; mark its QUEUE.md row")
         if row["status"].lower().startswith("ready"):
             unpark(row); log("restored ready draft")
+            if not PREPARE:   # the post goes live today: its date is today
+                pf = POSTS / f"{row['slug']}.html"; ls = pf.read_text().split("\n"); h = json.loads(ls[0]); h["date"] = dt.date.today().isoformat()
+                ls[0] = json.dumps(h, ensure_ascii=False); pf.write_text("\n".join(ls))
         else:
             if (POSTS / f"{row['slug']}.html").exists(): raise Fail("preflight", f"build/posts/{row['slug']}.html already exists")
             out = run_writer(WRITER_TASK.format(today=dt.date.today().isoformat(), **row), WRITE_BUDGET_USD, 70)
@@ -301,8 +306,9 @@ def main():
         if DRY:
             log(f"[dry] gates passed for {row['slug']}; rolling back"); rollback(row["slug"]); return
         if PREPARE:
-            pv = sh(["./deploy.sh"], timeout=900)   # preview branch only
-            preview = f"https://preview.djpest.pages.dev/blog/{row['slug']}"
+            br = ("draft-" + "-".join(w for w in row["slug"].split("-") if w not in ("how", "to", "get", "rid", "of", "a", "the", "do", "what", "is", "are")))[:28].rstrip("-")
+            pv = sh(["./deploy.sh", "--branch", br], timeout=900)   # a preview alias per draft, never production
+            preview = f"https://{br}.djpest.pages.dev/blog/{row['slug']}"
             manifest = park(row); rollback(row["slug"])
             lost = [m for m in manifest if not (READY / row["slug"] / m).exists()]
             if lost or not (READY / row["slug"] / "manifest.json").exists():
@@ -324,14 +330,14 @@ def main():
         st["fails"] = st.get("fails", 0) + 1; st["last_fail"] = str(e); put_state(st)
         sev = "urgent" if st["fails"] >= 2 else "notable"
         signal(sev, f"Blog run FAILED at {e.stage}" + (f" ({row['slug']})" if row else ""), e.why)
-        log(f"FAILED {e}")
+        log(f"FAILED {e}"); EXIT[0] = 1
     except Exception as e:
         if row: rollback(row["slug"])
         st["fails"] = st.get("fails", 0) + 1; put_state(st)
         signal("urgent" if st["fails"] >= 2 else "notable", "Blog run crashed", f"{type(e).__name__}: {e}")
-        log(f"CRASH {type(e).__name__}: {e}")
+        log(f"CRASH {type(e).__name__}: {e}"); EXIT[0] = 1
     finally:
         log("=== blog run end ===")
 
 if __name__ == "__main__":
-    main()
+    main(); sys.exit(EXIT[0])

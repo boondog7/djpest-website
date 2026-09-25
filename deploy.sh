@@ -2,7 +2,10 @@
 # Build + stage + deploy DJ Pest to Cloudflare Pages (project: djpest).
 #   ./deploy.sh            -> preview deploy (branch "preview")  https://preview.djpest.pages.dev
 #   ./deploy.sh --prod     -> production deploy (branch "main")   https://djpest.pages.dev + custom domain
+#   ./deploy.sh --branch draft-x -> named preview (blog drafts)   https://draft-x.djpest.pages.dev
 set -euo pipefail
+# One deploy at a time (blog desk, review sync, manual): re-exec under a shared lock, wait up to 10 min.
+if [ -z "${DEPLOY_LOCKED:-}" ]; then export DEPLOY_LOCKED=1; exec /usr/bin/lockf -k -t 600 "$(dirname "$0")/.deploy.lock" "$0" "$@"; fi
 cd "$(dirname "$0")"
 source ~/.config/jaystack/cloudflare.env
 
@@ -22,6 +25,7 @@ rsync -a --delete \
   ./ "$DIST/"
 
 BRANCH=preview; [[ "${1:-}" == "--prod" ]] && BRANCH=main
+[[ "${1:-}" == "--branch" && -n "${2:-}" ]] && BRANCH="$2"
 wrangler pages deploy "$DIST" --project-name djpest --branch "$BRANCH" --commit-dirty=true
 echo "deployed branch=$BRANCH"
 [[ "$BRANCH" == "main" ]] && { sleep 20; "$PY" build/indexnow.py || true; }
