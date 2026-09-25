@@ -32,7 +32,7 @@ STATE = SITE / "build/blog/state.json"; LOG = SITE / "build/publish.log"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ROLE = "head-of-blog"
 DRY = "--dry" in sys.argv; PREPARE = "--prepare" in sys.argv; READY = DRAFTS / "ready"
-WRITE_BUDGET_USD = "2.50"; REPAIR_BUDGET_USD = "0.80"
+WRITE_BUDGET_USD = "2.50"; REPAIR_BUDGET_USD = "1.20"
 GENERATED_OK = re.compile(r"^(build/reviews\.json|[^/]+\.html|blog/[^/]+\.html|blog\.html|sitemap\.xml|llms\.txt|reviews/.*\.(log|out|json))$")
 
 def log(m):
@@ -287,7 +287,7 @@ def main():
         if errs:
             log("gates failed: " + " | ".join(errs))
             run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs),
-                       REPAIR_BUDGET_USD, 20)
+                       REPAIR_BUDGET_USD, 30)
             errs = gates(row)
             if errs: raise Fail("gates", " | ".join(errs[:6]))
         hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
