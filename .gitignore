@@ -19,3 +19,4 @@ build/blog/.lock
 build/blog/state.json
 blog/_drafts/screens/
 **/__pycache__/
+blog/_drafts/.photos/
