@@ -115,6 +115,7 @@ Today: {today}.
 Follow the content-pipeline skill (appended to your instructions) steps 2 to 5 exactly: voice files, bundles, SERP check of the top 3 results, compliance overrides, TWO real Pexels images, then write ~/jaystack/djpest/build/posts/{slug}.html in the documented format with "date": "{today}" and "service": "{service}".
 Images: search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
 You are already in ~/jaystack/djpest. Then run: python3 build/build.py   and fix hits in YOUR post file until it prints "compliance scan: clean".
+Work efficiently: at most 6 web searches, at most 8 image candidates, do not download test pages or create any file other than the post and its images.
 Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 2 internal links including {service}; 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, sightings or numbers you cannot source; Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
 End your reply with exactly one line: WROTE {slug}  or  FAILED <reason>."""
 
@@ -124,10 +125,21 @@ def run_writer(prompt, budget, turns):
            "--permission-mode", "acceptEdits", "--append-system-prompt-file", str(SKILL),
            "--allowedTools", "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(curl:*),Bash(cwebp:*),Bash(python3 build/build.py:*),Bash(python3 /Users/danejohns/jaystack/djpest/build/build.py:*),Bash(ls:*),Bash(sips:*),Bash(cd:*),Bash(python3 build.py:*)",
            "--add-dir", str(SITE), "--add-dir", str(Path.home() / "jaystack/internal/templates/seo-voice")]
+    before = untracked()
     r = sh(cmd, env=env, timeout=2400, inp=prompt)
     out = (r.stdout or "").strip()
-    log("writer: " + (out.splitlines()[-1] if out else f"(no output) rc={r.returncode} {r.stderr[-300:]}"))
-    return out
+    stop = "?"
+    try:
+        last = [json.loads(l) for l in (HQ / "ledger.jsonl").read_text().splitlines() if '"blog-writer"' in l][-1]
+        stop = f"{last.get('stop')} US${(last.get('usd') or 0):.2f}"
+    except Exception: pass
+    strays = [p for p in untracked() - before if not p.startswith(("build/posts/", "assets/img/", "blog/_drafts/"))]
+    if strays: sh(["git", "clean", "-fq", "--"] + strays); log(f"removed writer strays: {strays[:6]}")
+    log("writer: " + (out.splitlines()[-1] if out else f"(no output) rc={r.returncode}") + f" [{stop}]")
+    return out if out else f"FAILED writer stopped: {stop}"
+
+def untracked():
+    return set(l for l in sh(["git", "ls-files", "--others", "--exclude-standard"]).stdout.splitlines() if l)
 
 # ------------------------------------------------------------------ 3 gates
 BANNED = ["in today's fast-paced world", "this comprehensive guide", "everything you need to know", "look no further",
@@ -253,13 +265,13 @@ def main():
             unpark(row); log("restored ready draft")
         else:
             if (POSTS / f"{row['slug']}.html").exists(): raise Fail("preflight", f"build/posts/{row['slug']}.html already exists")
-            out = run_writer(WRITER_TASK.format(today=dt.date.today().isoformat(), **row), WRITE_BUDGET_USD, 45)
+            out = run_writer(WRITER_TASK.format(today=dt.date.today().isoformat(), **row), WRITE_BUDGET_USD, 70)
             if "FAILED" in (out.splitlines()[-1] if out else "FAILED no output"): raise Fail("write", out.splitlines()[-1] if out else "writer returned nothing")
         errs = gates(row)
         if errs:
             log("gates failed: " + " | ".join(errs))
             run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs),
-                       REPAIR_BUDGET_USD, 15)
+                       REPAIR_BUDGET_USD, 20)
             errs = gates(row)
             if errs: raise Fail("gates", " | ".join(errs[:6]))
         hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
