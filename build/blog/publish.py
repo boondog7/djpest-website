@@ -269,6 +269,9 @@ def main():
             pv = sh(["./deploy.sh"], timeout=900)   # preview branch only
             preview = f"https://preview.djpest.pages.dev/blog/{row['slug']}"
             manifest = park(row); rollback(row["slug"])
+            lost = [m for m in manifest if not (READY / row["slug"] / m).exists()]
+            if lost or not (READY / row["slug"] / "manifest.json").exists():
+                raise Fail("prepare", f"parked draft missing after rollback: {lost[:4]}")
             set_status(row, f"ready {dt.date.today().isoformat()}")
             sh(["git", "add", "blog/_drafts"]); sh(["git", "commit", "-q", "-m", f"Blog draft ready: {row['slug']}\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"])
             sh(["git", "pull", "-q", "--rebase"]); sh(["git", "push", "-q", "origin", "main"])
