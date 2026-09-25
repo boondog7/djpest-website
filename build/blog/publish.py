@@ -115,6 +115,7 @@ Today: {today}.
 Follow the content-pipeline skill (appended to your instructions) steps 2 to 5 exactly: voice files, bundles, SERP check of the top 3 results, compliance overrides, TWO real Pexels images, then write ~/jaystack/djpest/build/posts/{slug}.html in the documented format with "date": "{today}" and "service": "{service}".
 Images: this post needs its OWN two photos; never reuse a file already in assets/img (a script checks). Search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
 You are already in ~/jaystack/djpest. Then run: python3 build/build.py   and fix hits in YOUR post file until it prints "compliance scan: clean".
+The seo-voice files predate DJ Pest and mention WDJ, Danny, years in business and client counts: NEVER use any of that. DJ Pest is a new business run by Dane; claim no history, client numbers or years.
 Work efficiently: at most 6 web searches, at most 8 image candidates, do not download test pages or create any file other than the post and its images.
 Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 3 distinct internal links (relative href="/..."), including {service} and at least one related /blog/ post (always link sibling posts on the same pest); 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, calls, sightings or numbers you cannot source (no "we've had..." claims); Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
 End your reply with exactly one line: WROTE {slug}  or  FAILED <reason>."""
@@ -201,6 +202,8 @@ def gates(row):
     if not 1100 <= words <= 2400: errs.append(f"{words} words (need 1,100 to 2,400)")
     if "—" in txt: errs.append(f"{txt.count('—')} em dashes (Dane's style: none)")
     for m in RATE.findall(re.sub(r"<[^>]+>", " ", txt)): errs.append(f"application rate in copy: '{m}' (say 'at the label rate')")
+    for m in re.findall(r"\b(WDJ|Danny|\d+\+?\s*years?(?: of)? (?:experience|in business|in pest)|1,000\+?|thousands of (?:customers|clients|homes)|since 19\d\d|family[- ]owned for)\b", re.sub(r"<[^>]+>", " ", txt), re.I):
+        errs.append(f"legacy/unverifiable business claim '{m}' (DJ Pest is a new business: remove it)")
     low = txt.lower()
     for b in BANNED:
         if b in low: errs.append(f"banned phrase: '{b.strip()}'")
