@@ -10,7 +10,8 @@ def pages(c):
     steps = c["steps"]; faq = c["faq"]; faq_schema = c["faq_schema"]; ledger = c["ledger_table"]; quote = c["quote_block"]
 
     def head(h2, lead=None):
-        return f'<div class="section-head"><h2>{h2}</h2>{f"<p class=\"lead\">{lead}</p>" if lead else ""}</div>'
+        lead_html = f'<p class="lead">{lead}</p>' if lead else ""
+        return f'<div class="section-head"><h2>{h2}</h2>{lead_html}</div>'
 
     def hero(eyebrow, h1, lead, trust, art):
         return f"""<section class="hero"><div class="wrap"><div>{eb(eyebrow)}<h1>{h1}</h1><p class="lead">{lead}</p>
@@ -143,7 +144,15 @@ def pages(c):
         sec(eb("Questions") + head("End-of-lease FAQ.") + faq(eol_faqs)) + \
         quote("Send the address and your vacate date.", "Tell us which clause is in your lease, or forward the page of the lease and we will read it. Investment back within the hour, certificate copied to your agent on the day.")
 
-    return [
+    LOCAL = {"/flea-treatment-perth": ("Vacate flea treatment", ["Joondalup", "Wanneroo", "Girrawheen", "Balga", "Mirrabooka", "Westminster"]),
+             "/end-of-lease-pest-control-perth": ("End-of-lease pest control", ["Joondalup", "Scarborough", "Girrawheen", "Westminster", "Nollamara", "Joondanna"])}
+    def _local(path, body):
+        label, subs = LOCAL[path]
+        links = " · ".join(f'<a href="/{n.lower().replace(" ", "-")}">{esc(n)}</a>' for n in subs)
+        block = sec(eb("Local notes") + f'<div class="section-head"><h2>{label} by suburb.</h2><p class="lead">Housing, ground and what we look for, suburb by suburb.</p></div><p class="prose">{links} · <a href="/service-areas">every suburb we cover</a></p>')
+        i = body.rfind('<section class="quote"')
+        return body[:i] + block + body[i:] if i >= 0 else body + block
+    pages_out = [
         {"path": "/flea-treatment-perth", "title": "Vacate Flea Treatment Perth | Certificate Within the Hour | DJ Pest",
          "desc": f"End-of-lease flea treatment for Perth's northern suburbs. Quoted from the address within the hour, same-week slot, certificate to you and your property manager within the hour of treatment. {money(*FLEA)}.",
          "body": fl_body, "crumbs": [("Services", "/services"), ("Flea treatment", None)],
@@ -157,3 +166,6 @@ def pages(c):
          "body": pm_body, "crumbs": [("Property managers", None)],
          "schema": [svc_schema("Property management pest services", 150, 250, "Vacate flea treatments, lease-start pest treatments and call-outs for property managers, with certificates and monthly invoicing."), faq_schema(pm_faqs)]},
     ]
+    for pg in pages_out:
+        if pg["path"] in LOCAL: pg["body"] = _local(pg["path"], pg["body"])
+    return pages_out
