@@ -18,3 +18,4 @@ reviews/places_watch.err
 build/blog/.lock
 build/blog/state.json
 blog/_drafts/screens/
+**/__pycache__/
