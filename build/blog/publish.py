@@ -113,10 +113,10 @@ Queue row: slug={slug} | primary keyword: {primary} | fold in as H2s/FAQs: {fold
 Today: {today}.
 
 Follow the content-pipeline skill (appended to your instructions) steps 2 to 5 exactly: voice files, bundles, SERP check of the top 3 results, compliance overrides, TWO real Pexels images, then write ~/jaystack/djpest/build/posts/{slug}.html in the documented format with "date": "{today}" and "service": "{service}".
-Images: search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
+Images: this post needs its OWN two photos; never reuse a file already in assets/img (a script checks). Search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
 You are already in ~/jaystack/djpest. Then run: python3 build/build.py   and fix hits in YOUR post file until it prints "compliance scan: clean".
 Work efficiently: at most 6 web searches, at most 8 image candidates, do not download test pages or create any file other than the post and its images.
-Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 2 internal links including {service}; 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, sightings or numbers you cannot source; Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
+Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 3 distinct internal links (relative href="/..."), including {service} and at least one related /blog/ post (always link sibling posts on the same pest); 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, calls, sightings or numbers you cannot source (no "we've had..." claims); Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
 End your reply with exactly one line: WROTE {slug}  or  FAILED <reason>."""
 
 def run_writer(prompt, budget, turns):
@@ -174,11 +174,27 @@ def gates(row):
     faq = re.split(r"<h2>[^<]*(?:Frequently asked|Quick answers|FAQ|Common questions)[^<]*</h2>", body, flags=re.I)
     nq = len(re.findall(r"<h3", faq[1])) if len(faq) > 1 else 0
     if nq < 6: errs.append(f"FAQ has {nq} questions (need 6+ <h3> under a 'Frequently asked' or 'Quick answers' <h2>)")
+    # images must be this post's own (world-class: no recycled photos from other pages)
+    for i in set(i for i in imgs if i.startswith("/assets/img/")):
+        base = i.rsplit("/", 1)[-1].rsplit(".", 1)[0]
+        def reuses(f):
+            t = f.read_text(errors="ignore")
+            hits = [m.start() for m in re.finditer(re.escape(base), t)]
+            # a listing card for THIS post (blog index, related-posts blocks) sits next to a link to /blog/<slug>: not reuse
+            return any(f"/blog/{slug}" not in t[max(0, h - 600): h + 600] for h in hits)
+        users = [str(f.relative_to(SITE)) for f in list(SITE.glob("*.html")) + list((SITE / "blog").glob("*.html")) + list(POSTS.glob("*.html"))
+                 if f.stem != slug and reuses(f)]
+        if users: errs.append(f"image {i} is already used on {users[0]}; source a new photo for this post")
     links = set(re.findall(r'href="(/[^"#?]*)"', body))
     if row["service"] not in links: errs.append(f"no link to the service page {row['service']}")
+    if not any(l.startswith("/blog/") for l in links): errs.append("link at least one related blog post (/blog/...) to build the topic cluster")
+    sib = [f.stem for f in (SITE / "blog").glob("*.html") if f.stem != slug and set(slug.split("-")) & set(f.stem.split("-")) - {"how", "to", "get", "rid", "of", "a", "the", "do", "what", "is"}]
+    if sib and not any(f"/blog/{x}" in links for x in sib): errs.append(f"link the sibling post(s) on the same pest: {', '.join('/blog/' + x for x in sib[:3])}")
+    for m in re.findall(r"\b(we've had|we have had|our customers|one of our (?:clients|customers)|last (?:week|month) we|we recently|a customer (?:told|called|rang))\b[^.]{0,60}", re.sub(r"<[^>]+>", " ", txt), re.I):
+        errs.append(f"unsourced first-hand claim '{m}' (only use experience from Dane's field notes, or rephrase generally)")
     missing = [l for l in links if l not in ("/",) and not ((SITE / (l.strip("/") + ".html")).exists() or (SITE / l.strip("/") / "index.html").exists() or (POSTS / (l.rsplit("/", 1)[-1] + ".html")).exists())]
     if missing: errs.append("internal links to pages that don't exist: " + ", ".join(sorted(missing)[:6]))
-    if len(links) < 2: errs.append("needs at least 2 internal links")
+    if len(links) < 3: errs.append(f"needs at least 3 distinct internal links (has {len(links)})")
     words = len(re.sub(r"<[^>]+>", " ", parts[1] + " " + body if len(parts) > 2 else body).split())
     if not 1100 <= words <= 2400: errs.append(f"{words} words (need 1,100 to 2,400)")
     if "—" in txt: errs.append(f"{txt.count('—')} em dashes (Dane's style: none)")
