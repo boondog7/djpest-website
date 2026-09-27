@@ -36,18 +36,18 @@ Also: **Licence gate check** — confirm `/termite-inspection-perth`, `/termite-
 **Status: NOT STARTED — 3rd day running. This is the one.**
 
 ### Task 2 — FAQPage JSON-LD on all blog posts
-**File:** `build/pages/30_company.py` — wire `c["faq_schema"]` into the `_post` template.
+**File:** `build/pages/30_company.py` — wire `c["faq_schema"]` into the `_post` template. The component already exists on service pages; just not used in posts yet.
 **Why:** All 5 live blog posts have zero `@type: FAQPage` schema. Blog posts are prime AI Overview / Perplexity citation targets — FAQ schema is the difference between a blue link and a featured answer. 5-minute code change; regenerate on Mac via `build.py`.
 **Do NOT hand-edit built HTML.** Edit the `_post` template, then regenerate.
 
 ### Task 3 — `blog/how-to-get-rid-of-silverfish`
-**Keyword:** `how to get rid of silverfish` — **1,600/mo, KD 20** (bundles with `how get rid silverfish`, 1,300/mo).
+**Keyword:** `how to get rid of silverfish` — **1,600/mo, KD 20** (bundles with `how get rid silverfish`, 1,300/mo, KD 25).
 **Schedule:** Thu 2 Oct — if white-tail ships Mon 29 Sep, this is next in the Mon/Thu cadence.
 **Draft outline:** `blog/_drafts/14_how-to-get-rid-of-silverfish.md`. Internal link: `/general-pest-control-perth`.
 
 ---
 
 ## Off-site (Dane — cannot build from code)
-- **GBP at Warwick 6024** — still the single biggest lever for actual phone calls. Map 3-pack placement outweighs any page for "pest control near me" queries.
+- **GBP at Warwick 6024** — still the single biggest lever for actual phone calls (7/8 consensus brains). Map 3-pack placement outweighs any page for "pest control near me" queries.
 - **NAP citations:** TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal — consistent "Warwick WA 6024".
 - **Review asks:** SMS/email after every job. Ask the client to mention suburb + pest in their review.

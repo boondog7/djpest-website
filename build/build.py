@@ -147,7 +147,7 @@ def footer():
   <div class="cols">
     <div>
       <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
-      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Licensed, documented, quoted in writing before we start.</p>
+      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Documented, and quoted in writing before we start.</p>
       <p><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a><br><a href="mailto:{SITE['email']}">{SITE['email']}</a><br>{SITE['hours']}</p>
     </div>
     <div><div class="fh">Services</div><ul>
