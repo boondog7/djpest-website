@@ -1,4 +1,4 @@
-# NEXT BUILD — 2026-09-22
+# NEXT BUILD — 2026-09-27
 
 > ## HARD RULES FOR THE CLOUD ROUTINE (added 22 Sep 2026 by Dane's Mac session)
 > 1. **Never edit `site.json → "unpublished"`, the `PRICES` dict, or any dollar figure.** Prices are Dane's decision. Build the page, leave it gated, and list the proposed prices in this file for him to confirm.
@@ -8,53 +8,46 @@
 
 
 ## Progress summary
-**Done: 13 service pages + ~95 suburb pages + pricing hub + service-areas hub + 3 blog posts; ~98% of 14-day battle plan complete.**
+**Done: ~100% of the 14-day plan. 14 service/MOFU pages + 98 suburb pages + service-areas hub + 5 blog posts, all with connected @graph JSON-LD. Blog pipeline is the main growth lever.**
 
-Everything from the battle plan's Day 2–10 is shipped: all Tier-1 and Tier-2 corridor suburbs, all BOFU service pages, MOFU pricing hub + blog post. One MOFU cost page is the last gap.
-
----
-
-## Next tasks (priority order)
-
-### 1. Build `termite-treatment-cost-perth.html` ← THE THING TO DO TODAY
-**Keyword:** `termite treatment cost` — 720/mo, KD8, CPC $6.20 (highest in the set)
-**Why it's next:** The pricing hub (`/pest-control-prices-perth`) has a single termite FAQ. A dedicated page with a worked cost table (perimeter metres → drilling + soil treatment vs baiting system) would own this query outright — and at $6.20 CPC, competitors are spending real money here. No competitor has a transparent worked example.
-
-**What to build:**
-- Filename: `termite-treatment-cost-perth.html`
-- H1: "Termite Treatment Cost Perth (2026) — What It Actually Costs"
-- Core content: two cost tables (chemical barrier: perimeter metres × drilling/trenching; bait system: station count × annual monitoring); worked real-house example (e.g. 180 m² slab home in Greenwood); factors that move the price (timber floor, sub-floor, heritage stone, garden beds against the wall)
-- CA angle: "no line-item surprises — here's what you get for every dollar"
-- Internal links to: `/termite-inspection-perth`, `/termite-treatment-perth`, `/pest-control-prices-perth`, `/warwick` (home base)
-- JSON-LD: `@graph` with LocalBusiness + Service + FAQPage + BreadcrumbList (same pattern as termite-inspection page)
-- Proposed prices (Dane to confirm): chemical barrier $1,800–$4,500 depending on perimeter; Termidor HE typically 15–25% more than standard; bait station install $1,800–$3,200 + ~$600–$900/yr monitoring
-
-**How to build:** add a new file entry in `build/pages/10_services.py` following the bee/flea pattern, or write it directly as static HTML following the termite-inspection page structure.
+Published blog posts: how-to-get-rid-of-ants, how-to-get-rid-of-cockroaches, how-much-does-pest-control-cost, how-to-get-rid-of-a-wasp-nest, what-do-termites-look-like.
 
 ---
 
-### 2. Publish next blog post from queue
-**File:** `blog/_drafts/02_how-to-dispose-of-a-wasp-nest.md` — already drafted, just needs HTML rendering and publishing.
-- Blog cadence is set to 2/week; 3 posts are live, 9 drafts are staged.
-- Wasp content = high-conversion intent (people googling "how to get rid of a wasp nest" are 1 call away from booking).
-- Run the blog publish script, push.
+## ⚠️ Dane: OVERDUE action on your Mac
+**German cockroach post — was due Thu 25 Sep, now 2 days late.**
+- Draft is ready: `blog/_drafts/ready/how-to-get-rid-of-german-cockroaches/`
+- Run: `./deploy.sh --prod` for `build/posts/how-to-get-rid-of-german-cockroaches.html`
+- Do this TODAY (Sun 27 Sep) so Mon 29 Sep is free for white-tail spider.
+
+Also: **Licence gate check** — confirm `/termite-inspection-perth`, `/termite-treatment-perth`, `/termite-treatment-cost-perth` are in `site.json → unpublished` if termite endorsement is not yet held.
 
 ---
 
-### 3. Internal linking audit (30-min skim)
-With ~95 suburb pages now live, verify the hub-and-spoke wiring:
-- Every suburb page → `/service-areas` (hub) and the 2–3 most relevant service pages (e.g. Yanchep → `/termite-inspection-perth` + `/ant-control-perth`)
-- `/service-areas` → all suburb pages (already has a full list — confirm no new suburbs are missing)
-- Every service page → 3–5 nearby suburb pages in a "We cover…" strip
-This is the Day 11–14 "connect + dominate" step from the battle plan.
+## Today's build tasks
+
+### Task 1 (URGENT) — `blog/white-tail-spider-bite`
+**Target publish: Mon 29 Sep — draft must be ready TODAY**
+**Primary keyword:** `white tail spider bite` — **8,100/mo, KD 27**
+**Fold in:** `are white tail spiders dangerous` (480/mo), `what does a white tail spider bite look like` (320/mo), `can a white tail spider kill you` (320/mo), `how to get rid of white tail spiders` (90/mo). ~9,310/mo total coverage.
+**Why now:** Highest-volume blog post in the queue by 13×. Evergreen, no seasonal cliff. `/spider-control-perth` needs blog support.
+**Compliance note:** Do NOT claim venom lethality — white-tail "necrotic wound" is a debunked myth. Cite the AMA/Aust Med J position that infections, not necrosis, are the real risk.
+**How:** Write draft to `blog/_drafts/ready/white-tail-spider-bite/`. Internal links: `/spider-control-perth` + `/general-pest-control-perth`.
+**Status: NOT STARTED — 3rd day running. This is the one.**
+
+### Task 2 — FAQPage JSON-LD on all blog posts
+**File:** `build/pages/30_company.py` — wire `c["faq_schema"]` into the `_post` template.
+**Why:** All 5 live blog posts have zero `@type: FAQPage` schema. Blog posts are prime AI Overview / Perplexity citation targets — FAQ schema is the difference between a blue link and a featured answer. 5-minute code change; regenerate on Mac via `build.py`.
+**Do NOT hand-edit built HTML.** Edit the `_post` template, then regenerate.
+
+### Task 3 — `blog/how-to-get-rid-of-silverfish`
+**Keyword:** `how to get rid of silverfish` — **1,600/mo, KD 20** (bundles with `how get rid silverfish`, 1,300/mo).
+**Schedule:** Thu 2 Oct — if white-tail ships Mon 29 Sep, this is next in the Mon/Thu cadence.
+**Draft outline:** `blog/_drafts/14_how-to-get-rid-of-silverfish.md`. Internal link: `/general-pest-control-perth`.
 
 ---
 
-## Off-site tasks (not build work — Dane's side)
-- **GBP at Warwick 6024** — still the single highest-leverage move. If not verified yet, this is the real #1 task for calls.
-- **NAP citations** (TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal) — consistent "Warwick WA 6024 / 0468 170 107"
-- **Review-ask SMS/email** after every job
-
-## Blockers
-- None on the build side. Everything above is unblocked.
-- GBP outranks all of the above for phone calls — prioritise it over any build task.
+## Off-site (Dane — cannot build from code)
+- **GBP at Warwick 6024** — still the single biggest lever for actual phone calls. Map 3-pack placement outweighs any page for "pest control near me" queries.
+- **NAP citations:** TrueLocal, Yellow Pages AU, Hipages, Oneflare, Yelp AU, StartLocal — consistent "Warwick WA 6024".
+- **Review asks:** SMS/email after every job. Ask the client to mention suburb + pest in their review.
