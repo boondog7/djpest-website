@@ -489,8 +489,23 @@ def _post(c, p, lede, content):
         "image": [DOMAIN + p["img"]], "datePublished": p["date"], "dateModified": p.get("modified", p["date"]), "inLanguage": "en-AU",
         "author": {"@id": DOMAIN + "/#business"}, "publisher": {"@id": DOMAIN + "/#business"},
         "mainEntityOfPage": {"@type": "WebPage", "@id": DOMAIN + path}, "about": {"@type": "Service", "name": p["service_label"], "url": DOMAIN + p["service"]}}]
+    faqs = _post_faqs(content)
+    if len(faqs) >= 2: schema.append(c["faq_schema"](faqs))       # FAQPage from the post's own "Quick answers" section
     return {"path": path, "title": p["title"] + " | DJ Pest", "desc": p["desc"], "body": body, "schema": schema,
             "og_image": p["img"], "crumbs": [("Blog", "/blog"), (p["title"].split(" (")[0], None)]}
+
+
+def _post_faqs(html):
+    """Question/answer pairs from a post's FAQ section (<h2>Quick answers | FAQ | Frequently asked ...</h2>, then <h3>Q</h3><p>A</p>...).
+    Only questions that are actually on the page, so the schema always matches visible content."""
+    import re as _re
+    m = _re.search(r"<h2[^>]*>\s*(?:Quick answers|FAQs?|Frequently asked questions|Common questions)[^<]*</h2>(.*?)(?=<h2|<hr|$)", html, _re.S | _re.I)
+    if not m: return []
+    out = []
+    for q, a in _re.findall(r"<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|$)", m.group(1), _re.S):
+        q = _re.sub(r"<[^>]+>", "", q).strip(); a = " ".join(_re.findall(r"<p[^>]*>(.*?)</p>", a, _re.S)).strip()
+        if q and a: out.append((q, a))
+    return out
 
 
 def blog_index(c):
