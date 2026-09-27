@@ -499,7 +499,7 @@ def _post_faqs(html):
     """Question/answer pairs from a post's FAQ section (<h2>Quick answers | FAQ | Frequently asked ...</h2>, then <h3>Q</h3><p>A</p>...).
     Only questions that are actually on the page, so the schema always matches visible content."""
     import re as _re
-    m = _re.search(r"<h2[^>]*>\s*(?:Quick answers|FAQs?|Frequently asked questions|Common questions)[^<]*</h2>(.*?)(?=<h2|<hr|$)", html, _re.S | _re.I)
+    m = _re.search(r"<h2[^>]*>\s*(?:Quick answers|FAQs?|Frequently asked(?: questions)?|Common questions|Your questions)[^<]*</h2>(.*?)(?=<h2|<hr|$)", html, _re.S | _re.I)
     if not m: return []
     out = []
     for q, a in _re.findall(r"<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|$)", m.group(1), _re.S):
