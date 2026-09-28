@@ -147,6 +147,27 @@ BANNED = ["in today's fast-paced world", "this comprehensive guide", "everything
           "faucet", "cilantro", "neighbor", "favorite", " color ", "exterminat", "guarantee", "100%", "non-toxic", "pest-proof"]
 RATE = re.compile(r"\b\d+(?:\.\d+)?\s?(?:mL|ml|g|grams?)\s?(?:/|per)\s?(?:L|litre|liter|\d+\s?L|m2|m²|square metre)", re.I)
 
+def image_content_errors(hdr, body):
+    """Ask Haiku (vision) whether each image actually shows what its alt text / caption says. Any MISMATCH fails the gate."""
+    pairs = [(hdr.get("img", ""), hdr.get("alt", ""))]
+    for fig in re.findall(r"<img[^>]+>(?:\s*<figcaption[^>]*>(.*?)</figcaption>)?", body, re.S):
+        pass
+    for m in re.finditer(r'<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"[^>]*>(?:\s*<figcaption[^>]*>(.*?)</figcaption>)?', body, re.S):
+        pairs.append((m.group(1), (m.group(2) + ". Caption: " + re.sub("<[^>]+>", "", m.group(3) or "")).strip(". ")))
+    errs = []
+    for src, claim in pairs:
+        f = SITE / src.lstrip("/")
+        if not src.startswith("/assets/img/") or not f.exists(): continue
+        env = zsh_env(); env["HQ_ROLE"] = "blog-image-check"
+        q = (f"Read the image {f}. A pest control blog says this picture shows: \"{claim}\". Does the picture really show that (right subject, "
+             "right kind of animal/insect or body part, nothing unrelated)? Reply with one line: MATCH or MISMATCH <what it actually shows>.")
+        v = sh([LEAN, "-p", "--output-format", "text", "--model", "haiku", "--max-turns", "3", "--allowedTools", "Read", "--add-dir", str(f.parent)], env=env, inp=q, timeout=240)
+        line = (v.stdout.strip().splitlines() or ["(no verdict)"])[-1]
+        log(f"image check {src}: {line}")
+        if not line.upper().startswith("MATCH"):
+            errs.append(f"image {src} does not show what the post says ({claim[:80]}): {line[:120]}. Replace it with a correct photo.")
+    return errs
+
 def gates(row):
     slug = row["slug"]; p = POSTS / f"{slug}.html"; errs = []
     if not p.exists(): return [f"post file build/posts/{slug}.html was not written"]
@@ -210,6 +231,8 @@ def gates(row):
     # compliance scanner (the site's own)
     b = sh([sys.executable, "build/build.py"])
     if "compliance scan: clean" not in b.stdout: errs.append("compliance scan not clean: " + (b.stdout + b.stderr)[-400:])
+    # images must SHOW what they claim (28 Sep: a "white tail bite" photo was a football game; the card was a man with binoculars)
+    if not errs: errs += image_content_errors(hdr, body)
     return errs
 
 def rollback(slug):
