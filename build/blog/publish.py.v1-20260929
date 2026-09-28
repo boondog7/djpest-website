@@ -3,16 +3,12 @@
 
 Stages (only stage 2 uses a model):
   1 preflight   STOP file, lock, git pull --rebase, auto-commit generated-only diffs (review sync), pick the next queued row
-  2 brief+write  brief.py builds blog/_drafts/wip/<slug>/brief.json (hub, siblings, allowed links, prices, fixed strings,
-                live primary sources, photos sourced by photos.py, STYLE.md + brand voice). Then ONE claude-lean call
-                (route blog_write, cheapest model, tools Read/Write/lint.py only, no web, no build, no git) writes
-                wip/<slug>/post.html + sidecar.json, which is copied to build/posts/<slug>.html. (v2, 29 Sep 2026)
+  2 write       claude-lean (claude --bare on the API key, Sonnet, per-run dollar cap, no deploy/git tools) writes
+                build/posts/<slug>.html + images, following the content-pipeline skill
   3 gates       script checks: header, compliance scan clean, images real + sized, FAQ >= 6, internal links incl. the
                 queue row's service page, word count, no em dashes, no DIY application rates, no quality-bar phrases,
                 not already published. One repair pass by the writer, then re-gate.
   4 deploy      ./deploy.sh --prod (plain bash, so no permission prompt can block it)
-  4b sense      (--prepare only) Sanity Sam reads the PREVIEW like a reader: screenshots + the text, PASS/FIX; a FIX gets one
-                repair pass and a re-check; a second FIX blocks the park (blog/_drafts/failed/<slug>/) and signals
   5 verify      live URL 200 + title, hero image 200, desktop + mobile screenshots, a cheap Haiku visual check
   6 books       QUEUE.md row -> published, PUBLISH-LOG.md, git commit + push
   7 report      HQ signal (digest) on success; on failure: rollback, HQ signal, urgent after 2 failures in a row
@@ -36,13 +32,7 @@ STATE = SITE / "build/blog/state.json"; LOG = SITE / "build/publish.log"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ROLE = "head-of-blog"
 DRY = "--dry" in sys.argv; PREPARE = "--prepare" in sys.argv; READY = DRAFTS / "ready"
-WIP = DRAFTS / "wip"; FAILED = DRAFTS / "failed"; HOLD = DRAFTS / "HOLD"; STYLEMD = SITE / "blog/STYLE.md"
-sys.path.insert(0, str(SITE / "build/blog"))
-def route(name, key, default):
-    try: return json.loads((HQ / "models.json").read_text())["routes"][name][key]
-    except Exception: return default
-WRITE_BUDGET_USD = str(route("blog_write", "max_usd_per_run", 1.5)); REPAIR_BUDGET_USD = str(route("blog_repair", "max_usd_per_run", 0.8))
-WRITER_MODEL = "haiku"   # Dane 28 Sep 2026: every automation on the cheapest model (models.json policy)
+WRITE_BUDGET_USD = "2.50"; REPAIR_BUDGET_USD = "1.20"
 GENERATED_OK = re.compile(r"^(build/reviews\.json|[^/]+\.html|blog/[^/]+\.html|blog\.html|sitemap\.xml|llms\.txt|reviews/.*\.(log|out|json))$")
 
 def log(m):
@@ -104,8 +94,6 @@ def park(row):
     for f in files:
         if f.exists():
             rel = f.relative_to(SITE); dst = d / rel; dst.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(f, dst); manifest.append(str(rel))
-    for extra in ("sidecar.json", "brief.json"):
-        if (WIP / row["slug"] / extra).exists(): shutil.copy2(WIP / row["slug"] / extra, d / extra)
     (d / "manifest.json").write_text(json.dumps(manifest, indent=1)); return manifest
 
 def unpark(row):
@@ -117,76 +105,39 @@ def unpark(row):
 def set_status(row, status):
     QUEUE.write_text(QUEUE.read_text().replace(row["line"], row["line"].replace(f"| {row['status']} |", f"| {status} |")))
 
-# ------------------------------------------------------------------ 2 write (v2: brief pack, no web tools)
-WRITER_TASK = """You are Inky Quill, DJ Pest's blog writer. Write exactly ONE post from the brief pack and stop.
-Brief pack (Read it first, it is the ONLY source of facts, links, images, prices and sources you may use): {brief}
-Style guide (already in your system prompt): blog/STYLE.md. Follow its template, voice, fixed strings and file format exactly.
+# ------------------------------------------------------------------ 2 write
+WRITER_TASK = """You are Inky Quill, DJ Pest's blog writer. Publish-quality work only; a script will check it and publish it.
+Write exactly ONE post for this queue row and stop. Do NOT deploy, do NOT run git, do NOT edit QUEUE.md or any other post.
 
-Write these two files and nothing else:
-  1. {wip}/post.html   (line 1 one-line JSON header, then ---, then the lede paragraph, then ---, then the article HTML; see STYLE.md section 7)
-  2. {wip}/sidecar.json (STYLE.md section 8)
-Then run:  python3 build/blog/lint.py {wip}/post.html --brief {brief}
-and fix your post until it prints "lint: clean". Do not edit any other file. No web, no build.py, no git.
+Queue row: slug={slug} | primary keyword: {primary} | fold in as H2s/FAQs: {fold} | research bundles: {bundles} (files in ~/jaystack/djpest/blog/_drafts/ whose names start with those numbers; NEW = research at write time) | service page to link: {service}
+Today: {today}.
 
-Non-negotiables the script enforces: only links from brief.links_available (the hub {service} plus at least one sibling /blog/ post and one more);
-only the images in brief.photos.files with their alt text; only the price figures in brief.prices; only external links from brief.sources;
-6 to 8 FAQ <h3> under <h2>Frequently asked</h2>; a <h2>Sources</h2> list; 1,100 to 2,400 words; NO em or en dashes; no application
-rates; no invented jobs, customers, numbers or years; Australian English; "management" not "control" in body copy.
-Primary keyword: {primary}. Fold these in as H2s or FAQ questions: {fold}. Today: {today}. Season in Perth: {season}.
+Follow the content-pipeline skill (appended to your instructions) steps 2 to 5 exactly: voice files, bundles, SERP check of the top 3 results, compliance overrides, TWO real Pexels images, then write ~/jaystack/djpest/build/posts/{slug}.html in the documented format with "date": "{today}" and "service": "{service}".
+Images: this post needs its OWN two photos; never reuse a file already in assets/img (a script checks). Search Pexels with curl ($PEXELS_API_KEY is set). Look at several candidates (Read the downloaded file) and pick photos that show the actual pest or situation; never a generic or wrong species. Save as assets/img/blog-<topic>-<n>.jpg at 1200 px wide or more (download with ?w=1600) and make a .webp with cwebp.
+You are already in ~/jaystack/djpest. Then run: python3 build/build.py   and fix hits in YOUR post file until it prints "compliance scan: clean".
+The seo-voice files predate DJ Pest and mention WDJ, Danny, years in business and client counts: NEVER use any of that. DJ Pest is a new business run by Dane; claim no history, client numbers or years.
+Work efficiently: at most 6 web searches, at most 8 image candidates, do not download test pages or create any file other than the post and its images.
+Hard rules the script will enforce: at least 6 FAQ questions as <h3> under an <h2> containing "Frequently asked" or "Quick answers"; at least 3 distinct internal links (relative href="/..."), including {service} and at least one related /blog/ post (always link sibling posts on the same pest); 1,100 to 2,400 words; NO em dashes (use commas, full stops or brackets); no application rates or mixing amounts (say "at the label rate" instead); no testimonials, jobs, calls, sightings or numbers you cannot source (no "we've had..." claims); Australian English; one information-gain element (a primary-source citation or a Perth-specific fact).
 End your reply with exactly one line: WROTE {slug}  or  FAILED <reason>."""
 
-REPAIR_TASK = """The post {wip}/post.html failed these checks. Fix ONLY that file (and sidecar.json if a claim changed), using only facts,
-links, images and prices from the brief {brief}. Re-run  python3 build/blog/lint.py {wip}/post.html --brief {brief}  until clean.
-End with exactly one line: WROTE {slug}  or  FAILED <reason>.
-Problems:
-- {errs}"""
-
-def run_writer(prompt, budget, turns, slug):
-    env = dict(os.environ); env["HQ_ROLE"] = "blog-writer" if turns > 12 else "blog-repair"; env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:" + env.get("PATH", "")
-    wip = WIP / slug
-    cmd = [LEAN, "-p", "--output-format", "text", "--model", WRITER_MODEL, "--max-turns", str(turns), "--max-budget-usd", budget,
-           "--permission-mode", "acceptEdits", "--append-system-prompt-file", str(STYLEMD),
-           "--allowedTools", f"Read,Write,Edit,Bash(python3 build/blog/lint.py:*),Bash(python3 {SITE}/build/blog/lint.py:*)",
-           "--disallowedTools", "WebSearch,WebFetch,Glob,Grep,Task,Bash(curl:*),Bash(git:*),Bash(python3 build/build.py:*)",
-           "--add-dir", str(wip)]
+def run_writer(prompt, budget, turns):
+    env = zsh_env("PEXELS_API_KEY"); env["HQ_ROLE"] = "blog-writer"
+    cmd = [LEAN, "-p", "--output-format", "text", "--model", "sonnet", "--max-turns", str(turns), "--max-budget-usd", budget,
+           "--permission-mode", "acceptEdits", "--append-system-prompt-file", str(SKILL),
+           "--allowedTools", "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(curl:*),Bash(cwebp:*),Bash(python3 build/build.py:*),Bash(python3 /Users/danejohns/jaystack/djpest/build/build.py:*),Bash(ls:*),Bash(sips:*),Bash(cd:*),Bash(python3 build.py:*)",
+           "--add-dir", str(SITE), "--add-dir", str(Path.home() / "jaystack/internal/templates/seo-voice")]
     before = untracked()
-    r = sh(cmd, env=env, timeout=1800, inp=prompt)
-    out = (r.stdout or "").strip(); stop = "?"
+    r = sh(cmd, env=env, timeout=2400, inp=prompt)
+    out = (r.stdout or "").strip()
+    stop = "?"
     try:
-        last = [json.loads(l) for l in (HQ / "ledger.jsonl").read_text().splitlines() if f'"{env["HQ_ROLE"]}"' in l][-1]
+        last = [json.loads(l) for l in (HQ / "ledger.jsonl").read_text().splitlines() if '"blog-writer"' in l][-1]
         stop = f"{last.get('stop')} US${(last.get('usd') or 0):.2f}"
     except Exception: pass
     strays = [p for p in untracked() - before if not p.startswith(("build/posts/", "assets/img/", "blog/_drafts/"))]
     if strays: sh(["git", "clean", "-fq", "--"] + strays); log(f"removed writer strays: {strays[:6]}")
     log("writer: " + (out.splitlines()[-1] if out else f"(no output) rc={r.returncode}") + f" [{stop}]")
     return out if out else f"FAILED writer stopped: {stop}"
-
-def write_post(row):
-    """brief -> writer -> copy wip/post.html into build/posts/. Raises Fail on a brief problem or a writer FAILED."""
-    import brief as briefmod
-    slug = row["slug"]; b = briefmod.build(slug)
-    if b.get("error"): raise Fail("brief", b["error"])
-    if b.get("problems"): raise Fail("brief", "; ".join(b["problems"]))
-    log(f"brief: {len(b['sources'])} sources, {len(b['siblings'])} siblings, photos {b['photos'].get('files')}")
-    wip = WIP / slug; bp = wip / "brief.json"
-    prompt = WRITER_TASK.format(brief=bp, wip=wip, service=row["service"], primary=row["primary"], fold=row["fold"], today=b["today"], season=b["season"], slug=slug)
-    out = run_writer(prompt, WRITE_BUDGET_USD, 25, slug)
-    last = out.splitlines()[-1] if out else "FAILED no output"
-    if "FAILED" in last or not (wip / "post.html").exists(): raise Fail("write", last if "FAILED" in last else "writer ended without writing post.html")
-    (POSTS / f"{slug}.html").write_text((wip / "post.html").read_text())
-    return b
-
-def repair_post(row, errs, budget=None, turns=10):
-    slug = row["slug"]; wip = WIP / slug; bp = wip / "brief.json"
-    if not (wip / "post.html").exists() and (POSTS / f"{slug}.html").exists(): wip.mkdir(parents=True, exist_ok=True); (wip / "post.html").write_text((POSTS / f"{slug}.html").read_text())
-    run_writer(REPAIR_TASK.format(wip=wip, brief=bp, slug=slug, errs="\n- ".join(errs)), budget or REPAIR_BUDGET_USD, turns, slug)
-    if (wip / "post.html").exists(): (POSTS / f"{slug}.html").write_text((wip / "post.html").read_text())
-
-def fail_wip(slug):
-    import shutil
-    if (WIP / slug).exists():
-        FAILED.mkdir(parents=True, exist_ok=True); dst = FAILED / f"{slug}-{dt.datetime.now():%Y%m%d-%H%M}"
-        shutil.move(str(WIP / slug), str(dst)); log(f"wip moved to {dst.relative_to(SITE)}")
 
 def untracked():
     return set(l for l in sh(["git", "ls-files", "--others", "--exclude-standard"]).stdout.splitlines() if l)
@@ -364,7 +315,8 @@ def main():
                 ls[0] = json.dumps(h, ensure_ascii=False); pf.write_text("\n".join(ls))
         else:
             if (POSTS / f"{row['slug']}.html").exists(): raise Fail("preflight", f"build/posts/{row['slug']}.html already exists")
-            write_post(row)
+            out = run_writer(WRITER_TASK.format(today=dt.date.today().isoformat(), **row), WRITE_BUDGET_USD, 70)
+            if "FAILED" in (out.splitlines()[-1] if out else "FAILED no output"): raise Fail("write", out.splitlines()[-1] if out else "writer returned nothing")
         errs = gates(row)
         if errs:
             log("gates failed: " + " | ".join(errs))
@@ -373,7 +325,8 @@ def main():
                         f"look at them, pick ones that truly show the subject, save as assets/img/blog-{short}-1.jpg and assets/img/blog-{short}-2.jpg (?w=1600), "
                         f"run cwebp -q 80 on each, then point the header \"img\" and the in-article <img src> at them. Existing files in assets/img are not allowed."
                         ) if any("image" in e for e in errs) else ""
-            repair_post(row, errs + ([img_help] if img_help else []))
+            run_writer(f"The post build/posts/{row['slug']}.html failed these checks. Fix ONLY that post file (and its images if needed), re-run python3 build/build.py, and end with WROTE {row['slug']}.\n- " + "\n- ".join(errs) + img_help,
+                       REPAIR_BUDGET_USD, 30)
             errs = gates(row)
             if errs: raise Fail("gates", " | ".join(errs[:6]))
         hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
@@ -383,19 +336,6 @@ def main():
             br = ("draft-" + "-".join(w for w in row["slug"].split("-") if w not in ("how", "to", "get", "rid", "of", "a", "the", "do", "what", "is", "are")))[:28].rstrip("-")
             pv = sh(["./deploy.sh", "--branch", br], timeout=900)   # a preview alias per draft, never production
             preview = f"https://{br}.djpest.pages.dev/blog/{row['slug']}"
-            # Sanity Sam reads the preview like a reader BEFORE anything is parked (Dane 29 Sep: previews checked before publish, not only after)
-            import sense as sensemod
-            v = sensemod.run(row["slug"], preview) if pv.returncode == 0 else {"verdict": "FIX", "issues": ["preview deploy failed"], "fixes": []}
-            log(f"sense: {v.get('verdict')} {' | '.join(v.get('issues', [])[:4])}")
-            if v.get("verdict") != "PASS":
-                repair_post(row, [f"{i} -> {f}" for i, f in zip(v.get("issues", []), v.get("fixes", []) + [""] * 9)] or v.get("issues", []))
-                errs = gates(row)
-                if errs: raise Fail("sense", "after the common-sense repair the gates failed: " + " | ".join(errs[:4]))
-                hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
-                pv = sh(["./deploy.sh", "--branch", br], timeout=900)
-                v = sensemod.run(row["slug"], preview) if pv.returncode == 0 else v
-                log(f"sense (2nd): {v.get('verdict')} {' | '.join(v.get('issues', [])[:4])}")
-                if v.get("verdict") != "PASS": raise Fail("sense", "held by the common-sense check: " + " | ".join(v.get("issues", [])[:4]) + f" (sheet: {v.get('sheet')})")
             manifest = park(row); rollback(row["slug"])
             lost = [m for m in manifest if not (READY / row["slug"] / m).exists()]
             if lost or not (READY / row["slug"] / "manifest.json").exists():
@@ -406,16 +346,15 @@ def main():
             signal("notable", f"Blog draft ready: {hdr['title']}", f"Passed every gate. Preview: {preview} ({'ok' if pv.returncode == 0 else 'preview deploy failed'}). Publishes at the next Mon/Thu 06:00 run unless you say hold.", preview)
             st["fails"] = 0; st["last_ok"] = f"ready:{row['slug']}"; put_state(st)
             log(f"READY {row['slug']} ({len(manifest)} files parked) preview {preview}"); return
-        if HOLD.exists():
-            rollback(row["slug"]); signal("notable", f"Blog publish HELD: {row['slug']}", f"blog/_drafts/HOLD is present ({HOLD.read_text().strip()[:120] or 'no reason given'}). Remove the file to publish at the next slot.")
-            log("HELD: blog/_drafts/HOLD present"); return
         d = sh(["./deploy.sh", "--prod"], timeout=900)
         if d.returncode: raise Fail("deploy", (d.stdout + d.stderr)[-400:])
         url, verdict = verify(row["slug"], hdr["title"], hdr["img"])
         if not verdict.upper().startswith("PASS"):
             # Dane 28 Sep: a bad publish is blocked and fixed, never left live. One repair pass, then take it down.
             log(f"visual check failed on the live post; repairing: {verdict}")
-            repair_post(row, [f"the published page failed a visual check: {verdict}"])
+            run_writer(f"The live post build/posts/{row['slug']}.html failed a visual check of the published page: {verdict}\n"
+                       f"Fix ONLY that post file (and its images if needed: every image must truly show what its alt text says), "
+                       f"re-run python3 build/build.py, and end with WROTE {row['slug']}.", REPAIR_BUDGET_USD, 30)
             errs = gates(row)
             if not errs:
                 hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
@@ -426,14 +365,11 @@ def main():
                 st["fails"] = st.get("fails", 0) + 1                                 # a pulled post always pages Dane
                 raise Fail("verify", f"published post failed the visual check twice and was taken down: {verdict} {' | '.join(errs[:3])}")
         books(row, hdr["title"])
-        import shutil
-        if (WIP / row["slug"]).exists():
-            pub = DRAFTS / "published" / row["slug"]; shutil.rmtree(pub, ignore_errors=True); pub.parent.mkdir(exist_ok=True); shutil.move(str(WIP / row["slug"]), str(pub))
         st["fails"] = 0; st["last_ok"] = row["slug"]; put_state(st)
         signal("notable", f"Blog published: {hdr['title']}", f"Visual check: {verdict}. Screens: blog/_drafts/screens/{row['slug']}-*.png", url)
         log(f"PUBLISHED {url}")
     except Fail as e:
-        if row and e.stage in ("write", "gates", "sense", "brief", "prepare"): rollback(row["slug"]); fail_wip(row["slug"])
+        if row and e.stage in ("write", "gates"): rollback(row["slug"])
         st["fails"] = st.get("fails", 0) + 1; st["last_fail"] = str(e); put_state(st)
         sev = "urgent" if st["fails"] >= 2 else "notable"
         signal(sev, f"Blog run FAILED at {e.stage}" + (f" ({row['slug']})" if row else ""), e.why)
