@@ -250,3 +250,7 @@ form.lead-form{display:grid;gap:.9rem}
 .rv-note{margin-top:var(--s4);max-width:80ch;line-height:1.7;text-transform:none;letter-spacing:.02em}
 .rv-empty{max-width:640px}
 @media (max-width:860px){.rv-hero .wrap{grid-template-columns:1fr}}
+
+/* cost estimator */
+.est label{display:block;margin:0 0 1rem;font-weight:600}.est select{display:block;width:100%;margin-top:.4rem;padding:.7rem;font:inherit;border-radius:10px}.est-out{margin:1.2rem 0}.est-range{font-family:var(--serif);font-size:clamp(2.2rem,7vw,3.4rem);line-height:1.1}
+.est,.est label,.est select{min-width:0;max-width:100%;box-sizing:border-box}.est select{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
