@@ -4,3 +4,4 @@ date | slug | primary keyword | vol/KD
 2026-09-24 | what-do-termites-look-like | what do termites look like | 1900/26
 2026-09-28 | how-to-get-rid-of-german-cockroaches | how to get rid of german cockroaches | 590/8
 2026-09-28 | white-tail-spider-bite | white tail spider bite | 8100/27
+2026-09-29 | how-to-get-rid-of-silverfish | how to get rid of silverfish | 1600/KD20 (+ how get rid silverfish 1300/KD25 folded)
