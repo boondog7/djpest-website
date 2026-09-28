@@ -128,7 +128,7 @@ def quote_block(heading="Get an honest, itemised quote.", intro=None):
 </div></section>"""
 
 # ---------------------------------------------------------------- chrome
-NAV = [("Services", "/services"), ("Termites", "/termite-inspection-perth"), ("Investment", "/pest-control-prices-perth"),
+NAV = [("Services", "/services"), ("Termites", "/termite-inspection-perth"), ("Investment", "/pest-control-prices-perth"), ("Estimate", "/pest-control-cost-estimator"),
        ("Areas", "/service-areas"), ("Reviews", "/reviews"), ("About", "/about"), ("Blog", "/blog")]
 
 def header():
@@ -189,7 +189,7 @@ def footer():
     All pesticides are APVMA-registered and applied to label. Re-entry periods are advised before every treatment. © {TODAY[:4]} DJ Pest.
   </div>
 </div></footer>
-<div class="callbar">{btn_call("Call now")}<a class="btn btn-ghost" href="{SITE['phone_sms']}">{icon("message")}Text us</a></div>"""
+<div class="callbar">{btn_call("Call")}<a class="btn btn-ghost" href="{SITE['phone_sms']}">{icon("message")}Text</a><a class="btn btn-ghost" href="/pest-control-cost-estimator" data-est>Price</a></div>"""
 
 SCRIPT = ("""<script>
 (function(){
@@ -414,7 +414,9 @@ def render(page):
 {page['body']}
 </main>
 {footer()}
+<a class="est-fab" href="/pest-control-cost-estimator" data-est>Get a price range</a>
 {SCRIPT}
+<script src="/assets/js/estimator-data.js" defer></script><script src="/assets/js/estimator.js" defer></script>
 </body>
 </html>
 """))

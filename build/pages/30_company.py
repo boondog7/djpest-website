@@ -667,7 +667,7 @@ def post_cockroaches(c):
 
 
 # ------------------------------------------------------------------ cost estimator (same ranges as the investment guide)
-EST_KIND = {  # how each service scales: "size" (property), "stage" (infestation), "fixed" (quoted on site)
+_UNUSED_EST_KIND = {  # how each service scales: "size" (property), "stage" (infestation), "fixed" (quoted on site)
     "General pest treatment": "size", "External ant treatment": "both", "German cockroach program": "stage",
     "Rodent management program": "stage", "Spider treatment": "size", "Termite inspection": "size",
     "Pre-purchase timber pest inspection": "size", "Termite chemical management system": "size", "Termite baiting system": "size",
@@ -676,38 +676,37 @@ EST_KIND = {  # how each service scales: "size" (property), "stage" (infestation
 
 def estimator(c):
     S = c["SITE"]
-    data = _json.dumps([{"name": n, "lo": lo, "hi": hi, "kind": EST_KIND.get(n, "both")} for n, lo, hi in OFFERS])
-    form = f"""<div class="card est" id="est">
-<label>What's the problem?<select id="e-svc">{"".join(f'<option value="{i}">{c["esc"](n)}</option>' for i, (n, lo, hi) in enumerate(OFFERS))}</select></label>
-<label id="e-size-l">Property<select id="e-size"><option value="0">Unit, villa or small home</option><option value="0.45" selected>Standard 3-bedroom home</option><option value="0.75">4+ bedrooms or a big block</option><option value="1">Large two-storey, outbuildings, long fence lines</option></select></label>
-<label id="e-stage-l">How bad is it?<select id="e-stage"><option value="0">Just started: a few sightings</option><option value="0.5" selected>Regular sightings</option><option value="1">Established: everywhere, or it's been months</option></select></label>
-<div class="est-out" aria-live="polite"><div class="mono eyebrow">Indicative investment, GST included</div><div id="e-range" class="est-range">$0</div><p id="e-note" class="notice"></p></div>
-<div class="actions"><a class="btn btn-primary" id="e-sms" href="{S['phone_sms']}">Text us for a written quote</a><a class="btn btn-ghost" href="/contact">Use the quote form</a></div>
-<p class="notice">Text {c["esc"](S["phone_display"])}. A guide only, worked out from our published <a href="/pest-control-prices-perth">investment guide</a>. Every job is quoted itemised in writing, after we have seen it, before anything is booked. No call-out fee.</p>
-</div>
-<script>(function(){{var D={data};var q=function(i){{return document.getElementById(i)}};
-function r10(x){{return Math.round(x/10)*10}}function fmt(x){{return '$'+x.toLocaleString('en-AU')}}
-function go(){{var o=D[+q('e-svc').value],sz=+q('e-size').value,st=+q('e-stage').value,k=o.kind;
-q('e-size-l').hidden=(k=='stage'||k=='fixed');q('e-stage-l').hidden=(k=='size'||k=='fixed');
-var p=k=='size'?sz:k=='stage'?st:k=='both'?(sz*0.5+st*0.5):0.5;var w=(o.hi-o.lo);
-var lo=r10(Math.max(o.lo,o.lo+w*p-w*0.18)),hi=r10(Math.min(o.hi,o.lo+w*p+w*0.18));
-if(k=='fixed'){{lo=o.lo;hi=o.hi}}
-q('e-range').textContent=fmt(lo)+' to '+fmt(hi);
-q('e-note').textContent=k=='fixed'?'Commercial sites are quoted per visit after a free site survey.':(o.name.indexOf('Termite chemical')==0||o.name.indexOf('Termite baiting')==0)?'Termite systems depend on the perimeter length and how much is paved. We inspect first and quote the system the house actually needs.':'The written quote confirms it once we have seen the property.';
-q('e-sms').href='{S['phone_sms']}?&body='+encodeURIComponent('Hi DJ Pest, quote please: '+o.name+'. Suburb: ');}}
-['e-svc','e-size','e-stage'].forEach(function(i){{q(i).addEventListener('change',go)}});go();}})();</script>"""
-    body = _hero(c, "Cost estimator", "What will it cost? Get a range in ten seconds.", "Pick the pest and the property. You get the range we would expect, worked out from our published investment guide, before you pick up the phone.", actions=False)
-    body += c["section"](form, "ledger")
+    byname = {n: (lo, hi) for n, lo, hi in OFFERS}
+    keys = {  # estimator key -> (investment guide name, short inclusions)
+        "general": ("General pest treatment", "internal and external treatment for cockroaches, spiders, silverfish and ants inside, a six-month re-treatment period"),
+        "ants": ("External ant treatment", "colony-level treatment with slow-acting non-repellents and baits, a three-month re-treatment period"),
+        "german": ("German cockroach program", "gel bait and an insect growth regulator through the kitchen and appliances, with a follow-up visit"),
+        "rodent": ("Rodent management program", "entry-point audit, tamper-resistant bait stations and a written proofing plan"),
+        "spider": ("Spider treatment", "external web and harbourage treatment, inside only where needed"),
+        "termite_insp": ("Termite inspection", "a visual inspection to AS 4349.3 of the interior, roof void and sub-floor where accessible, with photos and a written report"),
+        "prepurchase": ("Pre-purchase timber pest inspection", "a full AS 4349.3 timber pest report formatted for your purchase"),
+        "wasp": ("Wasp nest removal", "treatment and removal of an accessible paper wasp nest and a roofline check for others"),
+        "beehive": ("Bee hive treatment", "evening treatment of an established hive, entry sealed and a follow-up check"),
+        "bedbug": ("Bed bug two-visit program", "an inspection-led treatment of every hiding spot, with a second visit at ten to fourteen days"),
+        "mosquito": ("Mosquito yard treatment", "a breeding-site audit and treatment of shaded resting areas"),
+        "commercial": ("Commercial pest program (per visit)", "a free site survey, then a written program for your site"),
+    }
+    prices = {k: {"name": n, "lo": byname[n][0], "hi": byname[n][1], "inc": inc} for k, (n, inc) in keys.items() if n in byname}
+    data = {"prices": prices, "area": S["service_area"], "sms": S["phone_sms"], "tel": "tel:" + S["phone_tel"], "phone": S["phone_display"]}
+    (__import__("pathlib").Path(__file__).resolve().parents[2] / "assets/js/estimator-data.js").write_text(
+        "/* generated by build/pages/30_company.py from the investment guide: do not edit */\nwindow.DJEST=" + _json.dumps(data, ensure_ascii=False) + ";\n")
+    app = ('<div class="est-card est-inline" id="est-app"><noscript><p>The estimator needs JavaScript. Our <a href="/pest-control-prices-perth">investment guide</a> '
+           'lists every range, or text us on ' + c["esc"](S["phone_display"]) + '.</p></noscript></div>')
+    body = _hero(c, "Cost estimator", "What will it cost? Answer a few questions.", "Tell us what you're seeing and about the property. You'll get an indicative range from our published investment guide, then Dane reviews it and confirms it with a site inspection before any quote.", actions=False)
+    body += c["section"](app, "ledger")
     body += _prose(c, """<h2>How the estimate works</h2>
-<p>Every range comes straight from our <a href="/pest-control-prices-perth">investment guide</a>. The estimator narrows it using the two things that move the investment most: the size of the property and how established the problem is. It cannot see access, construction or what is hiding in the roof void, which is why the final figure is always a written, itemised quote after we have looked.</p>
-<p>Not sure what the pest is? Try <a href="/whats-my-pest">What's my pest?</a> first, or just text us a photo.</p>""")
-    body += c["quote_block"]()
-    return {"path": "/pest-control-cost-estimator", "title": "Pest Control Cost Estimator Perth | Price Range in Seconds | DJ Pest",
-            "desc": "Pest control price estimate for Perth in ten seconds: pick the pest and your property for an indicative range, straight from our published investment guide. Written quote, no call-out fee.",
+<p>It starts with what you're actually seeing, works out the most likely service, and narrows our published range using the things that move it most: the size of the property and how established the problem is. Termite work always starts with an inspection, and some answers (bites with no bugs seen, a bee swarm, a suspected European wasp) get advice instead of a figure.</p>
+<p>The result is an <strong>indicative range, not a quote</strong>. Every request is reviewed by Dane, and the work is confirmed by a site inspection before you get a written, itemised quote. Nothing is booked until you accept it, and nothing here limits your rights under the Australian Consumer Law. Every range comes from the <a href="/pest-control-prices-perth">investment guide</a>.</p>""")
+    return {"path": "/pest-control-cost-estimator", "title": "Pest Control Cost Estimator Perth | Indicative Price Range | DJ Pest",
+            "desc": "Answer a few questions about what you're seeing and your property for an indicative pest control price range in Perth, reviewed by Dane and confirmed on site before any written quote.",
             "body": body, "crumbs": [("Investment guide", "/pest-control-prices-perth"), ("Cost estimator", None)],
             "schema": [{"@type": "WebApplication", "name": "DJ Pest cost estimator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any",
                         "url": DOMAIN + "/pest-control-cost-estimator", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "AUD"}, "provider": {"@id": DOMAIN + "/#business"}}]}
-
 
 def pages(c):
     return [investment(c), estimator(c), whats_my_pest(c), about(c), contact(c), terms(c), warranty(c), privacy(c), blog_index(c), post_ants(c), post_cockroaches(c)] + file_posts(c)

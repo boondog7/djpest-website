@@ -254,3 +254,34 @@ form.lead-form{display:grid;gap:.9rem}
 /* cost estimator */
 .est label{display:block;margin:0 0 1rem;font-weight:600}.est select{display:block;width:100%;margin-top:.4rem;padding:.7rem;font:inherit;border-radius:10px}.est-out{margin:1.2rem 0}.est-range{font-family:var(--serif);font-size:clamp(2.2rem,7vw,3.4rem);line-height:1.1}
 .est,.est label,.est select{min-width:0;max-width:100%;box-sizing:border-box}.est select{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+/* cost estimator v2: guided journey + site-wide entry */
+.callbar{grid-template-columns:1fr 1fr 1fr}
+.est-fab{display:none}
+@media (min-width:900px){.est-fab{display:inline-flex;position:fixed;right:1.5rem;bottom:1.5rem;z-index:55;align-items:center;min-height:48px;padding:.8rem 1.3rem;border-radius:999px;background:var(--red,#c8001e);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.45)}.est-fab:hover{filter:brightness(1.1)}}
+.est-dialog{border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 1.5rem);max-height:calc(100dvh - 1.5rem);color:inherit}
+.est-dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(4px)}
+.est-close{position:absolute;right:.6rem;top:.6rem;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line,#333);background:#111;color:#fff;font-size:1.6rem;cursor:pointer}
+.est-card{position:relative;background:#111;border:1px solid var(--line,#2a2a2a);border-radius:18px;padding:1.4rem 1.3rem 1.6rem;max-height:calc(100dvh - 1.5rem);overflow:auto}
+.est-inline{max-height:none;overflow:visible}
+.est-top{margin-bottom:1rem;padding-right:3rem}.est-inline .est-top{padding-right:0}
+.est-bar{height:4px;background:#2a2a2a;border-radius:4px;overflow:hidden}.est-bar span{display:block;height:4px;background:var(--red,#c8001e);transition:width .25s}
+.est-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:.6rem;font-size:.85rem}
+.est-back{background:none;border:0;color:inherit;padding:.3rem 0;cursor:pointer;font:inherit}.est-help{color:inherit;opacity:.75;margin-left:auto}
+.est-q{font-family:var(--serif);font-size:clamp(1.5rem,5vw,2rem);line-height:1.2;margin:.2rem 0 .5rem;outline:none}
+.est-sub{opacity:.8}.est-small{font-size:.8rem;opacity:.75}
+.est-warn{border-left:3px solid var(--red,#c8001e);padding:.5rem .8rem;background:rgba(200,0,30,.08);border-radius:6px}
+.est-opts{display:grid;gap:.6rem;margin-top:1rem}
+.est-opt{display:block;text-align:left;width:100%;min-height:56px;padding:.85rem 1rem;border-radius:12px;border:1px solid #333;background:#171717;color:inherit;font:inherit;cursor:pointer}
+.est-opt:hover,.est-opt:focus-visible{border-color:var(--red,#c8001e);background:#1d1d1d}
+.est-opt strong{display:block}.est-opt span{display:block;font-size:.85rem;opacity:.7;margin-top:.15rem}
+.est-label{display:block;font-weight:600;margin:1rem 0 .35rem}
+.est-input{display:block;width:100%;max-width:100%;box-sizing:border-box;padding:.8rem;font:inherit;border-radius:10px;border:1px solid #333;background:#0c0c0c;color:inherit}
+.est-input[aria-invalid=true]{border-color:var(--red,#c8001e)}
+.est-go{margin-top:1rem}
+.est-range{font-family:var(--serif);font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.1;margin:.2rem 0}
+.est-scale{position:relative;height:10px;border-radius:10px;background:#262626;margin:.6rem 0 1rem}.est-scale span{position:absolute;top:0;height:10px;border-radius:10px;background:var(--red,#c8001e)}
+.est-legal{font-size:.85rem;border:1px solid #333;border-radius:10px;padding:.8rem 1rem;margin:1rem 0;background:#0c0c0c}
+.est-form{margin-top:1.4rem;border-top:1px solid #2a2a2a;padding-top:1rem}.est-form h3{margin:0 0 .3rem}
+.est-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.est-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.est-msg{min-height:1.2em}
