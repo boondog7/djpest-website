@@ -136,7 +136,7 @@ def header():
     links = "".join(f'<a href="{h}">{esc(t)}</a>' for t, h in NAV if h != "/reviews" or live)
     return f"""<a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
+  <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">{icon("menu")}</button>
   <nav class="nav" id="nav">{links}{btn_call(cls="btn btn-primary")}</nav>
 </div></header>"""
@@ -146,7 +146,7 @@ def footer():
     return f"""<footer class="site-footer"><div class="wrap">
   <div class="cols">
     <div>
-      <a class="brand" href="/"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
+      <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
       <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Documented, and quoted in writing before we start.</p>
       <p><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a><br><a href="mailto:{SITE['email']}">{SITE['email']}</a><br>{SITE['hours']}</p>
     </div>
@@ -319,7 +319,90 @@ def render(page):
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>@font-face {{
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-roman.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-roman.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+@font-face {{
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+/* Metric-matched fallbacks (28 Sep 2026): the page lays out identically before and after the web fonts arrive, so no layout shift. */
+@font-face {{ font-family: 'Fraunces Fallback'; src: local('Georgia'); size-adjust: 115.98%; ascent-override: 84.33%; descent-override: 21.99%; line-gap-override: 0%; }}
+@font-face {{ font-family: 'Inter Tight Fallback'; src: local('Arial'), local('Helvetica'); size-adjust: 96.23%; ascent-override: 100.67%; descent-override: 25.07%; line-gap-override: 0%; }}
+</style>
 <link rel="stylesheet" href="/assets/css/site.css?v={CSS_VER}">
 <script type="application/ld+json">{json.dumps(schema, separators=(',', ':'), ensure_ascii=False)}</script>
 </head>

@@ -170,7 +170,7 @@ def whats_my_pest(c):
 def about(c):
     S = c["SITE"]
     mark = ('<div class="card" style="text-align:center;padding:2.5rem 1.6rem">'
-            '<img src="/assets/img/rat-crosshair-white.png" alt="DJ Pest rat-in-crosshair mark" width="160" height="158" style="margin:0 auto 1rem;width:160px;aspect-ratio:1/1;object-fit:contain;filter:invert(1)" loading="lazy">'
+            '<img src="/assets/img/rat-crosshair-white-520.webp" alt="DJ Pest rat-in-crosshair mark" width="160" height="158" style="margin:0 auto 1rem;width:160px;aspect-ratio:1/1;object-fit:contain;filter:invert(1)" loading="lazy">'
             f'<div class="num">{c["esc"](S["owner"])}</div><p>{c["esc"](S["owner_title"])}<br>{c["esc"](S["licence_label"])}<br>{c["esc"](S["reg_short"])}<br>Based in {S["base_suburb"]} WA {S["base_postcode"]}</p></div>')
 
     body = _hero(c, "About DJ Pest · Warwick, WA",

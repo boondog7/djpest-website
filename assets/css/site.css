@@ -3,7 +3,7 @@
   --bg:#0a0a0a; --bg-2:#111111; --bg-3:#171717; --ink:#f4f2ef; --ink-2:#c9c5bf; --ink-3:#8e8983; --ink-4:#5f5a55;
   --red:#d0021b; --red-2:#ff2d3a; --red-deep:#6e0a12; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.18);
   --card:rgba(255,255,255,.035); --card-2:rgba(255,255,255,.06);
-  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'Inter Tight',Inter,system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,'Times New Roman',serif; --sans:'Inter Tight','Inter Tight Fallback',Inter,system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
   --maxw:1180px; --pad:clamp(20px,5vw,64px); --r:14px; --r-sm:8px;
   --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:7rem;
   --ease:cubic-bezier(.2,.7,.2,1); --t:220ms;

@@ -7,7 +7,7 @@ def pages(c):
   <circle class="ring" cx="200" cy="200" r="150"/>
   <line class="tick" x1="200" y1="20" x2="200" y2="66"/><line class="tick" x1="200" y1="334" x2="200" y2="380"/>
   <line class="tick" x1="20" y1="200" x2="66" y2="200"/><line class="tick" x1="334" y1="200" x2="380" y2="200"/>
-  <image class="rat" href="/assets/img/rat-crosshair-white.png" x="70" y="72" width="260" height="256"/>
+  <image class="rat" href="/assets/img/rat-crosshair-white-520.webp" x="70" y="72" width="260" height="256"/>
 </svg></div>"""
 
     hero = f"""<section class="hero"><div class="wrap">

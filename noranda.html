@@ -14,8 +14,91 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=b956117a">
+<style>@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-roman.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/fraunces-roman.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/assets/fonts/inter-tight.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Metric-matched fallbacks (28 Sep 2026): the page lays out identically before and after the web fonts arrive, so no layout shift. */
+@font-face { font-family: 'Fraunces Fallback'; src: local('Georgia'); size-adjust: 115.98%; ascent-override: 84.33%; descent-override: 21.99%; line-gap-override: 0%; }
+@font-face { font-family: 'Inter Tight Fallback'; src: local('Arial'), local('Helvetica'); size-adjust: 96.23%; ascent-override: 100.67%; descent-override: 25.07%; line-gap-override: 0%; }
+</style>
+<link rel="stylesheet" href="/assets/css/site.css?v=3428ba21">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["LocalBusiness","PestControl"],"@id":"https://djpest.com.au/#business","name":"DJ Pest","legalName":"DJ Pest Pty Ltd ATF Johns Family Trust","url":"https://djpest.com.au","telephone":"+61468170107","email":"ops@djpest.com.au","image":"https://djpest.com.au/assets/img/og-default.jpg","logo":"https://djpest.com.au/assets/img/logo-black.png","address":{"@type":"PostalAddress","addressLocality":"Warwick","addressRegion":"WA","postalCode":"6024","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-31.8404,"longitude":115.808},"areaServed":[{"@type":"City","name":"Warwick"},{"@type":"City","name":"Greenwood"},{"@type":"City","name":"Duncraig"},{"@type":"City","name":"Sorrento"},{"@type":"City","name":"Hillarys"},{"@type":"City","name":"Kingsley"},{"@type":"City","name":"Woodvale"},{"@type":"City","name":"Joondalup"},{"@type":"City","name":"Padbury"},{"@type":"City","name":"Craigie"},{"@type":"City","name":"Kallaroo"},{"@type":"City","name":"Mullaloo"},{"@type":"City","name":"Ocean Reef"},{"@type":"City","name":"Currambine"},{"@type":"City","name":"Kinross"},{"@type":"City","name":"Wanneroo"},{"@type":"City","name":"Marangaroo"},{"@type":"City","name":"Girrawheen"},{"@type":"City","name":"Balcatta"},{"@type":"City","name":"Stirling"},{"@type":"City","name":"Carine"},{"@type":"City","name":"Karrinyup"},{"@type":"City","name":"Hamersley"},{"@type":"City","name":"Balga"},{"@type":"City","name":"Alkimos"},{"@type":"City","name":"Clarkson"},{"@type":"City","name":"Butler"},{"@type":"City","name":"Mindarie"},{"@type":"City","name":"Quinns Rocks"},{"@type":"City","name":"Yanchep"},{"@type":"City","name":"Madeley"},{"@type":"City","name":"Gwelup"},{"@type":"City","name":"Westminster"},{"@type":"City","name":"Marmion"},{"@type":"City","name":"Darch"},{"@type":"City","name":"Watermans Bay"},{"@type":"City","name":"Koondoola"},{"@type":"City","name":"North Beach"},{"@type":"City","name":"Alexander Heights"},{"@type":"City","name":"Innaloo"},{"@type":"City","name":"Nollamara"},{"@type":"City","name":"Landsdale"},{"@type":"City","name":"Mirrabooka"},{"@type":"City","name":"Trigg"},{"@type":"City","name":"Pearsall"},{"@type":"City","name":"Doubleview"},{"@type":"City","name":"Osborne Park"},{"@type":"City","name":"Tuart Hill"},{"@type":"City","name":"Woodlands"},{"@type":"City","name":"Hocking"},{"@type":"City","name":"Ballajura"},{"@type":"City","name":"Scarborough"},{"@type":"City","name":"Joondanna"},{"@type":"City","name":"Beldon"},{"@type":"City","name":"Yokine"},{"@type":"City","name":"Dianella"},{"@type":"City","name":"Noranda"},{"@type":"City","name":"Edgewater"},{"@type":"City","name":"Mount Hawthorn"},{"@type":"City","name":"Glendalough"},{"@type":"City","name":"Churchlands"},{"@type":"City","name":"Wembley Downs"},{"@type":"City","name":"Coolbinia"},{"@type":"City","name":"Heathridge"},{"@type":"City","name":"North Perth"},{"@type":"City","name":"Menora"},{"@type":"City","name":"Wembley"},{"@type":"City","name":"Leederville"},{"@type":"City","name":"Morley"},{"@type":"City","name":"Floreat"},{"@type":"City","name":"West Leederville"},{"@type":"City","name":"Sinagra"},{"@type":"City","name":"Inglewood"},{"@type":"City","name":"Bedford"},{"@type":"City","name":"City Beach"},{"@type":"City","name":"Connolly"},{"@type":"City","name":"Jolimont"},{"@type":"City","name":"Subiaco"},{"@type":"City","name":"Embleton"},{"@type":"City","name":"Ashby"},{"@type":"City","name":"Daglish"},{"@type":"City","name":"Highgate"},{"@type":"City","name":"Mount Lawley"},{"@type":"City","name":"Shenton Park"},{"@type":"City","name":"Beechboro"},{"@type":"City","name":"Kiara"},{"@type":"City","name":"Bennett Springs"},{"@type":"City","name":"Mount Claremont"},{"@type":"City","name":"Tapping"},{"@type":"City","name":"Iluka"},{"@type":"City","name":"Lockridge"},{"@type":"City","name":"Bayswater"},{"@type":"City","name":"Maylands"},{"@type":"City","name":"Eden Hill"},{"@type":"City","name":"Swanbourne"},{"@type":"City","name":"Wangara"},{"@type":"City","name":"Malaga"},{"@type":"City","name":"Herdsman"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":19,"bestRating":5,"worstRating":1},"openingHours":"Mo-Su 07:00-18:00","priceRange":"$$","foundingDate":"2026","slogan":"Perth family pest management since 2011","identifier":[{"@type":"PropertyValue","propertyID":"ABN","value":"86797740716"},{"@type":"PropertyValue","propertyID":"WA Department of Health Pest Management Business Registration","value":"PMB 3000"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Work carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence (Health (Pesticides) Regulations 2011)","recognizedBy":{"@type":"GovernmentOrganization","name":"WA Department of Health"}}},{"@type":"Service","serviceType":"Pest management in Noranda","description":"Termite inspection, general pest, ant and rodent management for Noranda homes and businesses, about 12 minutes from DJ Pest's base in Warwick.","provider":{"@id":"https://djpest.com.au/#business"},"areaServed":{"@type":"City","name":"Noranda","containedInPlace":{"@type":"AdministrativeArea","name":"Perth, Western Australia"}},"offers":{"@type":"Offer","priceCurrency":"AUD","price":250,"priceSpecification":{"@type":"PriceSpecification","minPrice":250,"maxPrice":5500,"priceCurrency":"AUD"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How far is Noranda from Warwick?","acceptedAnswer":{"@type":"Answer","text":"About twelve minutes east along Beach Road or Reid Highway to Malaga Drive. Same-day service for active pests is usually possible, and we work Noranda, Morley and Dianella regularly enough that a visit can often be added to an existing run."}},{"@type":"Question","name":"Are 1980s Noranda homes at risk from termites?","acceptedAnswer":{"@type":"Answer","text":"Yes. The double brick and tile homes of that era have timber roof framing now past forty years old, and most were built before modern management systems were standard. Irrigated gardens on fast-draining Bassendean sand bring the moisture termites need to the wall line. A termite inspection to AS 4349.3 each year, with a system to AS 3660.2 if needed, is the right approach. Book an inspection."}},{"@type":"Question","name":"Why do ants keep coming back to my Noranda driveway?","acceptedAnswer":{"@type":"Answer","text":"Coastal brown ant super-colonies sit under the paving and retaining walls across several properties with many queens. A repellent spray splits the colony and it comes back bigger. Slow-acting non-repellent products and baits, APVMA-registered and applied to label, are carried through the colony and collapse it over a couple of weeks. Read more."}},{"@type":"Question","name":"Can you do anything about mosquitoes from Lightning Swamp?","acceptedAnswer":{"@type":"Answer","text":"We cannot treat the reserve itself, and nobody should. We can treat the shaded vegetation and harbourage around your home to label, which is where adult mosquitoes rest during the day, and show you the standing water in gutters, pot bases and retic boxes that breeds the ones from your own yard. Screens and timing outdoor use around dusk do the rest. Mosquito management."}},{"@type":"Question","name":"What is the investment for pest management in Noranda?","acceptedAnswer":{"@type":"Answer","text":"A typical three-bedroom home, internal and external, sits in the $250 to $350 range. Every job is quoted itemised in writing. See the investment guide. Indoor products are low-odour and non-staining, and every product is APVMA-registered and applied to its label."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://djpest.com.au/"},{"@type":"ListItem","position":2,"name":"Service areas","item":"https://djpest.com.au/service-areas"},{"@type":"ListItem","position":3,"name":"Noranda","item":"https://djpest.com.au/noranda"}]}]}</script>
 </head>
 <body>
@@ -34,7 +117,7 @@
 </defs></svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="/"><picture style="display:contents"><source type="image/webp" srcset="/assets/img/logo-white.webp"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="120" height="43" style="filter:none"></picture><span class="brand-sub">Perth's northern<br>suburbs</span></a>
+  <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
   <nav class="nav" id="nav"><a href="/services">Services</a><a href="/termite-inspection-perth">Termites</a><a href="/pest-control-prices-perth">Investment</a><a href="/service-areas">Areas</a><a href="/reviews">Reviews</a><a href="/about">About</a><a href="/blog">Blog</a><a class="btn btn-primary" href="tel:+61468170107"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 0468 170 107</a></nav>
 </div></header>
@@ -85,7 +168,7 @@ Professional, reliable and genuinely cares about doing the job properly. Phenome
 <footer class="site-footer"><div class="wrap">
   <div class="cols">
     <div>
-      <a class="brand" href="/"><picture style="display:contents"><source type="image/webp" srcset="/assets/img/logo-white.webp"><img src="/assets/img/logo-white.png" alt="DJ Pest" width="96" height="34" style="filter:none"></picture></a>
+      <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
       <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for Perth's northern suburbs. Documented, and quoted in writing before we start.</p>
       <p><a href="tel:+61468170107">0468 170 107</a><br><a href="mailto:ops@djpest.com.au">ops@djpest.com.au</a><br>Mon–Sun 7:00am–6:00pm</p>
     </div>
