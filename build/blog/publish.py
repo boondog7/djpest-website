@@ -263,14 +263,15 @@ def verify(slug, title, hero):
     shots = []
     for tag, size in (("desktop", "1280,2000"), ("mobile", "390,1800")):
         out = SHOTS / f"{slug}-{tag}.png"
-        sh([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--window-size={size}", "--virtual-time-budget=6000", f"--screenshot={out}", url], timeout=120)
+        sh([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--window-size={size}", "--virtual-time-budget=12000", f"--screenshot={out}", url], timeout=120)
         if out.exists(): shots.append(out)
     verdict = "no screenshot"
     if shots:
         env = zsh_env(); env["HQ_ROLE"] = "blog-visual-check"
         q = (f"Read these two screenshots of a newly published blog page ({', '.join(str(s) for s in shots)}). Judge as a stranger in 2 seconds: "
-             "is there a real photo hero or in-article photo, a readable headline, body text, and no broken layout (overlaps, huge blank areas, "
-             "missing images)? Reply with one line: PASS <reason> or FAIL <reason>.")
+             "is there a readable headline, body text, and no broken layout (overlaps, huge blank areas, broken image icons)? Posts have a text-only "
+             "hero; photos sit in the article further down and may be below the fold, so a text-only first screen is fine. FAIL only for a real "
+             "problem a reader would notice, or a visible photo that clearly does not fit a pest-control article. Reply with one line: PASS <reason> or FAIL <reason>.")
         v = sh([LEAN, "-p", "--output-format", "text", "--model", "haiku", "--max-turns", "4", "--allowedTools", "Read", "--add-dir", str(SHOTS)], env=env, inp=q, timeout=300)
         verdict = (v.stdout.strip().splitlines() or ["(no verdict)"])[-1]
     log(f"visual check: {verdict}")
@@ -348,6 +349,21 @@ def main():
         d = sh(["./deploy.sh", "--prod"], timeout=900)
         if d.returncode: raise Fail("deploy", (d.stdout + d.stderr)[-400:])
         url, verdict = verify(row["slug"], hdr["title"], hdr["img"])
+        if not verdict.upper().startswith("PASS"):
+            # Dane 28 Sep: a bad publish is blocked and fixed, never left live. One repair pass, then take it down.
+            log(f"visual check failed on the live post; repairing: {verdict}")
+            run_writer(f"The live post build/posts/{row['slug']}.html failed a visual check of the published page: {verdict}\n"
+                       f"Fix ONLY that post file (and its images if needed: every image must truly show what its alt text says), "
+                       f"re-run python3 build/build.py, and end with WROTE {row['slug']}.", REPAIR_BUDGET_USD, 30)
+            errs = gates(row)
+            if not errs:
+                hdr = json.loads((POSTS / f"{row['slug']}.html").read_text().splitlines()[0])
+                d = sh(["./deploy.sh", "--prod"], timeout=900)
+                if d.returncode == 0: url, verdict = verify(row["slug"], hdr["title"], hdr["img"])
+            if errs or not verdict.upper().startswith("PASS"):
+                rollback(row["slug"]); sh(["./deploy.sh", "--prod"], timeout=900)        # take the post down again
+                st["fails"] = st.get("fails", 0) + 1                                 # a pulled post always pages Dane
+                raise Fail("verify", f"published post failed the visual check twice and was taken down: {verdict} {' | '.join(errs[:3])}")
         books(row, hdr["title"])
         st["fails"] = 0; st["last_ok"] = row["slug"]; put_state(st)
         signal("notable", f"Blog published: {hdr['title']}", f"Visual check: {verdict}. Screens: blog/_drafts/screens/{row['slug']}-*.png", url)

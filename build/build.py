@@ -118,7 +118,7 @@ def quote_block(heading="Get an honest, itemised quote.", intro=None):
       <label>Email (optional)<input name="email" type="email" autocomplete="email"></label>
       <label>Suburb<select name="suburb" required><option value="">Select…</option>{suburbs}<option>Other</option></select></label>
     </div>
-    <label>What's the problem?<select name="pest"><option>Not sure — please identify</option><option>Termites / timber pest</option><option>General pest (cockroaches, spiders, silverfish)</option><option>Ants</option><option>Rodents</option><option>Mosquitoes</option><option>Wasps or bees</option><option>Fleas or bed bugs</option><option>Pre-purchase inspection</option><option>Commercial / strata</option></select></label>
+    <label>What's the problem?<select name="pest"><option>Not sure, please identify</option><option>Termites / timber pest</option><option>General pest (cockroaches, spiders, silverfish)</option><option>Ants</option><option>Rodents</option><option>Mosquitoes</option><option>Wasps or bees</option><option>Fleas or bed bugs</option><option>Pre-purchase inspection</option><option>Commercial / strata</option></select></label>
     <label>Anything else we should know?<textarea name="message" rows="3"></textarea></label>
     <label class="consent"><input type="checkbox" name="marketing" value="yes"> Send me seasonal pest reminders (a few emails a year, unsubscribe any time).</label>
     <button class="btn btn-primary" type="submit">Request my quote {icon("arrow","icon")}</button>
@@ -202,10 +202,10 @@ SCRIPT = ("""<script>
     if(!d.name||!d.phone||!d.suburb){m.textContent='Please add your name, mobile and suburb.';return;}
     b.disabled=true;m.textContent='Sending…';
     try{
-      var fs=fetch('https://formsubmit.co/ajax/d50bd5ca094e7fb250eb75f3921a0b42',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New website lead: '+d.name+' ('+d.suburb+') — '+(d.pest||'pest not specified'),_template:'table',_captcha:'false',Name:d.name,Mobile:d.phone,Email:d.email||'',Suburb:d.suburb,Pest:d.pest||'',Message:d.message||'','Marketing consent':d.marketing||'no',Page:location.href})}).then(function(r){return r.ok}).catch(function(){return false});
+      var fs=fetch('https://formsubmit.co/ajax/d50bd5ca094e7fb250eb75f3921a0b42',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New website lead: '+d.name+' ('+d.suburb+') - '+(d.pest||'pest not specified'),_template:'table',_captcha:'false',Name:d.name,Mobile:d.phone,Email:d.email||'',Suburb:d.suburb,Pest:d.pest||'',Message:d.message||'','Marketing consent':d.marketing||'no',Page:location.href})}).then(function(r){return r.ok}).catch(function(){return false});
       var api=fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){return !!j.ok}).catch(function(){return false});
       var ok=await Promise.all([fs,api]);
-      if(ok[0]||ok[1]){m.textContent='Thanks '+d.name.split(' ')[0]+' — we\\'ll call you back shortly.';f.reset();}else{m.textContent='Something went wrong. Please call __PHONE__.';}
+      if(ok[0]||ok[1]){m.textContent='Thanks '+d.name.split(' ')[0]+', we\\'ll call you back shortly.';f.reset();}else{m.textContent='Something went wrong. Please call __PHONE__.';}
     }catch(e){m.textContent='Could not send. Please call __PHONE__.';}
     b.disabled=false;});}
   document.querySelectorAll('.report-tabs button').forEach(function(bt){bt.addEventListener('click',function(){
