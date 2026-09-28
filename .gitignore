@@ -21,3 +21,4 @@ blog/_drafts/screens/
 **/__pycache__/
 blog/_drafts/.photos/
 .deploy.lock
+blog/_drafts/.tmp/
