@@ -8,6 +8,9 @@ set -euo pipefail
 if [ -z "${DEPLOY_LOCKED:-}" ]; then export DEPLOY_LOCKED=1; exec /usr/bin/lockf -k -t 600 "$(dirname "$0")/.deploy.lock" "$0" "$@"; fi
 cd "$(dirname "$0")"
 source ~/.config/jaystack/cloudflare.env
+# DEPLOY_SRC=<dir>: build and ship from that tree instead of this working copy (the blog desk exports HEAD + its own post
+# into a temp dir, so another session's half-finished files can never ride along on a scheduled publish; 29 Sep 2026).
+if [ -n "${DEPLOY_SRC:-}" ]; then cd "$DEPLOY_SRC"; fi
 
 # Pin the interpreter: launchd/cron PATH has no Homebrew, so bare python3 = macOS 3.9 and the build breaks.
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
