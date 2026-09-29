@@ -1,0 +1,26 @@
+{
+  "slug": "are-huntsman-spiders-venomous",
+  "claims": [
+    {"sentence": "Huntsman spiders have venom for hunting insects, not for harming people.", "type": "health", "source_id": "S2"},
+    {"sentence": "Bites are exceptionally rare and cause only mild discomfort, no medical risk.", "type": "health", "source_id": "S2"},
+    {"sentence": "A bite from a huntsman is so rare that most people who find one in their home will never experience one.", "type": "stat", "source_id": "S2"},
+    {"sentence": "The venom is specialised for their prey and delivered through fangs too small and weak to penetrate human skin effectively.", "type": "health", "source_id": "S2"},
+    {"sentence": "If trapped or handled roughly, they can bite, but the venom produces only mild discomfort like an insect bite.", "type": "health", "source_id": "S2"},
+    {"sentence": "Huntsman spiders belong to family Sparassidae.", "type": "pesticide", "source_id": "S2"},
+    {"sentence": "The body grows to around 15 mm, but their legs spread across 100 to 150 mm.", "type": "stat", "source_id": "S2"},
+    {"sentence": "Huntsman are beneficial predators that eat cockroaches, flies, moths and other pest insects.", "type": "stat", "source_id": "S2"},
+    {"sentence": "Huntsman live two to three years typically, longer-lived than many other spiders.", "type": "stat", "source_id": "S2"},
+    {"sentence": "Typical ranges for a standard three-bedroom home in Perth are $220 to $300 for spider-only treatment, or $250 to $350 for general pest management.", "type": "price", "source_id": "price"},
+    {"sentence": "Venom is injected; poison is ingested. Huntsman have venom designed for insects, not humans.", "type": "pesticide", "source_id": "S2"}
+  ],
+  "sources_used": ["S2"],
+  "images": ["/assets/img/blog-huntsman-spiders-venomous-1.jpg", "/assets/img/blog-huntsman-spiders-venomous-2.jpg"],
+  "hub": "/spider-control-perth",
+  "siblings": ["/blog/white-tail-spider-bite"],
+  "experience": {"used": false, "ref": ""},
+  "derivatives": {
+    "gbp": "Huntsman spiders have venom for insects, not people. Bites are rare and mild. In Perth, they are beneficial predators but not a pest control priority. We treat redbacks and white-tails. Spider management at /spider-control-perth.",
+    "fb_ig": "Huntsman spiders have venom for insects, not people. Bites are exceptionally rare and mild. They are beneficial, eating cockroaches and flies. Not a pest. Need help? Text 0468 170 107.",
+    "email": "Huntsman spiders are large, flat, fast creatures with venom for insects. Bites are exceptionally rare and pose no medical risk. In Perth homes, they hide in roof voids and wall cavities and are beneficial predators of pest insects. They don't require professional treatment. If you are seeing them and would like advice or if you need help with redback or white-tail spiders, text 0468 170 107 for a written price."
+  }
+}
