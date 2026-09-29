@@ -31,4 +31,5 @@ BRANCH=preview; [[ "${1:-}" == "--prod" ]] && BRANCH=main
 [[ "${1:-}" == "--branch" && -n "${2:-}" ]] && BRANCH="$2"
 wrangler pages deploy "$DIST" --project-name djpest --branch "$BRANCH" --commit-dirty=true
 echo "deployed branch=$BRANCH"
-[[ "$BRANCH" == "main" ]] && { sleep 20; "$PY" build/indexnow.py || true; }
+if [[ "$BRANCH" == "main" ]]; then sleep 20; "$PY" build/indexnow.py || true; fi
+exit 0   # a non-main branch used to fall off the end with status 1 from the [[ ]] test (29 Sep: every preview "failed")

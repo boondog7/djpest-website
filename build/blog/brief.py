@@ -165,12 +165,53 @@ def photos_for(slug, queries, subject, skip):
         import csv
         for r in csv.DictReader(open(reg)):
             if r.get("slug") == slug: have.append("/assets/img/" + Path(r["file"]).name)
+    for h in list(have):                                   # restore images kept with a failed draft (fail_wip) before re-sourcing
+        f = SITE / h.lstrip("/")
+        if not f.exists():
+            for d in sorted((DRAFTS / "failed").glob(f"{slug}-*/img/{f.name}"), reverse=True):
+                import shutil; shutil.copy2(d, f)
+                if d.with_suffix(".webp").exists(): shutil.copy2(d.with_suffix(".webp"), f.with_suffix(".webp"))
+                break
     have = [h for h in have if (SITE / h.lstrip("/")).exists()]
     if len(have) >= 2: return {"files": have[:3], "alts": [], "credits": [], "note": "already registered for this slug"}
     if skip: return {"files": have, "alts": [], "credits": [], "note": "photos skipped"}
     r = subprocess.run([sys.executable, str(SITE / "build/blog/photos.py"), slug, *queries, "--n", "2", "--subject", subject], capture_output=True, text=True, timeout=600)
     try: return json.loads(r.stdout.strip().splitlines()[-1])
     except Exception: return {"error": (r.stdout + r.stderr)[-300:]}
+
+LEAN = str(Path.home() / "business/djpest/hq/bin/claude-lean")
+
+def verify_photo(path: Path, subject: str) -> str:
+    """Full-resolution species check (the contact-sheet thumbnails fooled the ranker on 29 Sep: an orb-weaver passed as a huntsman)."""
+    import os
+    env = dict(os.environ); env["HQ_ROLE"] = "photo-desk"
+    q = (f"Read the image {path}. A Perth pest control blog wants a photo of: {subject}. Does the picture clearly show THAT animal (right species or group, "
+         "not a look-alike; no people's faces, no readable text)? Reply with one line only: MATCH or MISMATCH <what it actually shows>.")
+    r = subprocess.run([LEAN, "-p", "--output-format", "text", "--model", "haiku", "--max-turns", "3", "--allowedTools", "Read", "--add-dir", str(path.parent)],
+                       input=q, capture_output=True, text=True, timeout=240, env=env)
+    return (r.stdout.strip().splitlines() or ["(no verdict)"])[-1]
+
+def verified_photos(slug, queries, subject, skip, want=2):
+    """photos_for + a per-file full-res check; mismatches are removed and re-sourced (up to 3 rounds)."""
+    ph = photos_for(slug, queries, subject, skip)
+    if skip or ph.get("error"): return ph
+    good, notes = [], []
+    for rnd in range(3):
+        for f in list(ph.get("files", [])):
+            if f in good: continue
+            v = verify_photo(SITE / f.lstrip("/"), subject); notes.append(f"{f}: {v[:90]}")
+            if v.upper().startswith("MATCH"): good.append(f)
+            else:
+                for x in (SITE / f.lstrip("/"), (SITE / f.lstrip("/")).with_suffix(".webp")): x.unlink(missing_ok=True)
+                for d in (DRAFTS / "failed").glob(f"{slug}-*/img/{Path(f).name}*"): d.unlink(missing_ok=True)
+        if len(good) >= want: break
+        need = want - len(good)                                # new file names (…-r<n>-1.jpg) so a re-source never overwrites a good pick
+        r = subprocess.run([sys.executable, str(SITE / "build/blog/photos.py"), f"{slug}-r{rnd+1}", *queries, "--n", str(need), "--subject", subject], capture_output=True, text=True, timeout=600)
+        try: more = json.loads(r.stdout.strip().splitlines()[-1])
+        except Exception: break
+        if more.get("error"): break
+        ph = {"files": good + [f for f in more.get("files", []) if f not in good]}
+    return {"files": good[:3], "alts": [], "credits": [], "checks": notes}
 
 def build(slug, no_photos=False):
     row = parse_queue(slug)
@@ -198,7 +239,7 @@ def build(slug, no_photos=False):
     srcs = sources_for(pest, bundle_links)
     exp = DRAFTS / "experience" / f"{slug}.md"
     experience = {"text": exp.read_text().strip(), "ref": f"blog/_drafts/experience/{slug}.md"} if exp.exists() else {"text": "", "ref": ""}
-    photos = photos_for(slug, queries, f"{pest}: {species or row['primary']}", no_photos)
+    photos = verified_photos(slug, queries, f"{pest}: {species or row['primary']}", no_photos)
     month = dt.date.today().month
     season = {12: "summer", 1: "summer", 2: "summer", 3: "autumn", 4: "autumn", 5: "autumn", 6: "winter", 7: "winter", 8: "winter"}.get(month, "spring")
     bible = BIBLE.read_text() if BIBLE.exists() else ""

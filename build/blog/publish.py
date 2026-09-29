@@ -160,26 +160,50 @@ def run_writer(prompt, budget, turns, slug):
         stop = f"{last.get('stop')} US${(last.get('usd') or 0):.2f}"
     except Exception: pass
     strays = [p for p in untracked() - before if not p.startswith(("build/posts/", "assets/img/", "blog/_drafts/"))]
-    if strays: sh(["git", "clean", "-fq", "--"] + strays); log(f"removed writer strays: {strays[:6]}")
+    if strays: log(f"note: new untracked files appeared during the writer run (left alone; other sessions share this tree): {strays[:6]}")
     log("writer: " + (out.splitlines()[-1] if out else f"(no output) rc={r.returncode}") + f" [{stop}]")
     return out if out else f"FAILED writer stopped: {stop}"
+
+def resume_failed(slug):
+    """--resume: reuse the newest failed/<slug>-*/ draft (post, sidecar, brief, images) instead of paying the writer again."""
+    import shutil
+    cands = sorted(FAILED.glob(f"{slug}-*"), reverse=True)
+    for d in cands:
+        if (d / "post.html").exists() and (d / "brief.json").exists():
+            wip = WIP / slug; shutil.rmtree(wip, ignore_errors=True); shutil.copytree(d, wip)
+            for f in (wip / "img").glob("*"): shutil.copy2(f, IMG / f.name)
+            b = json.loads((wip / "brief.json").read_text())
+            missing = [i for i in b.get("photos", {}).get("files", []) if not (SITE / i.lstrip("/")).exists()]
+            if missing: log(f"resume: images missing {missing}; falling back to a fresh brief"); return None
+            (POSTS / f"{slug}.html").write_text((wip / "post.html").read_text()); log(f"resume: reused {d.relative_to(SITE)} (no writer call)"); return b
+    return None
 
 def write_post(row):
     """brief -> writer -> copy wip/post.html into build/posts/. Raises Fail on a brief problem or a writer FAILED."""
     import brief as briefmod
-    slug = row["slug"]; b = briefmod.build(slug)
+    slug = row["slug"]
+    if "--resume" in sys.argv:
+        b = resume_failed(slug)
+        if b: return b
+    b = briefmod.build(slug)
     if b.get("error"): raise Fail("brief", b["error"])
     if b.get("problems"): raise Fail("brief", "; ".join(b["problems"]))
     log(f"brief: {len(b['sources'])} sources, {len(b['siblings'])} siblings, photos {b['photos'].get('files')}")
     wip = WIP / slug; bp = wip / "brief.json"
     prompt = WRITER_TASK.format(brief=bp, wip=wip, service=row["service"], primary=row["primary"], fold=row["fold"], today=b["today"], season=b["season"], slug=slug)
-    out = run_writer(prompt, WRITE_BUDGET_USD, 25, slug)
+    out = run_writer(prompt, WRITE_BUDGET_USD, 35, slug)
     last = out.splitlines()[-1] if out else "FAILED no output"
-    if "FAILED" in last or not (wip / "post.html").exists(): raise Fail("write", last if "FAILED" in last else "writer ended without writing post.html")
+    if not (wip / "post.html").exists(): raise Fail("write", last if "FAILED" in last else "writer ended without writing post.html")
+    if "WROTE" not in last:
+        # 29 Sep: Haiku wrote a clean post but ran out of turns before saying WROTE; the file is the deliverable, so lint decides
+        import lint as lintmod
+        le = lintmod.check(wip / "post.html", json.loads(bp.read_text()))
+        if le and "FAILED" in last: raise Fail("write", last)
+        log(f"writer ended without WROTE ({last[:60]}); post.html present, lint {'clean' if not le else str(len(le)) + ' problems'}: continuing to gates")
     (POSTS / f"{slug}.html").write_text((wip / "post.html").read_text())
     return b
 
-def repair_post(row, errs, budget=None, turns=10):
+def repair_post(row, errs, budget=None, turns=20):
     slug = row["slug"]; wip = WIP / slug; bp = wip / "brief.json"
     if not (wip / "post.html").exists() and (POSTS / f"{slug}.html").exists(): wip.mkdir(parents=True, exist_ok=True); (wip / "post.html").write_text((POSTS / f"{slug}.html").read_text())
     run_writer(REPAIR_TASK.format(wip=wip, brief=bp, slug=slug, errs="\n- ".join(errs)), budget or REPAIR_BUDGET_USD, turns, slug)
@@ -188,6 +212,13 @@ def repair_post(row, errs, budget=None, turns=10):
 def fail_wip(slug):
     import shutil
     if (WIP / slug).exists():
+        # keep the Photo Desk's images with the failed draft so a retry does not pay for them again (brief.py restores them)
+        try:
+            b = json.loads((WIP / slug / "brief.json").read_text())
+            for i in b.get("photos", {}).get("files", []):
+                for f in (SITE / i.lstrip("/"), (SITE / i.lstrip("/")).with_suffix(".webp")):
+                    if f.exists(): (WIP / slug / "img").mkdir(exist_ok=True); shutil.copy2(f, WIP / slug / "img" / f.name)
+        except Exception: pass
         FAILED.mkdir(parents=True, exist_ok=True); dst = FAILED / f"{slug}-{dt.datetime.now():%Y%m%d-%H%M}"
         shutil.move(str(WIP / slug), str(dst)); log(f"wip moved to {dst.relative_to(SITE)}")
 
@@ -199,7 +230,7 @@ BANNED = ["in today's fast-paced world", "this comprehensive guide", "everything
           "faucet", "cilantro", "neighbor", "favorite", " color ", "exterminat", "guarantee", "100%", "non-toxic", "pest-proof"]
 RATE = re.compile(r"\b\d+(?:\.\d+)?\s?(?:mL|ml|g|grams?)\s?(?:/|per)\s?(?:L|litre|liter|\d+\s?L|m2|m²|square metre)", re.I)
 
-def image_content_errors(hdr, body):
+def image_content_errors(hdr, body, skip=()):
     """Ask Haiku (vision) whether each image actually shows what its alt text / caption says. Any MISMATCH fails the gate."""
     pairs = [(hdr.get("img", ""), hdr.get("alt", ""))]
     for fig in re.findall(r"<img[^>]+>(?:\s*<figcaption[^>]*>(.*?)</figcaption>)?", body, re.S):
@@ -210,6 +241,7 @@ def image_content_errors(hdr, body):
     for src, claim in pairs:
         f = SITE / src.lstrip("/")
         if not src.startswith("/assets/img/") or not f.exists(): continue
+        if src in skip: log(f"image check {src}: verified by the Photo Desk before writing (skipped)"); continue
         env = zsh_env(); env["HQ_ROLE"] = "blog-image-check"
         q = (f"Read the image {f}. A pest control blog says this picture shows: \"{claim}\". Does the picture really show that (right subject, "
              "right kind of animal/insect or body part, nothing unrelated)? Reply with one line: MATCH or MISMATCH <what it actually shows>.")
@@ -284,7 +316,13 @@ def gates(row):
     b = sh([sys.executable, "build/build.py"])
     if "compliance scan: clean" not in b.stdout: errs.append("compliance scan not clean: " + (b.stdout + b.stderr)[-400:])
     # images must SHOW what they claim (28 Sep: a "white tail bite" photo was a football game; the card was a man with binoculars)
-    if not errs: errs += image_content_errors(hdr, body)
+    if not errs:
+        verified = set()
+        try:
+            b = json.loads((WIP / slug / "brief.json").read_text())
+            verified = {f for f in b.get("photos", {}).get("files", []) if any(c.startswith(f + ": MATCH") for c in b.get("photos", {}).get("checks", []))}
+        except Exception: pass
+        errs += image_content_errors(hdr, body, skip=verified)   # 29 Sep: Haiku flipped MATCH/MISMATCH on the same file between runs; one full-res check per photo is the rule
     return errs
 
 def clean_src(slug):
@@ -307,7 +345,9 @@ def clean_src(slug):
 
 def deploy(slug, *args):
     env = dict(os.environ); env["DEPLOY_SRC"] = str(clean_src(slug)); env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:" + env.get("PATH", "")
-    return sh(["./deploy.sh", *args], timeout=900, env=env)
+    r = sh(["./deploy.sh", *args], timeout=900, env=env)
+    if r.returncode: log(f"deploy {' '.join(args)} failed rc={r.returncode}: {(r.stdout + r.stderr)[-500:]}")
+    return r
 
 def rollback(slug):
     """Undo only what a blog run creates: the new post source, new images, and pages regenerated by build.py.
@@ -458,7 +498,7 @@ def main():
         signal("notable", f"Blog published: {hdr['title']}", f"Visual check: {verdict}. Screens: blog/_drafts/screens/{row['slug']}-*.png", url)
         log(f"PUBLISHED {url}")
     except Fail as e:
-        if row and e.stage in ("write", "gates", "sense", "brief", "prepare"): rollback(row["slug"]); fail_wip(row["slug"])
+        if row and e.stage in ("write", "gates", "sense", "brief", "prepare"): fail_wip(row["slug"]); rollback(row["slug"])
         st["fails"] = st.get("fails", 0) + 1; st["last_fail"] = str(e); put_state(st)
         sev = "urgent" if st["fails"] >= 2 else "notable"
         signal(sev, f"Blog run FAILED at {e.stage}" + (f" ({row['slug']})" if row else ""), e.why)
