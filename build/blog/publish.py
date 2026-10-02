@@ -364,7 +364,7 @@ def clean_src(slug):
 def deploy(slug, *args):
     # 2 Oct 2026 INCIDENT: a publish built production from `git archive HEAD` while the new light theme had been shipped from the
     # working tree but never committed. HEAD was older than the live site, so the publish put the old dark theme back on
-    # djpest.com.au for about 20 minutes. In this repo LIVE CAN BE AHEAD OF HEAD. So: a PRODUCTION deploy is refused outright
+    # djpest.com.au from 14:37 to about 14:40 (3 to 4 minutes) until the tree was redeployed. In this repo LIVE CAN BE AHEAD OF HEAD. So: a PRODUCTION deploy is refused outright
     # while any non-blog site source is uncommitted. A blocked slot is cheap; reverting the live site is not.
     # (Preview deploys still use the clean export: they go to a draft alias and cannot touch production.)
     if "--prod" in args:
