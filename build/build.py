@@ -136,7 +136,7 @@ def header():
     links = "".join(f'<a href="{h}">{esc(t)}</a>' for t, h in NAV if h != "/reviews" or live)
     return f"""<a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="120" height="43" style="filter:none"><span class="brand-sub">Perth's northern<br>suburbs</span></a>
+  <a class="brand" href="/"><img src="/assets/img/logo-black-240.webp" alt="DJ Pest" width="240" height="105"><span class="brand-sub">We do things right<br>the first time</span></a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">{icon("menu")}</button>
   <nav class="nav" id="nav">{links}{btn_call(cls="btn btn-primary")}</nav>
 </div></header>"""
@@ -146,8 +146,8 @@ def footer():
     return f"""<footer class="site-footer"><div class="wrap">
   <div class="cols">
     <div>
-      <a class="brand" href="/"><img src="/assets/img/logo-white-240.webp" alt="DJ Pest" width="96" height="34" style="filter:none"></a>
-      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. Documented, and quoted in writing before we start.</p>
+      <a class="brand" href="/"><img src="/assets/img/logo-black-240.webp" alt="DJ Pest" width="240" height="105"></a>
+      <p style="margin-top:1rem;max-width:36ch">Second-generation pest management for {SITE['base_region']}. We do things right the first time, and put it in writing.</p>
       <p><a href="tel:{SITE['phone_tel']}">{SITE['phone_display']}</a><br><a href="mailto:{SITE['email']}">{SITE['email']}</a><br>{SITE['hours']}</p>
     </div>
     <div><div class="fh">Services</div><ul>
@@ -311,12 +311,12 @@ def render(page):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(page['title'])}</title>
 <meta name="description" content="{esc(page['desc'])}">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="{canonical}">
 {robots}{vtags}
 <meta property="og:type" content="website"><meta property="og:site_name" content="DJ Pest"><meta property="og:title" content="{esc(page['title'])}"><meta property="og:description" content="{esc(page['desc'])}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{og}"><meta property="og:locale" content="en_AU">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3"><link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="DJ Pest">
 <link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face {{

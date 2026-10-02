@@ -7,7 +7,7 @@
   "licence": "13914",
   "licence_label": "Work carried out by, or under the direct supervision of, a technician holding a WA pest management technician's licence (Health (Pesticides) Regulations 2011)",
   "owner": "DJ Pest",
-  "owner_title": "Family-run pest management, Perth's northern suburbs",
+  "owner_title": "Family-run pest management, Perth's northern suburbs. We do things right the first time.",
   "domain": "https://djpest.com.au",
   "phone_display": "0468 170 107",
   "phone_tel": "+61468170107",
@@ -131,7 +131,7 @@
     "Termite management system": "Per your AS 3660.2 certificate, with annual inspections",
     "Termite and timber pest inspections": "No re-treatment period"
   },
-  "claims_policy": "No 'guarantee', '100%', 'pest proof', 'non-toxic', 'safe for kids/pets' without re-entry qualifier, no unverified years/counts/insurance figures. Registration and licence status must be stated as it actually is (pending/provisional) — registration PMB 3000 issued 20/9/2026 and may be stated as registered. No personal names on public pages.",
+  "claims_policy": "No 'guarantee', '100%', 'pest proof', 'non-toxic', 'safe for kids/pets' without re-entry qualifier, no unverified years/counts/insurance figures. Registration and licence status must be stated as it actually is (pending/provisional) — registration PMB 3000 issued 20/9/2026 and may be stated as registered. Personal names: Danny Johns (Senior Advisor & Head of Quality) and the names printed in the 1977 Elders Weekly article may appear; no other personal names on public pages (Dane, 2 Oct 2026).",
   "pmb_status": "registered",
   "reg_line": "DJ Pest Pty Ltd is a registered pest management business with the WA Department of Health (registration PMB 3000) under the Health (Pesticides) Regulations 2011.",
   "reg_short": "WA DoH registered business PMB 3000",
@@ -140,5 +140,12 @@
     "google-site-verification": "",
     "msvalidate.01": ""
   },
-  "unpublished": []
+  "unpublished": [],
+  "slogan": "We do things right the first time.",
+  "pop_rule": "Do a job right the first time and you will never have to do it again.",
+  "senior": {
+    "name": "Danny Johns",
+    "title": "Senior Advisor & Head of Quality",
+    "note": "Licensed WA pest management technician, in Perth pest management since 2011. Farmed at Coorow before that."
+  }
 }

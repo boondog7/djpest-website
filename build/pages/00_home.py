@@ -1,4 +1,6 @@
-"""Home page."""
+"""Home page (v3, 2 Oct 2026): light theme, slogan-led, roughly half the words of v2. Every H2, internal link and the
+FAQ schema from v2 are kept so nothing SEO-bearing was lost; the cuts are lead paragraphs, duplicated promises and the
+season strip (which lives on /whats-my-pest)."""
 
 def pages(c):
     S = c["SITE"]; esc = c["esc"]; icon = c["icon"]
@@ -7,14 +9,14 @@ def pages(c):
   <circle class="ring" cx="200" cy="200" r="150"/>
   <line class="tick" x1="200" y1="20" x2="200" y2="66"/><line class="tick" x1="200" y1="334" x2="200" y2="380"/>
   <line class="tick" x1="20" y1="200" x2="66" y2="200"/><line class="tick" x1="334" y1="200" x2="380" y2="200"/>
-  <image class="rat" href="/assets/img/rat-crosshair-white-520.webp" x="70" y="72" width="260" height="256"/>
+  <image class="rat" href="/assets/img/rat-crosshair-black-520.webp" x="70" y="72" width="260" height="256"/>
 </svg></div>"""
 
     hero = f"""<section class="hero"><div class="wrap">
 <div>
-  {c['eyebrow']("Perth's northern suburbs · Warwick-based · Family-run since 2011")}
-  <h1>Rats in the roof tonight?<br>We fix it <em class="red">properly</em>, and put it in writing.</h1>
-  <p class="lead">Local pest management for Perth's northern suburbs, based in Warwick. Same-day for active rats, mice, ants and spiders where the run allows, with the investment in writing before we start and a treatment record after.</p>
+  {c['eyebrow']("Pest management · Perth's northern suburbs · Warwick")}
+  <h1>We do things<br>right the<br><em class="red">first</em> time.</h1>
+  <p class="lead">Family pest control for Perth's northern suburbs. Quoted in writing before we start, documented after, and backed by a re-treatment promise.</p>
   {c['hours_cue']()}<div class="actions">{c['btn_call']()}{c['btn_quote']()}</div>
   <ul class="trust"><li>Licensed under the WA Pesticides Regs</li><li>In Perth pest management since {S['family_since']}</li><li>Public liability insured</li><li>Same-day for active pests</li></ul>
 </div>
@@ -23,47 +25,47 @@ def pages(c):
 
     services = c["section"](
         c["eyebrow"]("What we treat") +
-        '<div class="section-head"><h2>Thirteen jobs, one standard of care.</h2><p class="lead">Diagnosed first, treated with the right chemistry for the pest and the site, then documented. Every product is APVMA-registered and applied to its label.</p></div>' +
+        '<div class="section-head"><h2>Thirteen jobs, one standard of care.</h2></div>' +
         '<div class="grid grid-3">' +
-        c["card"]("Termite inspection", "A full AS 4349.3 timber pest inspection with photos, moisture readings and a written report you can act on.", "/termite-inspection-perth", "01 / Termites") +
-        c["card"]("Termite treatment", "Non-repellent chemical management systems installed to AS 3660.2, or baiting where that suits the site better.", "/termite-treatment-perth", "02 / Termites") +
-        c["card"]("General pest treatment", "Cockroaches, spiders, silverfish and ants in one internal and external treatment. Six-month re-treatment promise.", "/general-pest-control-perth", "03 / General") +
-        c["card"]("Ant management", "Coastal brown ant super-colonies need slow-acting non-repellents and baits, not a quick spray. We treat the colony.", "/ant-control-perth", "04 / Ants") +
-        c["card"]("Cockroach management", "German cockroaches in the kitchen or Australian cockroaches from the garden. Gel baits, IGRs and non-staining products indoors.", "/cockroach-control-perth", "05 / Cockroaches") +
-        c["card"]("Rodent management", "Species identified, entry points found, tamper-resistant stations placed and a sealing plan so they don't come back.", "/rodent-control-perth", "06 / Rodents") +
-        c["card"]("Spider management", "Redbacks, white-tails and huntsmen. External web-and-harbourage treatment with the internal spray only where it's needed.", "/spider-control-perth", "07 / Spiders") +
-        c["card"]("Mosquito management", "Breeding-site audit first, then a residual treatment of the shaded harbourages where adults rest. Timed for Perth's warm-season peak.", "/mosquito-control-perth", "08 / Mosquitoes") +
-        c["card"]("Vacate flea treatment", "Moving out with a pet? Quoted from the address within the hour, certificate to you and your agent within the hour of treatment.", "/flea-treatment-perth", "09 / Fleas") +
-        c["card"]("Wasp removal", "Paper wasp nests under eaves and pergolas found, treated and removed, usually same day. Suspected European wasps are reported to DPIRD.", "/wasp-removal-perth", "10 / Wasps") +
-        c["card"]("Bee removal", "Swarms go to a beekeeper alive. Hives in walls and roof voids are treated in the evening, sealed, and you get a comb-removal and proofing plan.", "/bee-removal-perth", "11 / Bees") +
-        c["card"]("Commercial pest management", "Cafes, strata, childcare and warehouses on a documented program: numbered stations, same-day reports, a folder your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
-        c["card"]("Bed bug treatment", "Bites after a trip or a second-hand bed? Every harbourage inspected and treated, with a second visit built in to catch the hatch.", "/bed-bug-treatment-perth", "13 / Bed bugs") +
+        c["card"]("Termite inspection", "AS 4349.3 timber pest inspection with photos and a written report.", "/termite-inspection-perth", "01 / Termites") +
+        c["card"]("Termite treatment", "Non-repellent systems to AS 3660.2, or baiting where it suits the site.", "/termite-treatment-perth", "02 / Termites") +
+        c["card"]("General pest treatment", "Cockroaches, spiders, silverfish and ants, inside and out. Six-month promise.", "/general-pest-control-perth", "03 / General") +
+        c["card"]("Ant management", "Coastal brown ant colonies treated with slow-acting baits, not a quick spray.", "/ant-control-perth", "04 / Ants") +
+        c["card"]("Cockroach management", "Gel baits and growth regulators indoors. Non-staining products only.", "/cockroach-control-perth", "05 / Cockroaches") +
+        c["card"]("Rodent management", "Entry points found, stations placed, and a sealing plan so they stay out.", "/rodent-control-perth", "06 / Rodents") +
+        c["card"]("Spider management", "Redbacks, white-tails and huntsmen. Internal spray only where it's needed.", "/spider-control-perth", "07 / Spiders") +
+        c["card"]("Mosquito management", "Breeding sites first, then the shaded spots where adults rest.", "/mosquito-control-perth", "08 / Mosquitoes") +
+        c["card"]("Vacate flea treatment", "Quoted from the address within the hour. Certificate for your agent.", "/flea-treatment-perth", "09 / Fleas") +
+        c["card"]("Wasp removal", "Nests under eaves and pergolas, usually gone the same day.", "/wasp-removal-perth", "10 / Wasps") +
+        c["card"]("Bee removal", "Swarms go to a beekeeper alive. Wall hives treated, sealed and proofed.", "/bee-removal-perth", "11 / Bees") +
+        c["card"]("Commercial pest management", "Cafes, strata and childcare on a documented program your auditor can read.", "/commercial-pest-control-perth", "12 / Commercial") +
+        c["card"]("Bed bug treatment", "Every harbourage treated, with a second visit built in to catch the hatch.", "/bed-bug-treatment-perth", "13 / Bed bugs") +
         '</div>', "ledger")
 
-    ca = c["section"](
+    why = c["section"](
         '<div class="grid grid-2" style="align-items:center;gap:3rem">'
-        '<div>' + c["eyebrow"]("Why an accountant runs this") +
-        '<h2>Most pest companies are run by exterminators. This one is run by a Chartered Accountant.</h2>'
-        '<p class="lead">Our family has been in Perth pest management since 2011. DJ Pest is the second generation, run by a Chartered Accountant, and that shapes how it works: itemised quotes, a chemical application ledger for every job, and a re-treatment promise you can read in full before you book.</p>'
-        '<p><a class="btn btn-ghost" href="/about">About DJ Pest ' + icon("arrow", "icon") + '</a></p></div>'
+        '<div>' + c["eyebrow"]("Why DJ Pest") +
+        '<h2>Run by a Chartered Accountant.<br>Raised on a farm.</h2>'
+        f'<p class="lead">Two generations in Perth pest management since {S["family_since"]}, and four before that on the land at Coorow. Our grandfather\'s rule still runs the business: {esc(S["pop_rule"])}</p>'
+        '<p><a class="btn btn-ghost" href="/about">Our story ' + icon("arrow", "icon") + '</a></p></div>'
         '<div class="grid" style="gap:.8rem">'
-        + c["card"]("Quoted in writing before we start", "No call-out fee, no deposit, no surprises on the invoice. Seven-day terms.")
-        + c["card"]("A record of every treatment", "Product, active constituent, rate, areas treated and re-entry period, kept for three years as WA law requires and given to you.")
-        + c["card"]("A promise, not a slogan", "If the pest we treated comes back inside the period on your invoice, we come back at no charge. <a href=\"/warranty\">Read the terms</a>.")
+        + c["card"]("Quoted in writing before we start", "No call-out fee, no deposit, no surprises on the invoice.")
+        + c["card"]("A record of every treatment", "Product, rate, areas and re-entry period, kept as WA law requires and given to you.")
+        + c["card"]("A promise, not a slogan", "If the pest comes back inside the period on your invoice, so do we, at no charge. <a href=\"/warranty\">The terms</a>.")
         + '</div></div>')
 
     report = c["section"](
         c["eyebrow"]("The DJ Pest treatment report") +
         '<div class="report"><div>'
-        '<h2>You get the paperwork nobody else gives you.</h2>'
-        '<p class="lead">After every job you receive a report with three parts: where the pests were getting in, exactly what was applied and where, and what to fix so they stay out. It doubles as the treatment record WA regulations require us to keep.</p>'
+        '<h2>The paperwork nobody else gives you.</h2>'
+        '<p class="lead">Where they got in, what was applied and where, and what to fix so they stay out. It doubles as the record WA regulations require.</p>'
         '<div class="report-tabs" role="tablist">'
         '<button role="tab" aria-selected="true" data-tab="entry">1. Entry audit</button>'
         '<button role="tab" aria-selected="false" data-tab="ledger">2. Application ledger</button>'
         '<button role="tab" aria-selected="false" data-tab="plan">3. Prevention plan</button></div>'
         '<p class="notice">Sample only. Details vary by job.</p></div>'
         '<div class="report-doc" aria-live="polite">'
-        '<div class="doc-head"><img src="/assets/img/logo-black.png" alt="DJ Pest" width="900" height="392" loading="lazy"><span>Treatment report · sample</span></div>'
+        '<div class="doc-head"><img src="/assets/img/logo-black-240.webp" alt="DJ Pest" width="240" height="105" loading="lazy"><span>Treatment report · sample</span></div>'
         '<div data-pane="entry"><h3>Point-of-entry audit</h3><table><tr><th>Location</th><th>Finding</th><th>Photo</th></tr>'
         '<tr><td>Roof void, NE corner</td><td>Rat droppings, gnawed sarking, gap at eave</td><td>#04</td></tr>'
         '<tr><td>Meter box</td><td>Conduit entry unsealed (20 mm)</td><td>#07</td></tr>'
@@ -85,32 +87,26 @@ def pages(c):
         c["eyebrow"]("What happens on the first visit") +
         '<div class="section-head"><h2>Three steps. No sales pitch.</h2></div>' +
         c["steps"]([
-            ("We look before we spray", "A walk-through of the house, roof void or sub-floor where it's safe, and the yard. Photos of what we find, and a straight answer about whether you need treatment at all."),
-            ("You get an itemised investment", "Written on the spot or sent within the hour. What's being treated, with what, and the re-treatment period that applies. If you'd rather think about it, that's fine."),
-            ("Treatment, then the report", "Products applied to label with re-entry times explained. Your treatment report follows by email, and a reminder before your next inspection is due."),
+            ("We look before we spray", "House, roof void, sub-floor and yard, with photos. If you don't need treatment, we say so."),
+            ("You get an itemised quote", "On the spot or within the hour: what, with what, and the re-treatment period. Think it over if you like."),
+            ("Treatment, then the report", "Applied to label, re-entry explained, report by email, and a reminder before the next inspection is due."),
         ]))
 
     heritage = c["section"](
-        c["eyebrow"]("Our roots") +
+        c["eyebrow"]("Our roots · Elders Weekly, December 1977") +
         '<div class="grid grid-2" style="align-items:center;gap:3rem"><div>'
-        '<h2>Four generations on the land at Coorow.<br>Now looking after yours.</h2>'
-        '<p class="lead">Before pest management there was farming. Four generations of our family worked the land at Coorow in the WA wheatbelt, where your word is your handshake and a job is done properly or not at all. That\'s the standard we brought to Perth, and it\'s why we treat every house like it\'s our own.</p>'
-        '<p>Country people don\'t dress a job up. We tell you what we found, what it needs, what it doesn\'t, and we put it in writing. The way you\'d want a neighbour to.</p>'
-        '<p><a class="btn btn-ghost" href="/about">Our story ' + icon("arrow", "icon") + '</a></p></div>'
-        '<div class="card" style="padding:2.2rem"><div class="num">The way we see it</div>'
-        '<p style="font-size:1.35rem;line-height:1.5;margin:.6rem 0 0">&ldquo;Price is what you pay. Value is what you receive.&rdquo;</p>'
-        '<p style="margin-top:.9rem;color:var(--ink-2)">You\'re not paying for a spray. You\'re investing in your biggest asset &mdash; and we treat it that way.</p></div></div>', "ledger")
-
-    season = c["section"](
-        c["eyebrow"]("Perth pest calendar") +
-        '<div class="section-head"><h2>What\'s active right now in the northern suburbs.</h2><p class="lead">Sandy coastal soils, warm summers and mild winters give Perth a predictable pest rhythm. Knowing it means treating at the right time, not after the damage.</p></div>' +
-        c["season_strip"]())
+        '<h2>Take your time and do it right.</h2>'
+        '<p class="lead">That was the headline over a 1977 interview with our senior advisor, then a young farmer at Coorow. Fifty years on, it is still how we work.</p>'
+        f'<blockquote class="pullquote">&ldquo;My father says do a job right first time and you will never have to do it again.&rdquo;<small>{esc(S["senior"]["name"])} · Elders Weekly, 15 December 1977</small></blockquote>'
+        '<p><a class="btn btn-ghost" href="/about#1977">Read the story ' + icon("arrow", "icon") + '</a></p></div>'
+        '<figure class="archive" style="margin:0"><a href="/about#1977"><img src="/assets/img/elders-weekly-1977-headline.jpg" alt="Elders Weekly headline, 15 December 1977: Take your time and do it right" width="1200" height="134" loading="lazy"></a>'
+        '<figcaption>Elders Weekly, 15 December 1977. From the family archive.</figcaption></figure></div>', "ledger")
 
     areas = c["section"](
         c["eyebrow"]("Where we work") +
         '<div class="grid grid-2" style="align-items:center;gap:3rem"><div>'
         '<h2>Based in Warwick. Fast across the northern corridor.</h2>'
-        '<p class="lead">We deliberately keep the service area tight so response times stay short and we know the suburbs, soils and pests personally. Greenwood, Duncraig, Sorrento, Hillarys, Joondalup, Wanneroo and everything between.</p>'
+        '<p class="lead">A tight service area keeps response times short and means we know the suburbs, soils and pests personally.</p>'
         '<p><a class="btn btn-ghost" href="/service-areas">All service areas ' + icon("arrow", "icon") + '</a></p></div>'
         '<div class="card"><div class="num">Suburb pages</div><ul style="columns:2;list-style:none;padding:0;margin:0;font-size:.95rem;line-height:2">'
         + "".join(f'<li><a href="/{s.lower().replace(" ", "-")}" style="text-decoration:none;color:var(--ink-2)">{esc(s)}</a></li>' for s in ["Warwick", "Greenwood", "Duncraig", "Sorrento", "Hillarys", "Joondalup", "Wanneroo", "Balcatta", "Marangaroo", "Stirling"])
@@ -125,11 +121,11 @@ def pages(c):
     ]
     faq_sec = c["section"](c["eyebrow"]("Questions") + '<div class="section-head"><h2>Straight answers.</h2></div>' + c["faq"](faqs), "ledger")
 
-    body = hero + services + ca + report + process + heritage + season + areas + faq_sec + c["quote_block"]()
+    body = hero + services + why + report + process + heritage + areas + faq_sec + c["quote_block"]()
     return [{
         "path": "/",
         "title": "DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants",
-        "desc": "Family-run pest control for Perth's northern suburbs since 2011. Itemised prices in writing, a treatment report after every job, and a re-treatment promise. Call 0468 170 107.",
+        "desc": "Family-run pest control for Perth's northern suburbs since 2011. We do things right the first time: itemised quotes in writing, a treatment report after every job, and a re-treatment promise. Call 0468 170 107.",
         "body": body,
         "schema": [c["faq_schema"](faqs)],
     }]

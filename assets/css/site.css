@@ -1,4 +1,4 @@
-/* DJ Pest design system — v2 (rat-in-crosshair brand). Dark, calm, precise. */
+/* DJ Pest design system — v3 (2 Oct 2026): white ground, black ink, black rat; red lives only in the rat's eye. Base tokens below are the legacy dark set; the light layer at the end overrides them and is the production look. */
 :root{
   --bg:#0a0a0a; --bg-2:#111111; --bg-3:#171717; --ink:#f4f2ef; --ink-2:#c9c5bf; --ink-3:#8e8983; --ink-4:#5f5a55;
   --red:#d0021b; --red-2:#ff2d3a; --red-deep:#6e0a12; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.18);
@@ -65,7 +65,7 @@ section{padding:var(--s6) 0}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:var(--s5);align-items:center}
 .hero h1{margin-bottom:var(--s3)}
 .hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:var(--s4) 0 var(--s3)}
-.hero-art{position:relative;aspect-ratio:1/1;max-width:440px;margin-left:auto}
+.hero-art{position:relative;aspect-ratio:1/1;width:min(100%,440px);justify-self:end} /* explicit width: WebKit collapsed the auto-margin grid item to 0x0 and the rat never rendered on Safari/iPhone (1 Oct 2026) */
 .crosshair{width:100%;height:100%}
 .crosshair .ring,.crosshair .tick{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round}
 .crosshair .ring{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 900ms var(--ease) forwards}
@@ -73,7 +73,7 @@ section{padding:var(--s6) 0}
 .crosshair .rat{opacity:0;animation:fade 500ms 800ms forwards}
 .crosshair .eye{fill:var(--red-2);opacity:0;animation:fade 300ms 1100ms forwards}
 @keyframes draw{to{stroke-dashoffset:0}} @keyframes fade{to{opacity:1}}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-art{max-width:260px;margin:0 auto;order:-1}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-art{width:min(100%,260px);justify-self:center;order:-1}}
 .trust{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 .trust li{display:flex;align-items:center;gap:.5rem;list-style:none}
 .trust li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red)}
@@ -113,9 +113,9 @@ a.card:hover{transform:translateY(-2px);border-color:var(--line-2);box-shadow:0 
 .report-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .report-tabs button{background:transparent;border:1px solid var(--line-2);color:var(--ink-2);border-radius:999px;padding:.55rem 1rem;font:600 .82rem var(--sans);cursor:pointer}
 .report-tabs button[aria-selected="true"]{background:var(--ink);color:#000;border-color:var(--ink)}
-.report-doc{background:#f7f5f1;color:#111;border-radius:var(--r);padding:1.6rem;font-family:var(--sans);box-shadow:0 30px 60px rgba(0,0,0,.5);position:relative}
+.report-doc{background:#f7f5f1;color:#111;border-radius:var(--r);padding:1.6rem 1.6rem 3.4rem; /* bottom room for the stamp so it never sits on the last table row (2 Oct 2026) */font-family:var(--sans);box-shadow:0 30px 60px rgba(0,0,0,.5);position:relative}
 .report-doc .doc-head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #111;padding-bottom:.6rem;margin-bottom:1rem}
-.report-doc .doc-head img{height:28px}
+.report-doc .doc-head img{height:28px;width:auto} /* width:auto: the 900x392 attrs were stretching the logo to the card width (2 Oct 2026) */
 .report-doc .doc-head span{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#666}
 .report-doc h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:0 0 .6rem}
 .report-doc table{width:100%;border-collapse:collapse;font-size:.82rem}
@@ -167,7 +167,7 @@ form.lead-form{display:grid;gap:.9rem}
 .site-footer a{color:var(--ink-2);text-decoration:none}
 .site-footer a:hover{color:var(--ink)}
 .site-footer .legal{margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line);font-size:.78rem;line-height:1.7;color:var(--ink-3)}
-.site-footer .brand img{height:34px}
+.site-footer .brand img{height:34px;width:auto}
 
 /* Breadcrumb */
 .crumbs{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:1rem 0 0}
@@ -285,3 +285,66 @@ form.lead-form{display:grid;gap:.9rem}
 .est-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
 .est-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .est-msg{min-height:1.2em}
+
+/* ---- Light layer (production look from 2 Oct 2026) ---- */
+:root{
+  --bg:#ffffff; --bg-2:#f6f6f4; --bg-3:#eeeeeb; --ink:#0a0a0a; --ink-2:#3b3b3b; --ink-3:#6d6d6d; --ink-4:#9c9c9c;
+  --red:#0a0a0a; --red-2:#0a0a0a; --red-deep:#0a0a0a;
+  --line:rgba(0,0,0,.12); --line-2:rgba(0,0,0,.28); --card:#fafaf9; --card-2:#f1f1ee;
+  --r:6px; --r-sm:4px;
+}
+html{color-scheme:light}
+em.red,.red{color:var(--ink);font-style:italic}
+.btn{border-radius:4px;letter-spacing:.02em}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:none}
+.btn-primary:hover{background:#2a2a2a}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-light{color:#fff}
+.site-header{background:rgba(255,255,255,.88);border-bottom:1px solid var(--ink)}
+.brand img{filter:none}
+.hero::before{background:none}
+.hero{border-bottom:1px solid var(--line)}
+.crosshair .ring,.crosshair .tick{stroke:var(--ink);stroke-width:4}
+.trust li::before{background:var(--ink);border-radius:0;width:5px;height:5px}
+.eyebrow::before{background:var(--ink)}
+a.card:hover{box-shadow:0 10px 30px rgba(0,0,0,.08);border-color:var(--ink)}
+.card .num,.step::before,.season .m,.faq summary::after{color:var(--ink)}
+.step,.card,.ident a,.rv,.rv-mini,.rv-scorecard,.callout{background:#fff}
+.report-doc{box-shadow:0 20px 50px rgba(0,0,0,.14);border:1px solid var(--line)}
+.report-tabs button[aria-selected="true"],.rv-chips button[aria-pressed="true"]{color:#fff}
+.quote{background:var(--bg-2)}
+.lead-form input,.lead-form select,.lead-form textarea{background:#fff;border-color:var(--line-2)}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--ink)}
+.callbar{background:rgba(255,255,255,.94);border-top:1px solid var(--ink)}
+.site-footer{background:var(--bg-2);border-top:1px solid var(--ink)}
+.season div{background:#fff}
+.stars .off{color:#d9d9d9}
+.rv-bar i{background:var(--bg-3)}
+.rv-reply{border-left-color:var(--ink)}
+.prose a{text-decoration-color:var(--ink)}
+.prose blockquote{border-left-color:var(--ink)}
+.est-fab{background:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.18);border-radius:4px}
+.est-dialog::backdrop{background:rgba(255,255,255,.7)}
+.est-close{background:#fff;color:var(--ink);border-color:var(--ink)}
+.est-card{background:#fff;border-color:var(--ink);border-radius:8px}
+.est-bar{background:var(--bg-3)} .est-bar span{background:var(--ink)}
+.est-warn{border-left-color:var(--ink);background:var(--bg-2)}
+.est-opt{background:#fff;border-color:var(--line-2);border-radius:4px}
+.est-opt:hover,.est-opt:focus-visible{border-color:var(--ink);background:var(--bg-2)}
+.est-input,.est-legal{background:#fff;border-color:var(--line-2)}
+.est-input[aria-invalid=true]{border-color:var(--ink)}
+.est-scale{background:var(--bg-3)} .est-scale span{background:var(--ink)}
+.est-form{border-top-color:var(--line)}
+:focus-visible{outline-color:var(--ink)}
+
+/* Clipping / archive imagery */
+.archive{border:1px solid var(--line-2);border-radius:var(--r);padding:.6rem;background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.10)}
+.archive img{border-radius:3px}
+.archive figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:.7rem .3rem .2rem;line-height:1.6;text-transform:none;letter-spacing:.02em}
+.pullquote{border-left:2px solid var(--ink);padding:.3rem 0 .3rem 1.2rem;margin:1.4rem 0;font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.35}
+.pullquote small{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:.6rem}
+.slogan{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.2}
+/* Header call button: .nav a's grey was overriding the button's white text (2 Oct 2026) */
+.nav a.btn,.nav a.btn:hover,.callbar a.btn-primary{color:#fff}
+.nav a.btn-ghost{color:var(--ink)} .nav a.btn-ghost:hover{color:#fff}

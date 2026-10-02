@@ -127,7 +127,7 @@ def inject(path, body, suburb=None):
     if path == "/":
         b = badge(d)
         if b: out = out.replace('<h1>', b + '<h1>', 1)
-        blk = block(d, "Northern-suburbs homes, in their own words.", k=6)
+        blk = block(d, "Northern-suburbs homes, in their own words.", k=3)  # 3 on the home page since the 2 Oct 2026 slim-down; the full wall is on /reviews
     elif path in SERVICE_BY_PATH:
         svc = SERVICE_BY_PATH[path]
         blk = block(d, f"What customers said after {SERVICE_LABEL[svc].lower()} jobs." if any(svc in r.get("services", []) for r in shown(d))

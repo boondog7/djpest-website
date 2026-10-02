@@ -115,6 +115,12 @@ def unpark(row):
     import shutil
     d = READY / row["slug"]; manifest = json.loads((d / "manifest.json").read_text())
     for rel in manifest: dst = SITE / rel; dst.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(d / rel, dst)
+    # 1 Oct 2026: the Thursday publish re-ran the flaky vision check because the brief (with the Photo Desk's verification) was
+    # not restored, flipped MATCH to MISMATCH on photos already verified, and failed the slot. Restore brief + sidecar with the draft.
+    (WIP / row["slug"]).mkdir(parents=True, exist_ok=True)
+    for extra in ("brief.json", "sidecar.json"):
+        if (d / extra).exists(): shutil.copy2(d / extra, WIP / row["slug"] / extra)
+    shutil.copy2(d / f"build/posts/{row['slug']}.html", WIP / row["slug"] / "post.html")
     return manifest
 
 def set_status(row, status):

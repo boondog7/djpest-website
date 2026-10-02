@@ -13,6 +13,6 @@ export async function onRequestGet({ request, env }) {
   const tok = await r.json();
   if (!tok.access_token) return page("TikTok didn't return access (" + (tok.error || r.status) + "). Tell Claude.");
   tok.saved_at = Date.now();
-  await env.SOCIAL.put("tiktok_token", JSON.stringify(tok));
+  await env.SOCIAL.put("tiktok_live", JSON.stringify(tok));
   return page("✅ TikTok connected. You can close this page.");
 }

@@ -174,8 +174,11 @@ def whats_my_pest(c):
 def about(c):
     S = c["SITE"]
     mark = ('<div class="card" style="text-align:center;padding:2.5rem 1.6rem">'
-            '<img src="/assets/img/rat-crosshair-white-520.webp" alt="DJ Pest rat-in-crosshair mark" width="160" height="158" style="margin:0 auto 1rem;width:160px;aspect-ratio:1/1;object-fit:contain;filter:invert(1)" loading="lazy">'
+            '<img src="/assets/img/rat-crosshair-black-520.webp" alt="DJ Pest rat-in-crosshair mark" width="160" height="158" style="margin:0 auto 1rem;width:160px;aspect-ratio:1/1;object-fit:contain" loading="lazy">'
             f'<div class="num">{c["esc"](S["owner"])}</div><p>{c["esc"](S["owner_title"])}<br>{c["esc"](S["licence_label"])}<br>{c["esc"](S["reg_short"])}<br>Based in {S["base_suburb"]} WA {S["base_postcode"]}</p></div>')
+    senior = ('<div class="card" style="margin-top:.8rem"><div class="num">Senior advisor</div>'
+              f'<h3 style="margin-bottom:.2rem">{c["esc"](S["senior"]["name"])}</h3><p style="margin:0 0 .5rem;color:var(--ink-2)">{c["esc"](S["senior"]["title"])}</p>'
+              f'<p style="margin:0;font-size:.95rem">{c["esc"](S["senior"]["note"])} Every DJ Pest job is run to the standard he set in 1977: {c["esc"](S["pop_rule"].lower())}</p></div>')
 
     body = _hero(c, "About DJ Pest · Warwick, WA",
                  f"A Perth family pest management business since {S['family_since']}. Second generation, run by a Chartered Accountant.",
@@ -192,10 +195,27 @@ def about(c):
         "<p>Pest management is a trust purchase. You cannot see what was applied in the roof void, you cannot verify the rate, and you find out whether it worked six weeks later. Most of the industry's bad reputation comes from that gap: a one-line invoice, a verbal promise and no way to check either.</p>"
         "<p>An accountant closes gaps like that with documents. So every DJ Pest job produces three: an itemised quote before the work, a chemical application ledger during it (product, active constituent, rate, areas, re-entry period) and a treatment report after it, with photos of what was found and a prevention plan. The ledger doubles as the treatment record WA law requires us to keep for three years. You get a copy of all of it without asking.</p>"
         "<p>It also means the numbers are honest. There is no call-out fee, no deposit and no variation on the day without stopping to explain it. The <a href=\"/pest-control-prices-perth\">investment guide</a> is published so you can check a quote against it. The <a href=\"/warranty\">re-treatment promise</a> is written down with its conditions rather than implied.</p>"
-        "</div><div>" + mark +
+        "</div><div>" + mark + senior +
         '<div class="card" style="margin-top:.8rem"><div class="num">Credentials</div><ul style="list-style:none;padding:0;margin:0;line-height:1.9;font-size:.95rem">'
         f"<li>Licensed technicians (WA Health (Pesticides) Regulations 2011)</li><li>{S['reg_short']}</li><li>Run by a Chartered Accountant</li><li>Public liability insured</li><li>ABN {S['abn']}</li></ul></div>"
         "</div></div>")
+
+    # 1977: Elders Weekly interview with Danny Johns at Koongooba, Coorow (family archive). Quotes are verbatim from the clipping.
+    body += c["section"](
+        c["eyebrow"]("1977 · Elders Weekly") +
+        '<div class="section-head"><h2>&ldquo;Take your time and do it right.&rdquo;</h2>'
+        f'<p class="lead">In December 1977 the Elders Weekly sent a reporter to Koongooba, the family\'s 9,300-acre block west of Coorow, and interviewed a young {c["esc"](S["senior"]["name"])} about bringing new land into production. The headline they ran is the sentence this business is built on.</p></div>'
+        '<div class="grid grid-2" style="align-items:start;gap:3rem"><div class="prose">'
+        f'<blockquote class="pullquote">&ldquo;My father says do a job right first time and you will never have to do it again.&rdquo;<small>{c["esc"](S["senior"]["name"])}, Elders Weekly, 15 December 1977</small></blockquote>'
+        '<p>The reporter wrote that there was no excuse for taking a short cut in any job, &ldquo;especially if speeding through a job in the initial stages means that it will have to be re-done later&rdquo;, and that the philosophy showed everywhere on the farm. The fences were immaculate, built to the Johns\' schedule, &ldquo;and they will be there to stay&rdquo;. Machinery was the same: &ldquo;the best is bought gradually and it is available to do a good job for years to come.&rdquo;</p>'
+        '<p>New land went into production in a strict order. Cleared, ploughed once, left for twelve months, ploughed again, chained both ways and only then put to crop. No stage skipped because the season was pressing.</p>'
+        '<blockquote class="pullquote">&ldquo;In other words, when a job needs doing it has to be done. Now.&rdquo;<small>Elders Weekly, 15 December 1977</small></blockquote>'
+        '<p>Fifty years later that is the whole DJ Pest method. Diagnose before treating, apply to the label, write it down, and never leave a job half done because it was quicker. The young farmer in the photographs is now our Senior Advisor and Head of Quality, and every job we do is run to his standard.</p>'
+        f'<p class="slogan">{c["esc"](S["slogan"])}</p>'
+        '</div>'
+        '<figure class="archive" style="margin:0"><img src="/assets/img/elders-weekly-1977.jpg" alt="Elders Weekly clipping, 15 December 1977: Take your time and do it right. Interview with Danny Johns at Koongooba, Coorow, with two photographs of the lupin crop and newly cleared land." width="900" height="1200" loading="lazy">'
+        '<figcaption>Elders Weekly, 15 December 1977. &ldquo;Take your time and do it right.&rdquo; Top photo: the property\'s lupin crop. Lower: newly cleared land with Elders Coorow. From the family archive.</figcaption></figure>'
+        '</div>', "ledger", "1977")
 
     # WA Health consumer checklist, answered (DoH "Hiring a pest management business checklist", 2026)
     checklist = [
