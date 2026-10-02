@@ -23,6 +23,17 @@ def pages(c):
 {hero_art}
 </div></section>"""
 
+    ourown = c["section"](
+        c["eyebrow"]("How we decide what to do") +
+        '<div class="section-head"><h2>If this were my house, what would I do?</h2>'
+        '<p class="lead">It\'s the question I stop and ask on every job, before anything comes off the ute. The answer decides the treatment.</p></div>'
+        '<div class="grid grid-3">'
+        + c["card"]("Where your family lives", "Inside, it\'s non-staining, low-odour products, and only where they\'re needed. The same call I\'d make for my own kids.")
+        + c["card"]("The cause, not just the symptom", "If sealing a gap or cutting back a climber does more than another spray, that\'s what you\'ll hear from us first.")
+        + c["card"]("Sometimes the answer is no treatment", "If you don\'t need us, we tell you and leave. I wouldn\'t pay for a treatment my own house didn\'t need, either.")
+        + '</div>'
+        '<blockquote class="pullquote">&ldquo;We treat your house like it\'s our own.&rdquo;<small>Dane Johns · DJ Pest</small></blockquote>', "ledger")
+
     services = c["section"](
         c["eyebrow"]("What we treat") +
         '<div class="section-head"><h2>Thirteen jobs, one standard of care.</h2></div>' +
@@ -75,7 +86,7 @@ def pages(c):
         '<tr><td>Rodenticide block in tamper-resistant station</td><td>Per label</td><td>2 stations</td><td>Roof void, side path</td></tr>'
         '<tr><td>Non-staining dust</td><td>Per label</td><td>Light</td><td>Wall voids, kickboards</td></tr></table>'
         '<p style="font-size:.75rem;color:#555;margin:.6rem 0 0">Re-entry: 2 hours after surfaces dry. Technician name and licence number recorded.</p></div>'
-        '<div data-pane="plan" hidden><h3>Prevention plan</h3><table><tr><th>Action</th><th>Who</th><th>By</th></tr>'
+        '<div data-pane="plan" hidden><h3>Prevention plan: what we\'d do if it were our house</h3><table><tr><th>Action</th><th>Who</th><th>By</th></tr>'
         '<tr><td>Seal eave gap with mesh</td><td>DJ Pest (included)</td><td>Done</td></tr>'
         '<tr><td>Fit escutcheon to meter-box conduit</td><td>Owner</td><td>2 weeks</td></tr>'
         '<tr><td>Cut back climber from roofline</td><td>Owner</td><td>Before winter</td></tr>'
@@ -87,7 +98,7 @@ def pages(c):
         c["eyebrow"]("What happens on the first visit") +
         '<div class="section-head"><h2>Three steps. No sales pitch.</h2></div>' +
         c["steps"]([
-            ("We look before we spray", "House, roof void, sub-floor and yard, with photos. If you don't need treatment, we say so."),
+            ("We look before we spray", "House, roof void, sub-floor and yard, with photos, and one question: what would we do if it were ours? If you don't need treatment, we say so."),
             ("You get an itemised quote", "On the spot or within the hour: what, with what, and the re-treatment period. Think it over if you like."),
             ("Treatment, then the report", "Applied to label, re-entry explained, report by email, and a reminder before the next inspection is due."),
         ]))
@@ -121,7 +132,7 @@ def pages(c):
     ]
     faq_sec = c["section"](c["eyebrow"]("Questions") + '<div class="section-head"><h2>Straight answers.</h2></div>' + c["faq"](faqs), "ledger")
 
-    body = hero + services + why + report + process + heritage + areas + faq_sec + c["quote_block"]()
+    body = hero + ourown + services + why + report + process + heritage + areas + faq_sec + c["quote_block"]()
     return [{
         "path": "/",
         "title": "DJ Pest | Pest Control Perth Northern Suburbs | Termites, Rodents, Ants",
