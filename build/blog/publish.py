@@ -80,6 +80,9 @@ def preflight():
         # Other sessions' work in progress no longer blocks a slot: deploys are built from a clean export of HEAD plus this
         # run's own files (see clean_src), so a half-written file elsewhere in the tree can never ship. Just record it.
         if bad: log("note: uncommitted non-blog changes left alone: " + ", ".join(bad[:6]))
+        if not PREPARE and not DRY:
+            fd = foreign_dirty()
+            if fd: raise Fail("preflight", "uncommitted site source (" + ", ".join(fd[:6]) + "): a production publish now could revert work that is live but not committed. Commit it first.")
         if gen and not DRY:
             sh(["git", "add", "--"] + gen); sh(["git", "commit", "-q", "-m", "Sync generated pages (reviews/build) before blog run"])
             log(f"committed {len(gen)} generated files")
@@ -331,6 +334,15 @@ def gates(row):
         errs += image_content_errors(hdr, body, skip=verified)   # 29 Sep: Haiku flipped MATCH/MISMATCH on the same file between runs; one full-res check per photo is the rule
     return errs
 
+BLOG_OWN = re.compile(r"^(blog/_drafts/|build/posts/|assets/img/blog-|build/blog/state\.json|build/publish\.log)")
+def foreign_dirty():
+    """Uncommitted changes to site source that this run does not own (another session's work: theme, pages, functions...)."""
+    out = []
+    for l in sh(["git", "status", "--porcelain"]).stdout.splitlines():
+        path = l[3:].split(" -> ")[-1].strip().strip('"')
+        if path and not GENERATED_OK.match(path) and not BLOG_OWN.match(path): out.append(path)
+    return out
+
 def clean_src(slug):
     """A deploy tree = git HEAD exported + this run's post, its images and the regenerated pages. Nothing else in the working copy."""
     import shutil
@@ -350,6 +362,14 @@ def clean_src(slug):
     return src
 
 def deploy(slug, *args):
+    # 2 Oct 2026 INCIDENT: a publish built production from `git archive HEAD` while the new light theme had been shipped from the
+    # working tree but never committed. HEAD was older than the live site, so the publish put the old dark theme back on
+    # djpest.com.au for about 20 minutes. In this repo LIVE CAN BE AHEAD OF HEAD. So: a PRODUCTION deploy is refused outright
+    # while any non-blog site source is uncommitted. A blocked slot is cheap; reverting the live site is not.
+    # (Preview deploys still use the clean export: they go to a draft alias and cannot touch production.)
+    if "--prod" in args:
+        fd = foreign_dirty()
+        if fd: raise Fail("deploy", "refusing to deploy production: uncommitted site source would be lost or reverted (" + ", ".join(fd[:6]) + "). Commit it, then re-run.")
     env = dict(os.environ); env["DEPLOY_SRC"] = str(clean_src(slug)); env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:" + env.get("PATH", "")
     r = sh(["./deploy.sh", *args], timeout=900, env=env)
     if r.returncode: log(f"deploy {' '.join(args)} failed rc={r.returncode}: {(r.stdout + r.stderr)[-500:]}")
@@ -404,7 +424,9 @@ def books(row, title):
     import shutil; shutil.rmtree(READY / row["slug"], ignore_errors=True)
     m = re.match(r"(.*?)\s*(\d[\d/]*)?\s*$", row["primary"]); kw, vol = (m.group(1) or row["primary"]).strip(), (m.group(2) or "-")
     with open(PLOG, "a") as f: f.write(f"{today} | {row['slug']} | {kw} | {vol}\n")
-    sh(["git", "add", "-A"])
+    own = [l[3:].split(" -> ")[-1].strip().strip('"') for l in sh(["git", "status", "--porcelain"]).stdout.splitlines()]
+    own = [p for p in own if p and (GENERATED_OK.match(p) or BLOG_OWN.match(p))]
+    if own: sh(["git", "add", "--"] + own)
     sh(["git", "commit", "-q", "-m", f"Publish blog: {row['slug']}\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"])
     r = sh(["git", "pull", "-q", "--rebase"]); p = sh(["git", "push", "-q", "origin", "main"])
     if p.returncode: log("git push failed (post is live; books committed locally): " + p.stderr[-200:])
